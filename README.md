@@ -1,23 +1,25 @@
-# TÍTULO DO PROJETO
+# COMEX
 
-`CURSO`
+`ANÁLISE E DESENVOLVIMENTO DE SISTEMAS`
 
-`DISCIPLINA`
+`DESENVOLVIMENTO DE UM SISTEMA SOCIOTÉCNICO INOVADOR`
 
-`SEMESTRE`
+`5º SEMESTREE`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Carolina Vitória Laurindo
+* Cláudia Carapiá Ferraz
+* Douglas Raynner da Silva Santos
+* Jeferson Queiroz
+* Josyane Luiza Cupertino De Oliveira
+* Karen Noguti
 
 ## Orientador
 
-* Nome completo do professor 1
+* José Wilson da Costa
 
 ## Instruções de utilização
 
