@@ -40,4 +40,6 @@ Relacionar a situação-problema da organização com o impacto social esperado 
 
 ## Descrição do Parceiro
 
-Apresente uma descrição resumida sobre a organização onde o projeto será desenvolvido para que possa ser compreendido o cenário sistema sociotécnico.
+A Kaüfer COMÉRCIO IMPORTAÇÃO E EXPORTAÇÃO LTDA com sede em São Paulo oferece serviços de comércio exterior aos produtores e indústrias do Brasil. Podendo auxiliar em cada fase do seu processo de internacionalização, prospecção de mercado, preços e orientações para classificação fiscal de mercadorias, administração do processo de exportação e importação, orientações sobre Legislação Aduaneira, apoio na contratação de seguros e logística internacional.
+Acredita que o sucesso de uma empresa não deve ser medido apenas pelos lucros que gera, mas também pelo impacto positivo que pode ter nas comunidades ao seu redor, principalmente para as pequenas e médias empresas que desejam atuar na internacionalização do seu produto. 
+Estão empenhados em apoiar iniciativas que promovam o emprego, o empreendedorismo e o desenvolvimento sustentável, pois acreditam que isso não apenas beneficia as comunidades locais, mas também fortalece os relacionamentos comerciais e impulsiona o crescimento a longo prazo.
