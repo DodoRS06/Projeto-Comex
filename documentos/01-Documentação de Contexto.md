@@ -27,12 +27,7 @@ Objetivos específicos:
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
-
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+De acordo com o site Sólides "A partir do momento em que a empresa implementa uma cultura de inovação internamente, fica mais fácil alinhar o trabalho de toda a equipe " sendo assim é necessário a implementação do sistema Web para que haja aumento da produtividade, maior alinhamento com a equipe e facilidade em acessar um sistema com outros usuários ao mesmo tempo, além de melhor gerenciar informações necessárias para as exportações. 
 
 ## Relação com a Extensão Universitária
 
