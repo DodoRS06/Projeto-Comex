@@ -31,7 +31,7 @@ De acordo com o site Sólides "A partir do momento em que a empresa implementa u
 
 ## Relação com a Extensão Universitária
 
-Relacionar a situação-problema da organização com o impacto social esperado com a implantação do sistema sociotécnico.
+O desenvolvimento deste projeto está alinhado aos princípios da extensão universitária, pois aplicaremos o conhecimento adquirido durante o curso para gerar benefício social. No nosso caso, o beneficiário será a empresa Kaüfer, que poderá contar com uma ferramenta para realizar o gerenciamento adequado dos processos de embarque de exportação e que permitirá o acesso de vários usuários. 
 
 ## Descrição do Parceiro
 
