@@ -25,11 +25,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
-|RF-003| O sistema deve permitir o usuário realizar o login   | ALTA | 
-|RF-004|O sistema deve permitir o gestor cadastrar o usuário | ALTA | 
-|RF-005|O sistema deve permitir o usuário cadastrar o importador | ALTA | 
+|RF-001| O sistema deve permitir o usuário realizar o login   | ALTA | 
+|RF-002|O sistema deve permitir o gestor cadastrar o usuário | ALTA | 
+|RF-003|O sistema deve permitir o usuário cadastrar o importador | ALTA | 
 
 ### Requisitos não Funcionais
 
