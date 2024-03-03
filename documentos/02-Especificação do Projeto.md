@@ -78,7 +78,7 @@ O diagrama de casos de uso é o próximo passo após a elicitação de requisito
 O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.
 
 ![Diagrama_ER](img/Diagrama_ER.jpg)
-![Diagrama_ER](img/Diagrama_ER.png) 
+
 
 ## Diagrama de Classes 
 
