@@ -22,10 +22,8 @@ A arquitetura de software utilizada em nosso projeto é o MVC. Usaremos as segui
 
 ## Project Model Canvas
 
-Colocar a imagem do modelo construído apresentando a proposta de solução.
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/assets/103061826/39eda9b9-1c28-4a73-8c5b-39ec9718230b)
 
-> **Links Úteis**:
-> Disponíveis em material de apoio do projeto
 
 ## Requisitos
 
@@ -47,6 +45,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-010|O sistema deve permitir o usuário cadastrar o fornecedor de serviço  | ALTA |
 |RF-011|O sistema deve permitir o usuário cadastrar os documentos de exportação  | ALTA |
 |RF-012|O sistema deve permitir o usuário cadastrar os valores da Exportação | ALTA |
+|RF-013|O sistema deve permitir que o usuário vincule as despesas com o processo de exportação | ALTA |
+|RF-014|O sistema deve permitir que o usuário vincule os dados do despacho aduaneiro com o processo de exportação | ALTA |
 
 
 ### Requisitos não Funcionais
@@ -55,6 +55,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |-------|-------------------------|----|
 |RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
 |RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-003| O sistema deve conter uma verificação de duas etapas utilizando o email cadastrado |  MÉDIA | 
+|RNF-004| A senha deve ser criptografada no banco de dados |  ALTA | 
 
 ## Restrições
 
@@ -77,7 +79,8 @@ O diagrama de casos de uso é o próximo passo após a elicitação de requisito
 
 O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.
 
-![Diagrama_ER](img/Diagrama_ER.png) 
+![Diagrama_ER](img/Diagrama_ER.jpg)
+
 
 ## Diagrama de Classes 
 
@@ -85,4 +88,4 @@ O Modelo ER representa através de um diagrama como as entidades (coisas, objeto
 
 ## Projeto da Base de Dados
 
-O projeto da base de dados corresponde à representação das entidades e relacionamentos identificadas no Modelo ER, no formato de tabelas, com colunas e chaves primárias/estrangeiras necessárias para representar corretamente as restrições de integridade.
+![Projeto da Base de Dados](img/EsquemaRelacional1.png)
