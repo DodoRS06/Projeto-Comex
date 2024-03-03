@@ -45,6 +45,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-010|O sistema deve permitir o usuário cadastrar o fornecedor de serviço  | ALTA |
 |RF-011|O sistema deve permitir o usuário cadastrar os documentos de exportação  | ALTA |
 |RF-012|O sistema deve permitir o usuário cadastrar os valores da Exportação | ALTA |
+|RF-013|O sistema deve permitir que o usuário vincule as despesas com o processo de exportação | ALTA |
+|RF-014|O sistema deve permitir que o usuário vincule os dados do despacho aduaneiro com o processo de exportação | ALTA |
 
 
 ### Requisitos não Funcionais
