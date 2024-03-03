@@ -8,7 +8,17 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ## Arquitetura e Tecnologias
 
-o	Descreva brevemente a arquitetura definida para o projeto e as tecnologias a serem utilizadas. Sugere-se a criação de um diagrama de componentes da solução.
+A arquitetura de software utilizada em nosso projeto é o MVC, e usaremos as seguintes tecnologias:
+
+|Função   | Tecnologia utilizada  |
+|---------|-----------------------|
+|IDE      |Visual Studio  |
+|Linguagens utilizadas no front-end | HTML, CSS, Javascript|
+|Linguagens utilizadas no back-end  | C#|
+|Frameworks |Bootstrap, Asp.Net.,  Entity Framework|
+|Banco de dados| Microsoft SQL Server|
+
+<img src ="img\Diagrama_Arquitetura.jpg">
 
 ## Project Model Canvas
 
