@@ -8,7 +8,7 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ## Arquitetura e Tecnologias
 
-A arquitetura de software utilizada em nosso projeto é o MVC, e usaremos as seguintes tecnologias:
+A arquitetura de software utilizada em nosso projeto é o MVC. Usaremos as seguintes tecnologias:
 
 |Função   | Tecnologia utilizada  |
 |---------|-----------------------|
