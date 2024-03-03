@@ -31,6 +31,10 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-004|O sistema deve permitir ao usuário cadastrar o exportador| ALTA | 
 |RF-005|O sistema deve permitir ao usuário cadastrar o vendedor | ALTA | 
 |RF-006|O sistema deve permitir ao usuário cadastrar o Agente de Carga   | ALTA | 
+|RF-007|O sistema deve permitir ao usuário cadastrar o País de Destino     | ALTA |
+|RF-008|O sistema deve permitir ao usuário cadastrar a Fronteira | ALTA |
+|RF-009|O sistema deve permitir ao usuário cadastrar as despesas | ALTA |
+
 
 ### Requisitos não Funcionais
 
