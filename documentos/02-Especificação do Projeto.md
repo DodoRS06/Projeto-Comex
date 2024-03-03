@@ -71,13 +71,13 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
 
-![Diagrama_Casos_de_Uso](img/DiagramaCasoDeUso.png)
+<img src="img/DiagramaCasoDeUso.png" width = 500>
 
 ## Modelo ER (Projeto Conceitual)
 
 O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.
 
-![Diagrama_ER](img/Diagrama_ER.png)
+![Diagrama_ER](img/Diagrama_ER.png) 
 
 ## Diagrama de Classes 
 
