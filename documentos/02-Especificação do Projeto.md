@@ -22,10 +22,8 @@ A arquitetura de software utilizada em nosso projeto é o MVC. Usaremos as segui
 
 ## Project Model Canvas
 
-Colocar a imagem do modelo construído apresentando a proposta de solução.
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/assets/103061826/39eda9b9-1c28-4a73-8c5b-39ec9718230b)
 
-> **Links Úteis**:
-> Disponíveis em material de apoio do projeto
 
 ## Requisitos
 
