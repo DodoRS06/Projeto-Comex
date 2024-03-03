@@ -50,7 +50,10 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-015|O sistema deve permitir ao usuário cadastrar embarques rodoviários|ALTA|
 |RF-016|O sistema deve permitir que o usuário vincule a nota fiscal com o embarque rodoviário| ALTA|
 |RF-017|O sistema deve permitir que o usuário vincule veículos com as notas ficais| ALTA |
-|RF-017|O sistema deve permitir que o usuário vincule os itens nas notas fiscais do embarque rodoviário| ALTA | 
+|RF-018|O sistema deve permitir que o usuário vincule os itens nas notas fiscais do embarque rodoviário| ALTA | 
+|RF-019|O sistema deve gerar relatório em excel do processo  | ALTA | 
+|RF-020|O sistema de permitir o usuário cadastrar o status do processo | ALTA | 
+
 
 
 ### Requisitos não Funcionais
