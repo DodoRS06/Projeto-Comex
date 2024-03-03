@@ -47,6 +47,10 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-012|O sistema deve permitir o usuário cadastrar os valores da Exportação | ALTA |
 |RF-013|O sistema deve permitir que o usuário vincule as despesas com o processo de exportação | ALTA |
 |RF-014|O sistema deve permitir que o usuário vincule os dados do despacho aduaneiro com o processo de exportação | ALTA |
+|RF-015|O sistema deve permitir ao usuário cadastrar embarques rodoviários|ALTA|
+|RF-016|O sistema deve permitir que o usuário vincule a nota fiscal com o embarque rodoviário| ALTA|
+|RF-017|O sistema deve permitir que o usuário vincule veículos com as notas ficais| ALTA |
+|RF-017|O sistema deve permitir que o usuário vincule os itens nas notas fiscais do embarque rodoviário| ALTA | 
 
 
 ### Requisitos não Funcionais
