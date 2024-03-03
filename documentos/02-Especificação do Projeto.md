@@ -55,6 +55,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |-------|-------------------------|----|
 |RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
 |RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-003| O sistema deve conter uma verificação de duas etapas utilizando o email cadastrado |  MÉDIA | 
+|RNF-004| A senha deve ser criptografada no banco de dados |  ALTA | 
 
 ## Restrições
 
