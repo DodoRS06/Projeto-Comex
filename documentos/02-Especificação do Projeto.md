@@ -25,12 +25,12 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| O sistema deve permitir o usuário realizar o login   | ALTA | 
-|RF-002|O sistema deve permitir o gestor cadastrar o usuário | ALTA | 
-|RF-003|O sistema deve permitir o usuário cadastrar o importador | ALTA | 
-|RF-004|O sistema deve permitir o usuário cadastrar o exportador| ALTA | 
-|RF-005|O sistema deve permitir o usuário cadastrar o vendedor | ALTA | 
-|RF-006|O sistema deve permitir o usuário cadastrar o Agente de Carga   | ALTA | 
+|RF-001| O sistema deve permitir ao usuário realizar o login   | ALTA | 
+|RF-002|O sistema deve permitir ao gestor cadastrar o usuário | ALTA | 
+|RF-003|O sistema deve permitir ao usuário cadastrar o importador | ALTA | 
+|RF-004|O sistema deve permitir ao usuário cadastrar o exportador| ALTA | 
+|RF-005|O sistema deve permitir ao usuário cadastrar o vendedor | ALTA | 
+|RF-006|O sistema deve permitir ao usuário cadastrar o Agente de Carga   | ALTA | 
 
 ### Requisitos não Funcionais
 
