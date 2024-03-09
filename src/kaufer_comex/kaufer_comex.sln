@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kaufer_comex", "kaufer_comex\kaufer_comex.csproj", "{21AAB310-0513-481A-803C-AB9F647010E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21AAB310-0513-481A-803C-AB9F647010E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21AAB310-0513-481A-803C-AB9F647010E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21AAB310-0513-481A-803C-AB9F647010E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21AAB310-0513-481A-803C-AB9F647010E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7631E224-F536-4005-A0FB-8B6193C0F15D}
+	EndGlobalSection
+EndGlobal
