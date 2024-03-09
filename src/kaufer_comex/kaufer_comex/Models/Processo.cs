@@ -35,42 +35,42 @@ namespace kaufer_comex.Models
         [Required]
         public int DestinoId { get; set; }
 
-        [ForeignKey("DestinoId")]
+        //[ForeignKey("DestinoId")]
         public Destino Destino { get; set; }
 
         [Display(Name = "Agente de Carga (*)")]
         [Required]
         public int AgenteDeCargaId { get; set; }
 
-        [ForeignKey("AgenteDeCargaId")]
+       // [ForeignKey("AgenteDeCargaId")]
         public AgenteDeCarga AgenteDeCarga { get; set; }
 
         [Display(Name = "Fronteira (*)")]
         [Required]
         public int FronteiraId { get; set; }
 
-        [ForeignKey("FronteiraId")]
+        //[ForeignKey("FronteiraId")]
         public Fronteira Fronteira { get; set; }
 
         [Display(Name = "Despachante (*)")]
         [Required]
         public int DespachanteId { get; set; }
 
-        [ForeignKey("DespachanteId")]
+        //[ForeignKey("DespachanteId")]
         public Despachante Despachante { get; set; }
 
         [Display(Name = "Vendedor (*)")]
         [Required]
         public int VendedorId { get; set; }
 
-        [ForeignKey("VendedorId")]
+       // [ForeignKey("VendedorId")]
         public Vendedor Vendedor { get; set; }
 
         [Display(Name = "Status (*)")]
         [Required]
         public int StatusId { get; set; }
 
-        [ForeignKey("StatusId")]
+       // [ForeignKey("StatusId")]
         public Status Status { get; set; }
 
         [Display(Name = "Proforma(*)")]
@@ -100,11 +100,48 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Pedidos Relacionados (*)")]
         public string PedidosRelacionados { get; set; }
+
+        [Display(Name = "Despacho (*)")]
+        [Required]
+        public int DespachoId { get; set; }
+
+        //[ForeignKey("DespachoId")]
+        public Despacho Despacho { get; set; }
+
+        [Display(Name = "Documentos (*)")]
+        [Required]
+        public int DocumentoId { get; set; }
+
+        //[ForeignKey("DocumentoId")]
+        public Documento Documento { get; set; }
+
+        [Display(Name = "Valores do Processo (*)")]
+        [Required]
+        public int ValorProcessoId { get; set; }
+
+        //[ForeignKey("ValorProcessoId")]
+        public ValorProcessoId ValorProcessoId { get; set; }
+
+        [Display(Name = "Embarque Rodoviário (*)")]
+        [Required]
+        public int EmbarqueRodoviarioId { get; set; }
+
+       // [ForeignKey("EmbarqueRodoviarioId")]
+        public EmbarqueRodoviario EmbarqueRodoviario { get; set; }
+
+        [Display(Name = "DCE (*)")]
+        [Required]
+        public int DCE_Id { get; set; }
+
+       // [ForeignKey("DCE_Id")]
+        public DCE DCE { get; set; }
     }
 
     public enum Modal
     {
-
+        Rodoviario,
+        Aereo,
+        Maritimo
     }
 
     public enum Incoterm
