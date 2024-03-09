@@ -17,11 +17,11 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Exportador (*)")]
         [Required]
-        public ExpImp Exportador { get; set; }
+        public int ExportadorId { get; set; }
 
         [Display(Name = "Importador (*)")]
         [Required]
-        public ExpImp Importador { get; set; }
+        public int ImportadorId { get; set; }
 
         [Display(Name = "Modal (*)")]
         [Required]
@@ -33,26 +33,44 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Destino (*)")]
         [Required]
+        public int DestinoId { get; set; }
+
+        [ForeignKey("DestinoId")]
         public Destino Destino { get; set; }
 
         [Display(Name = "Agente de Carga (*)")]
         [Required]
+        public int AgenteDeCargaId { get; set; }
+
+        [ForeignKey("AgenteDeCargaId")]
         public AgenteDeCarga AgenteDeCarga { get; set; }
 
         [Display(Name = "Fronteira (*)")]
         [Required]
+        public int FronteiraId { get; set; }
+
+        [ForeignKey("FronteiraId")]
         public Fronteira Fronteira { get; set; }
 
         [Display(Name = "Despachante (*)")]
         [Required]
+        public int DespachanteId { get; set; }
+
+        [ForeignKey("DespachanteId")]
         public Despachante Despachante { get; set; }
 
         [Display(Name = "Vendedor (*)")]
         [Required]
+        public int VendedorId { get; set; }
+
+        [ForeignKey("VendedorId")]
         public Vendedor Vendedor { get; set; }
 
         [Display(Name = "Status (*)")]
         [Required]
+        public int StatusId { get; set; }
+
+        [ForeignKey("StatusId")]
         public Status Status { get; set; }
 
         [Display(Name = "Proforma(*)")]
