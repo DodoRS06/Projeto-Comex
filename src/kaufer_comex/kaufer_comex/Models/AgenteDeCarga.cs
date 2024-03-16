@@ -11,7 +11,7 @@ namespace kaufer_comex.Models
         public int Id { get; set; }
 
         [Display(Name = "Agente de Carga (*)")]
-        [Required(ErrorMessage ="Obrigatório selecionar o Agente de Carga!")]
+        [Required(ErrorMessage ="Obrigatório informar o Agente de Carga!")]
         public string NomeAgenteCarga { get; set; }
     }
 }

@@ -9,5 +9,7 @@ namespace kaufer_comex.Models
         //public DbSet<Processo> Processos { get; set; }
 
         public DbSet<AgenteDeCarga> AgenteDeCargas{ get; set; }
+
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }
