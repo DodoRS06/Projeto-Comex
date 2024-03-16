@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿/*using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Net.NetworkInformation;
 
@@ -159,3 +159,4 @@ namespace kaufer_comex.Models
         FOB
     }
 }
+ */
