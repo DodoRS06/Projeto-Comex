@@ -25,15 +25,15 @@ namespace kaufer_comex.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Despachante Despachante)
+        public async Task<IActionResult> Create(Despachante despachante)
         {
             if (ModelState.IsValid)
             {
-                _context.Despachantes.Add(Despachante);
+                _context.Despachantes.Add(despachante);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(Despachante);
+            return View(despachante);
         }
     }
 }
