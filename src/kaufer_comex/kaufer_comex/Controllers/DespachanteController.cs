@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using kaufer_comex.Models;
+﻿using kaufer_comex.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
 namespace kaufer_comex.Controllers
 {
-    public class DespachanteController : Controller
+    public class Despachantes : Controller
     {
         private readonly AppDbContext _context;
 
-        public DespachanteController(AppDbContext context)
+        public Despachantes(AppDbContext context)
         {
             _context = context;
         }
@@ -18,6 +19,21 @@ namespace kaufer_comex.Controllers
 
             return View(dados);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> Create(Despachante Despachante)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Despachantes.Add(Despachante);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(Despachante);
+        }
     }
 }
