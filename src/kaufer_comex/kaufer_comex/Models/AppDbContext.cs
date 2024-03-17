@@ -10,6 +10,8 @@ namespace kaufer_comex.Models
 
         public DbSet<AgenteDeCarga> AgenteDeCargas{ get; set; }
 
+        public DbSet<Despachante> Despachantes { get; set; }
+
         public DbSet<Usuario> Usuarios { get; set; }
     }
 }
