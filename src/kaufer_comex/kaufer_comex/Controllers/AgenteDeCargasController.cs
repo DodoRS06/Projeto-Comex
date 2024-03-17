@@ -62,5 +62,18 @@ namespace kaufer_comex.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+                return NotFound();
+
+            var dados = await _context.AgenteDeCargas.FindAsync(id);
+
+            if (id == null)
+                return NotFound();
+
+            return View(dados);
+        }
     }
 }
