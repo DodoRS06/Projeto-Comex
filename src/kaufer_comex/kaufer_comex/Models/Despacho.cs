@@ -9,43 +9,47 @@ namespace kaufer_comex.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar número DUE.")]
         [Display(Name = "Número DUE (*)")]
         public string NumeroDue { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar a data DUE.")]
         [Display(Name = "Data DUE (*)")]
+        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime DataDue { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar a data da exportação.")]
         [Display(Name = "Data de Exportação (*)")]
+        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime DataExportacao { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar conhecimento de embarque.")]
         [Display(Name = "Conhecimento de Embarque (*)")]
         public string ConhecimentoEmbarque { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar a data de conhecimento.")]
         [Display(Name = "Data de Conhecimento (*)")]
+        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime DataConhecimento { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o tipo.")]
         [Display(Name = "Tipo (*)")]
         public Tipo Tipo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar a data da averbação.")]
         [Display(Name = "Data da Averbação (*)")]
+        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime DataAverbacao { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o código do País.")]
         [Display(Name = "Código do País (*)")]
         public int CodPais { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar a parametrização.")]
         [Display(Name = "Parametrização (*)")]
         public Parametrizacao Parametrizacao { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o código do processo.")]
         [Display(Name = "Código de processo (*)")]
         public int ProcessoId { get; set; }
 

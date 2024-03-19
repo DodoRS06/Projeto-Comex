@@ -12,87 +12,92 @@ namespace kaufer_comex.Models
         public int Id { get; set; }
 
         [Display(Name = "Código de processo de exportação (*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o código de exportação.")]
         public string CodExportacao { get; set; }
 
         [Display(Name = "Exportador (*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o código do exportador.")]
         public int ExportadorId { get; set; }
 
         [Display(Name = "Importador (*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o código do importador.")]
         public int ImportadorId { get; set; }
 
         [Display(Name = "Modal (*)")]
-        [Required]
         public Modal Modal { get; set; }
 
         [Display(Name = "Incoterm (*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar Incoterm.")]
         public Incoterm Incoterm { get; set; }
 
         [Display(Name = "Destino (*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o destino.")]
         public int DestinoId { get; set; }
 
         [ForeignKey("DestinoId")]
         public Destino Destino { get; set; }
 
         [Display(Name = "Agente de Carga (*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o Agente de carga.")]
         public int AgenteDeCargaId { get; set; }
 
-       [ForeignKey("AgenteDeCargaId")]
+        [ForeignKey("AgenteDeCargaId")]
         public AgenteDeCarga AgenteDeCarga { get; set; }
 
         [Display(Name = "Fronteira (*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar a fronteira.")]
         public int FronteiraId { get; set; }
 
         [ForeignKey("FronteiraId")]
         public Fronteira Fronteira { get; set; }
 
         [Display(Name = "Despachante (*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o despachante.")]
         public int DespachanteId { get; set; }
 
         [ForeignKey("DespachanteId")]
         public Despachante Despachante { get; set; }
 
         [Display(Name = "Vendedor (*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o vendedor.")]
         public int VendedorId { get; set; }
 
-       [ForeignKey("VendedorId")]
+        [ForeignKey("VendedorId")]
         public Vendedor Vendedor { get; set; }
 
         [Display(Name = "Status (*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o status.")]
         public int StatusId { get; set; }
 
-       [ForeignKey("StatusId")]
+        [ForeignKey("StatusId")]
         public Status Status { get; set; }
 
         [Display(Name = "Proforma(*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar Proforma.")]
         public string Proforma { get; set; }
 
         [Display(Name = "Data de Início do Processo (*)")]
+        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime DataInicioProcesso { get; set; }
 
         [Display(Name = "Previsão de produção (*)")]
+        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime PrevisaoProducao { get; set; }
 
         [Display(Name = "Previsão de pagamento (*)")]
+        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime PrevisaoPagamento { get; set; }
 
         [Display(Name = "Previsão Coleta (*)")]
+        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime PrevisaoColeta { get; set; }
 
         [Display(Name = "Previsão Cruze (*)")]
+        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime PrevisaoCruze { get; set; }
 
         [Display(Name = "Previsão de entrega (*)")]
+        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime PrevisaoEntrega { get; set; }
 
         [Display(Name = "Observações (*)")]
@@ -102,14 +107,14 @@ namespace kaufer_comex.Models
         public string PedidosRelacionados { get; set; }
 
         [Display(Name = "Despacho (*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o código de despacho.")]
         public int DespachoId { get; set; }
 
         [ForeignKey("DespachoId")]
         public Despacho Despacho { get; set; }
 
         [Display(Name = "Documentos (*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o documento.")]
         public int DocumentoId { get; set; }
 
         [ForeignKey("DocumentoId")]
@@ -123,17 +128,17 @@ namespace kaufer_comex.Models
         public ValorProcessoId ValorProcessoId { get; set; }
 
         [Display(Name = "Embarque Rodoviário (*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar os dados de embarque.")]
         public int EmbarqueRodoviarioId { get; set; }
 
-       [ForeignKey("EmbarqueRodoviarioId")]
+        [ForeignKey("EmbarqueRodoviarioId")]
         public EmbarqueRodoviario EmbarqueRodoviario { get; set; }
 
         [Display(Name = "DCE (*)")]
         [Required]
-        public int DCE_Id { get; set; }
+        public int DCEId { get; set; }
 
-       [ForeignKey("DCE_Id")]
+        [ForeignKey("DCEId")]
         public DCE DCE { get; set; }
     }
 
