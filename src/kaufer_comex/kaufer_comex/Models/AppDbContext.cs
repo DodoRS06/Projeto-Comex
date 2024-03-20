@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace kaufer_comex.Models
 {
@@ -16,6 +17,12 @@ namespace kaufer_comex.Models
 
         //public DbSet<Despacho> Despachos { get; set;}
 
-       // public DbSet<ProcessoExpImp> ProcessoExpImps { get; set; }
+        // public DbSet<ProcessoExpImp> ProcessoExpImps { get; set; }
+
+        // public DbSet <Fronteira> Fronteiras { get; set; }
+
+        // public DbSet <Documento> Documentos { get; set; }
+
+        // public DbSet <EmbarqueRodoviario> EmbarqueRodoviarios { get; set; }
     }
 }
