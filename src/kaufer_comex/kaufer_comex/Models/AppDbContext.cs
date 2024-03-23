@@ -39,7 +39,7 @@ namespace kaufer_comex.Models
             modelBuilder.Entity<ProcessoUsuario>()
                 .HasOne(e => e.Processo)
                 .WithMany(pe => pe.ProcessosUsuarios)
-                .HasForeignKey(e => e.UsuarioId);
+                .HasForeignKey(e => e.ProcessoId);
 
         }
        */
