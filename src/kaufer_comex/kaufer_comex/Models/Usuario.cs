@@ -28,6 +28,7 @@ namespace kaufer_comex.Models
         [Required(ErrorMessage = "Obrigatório informar o Tipo de Usuário!")]
         public Perfil Perfil { get; set; }
 
+        //public virtual  ICollection<UsuarioProcesso> UsuarioProcessos { get; set; } 
 
     }
     public enum Perfil
