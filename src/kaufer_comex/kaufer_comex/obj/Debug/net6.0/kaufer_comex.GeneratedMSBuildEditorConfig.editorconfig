@@ -8,65 +8,65 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = kaufer_comex
 build_property.RootNamespace = kaufer_comex
-build_property.ProjectDir = C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\
+build_property.ProjectDir = C:\Users\jeferson queiroz\Documents\GitHub\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex
+build_property.MSBuildProjectDirectory = C:\Users\jeferson queiroz\Documents\GitHub\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Create.cshtml]
+[C:/Users/jeferson queiroz/Documents/GitHub/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbnRlRGVDYXJnYXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Delete.cshtml]
+[C:/Users/jeferson queiroz/Documents/GitHub/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbnRlRGVDYXJnYXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Details.cshtml]
+[C:/Users/jeferson queiroz/Documents/GitHub/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbnRlRGVDYXJnYXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Edit.cshtml]
+[C:/Users/jeferson queiroz/Documents/GitHub/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbnRlRGVDYXJnYXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Index.cshtml]
+[C:/Users/jeferson queiroz/Documents/GitHub/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbnRlRGVDYXJnYXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachantes/Create.cshtml]
+[C:/Users/jeferson queiroz/Documents/GitHub/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachantes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFjaGFudGVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachantes/Index.cshtml]
+[C:/Users/jeferson queiroz/Documents/GitHub/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachantes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFjaGFudGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Home/Index.cshtml]
+[C:/Users/jeferson queiroz/Documents/GitHub/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Home/Privacy.cshtml]
+[C:/Users/jeferson queiroz/Documents/GitHub/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Shared/Error.cshtml]
+[C:/Users/jeferson queiroz/Documents/GitHub/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/jeferson queiroz/Documents/GitHub/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/_ViewImports.cshtml]
+[C:/Users/jeferson queiroz/Documents/GitHub/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/_ViewStart.cshtml]
+[C:/Users/jeferson queiroz/Documents/GitHub/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Shared/_Layout.cshtml]
+[C:/Users/jeferson queiroz/Documents/GitHub/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-d6apnif7pj
