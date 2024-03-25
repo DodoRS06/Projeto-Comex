@@ -19,7 +19,7 @@ namespace kaufer_comex.Models
         public DbSet<Usuario> Usuarios { get; set; }
 
         //public DbSet<DCE> DCEs { get; set; }
-        
+
         //public DbSet<FornecedorServico> FornecedorServicos { get; set; }
 
         //public DbSet<CadastroDespesa> CadastroDespesas { get; set; }
@@ -29,8 +29,6 @@ namespace kaufer_comex.Models
         //public DbSet<UsuarioProcesso> UsuariosProcesso{ get; set; }
 
         //public DbSet<Despacho> Despachos { get; set;}
-
-        // public DbSet<ProcessoExpImp> ProcessoExpImps { get; set; }
 
         // public DbSet <Fronteira> Fronteiras { get; set; }
 
@@ -54,5 +52,20 @@ namespace kaufer_comex.Models
 
          }
         */
+
+        /* protected override void OnModelCreating(ModelBuilder builder)
+         {
+             builder.Entity<ProcessoExpImp>()
+                 .HasKey(p => new { p.ProcessoId, p.ExpImpId });
+
+             builder.Entity<ProcessoExpImp>()
+                 .HasOne(p => p.Processo).WithMany(p => p.ExpImp)
+                 .HasForeignKey(p => p.ProcessoId);
+
+             builder.Entity<ProcessoExpImp>()
+                  .HasOne(p => p.ExpImp).WithMany(p => p.Processo)
+                  .HasForeignKey(p => p.ExpImpId);
+         }
+         */
     }
 }
