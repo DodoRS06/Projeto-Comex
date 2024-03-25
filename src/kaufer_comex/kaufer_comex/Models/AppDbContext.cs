@@ -36,6 +36,8 @@ namespace kaufer_comex.Models
 
         // public DbSet <EmbarqueRodoviario> EmbarqueRodoviarios { get; set; }
 
+        // public DbSet <ProcessoExpImp> ProcessosExpImp  { get; set; }
+
         /* protected override void OnModelCreating(ModelBuilder modelBuilder)
          {
              base.OnModelCreating(modelBuilder);
