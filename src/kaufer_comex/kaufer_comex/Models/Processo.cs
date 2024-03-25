@@ -134,18 +134,19 @@ namespace kaufer_comex.Models
         [ForeignKey("EmbarqueRodoviarioId")]
         public EmbarqueRodoviario EmbarqueRodoviario { get; set; }
 
-        [Display(Name = "DCE (*)")]
-        [Required]
-        public int DCEId { get; set; }
+        public virtual  ICollection<DCE> DCES { get; set; }
 
-        [ForeignKey("DCEId")]
-        public DCE DCE { get; set; }
+        public virtual  ICollection<UsuarioProcesso> Usuarios { get; set; }
+
     }
 
     public enum Modal
     {
+        [Display(Name = "Rodoviário")]
         Rodoviario,
+        [Display(Name = "Aéreo")]
         Aereo,
+        [Display(Name = "Marítimo")]
         Maritimo
     }
 
