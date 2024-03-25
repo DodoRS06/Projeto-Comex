@@ -61,8 +61,7 @@
 //        [Required]
 //        public string Observacoes { get; set; }
 
-//        [ForeignKey("ProcessoId")]
-//        public Processo Processo { get; set; }
+//        public virtual  ICollection<ProcessoExpImp> ProcessoExpImps { get; set; } 
 //    }
 
 //    public enum Tipo

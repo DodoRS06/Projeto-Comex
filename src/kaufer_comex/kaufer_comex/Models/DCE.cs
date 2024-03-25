@@ -31,6 +31,10 @@
 //        [Required]
 //        public string Observacao { get; set; }
 
+//        public virtual  ICollection<CadastroDespesa> CadastroDespesas { get; set; } 
+
+//        public virtual  ICollection<FornecedorServico> FornecedorServicos { get; set; } 
+
 //        [ForeignKey("ProcessoId")]
 //        public Processo Processo { get; set; }
 //    }
