@@ -14,7 +14,7 @@ namespace kaufer_comex.Models
 
         public DbSet<Despachante> Despachantes { get; set; }
 
-        public DbSet<Vendedor> Vendedores { get; set; }
+        //public DbSet<Vendedor> Vendedores { get; set; }
 
         public DbSet<Usuario> Usuarios { get; set; }
 
