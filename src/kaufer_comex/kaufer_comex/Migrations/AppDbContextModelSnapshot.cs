@@ -55,6 +55,23 @@ namespace kaufer_comex.Migrations
                     b.ToTable("Despachantes");
                 });
 
+            modelBuilder.Entity("kaufer_comex.Models.Destino", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("NomePais")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Destino");
+                });
+
             modelBuilder.Entity("kaufer_comex.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")

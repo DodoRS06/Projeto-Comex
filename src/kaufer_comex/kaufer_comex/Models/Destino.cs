@@ -12,6 +12,6 @@ namespace kaufer_comex.Models
         [Required]
         public string NomePais { get; set; }
 
-        public virtual ICollection<Processo> Processos { get; set; }
+        //public virtual ICollection<Processo> Processos { get; set; }
     }
 }
