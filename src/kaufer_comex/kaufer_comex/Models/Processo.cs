@@ -1,4 +1,4 @@
-﻿/*using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Net.NetworkInformation;
 
@@ -125,7 +125,7 @@ namespace kaufer_comex.Models
         public int ValorProcessoId { get; set; }
 
         [ForeignKey("ValorProcessoId")]
-        public ValorProcessoId ValorProcessoId { get; set; }
+        public ValorProcesso ValorProcesso { get; set; }
 
         [Display(Name = "Embarque Rodoviário (*)")]
         [Required(ErrorMessage = "Obrigatório informar os dados de embarque.")]
@@ -136,7 +136,9 @@ namespace kaufer_comex.Models
 
         public virtual  ICollection<DCE> DCES { get; set; }
 
-        public virtual  ICollection<UsuarioProcesso> Usuarios { get; set; }
+        public virtual  ICollection<UsuarioProcesso> ProcessosUsuarios { get; set; }
+
+        public virtual ICollection<ProcessoExpImp> ExpImps { get; set; }
 
     }
 
@@ -165,4 +167,4 @@ namespace kaufer_comex.Models
         FOB
     }
 }
- */
+ 
