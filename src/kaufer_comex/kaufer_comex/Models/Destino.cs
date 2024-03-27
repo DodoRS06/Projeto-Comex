@@ -10,6 +10,7 @@ namespace kaufer_comex.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "País")]
         public string NomePais { get; set; }
 
         //public virtual ICollection<Processo> Processos { get; set; }
