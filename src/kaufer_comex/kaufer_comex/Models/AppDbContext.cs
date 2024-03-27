@@ -8,7 +8,7 @@ namespace kaufer_comex.Models
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        //public DbSet<Processo> Processos { get; set; }
+        public DbSet<Processo> Processos { get; set; }
 
         public DbSet<AgenteDeCarga> AgenteDeCargas{ get; set; }
 
@@ -28,7 +28,9 @@ namespace kaufer_comex.Models
 
         //public DbSet<UsuarioProcesso> UsuariosProcesso{ get; set; }
 
-        //public DbSet<Despacho> Despachos { get; set;}
+        public DbSet<Despacho> Despachos { get; set;}
+
+        public DbSet<Destino> Destinos { get; set; }
 
         // public DbSet <Fronteira> Fronteiras { get; set; }
 
@@ -36,38 +38,34 @@ namespace kaufer_comex.Models
 
         // public DbSet <EmbarqueRodoviario> EmbarqueRodoviarios { get; set; }
 
-        // public DbSet <ProcessoExpImp> ProcessosExpImp  { get; set; }
+        public DbSet <ProcessoExpImp> ProcessosExpImp  { get; set; }
 
-        /* protected override void OnModelCreating(ModelBuilder modelBuilder)
+         protected override void OnModelCreating(ModelBuilder modelBuilder)
          {
              base.OnModelCreating(modelBuilder);
-             modelBuilder.Entity<UsuarioProcesso>()
-                 .HasKey(pe => new { pe.UsuarioId, pe.ProcessoId});
-             modelBuilder.Entity<UsuarioProcesso>()
-                 .HasOne(p => p.Usuario)
-                 .WithMany(pe => pe.UsuariosProcessos)
-                 .HasForeignKey(p => p.UsuarioId);
-             modelBuilder.Entity<ProcessoUsuario>()
-                 .HasOne(e => e.Processo)
-                 .WithMany(pe => pe.ProcessosUsuarios)
-                 .HasForeignKey(e => e.ProcessoId);
+             //modelBuilder.Entity<UsuarioProcesso>()
+             //    .HasKey(pe => new { pe.UsuarioId, pe.ProcessoId});
+             //modelBuilder.Entity<UsuarioProcesso>()
+             //    .HasOne(p => p.Usuario)
+             //    .WithMany(pe => pe.UsuariosProcessos)
+             //    .HasForeignKey(p => p.UsuarioId);
+             //modelBuilder.Entity<ProcessoUsuario>()
+             //    .HasOne(e => e.Processo)
+             //    .WithMany(pe => pe.ProcessosUsuarios)
+             //    .HasForeignKey(e => e.ProcessoId);
 
-         }
-        */
-
-        /* protected override void OnModelCreating(ModelBuilder builder)
-         {
-             builder.Entity<ProcessoExpImp>()
+             modelBuilder.Entity<ProcessoExpImp>()
                  .HasKey(p => new { p.ProcessoId, p.ExpImpId });
 
-             builder.Entity<ProcessoExpImp>()
-                 .HasOne(p => p.Processo).WithMany(p => p.ExpImp)
+             modelBuilder.Entity<ProcessoExpImp>()
+                 .HasOne(p => p.Processo).WithMany(p => p.ExpImps)
                  .HasForeignKey(p => p.ProcessoId);
 
-             builder.Entity<ProcessoExpImp>()
-                  .HasOne(p => p.ExpImp).WithMany(p => p.Processo)
+             modelBuilder.Entity<ProcessoExpImp>()
+                  .HasOne(p => p.ExpImp).WithMany(p => p.Processos)
                   .HasForeignKey(p => p.ExpImpId);
+
          }
-         */
+   
     }
 }
