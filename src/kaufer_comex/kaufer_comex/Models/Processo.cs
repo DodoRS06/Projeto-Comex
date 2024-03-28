@@ -105,34 +105,7 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Pedidos Relacionados (*)")]
         public string PedidosRelacionados { get; set; }
-
-        [Display(Name = "Despacho (*)")]
-        [Required(ErrorMessage = "Obrigatório informar o código de despacho.")]
-        public int DespachoId { get; set; }
-
-        [ForeignKey("DespachoId")]
-        public Despacho Despacho { get; set; }
-
-        [Display(Name = "Documentos (*)")]
-        [Required(ErrorMessage = "Obrigatório informar o documento.")]
-        public int DocumentoId { get; set; }
-
-        [ForeignKey("DocumentoId")]
-        public Documento Documento { get; set; }
-
-        [Display(Name = "Valores do Processo (*)")]
-        [Required]
-        public int ValorProcessoId { get; set; }
-
-        [ForeignKey("ValorProcessoId")]
-        public ValorProcesso ValorProcesso { get; set; }
-
-        [Display(Name = "Embarque Rodoviário (*)")]
-        [Required(ErrorMessage = "Obrigatório informar os dados de embarque.")]
-        public int EmbarqueRodoviarioId { get; set; }
-
-        [ForeignKey("EmbarqueRodoviarioId")]
-        public EmbarqueRodoviario EmbarqueRodoviario { get; set; }
+   
 
         public virtual  ICollection<DCE> DCES { get; set; }
 
