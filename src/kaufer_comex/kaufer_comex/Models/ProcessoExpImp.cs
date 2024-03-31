@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿/*using System.ComponentModel.DataAnnotations.Schema;
 
 namespace kaufer_comex.Models
 {
@@ -14,3 +14,4 @@ namespace kaufer_comex.Models
         public ExpImp ExpImp { get; set; }
     }
 }
+*/
