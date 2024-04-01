@@ -20,6 +20,8 @@ namespace kaufer_comex.Models
 
         //public DbSet<DCE> DCEs { get; set; }
 
+        public DbSet<ValorProcesso> ValorProcessos { get; set; }
+
         //public DbSet<FornecedorServico> FornecedorServicos { get; set; }
 
         //public DbSet<CadastroDespesa> CadastroDespesas { get; set; }
@@ -28,7 +30,7 @@ namespace kaufer_comex.Models
 
         //public DbSet<UsuarioProcesso> UsuariosProcesso{ get; set; }
 
-       // public DbSet<Despacho> Despachos { get; set;}
+        // public DbSet<Despacho> Despachos { get; set;}
 
         public DbSet<Destino> Destinos { get; set; }
 
