@@ -1,77 +1,77 @@
 ﻿@model kaufer_comex.Models.Despacho
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Despacho";
 }
 
-<h1>Edit</h1>
+<div class="container">
+    <br />
 
-<h4>Despacho</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
+    <h4>Editar Despacho</h4>
+    <hr />
+
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="form-group col-md-4">
                 <label asp-for="NumeroDue" class="control-label"></label>
                 <input asp-for="NumeroDue" class="form-control" />
                 <span asp-validation-for="NumeroDue" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="DataDue" class="control-label"></label>
                 <input asp-for="DataDue" class="form-control" />
                 <span asp-validation-for="DataDue" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="DataExportacao" class="control-label"></label>
                 <input asp-for="DataExportacao" class="form-control" />
                 <span asp-validation-for="DataExportacao" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="ConhecimentoEmbarque" class="control-label"></label>
                 <input asp-for="ConhecimentoEmbarque" class="form-control" />
                 <span asp-validation-for="ConhecimentoEmbarque" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="DataConhecimento" class="control-label"></label>
                 <input asp-for="DataConhecimento" class="form-control" />
                 <span asp-validation-for="DataConhecimento" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="Tipo" class="control-label"></label>
                 <select asp-for="Tipo" class="form-control"></select>
                 <span asp-validation-for="Tipo" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="DataAverbacao" class="control-label"></label>
                 <input asp-for="DataAverbacao" class="form-control" />
                 <span asp-validation-for="DataAverbacao" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="CodPais" class="control-label"></label>
                 <input asp-for="CodPais" class="form-control" />
                 <span asp-validation-for="CodPais" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="Parametrizacao" class="control-label"></label>
                 <select asp-for="Parametrizacao" class="form-control"></select>
                 <span asp-validation-for="Parametrizacao" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="ProcessoId" class="control-label"></label>
                 <select asp-for="ProcessoId" class="form-control" asp-items="ViewBag.ProcessoId"></select>
-                <span asp-validation-for="ProcessoId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <br />
+                <input type="submit" value="Editar" class="btn btn-secondary" />
+                <a asp-action="Index" class="btn btn-info">Voltar</a>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

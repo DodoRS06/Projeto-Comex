@@ -1,121 +1,129 @@
 ﻿@model kaufer_comex.Models.Processo
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Cadastrar Processo";
 }
 
-<h1>Create</h1>
 
-<h4>Processo</h4>
+<div class="container">
+    <br/>
+<h4>Cadastrar Processo</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+
+            <div class="row">
+            <div class="form-group col-md-4">
                 <label asp-for="CodProcessoExportacao" class="control-label"></label>
                 <input asp-for="CodProcessoExportacao" class="form-control" />
                 <span asp-validation-for="CodProcessoExportacao" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ExportadorId" class="control-label"></label>
-                <input asp-for="ExportadorId" class="form-control" />
-                <span asp-validation-for="ExportadorId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImportadorId" class="control-label"></label>
-                <input asp-for="ImportadorId" class="form-control" />
-                <span asp-validation-for="ImportadorId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+
+            <div class="form-group col-md-4">
                 <label asp-for="Modal" class="control-label"></label>
                 <select asp-for="Modal" class="form-control"></select>
                 <span asp-validation-for="Modal" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="Incoterm" class="control-label"></label>
                 <select asp-for="Incoterm" class="form-control"></select>
                 <span asp-validation-for="Incoterm" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="form-group col-md-6">
+                <label asp-for="ExportadorId" class="control-label"></label>
+                <input asp-for="ExportadorId" class="form-control" />
+                <span asp-validation-for="ExportadorId" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="ImportadorId" class="control-label"></label>
+                <input asp-for="ImportadorId" class="form-control" />
+                <span asp-validation-for="ImportadorId" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
                 <label asp-for="DestinoId" class="control-label"></label>
                 <select asp-for="DestinoId" class ="form-control" asp-items="ViewBag.DestinoId"></select>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="AgenteDeCargaId" class="control-label"></label>
                 <select asp-for="AgenteDeCargaId" class ="form-control" asp-items="ViewBag.AgenteDeCargaId"></select>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="FronteiraId" class="control-label"></label>
                 <select asp-for="FronteiraId" class ="form-control" asp-items="ViewBag.FronteiraId"></select>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="DespachanteId" class="control-label"></label>
                 <select asp-for="DespachanteId" class ="form-control" asp-items="ViewBag.DespachanteId"></select>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="VendedorId" class="control-label"></label>
                 <select asp-for="VendedorId" class ="form-control" asp-items="ViewBag.VendedorId"></select>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="StatusId" class="control-label"></label>
                 <select asp-for="StatusId" class ="form-control" asp-items="ViewBag.StatusId"></select>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="Proforma" class="control-label"></label>
                 <input asp-for="Proforma" class="form-control" />
                 <span asp-validation-for="Proforma" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="DataInicioProcesso" class="control-label"></label>
                 <input asp-for="DataInicioProcesso" class="form-control" />
                 <span asp-validation-for="DataInicioProcesso" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="PrevisaoProducao" class="control-label"></label>
                 <input asp-for="PrevisaoProducao" class="form-control" />
                 <span asp-validation-for="PrevisaoProducao" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-3">
                 <label asp-for="PrevisaoPagamento" class="control-label"></label>
                 <input asp-for="PrevisaoPagamento" class="form-control" />
                 <span asp-validation-for="PrevisaoPagamento" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-3">
                 <label asp-for="PrevisaoColeta" class="control-label"></label>
                 <input asp-for="PrevisaoColeta" class="form-control" />
                 <span asp-validation-for="PrevisaoColeta" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-3">
                 <label asp-for="PrevisaoCruze" class="control-label"></label>
                 <input asp-for="PrevisaoCruze" class="form-control" />
                 <span asp-validation-for="PrevisaoCruze" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-3">
                 <label asp-for="PrevisaoEntrega" class="control-label"></label>
                 <input asp-for="PrevisaoEntrega" class="form-control" />
                 <span asp-validation-for="PrevisaoEntrega" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-12">
                 <label asp-for="Observacoes" class="control-label"></label>
                 <input asp-for="Observacoes" class="form-control" />
                 <span asp-validation-for="Observacoes" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-12">
                 <label asp-for="PedidosRelacionados" class="control-label"></label>
                 <input asp-for="PedidosRelacionados" class="form-control" />
                 <span asp-validation-for="PedidosRelacionados" class="text-danger"></span>
             </div>
+           
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                 <br />
+                <input type="submit" value="Cadastrar" class="btn btn-secondary" />
+                <a asp-action="Index" class="btn btn-info">Voltar</a>
             </div>
+        </div>
         </form>
     </div>
-</div>
+
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
