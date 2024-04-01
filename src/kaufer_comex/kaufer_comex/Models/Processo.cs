@@ -1,4 +1,4 @@
-﻿/*using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Net.NetworkInformation;
 
@@ -13,7 +13,7 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Código de processo de exportação (*)")]
         [Required(ErrorMessage = "Obrigatório informar o código de exportação.")]
-        public string CodExportacao { get; set; }
+        public string CodProcessoExportacao { get; set; }
 
         [Display(Name = "Exportador (*)")]
         [Required(ErrorMessage = "Obrigatório informar o código do exportador.")]
@@ -107,11 +107,11 @@ namespace kaufer_comex.Models
         public string PedidosRelacionados { get; set; }
    
 
-        public virtual  ICollection<DCE> DCES { get; set; }
+        //public virtual  ICollection<DCE> DCES { get; set; }
 
-        public virtual  ICollection<UsuarioProcesso> ProcessosUsuarios { get; set; }
+        //public virtual  ICollection<UsuarioProcesso> ProcessosUsuarios { get; set; }
 
-        public virtual ICollection<ProcessoExpImp> ExpImps { get; set; }
+        //public virtual ICollection<ProcessoExpImp> ExpImps { get; set; }
 
     }
 
@@ -140,4 +140,4 @@ namespace kaufer_comex.Models
         FOB
     }
 }
- */
+ 
