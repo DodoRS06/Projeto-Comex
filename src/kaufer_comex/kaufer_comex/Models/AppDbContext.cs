@@ -30,7 +30,7 @@ namespace kaufer_comex.Models
 
         //public DbSet<UsuarioProcesso> UsuariosProcesso{ get; set; }
 
-        // public DbSet<Despacho> Despachos { get; set;}
+        public DbSet<Despacho> Despachos { get; set;}
 
         public DbSet<Destino> Destinos { get; set; }
 
