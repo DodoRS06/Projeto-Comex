@@ -22,7 +22,21 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Objetivo do Teste 	| O usuário deverá cadastrar e editar o Agente de Carga.|
 | Passos 	| - Acessar o Site<br> - Fazer o login <br> - Em cadastro de Agente de Carga digitar a Razão Social <br> - Clicar no botão 'Enviar cadastro' <br> - Alterar a Razão Social do Agente de Carga  <br> - Clicar em Editar  |  
 |Critério de Êxito | - O cadastro do Agente de Carga deve ser realizado e depois deve ser editado.|
- 
+|   |   |
+| **Caso de teste**   | **CT-07-Tela Cadastro de Destino** |
+|Requisito Associado | RF-007 - O sistema deve permitir ao usuário cadastrar o País de Destino | 
+| Objetivo do Teste 	| O usuário deverá cadastrar e editar o País de Destino.|
+| Passos 	| - Acessar o Site<br> - Fazer o login <br> - Em cadastro de Destino digitar o nome do País <br> - Clicar no botão 'Enviar cadastro' <br> - Para editar, acessar a página de edição <br> - Alterar o nome do País  <br> - Clicar em Editar  |  
+|Critério de Êxito | - O cadastro do País de Destino deve ser realizado e depois deve ser editado.|
+|   |   |
+| **Caso de teste**   | **CT-14-Tela Cadastro de Despacho** |
+|Requisito Associado | RF-014 - O sistema deve permitir que o usuário vincule os dados do despacho aduaneiro com o processo de exportação  | 
+| Objetivo do Teste 	| O usuário deverá cadastrar e editar os dados do despacho aduaneiro e vincular ao processo de exportação.|
+| Passos 	| - Acessar o Site<br> - Fazer o login <br> - Em cadastro de Despacho digitar o dados indicados e o código do processo ao qual está vinculado <br> - Clicar no botão 'Enviar cadastro' <br> - Para editar, acessar a página de edição <br> -  Alterar os dados  <br> - Clicar em Editar  |  
+|Critério de Êxito | - O cadastro dos dados de despacho deve ser realizado e depois deve ser editado.|
+|   |   |
+
+
 # Evidências de Testes de Software
 
 Apresente imagens e/ou vídeos que comprovam que um determinado teste foi executado, e o resultado esperado foi obtido. Normalmente são screenshots de telas, ou vídeos do software em funcionamento.
