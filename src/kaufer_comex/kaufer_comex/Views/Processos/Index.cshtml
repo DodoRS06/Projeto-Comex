@@ -1,0 +1,149 @@
+﻿@model IEnumerable<kaufer_comex.Models.Processo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodProcessoExportacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExportadorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImportadorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Incoterm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgenteDeCarga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fronteira)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Despachante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proforma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInicioProcesso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrevisaoProducao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrevisaoPagamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrevisaoColeta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrevisaoCruze)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrevisaoEntrega)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observacoes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PedidosRelacionados)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodProcessoExportacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExportadorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImportadorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Incoterm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destino.NomePais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgenteDeCarga.NomeAgenteCarga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fronteira.NomeFronteira)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Despachante.NomeDespachante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendedor.NomeVendedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status.StatusAtual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proforma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInicioProcesso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrevisaoProducao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrevisaoPagamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrevisaoColeta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrevisaoCruze)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrevisaoEntrega)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observacoes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PedidosRelacionados)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
