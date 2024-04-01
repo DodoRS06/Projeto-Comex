@@ -1,5 +1,6 @@
 ﻿using kaufer_comex.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace kaufer_comex.Controllers
@@ -16,15 +17,21 @@ namespace kaufer_comex.Controllers
         public async Task<IActionResult> Index()
         {
             var dados = await _context.Processos.ToListAsync();
-
             return View(dados);
         }
         public IActionResult Create()
         {
+            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
+            ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
+            ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
+            ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
+            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
+            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
             return View();
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Processo processo)
         {
             if (ModelState.IsValid)
@@ -33,6 +40,12 @@ namespace kaufer_comex.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
+            ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
+            ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
+            ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
+            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
+            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
             return View(processo);
         }
 
@@ -45,10 +58,18 @@ namespace kaufer_comex.Controllers
             if (dados == null)
                 return NotFound();
 
+            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
+            ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
+            ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
+            ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
+            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
+            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
+
             return View(dados);
 
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Processo processo)
         {
             if (id != processo.Id)
@@ -60,6 +81,13 @@ namespace kaufer_comex.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
+            ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
+            ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
+            ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
+            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
+            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
+
             return View();
         }
 
@@ -91,6 +119,7 @@ namespace kaufer_comex.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id)
         {
             if (id == null)

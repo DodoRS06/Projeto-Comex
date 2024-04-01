@@ -20,12 +20,12 @@
 
             <div class="form-group col-md-4">
                 <label asp-for="Modal" class="control-label"></label>
-                <select asp-for="Modal" class="form-control"></select>
+                <select asp-for="Modal" class="form-control" asp-items="Html.GetEnumSelectList<Modal>()"></select>
                 <span asp-validation-for="Modal" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="Incoterm" class="control-label"></label>
-                <select asp-for="Incoterm" class="form-control"></select>
+                <select asp-for="Incoterm" class="form-control" asp-items="Html.GetEnumSelectList<Incoterm>()"></select>
                 <span asp-validation-for="Incoterm" class="text-danger"></span>
             </div>
 

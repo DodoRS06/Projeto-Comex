@@ -25,6 +25,7 @@ namespace kaufer_comex.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Destino destino)
         {
             if (ModelState.IsValid)
@@ -49,6 +50,7 @@ namespace kaufer_comex.Controllers
 
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Destino destino)
         {
             if (id != destino.Id)
@@ -91,6 +93,7 @@ namespace kaufer_comex.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id)
         {
             if (id == null)
