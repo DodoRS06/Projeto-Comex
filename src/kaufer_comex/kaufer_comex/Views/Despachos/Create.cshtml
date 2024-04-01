@@ -1,0 +1,77 @@
+﻿@model kaufer_comex.Models.Despacho
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Despacho</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NumeroDue" class="control-label"></label>
+                <input asp-for="NumeroDue" class="form-control" />
+                <span asp-validation-for="NumeroDue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataDue" class="control-label"></label>
+                <input asp-for="DataDue" class="form-control" />
+                <span asp-validation-for="DataDue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataExportacao" class="control-label"></label>
+                <input asp-for="DataExportacao" class="form-control" />
+                <span asp-validation-for="DataExportacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConhecimentoEmbarque" class="control-label"></label>
+                <input asp-for="ConhecimentoEmbarque" class="form-control" />
+                <span asp-validation-for="ConhecimentoEmbarque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataConhecimento" class="control-label"></label>
+                <input asp-for="DataConhecimento" class="form-control" />
+                <span asp-validation-for="DataConhecimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tipo" class="control-label"></label>
+                <select asp-for="Tipo" class="form-control"></select>
+                <span asp-validation-for="Tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataAverbacao" class="control-label"></label>
+                <input asp-for="DataAverbacao" class="form-control" />
+                <span asp-validation-for="DataAverbacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodPais" class="control-label"></label>
+                <input asp-for="CodPais" class="form-control" />
+                <span asp-validation-for="CodPais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parametrizacao" class="control-label"></label>
+                <select asp-for="Parametrizacao" class="form-control"></select>
+                <span asp-validation-for="Parametrizacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProcessoId" class="control-label"></label>
+                <select asp-for="ProcessoId" class ="form-control" asp-items="ViewBag.ProcessoId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
