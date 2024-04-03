@@ -18,15 +18,15 @@ namespace kaufer_comex.Models
 
         public DbSet<Usuario> Usuarios { get; set; }
 
-        //public DbSet<DCE> DCEs { get; set; }
+        public DbSet<DCE> DCEs { get; set; }
 
         public DbSet<ValorProcesso> ValorProcessos { get; set; }
 
-        //public DbSet<FornecedorServico> FornecedorServicos { get; set; }
+        public DbSet<FornecedorServico> FornecedorServicos { get; set; }
 
-        //public DbSet<CadastroDespesa> CadastroDespesas { get; set; }
+        public DbSet<CadastroDespesa> CadastroDespesas { get; set; }
 
-        //public DbSet<ExpImp> ExpImps { get; set; }
+        public DbSet<ExpImp> ExpImps { get; set; }
 
         //public DbSet<UsuarioProcesso> UsuariosProcesso{ get; set; }
 
