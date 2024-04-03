@@ -12,6 +12,7 @@ namespace kaufer_comex.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Status Atual")]
         public string StatusAtual { get; set; }
     }
 }
