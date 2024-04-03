@@ -8,7 +8,7 @@ namespace kaufer_comex.Models
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-       public DbSet<Processo> Processos { get; set; }
+        public DbSet<Processo> Processos { get; set; }
 
         public DbSet<AgenteDeCarga> AgenteDeCargas{ get; set; }
 
@@ -42,11 +42,12 @@ namespace kaufer_comex.Models
 
         // public DbSet <EmbarqueRodoviario> EmbarqueRodoviarios { get; set; }
 
-       /* public DbSet <ProcessoExpImp> ProcessosExpImp  { get; set; }
+        public DbSet <ProcessoExpImp> ProcessosExpImp  { get; set; }
 
          protected override void OnModelCreating(ModelBuilder modelBuilder)
          {
              base.OnModelCreating(modelBuilder);
+
              //modelBuilder.Entity<UsuarioProcesso>()
              //    .HasKey(pe => new { pe.UsuarioId, pe.ProcessoId});
              //modelBuilder.Entity<UsuarioProcesso>()
@@ -66,10 +67,10 @@ namespace kaufer_comex.Models
                  .HasForeignKey(p => p.ProcessoId);
 
              modelBuilder.Entity<ProcessoExpImp>()
-                  .HasOne(p => p.ExpImp).WithMany(p => p.Processos)
+                  .HasOne(p => p.ExpImp).WithMany(p => p.ProcessoExpImps)
                   .HasForeignKey(p => p.ExpImpId);
 
-         } */
+         } 
    
     }
 }

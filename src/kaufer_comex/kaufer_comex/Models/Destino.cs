@@ -13,6 +13,6 @@ namespace kaufer_comex.Models
         [Display(Name = "País")]
         public string NomePais { get; set; }
 
-        //public virtual ICollection<Processo> Processos { get; set; }
+        public virtual ICollection<Processo> Processos { get; set; }
     }
 }

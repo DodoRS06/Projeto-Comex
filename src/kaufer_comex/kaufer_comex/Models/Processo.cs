@@ -107,11 +107,11 @@ namespace kaufer_comex.Models
         public string PedidosRelacionados { get; set; }
    
 
-        //public virtual  ICollection<DCE> DCES { get; set; }
+        public virtual  ICollection<DCE> DCES { get; set; }
 
         //public virtual  ICollection<UsuarioProcesso> ProcessosUsuarios { get; set; }
 
-        //public virtual ICollection<ProcessoExpImp> ExpImps { get; set; }
+        public virtual ICollection<ProcessoExpImp> ExpImps { get; set; }
 
     }
 

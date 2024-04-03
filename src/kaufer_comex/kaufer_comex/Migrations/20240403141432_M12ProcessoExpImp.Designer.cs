@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using kaufer_comex.Models;
 
@@ -11,9 +12,10 @@ using kaufer_comex.Models;
 namespace kaufer_comex.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240403141432_M12ProcessoExpImp")]
+    partial class M12ProcessoExpImp
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,7 +38,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AgenteDeCargas", (string)null);
+                    b.ToTable("AgenteDeCargas");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.CadastroDespesa", b =>
@@ -58,7 +60,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasIndex("DCEId");
 
-                    b.ToTable("CadastroDespesa", (string)null);
+                    b.ToTable("CadastroDespesa");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.DCE", b =>
@@ -86,7 +88,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasIndex("ProcessoId");
 
-                    b.ToTable("DCE", (string)null);
+                    b.ToTable("DCE");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Despachante", b =>
@@ -103,7 +105,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Despachantes", (string)null);
+                    b.ToTable("Despachantes");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Despacho", b =>
@@ -150,7 +152,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasIndex("ProcessoId");
 
-                    b.ToTable("Despacho", (string)null);
+                    b.ToTable("Despacho");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Destino", b =>
@@ -167,7 +169,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Destino", (string)null);
+                    b.ToTable("Destino");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.ExpImp", b =>
@@ -231,7 +233,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ExpImp", (string)null);
+                    b.ToTable("ExpImp");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.FornecedorServico", b =>
@@ -256,7 +258,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasIndex("DCEId");
 
-                    b.ToTable("FornecedorServico", (string)null);
+                    b.ToTable("FornecedorServico");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Fronteira", b =>
@@ -273,7 +275,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Fronteiras", (string)null);
+                    b.ToTable("Fronteiras");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Processo", b =>
@@ -360,7 +362,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasIndex("VendedorId");
 
-                    b.ToTable("Processo", (string)null);
+                    b.ToTable("Processo");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.ProcessoExpImp", b =>
@@ -375,7 +377,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasIndex("ExpImpId");
 
-                    b.ToTable("Processo-Exportador-Importador", (string)null);
+                    b.ToTable("Processo-Exportador-Importador");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Status", b =>
@@ -392,7 +394,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Status", (string)null);
+                    b.ToTable("Status");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Usuario", b =>
@@ -421,7 +423,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuarios", (string)null);
+                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.ValorProcesso", b =>
@@ -452,7 +454,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ValorProcessos", (string)null);
+                    b.ToTable("ValorProcessos");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Vendedor", b =>
@@ -469,7 +471,7 @@ namespace kaufer_comex.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Vendedores", (string)null);
+                    b.ToTable("Vendedores");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.CadastroDespesa", b =>

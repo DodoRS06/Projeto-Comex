@@ -61,7 +61,7 @@ namespace kaufer_comex.Models
         [Required]
         public string Observacoes { get; set; }
 
-        //public virtual ICollection<ProcessoExpImp> ProcessoExpImps { get; set; }
+        public virtual ICollection<ProcessoExpImp> ProcessoExpImps { get; set; }
     }
 
     public enum TipoExpImp
