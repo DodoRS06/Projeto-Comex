@@ -16,10 +16,14 @@ namespace kaufer_comex.Models
         [Required(ErrorMessage = "Obrigatório informar certificado seguro")]
         public string CertificadoSeguro { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar data de envio")]
+        [Required(ErrorMessage = "Obrigatório informar a data")]
 
         [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
-        public DateTime DataEnvio { get; set; }
+        public DateTime DataEnvioOrigem { get; set; }
+
+        [Required(ErrorMessage = "Obrigatório informar a data")]
+        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
+        public DateTime DataEnvioSeguro { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar certificado tracking")]
         public string TrackinCourier { get; set;}
