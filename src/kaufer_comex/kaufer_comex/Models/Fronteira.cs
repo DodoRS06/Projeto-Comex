@@ -10,6 +10,7 @@ namespace kaufer_comex.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório")]
+        [Display (Name = "Fronteira(*)")]
         public string NomeFronteira { get; set; }
 
         //public virtual ICollection<Processo> Processos { get; set; }
