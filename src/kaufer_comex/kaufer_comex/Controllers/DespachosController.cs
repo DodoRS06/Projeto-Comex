@@ -13,17 +13,23 @@ namespace kaufer_comex.Controllers
             _context = context;
         }
 
+        // GET : Despachos
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.Despachos.ToListAsync();
+            var dados = await _context.Despachos
+                .Include(d => d.Processo)
+                .ToListAsync();
 
             return View(dados);
         }
+
+        // GET : Despachos/Create
         public IActionResult Create()
         {
             return View();
         }
 
+        // POST : Despachos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Despacho despacho)
@@ -37,6 +43,7 @@ namespace kaufer_comex.Controllers
             return View(despacho);
         }
 
+        // GET: Despachos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -49,6 +56,8 @@ namespace kaufer_comex.Controllers
             return View(dados);
 
         }
+
+        // POST: Despachos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Despacho despacho)
@@ -65,12 +74,15 @@ namespace kaufer_comex.Controllers
             return View();
         }
 
+        // GET : Despachos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
                 return NotFound();
 
-            var dados = await _context.Despachos.FindAsync(id);
+            var dados = await _context.Despachos
+                .Include(d => d.Processo)
+                .FirstOrDefaultAsync(d => d.Id == id);
 
             if (id == null)
                 return NotFound();
@@ -78,13 +90,15 @@ namespace kaufer_comex.Controllers
             return View(dados);
         }
 
-
+        // GET: Despachos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
                 return NotFound();
 
-            var dados = await _context.Despachos.FindAsync(id);
+            var dados = await _context.Despachos
+                .Include(d => d.Processo)
+                .FirstOrDefaultAsync(d => d.Id == id);
 
             if (id == null)
                 return NotFound();
@@ -92,6 +106,7 @@ namespace kaufer_comex.Controllers
             return View(dados);
         }
 
+        // POST: Despachos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id)

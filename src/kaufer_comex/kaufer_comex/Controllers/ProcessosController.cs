@@ -14,11 +14,14 @@ namespace kaufer_comex.Controllers
             _context = context;
         }
 
+        // GET: Processos
         public async Task<IActionResult> Index()
         {
             var dados = await _context.Processos.ToListAsync();
             return View(dados);
         }
+
+        // GET: Processos/Create
         public IActionResult Create()
         {
             ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
@@ -27,9 +30,17 @@ namespace kaufer_comex.Controllers
             ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
             ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
             ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
+
+            var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
+            var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
+
+            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
+            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+
             return View();
         }
 
+        //POST: Processos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Processo processo)
@@ -46,9 +57,17 @@ namespace kaufer_comex.Controllers
             ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
             ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
             ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
+
+            var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
+            var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
+
+            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
+            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+
             return View(processo);
         }
 
+        // GET: Processos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -65,9 +84,18 @@ namespace kaufer_comex.Controllers
             ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
             ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
 
+            var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
+            var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
+
+            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
+            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+
+
             return View(dados);
 
         }
+
+        // POST: Processos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Processo processo)
@@ -88,9 +116,17 @@ namespace kaufer_comex.Controllers
             ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
             ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
 
+            var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
+            var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
+
+            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
+            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+
+
             return View();
         }
 
+        // GET: Processos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -104,7 +140,7 @@ namespace kaufer_comex.Controllers
             return View(dados);
         }
 
-
+        // GET: Processos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -118,6 +154,7 @@ namespace kaufer_comex.Controllers
             return View(dados);
         }
 
+        // POST: Processos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id)
