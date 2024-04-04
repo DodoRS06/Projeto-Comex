@@ -9,7 +9,7 @@ namespace kaufer_comex.Models
     {
 
         [Key]
-        public int Id { get; set; }
+        public long? ItemId { get; set; }
 
         [Required(ErrorMessage = "Obrigatório")]
         public string CodigoProduto { get; set; }
@@ -46,6 +46,9 @@ namespace kaufer_comex.Models
 
         [Required(ErrorMessage = "Obrigatório")]
         public float PesoBruto { get; set; }
+
+        public virtual ICollection<NotaItem> NotaItem { get; set; }
+
     }
 }
 */

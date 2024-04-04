@@ -8,7 +8,7 @@ namespace kaufer_comex.Models
     public class Notas
     {
         [Key]
-        public int Id { get; set; }
+        public int NotasId { get; set; }
 
         [Required(ErrorMessage = "Obrigatório")]
         public int NumeroNf { get; set; }
@@ -42,6 +42,12 @@ namespace kaufer_comex.Models
 
         [Required(ErrorMessage = "Obrigatório")]
         public string CertificadoQualidade { get; set; }
+
+        public long? VeiculoId { get; set; } 
+        
+        public Veiculo Veiculo { get; set; }
+
+        public virtual ICollection<NotaItem> NotaItem { get; set; }
       
     }
 }
