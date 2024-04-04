@@ -32,12 +32,12 @@
 
             <div class="form-group col-md-6">
                 <label asp-for="ExportadorId" class="control-label"></label>
-                <input asp-for="ExportadorId" class="form-control" />
+                <select asp-for="ExportadorId" class="form-control" asp-items="ViewBag.Exportador"></select>
                 <span asp-validation-for="ExportadorId" class="text-danger"></span>
             </div>
             <div class="form-group col-md-6">
                 <label asp-for="ImportadorId" class="control-label"></label>
-                <input asp-for="ImportadorId" class="form-control" />
+                <select asp-for="ImportadorId" class="form-control" asp-items="ViewBag.Importador"></select>
                 <span asp-validation-for="ImportadorId" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
