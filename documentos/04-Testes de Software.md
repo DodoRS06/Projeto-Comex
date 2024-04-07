@@ -17,6 +17,12 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Passos 	| - Acessar o Site<br> - Digitar nome, e-mail, senha, CPF, Tipo de Usuário <br> - Clicar no botão 'Enviar cadastro' |  
 |Critério de Êxito | - O cadastro do usuário deve ser realizado.|
 |  |  |
+| **Caso de teste**   | **CT-05-Tela Cadastro do Vendedor** |
+|Requisito Associado |  RF-005 - O sistema deve permitir ao usuário cadastrar o vendedor.
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro do vendedor.|
+| Passos 	| - Acessar o Site<br> - Digitar nome <br> - Clicar no botão 'Enviar cadastro' |  
+|Critério de Êxito | - O cadastro do vendedor deve ser realizado.|
+|  |  |
 | **Caso de teste**   | **CT-06-Tela Agente de Carga** |
 |Requisito Associado |  RF-006 - O sistema deve permitir ao usuário cadastrar o Agente de Carga. | 
 | Objetivo do Teste 	| O usuário deverá cadastrar e editar o Agente de Carga.|
@@ -29,12 +35,23 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Passos 	| - Acessar o Site<br> - Fazer o login <br> - Em cadastro de Destino digitar o nome do País <br> - Clicar no botão 'Enviar cadastro' <br> - Para editar, acessar a página de edição <br> - Alterar o nome do País  <br> - Clicar em Editar  |  
 |Critério de Êxito | - O cadastro do País de Destino deve ser realizado e depois deve ser editado.|
 |   |   |
+| **Caso de teste**   | **CT-12-Tela Cadastro de Valores** |
+|Requisito Associado |  RF-012 - O sistema deve permitir o usuário cadastrar os valores da Exportação.
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro dos valores de exportação.|
+| Passos 	| - Acessar o Site<br> - Digitar os valores da exportação <br> - Clicar no botão 'Enviar cadastro' |  
+|Critério de Êxito | - O cadastro dos valores da exportação deve ser realizado.|
+|   |   |
 | **Caso de teste**   | **CT-14-Tela Cadastro de Despacho** |
 |Requisito Associado | RF-014 - O sistema deve permitir que o usuário vincule os dados do despacho aduaneiro com o processo de exportação  | 
 | Objetivo do Teste 	| O usuário deverá cadastrar e editar os dados do despacho aduaneiro e vincular ao processo de exportação.|
 | Passos 	| - Acessar o Site<br> - Fazer o login <br> - Em cadastro de Despacho digitar o dados indicados e o código do processo ao qual está vinculado <br> - Clicar no botão 'Enviar cadastro' <br> - Para editar, acessar a página de edição <br> -  Alterar os dados  <br> - Clicar em Editar  |  
 |Critério de Êxito | - O cadastro dos dados de despacho deve ser realizado e depois deve ser editado.|
 |   |   |
+| **Caso de teste**   | **CT-21-Tela Cadastro de Despachante** |
+|Requisito Associado |  RF-021 - O sistema deve permitir ao usuário cadastrar o Despachante.
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro do Despachante.|
+| Passos 	| - Acessar o Site<br> - Digitar nome do Despachante <br> - Clicar no botão 'Enviar cadastro' |  
+|Critério de Êxito | - O cadastro do Despachante deve ser realizado.|
 
 
 # Evidências de Testes de Software
