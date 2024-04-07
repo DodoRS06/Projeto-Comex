@@ -100,6 +100,10 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 
 Apresente imagens e/ou vídeos que comprovam que um determinado teste foi executado, e o resultado esperado foi obtido. Normalmente são screenshots de telas, ou vídeos do software em funcionamento.
 
+CT-02-Tela Cadastro do Usuário
+![Evidencias ](img/TesteUsuario.png)
+![Evidencias ](img/TesteUsuario2.png)
+
 CT-03 e 04-Tela Cadastro de importador e exportador
 ![Evidencias ](img/ExpImp-create.png)
 ![Evidencias ](img/ExpImp-details.png)
