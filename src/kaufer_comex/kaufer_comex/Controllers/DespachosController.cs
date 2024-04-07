@@ -1,5 +1,6 @@
 ﻿using kaufer_comex.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace kaufer_comex.Controllers
@@ -26,6 +27,7 @@ namespace kaufer_comex.Controllers
         // GET : Despachos/Create
         public IActionResult Create()
         {
+            ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
             return View();
         }
 
@@ -40,6 +42,8 @@ namespace kaufer_comex.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+
+            ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
             return View(despacho);
         }
 
@@ -52,6 +56,8 @@ namespace kaufer_comex.Controllers
             var dados = await _context.Despachos.FindAsync(id);
             if (dados == null)
                 return NotFound();
+
+            ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
 
             return View(dados);
 
@@ -71,6 +77,8 @@ namespace kaufer_comex.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+
+            ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
             return View();
         }
 

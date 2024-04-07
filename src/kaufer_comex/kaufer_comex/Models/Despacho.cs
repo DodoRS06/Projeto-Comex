@@ -15,12 +15,10 @@ namespace kaufer_comex.Models
 
         [Required(ErrorMessage = "Obrigatório informar a data DUE.")]
         [Display(Name = "Data DUE (*)")]
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime DataDue { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar a data da exportação.")]
         [Display(Name = "Data de Exportação (*)")]
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime DataExportacao { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar conhecimento de embarque.")]
@@ -29,7 +27,6 @@ namespace kaufer_comex.Models
 
         [Required(ErrorMessage = "Obrigatório informar a data de conhecimento.")]
         [Display(Name = "Data de Conhecimento (*)")]
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime DataConhecimento { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar o tipo.")]
@@ -38,7 +35,6 @@ namespace kaufer_comex.Models
 
         [Required(ErrorMessage = "Obrigatório informar a data da averbação.")]
         [Display(Name = "Data da Averbação (*)")]
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime DataAverbacao { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar o código do País.")]
