@@ -88,9 +88,25 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 
 Apresente imagens e/ou vídeos que comprovam que um determinado teste foi executado, e o resultado esperado foi obtido. Normalmente são screenshots de telas, ou vídeos do software em funcionamento.
 
+CT-03 e 04-Tela Cadastro de importador e exportador
+![Evidencias ](img/ExpImp-create.png)
+![Evidencias ](img/ExpImp-details.png)
+
 CT-05-Tela Cadastro do Vendedor
 ![Evidencias ](img/Vendedores.png)
 ![Evidencias ](img/Visualizar%20Dados%20do%20Vendedor.png)
+
+CT-09-Tela Cadastro de despesas
+![Evidencias ](img/Despesas-create.png)
+![Evidencias ](img/Despesas-details.png)
+
+CT-10-Tela Cadastro de fornecedor
+![Evidencias ](img/Fornecedor-create.png)
+![Evidencias ](img/Fornecedor-Details.png)
+
+CT-13-Tela Cadastro de DCE
+![Evidencias ](img/Dce-create.png)
+![Evidencias ](img/Dce-details.png)
 
 CT-21-Tela Cadastro de Despachante
 ![Evidencias ](img/Adicionar%20Despachante.png)
