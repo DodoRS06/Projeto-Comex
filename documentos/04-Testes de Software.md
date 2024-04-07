@@ -47,6 +47,12 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Passos 	| - Acessar o Site<br> - Fazer o login <br> - Em cadastro de Destino digitar o nome do País <br> - Clicar no botão 'Enviar cadastro' <br> - Para editar, acessar a página de edição <br> - Alterar o nome do País  <br> - Clicar em Editar  |  
 |Critério de Êxito | - O cadastro do País de Destino deve ser realizado e depois deve ser editado.|
 |   |   |
+| **Caso de teste**   | **CT-08-Tela Cadastro de Fronteira** |
+|Requisito Associado | RF-008 - O sistema deve permitir ao usuário cadastrar a Fronteira | 
+| Objetivo do Teste 	| O usuário deve cadastrar e editar a Fronteira.|
+| Passos 	| - Acessar o Site<br> - Fazer o login <br> - Em cadastro de Fronteira digitar o nome da fronteira <br> - Clicar no botão 'Adicionar' <br> - Para editar, acessar a página de edição <br> - Alterar o nome da Fronteira  <br> - Clicar em Salvar  |  
+|Critério de Êxito | - O cadastro da fronteira deve ser realizado e deve ser permitido a edição|
+|   |   |
 | **Caso de teste**   | **CT-09-Tela Cadastro de despesas** |
 |Requisito Associado |  RF-009 - O sistema deve permitir ao usuário cadastrar as despesas. | 
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro de despesas.|
@@ -95,6 +101,10 @@ CT-03 e 04-Tela Cadastro de importador e exportador
 CT-05-Tela Cadastro do Vendedor
 ![Evidencias ](img/Vendedores.png)
 ![Evidencias ](img/Visualizar%20Dados%20do%20Vendedor.png)
+
+CT-08-Tela Cadastro de Fronteira
+![Evidencias ](img/Cadastro_fronteira.png)
+![Evidencias ](img/Lista_fronteiras.png)
 
 CT-09-Tela Cadastro de despesas
 ![Evidencias ](img/Despesas-create.png)
