@@ -57,3 +57,7 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 # Evidências de Testes de Software
 
 Apresente imagens e/ou vídeos que comprovam que um determinado teste foi executado, e o resultado esperado foi obtido. Normalmente são screenshots de telas, ou vídeos do software em funcionamento.
+
+CT-05-Tela Cadastro do Vendedor
+![Evidencias ](img/Vendedores.png)
+![Evidencias ](img/Visualizar%20Dados%20do%20Vendedor.png)
