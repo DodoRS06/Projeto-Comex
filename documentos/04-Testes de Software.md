@@ -94,6 +94,13 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro dos dados do processo de exportação .|
 | Passos 	| - Acessar o Site<br> - Digitar os dados do processo. <br> - Clicar no botão 'Enviar cadastro' |  
 |Critério de Êxito | - O cadastro do Processo deve ser realizado.|
+|   |   |
+| **Caso de teste**   | **CT-22-Tela Cadastro de Status** |
+|Requisito Associado |  RF-022 - O sistema deve permitir ao usuário cadastrar o Status.
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro dos Status .|
+| Passos 	| - Acessar o Site<br> - Digitar o Status. <br> - Clicar no botão 'Enviar' |  
+|Critério de Êxito | - O cadastro do Status deve ser realizado.|
+
 
 
 # Evidências de Testes de Software
