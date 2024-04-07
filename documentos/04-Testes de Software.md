@@ -88,6 +88,12 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro do Despachante.|
 | Passos 	| - Acessar o Site<br> - Digitar nome do Despachante <br> - Clicar no botão 'Enviar cadastro' |  
 |Critério de Êxito | - O cadastro do Despachante deve ser realizado.|
+|   |   |
+| **Caso de teste**   | **CT-22-Tela Cadastro de Processo** |
+|Requisito Associado |  RF-022 - O sistema deve permitir ao usuário cadastrar o Processo de exportação.
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro dos dados do processo de exportação .|
+| Passos 	| - Acessar o Site<br> - Digitar os dados do processo. <br> - Clicar no botão 'Enviar cadastro' |  
+|Critério de Êxito | - O cadastro do Processo deve ser realizado.|
 
 
 # Evidências de Testes de Software
@@ -101,6 +107,9 @@ CT-03 e 04-Tela Cadastro de importador e exportador
 CT-05-Tela Cadastro do Vendedor
 ![Evidencias ](img/Vendedores.png)
 ![Evidencias ](img/Visualizar%20Dados%20do%20Vendedor.png)
+
+CT-07-Tela Cadastro do Destino
+![Evidencias](img/teste_destino.png)
 
 CT-08-Tela Cadastro de Fronteira
 ![Evidencias ](img/Cadastro_fronteira.png)
@@ -118,6 +127,12 @@ CT-13-Tela Cadastro de DCE
 ![Evidencias ](img/Dce-create.png)
 ![Evidencias ](img/Dce-details.png)
 
+CT-14-Tela Cadastro do Despacho
+![Evidencias](img/teste_despacho.png)
+
 CT-21-Tela Cadastro de Despachante
 ![Evidencias ](img/Adicionar%20Despachante.png)
 ![Evidencias ](img/Despachante%20Adicionado.png)
+
+CT-22- Tela Cadastro de Processo
+![Evidencias](img/teste_processo.png)

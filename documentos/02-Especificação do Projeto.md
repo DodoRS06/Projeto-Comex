@@ -54,6 +54,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-019|O sistema deve gerar relatório em excel do processo  | ALTA | 
 |RF-020|O sistema de permitir o usuário cadastrar o status do processo | ALTA | 
 |RF-021|O sistema deve permitir ao usuário cadastrar o Despachante.| ALTA | 
+|RF-022|O sistema deve permitir ao usuário cadastrar o Processo de exportação.| ALTA | 
 
 
 
