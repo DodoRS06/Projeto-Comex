@@ -108,6 +108,10 @@ CT-05-Tela Cadastro do Vendedor
 ![Evidencias ](img/Vendedores.png)
 ![Evidencias ](img/Visualizar%20Dados%20do%20Vendedor.png)
 
+CT-06-Tela Agente de Carga
+![Evidencias ](img/AgenteCargaCreate.png)
+![Evidencias ](img/AgenteCargaCreate2.png)
+
 CT-07-Tela Cadastro do Destino
 ![Evidencias](img/teste_destino.png)
 
