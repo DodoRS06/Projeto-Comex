@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using kaufer_comex.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace kaufer_comex.Controllers
 {
@@ -16,6 +19,72 @@ namespace kaufer_comex.Controllers
         public UsuariosController(AppDbContext context)
         {
             _context = context;
+        }
+
+        
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(Usuario usuario)
+        {
+            
+            
+            var dados = await _context.Usuarios
+                .FindAsync(usuario.Id);
+
+            if (dados == null)
+            {
+                ViewBag.Message = "Usuário e/ou Senha inválidos!";
+                return View();
+            }
+
+            bool SenhaOk = BCrypt.Net.BCrypt.Verify(usuario.Senha, dados.Senha);
+
+            if (SenhaOk)
+            {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name,dados.Email),
+                    new Claim(ClaimTypes.NameIdentifier,dados.Id.ToString()),
+                    new Claim(ClaimTypes.Name,dados.NomeFuncionario),
+                    new Claim(ClaimTypes.Name,dados.CPF.ToString()),
+                    new Claim(ClaimTypes.Role,dados.Perfil.ToString())
+                };
+
+
+
+                var usuarioIdentity = new ClaimsIdentity(claims, "login");
+
+                ClaimsPrincipal principal = new ClaimsPrincipal(usuarioIdentity);
+
+                var props = new AuthenticationProperties
+                {
+                    AllowRefresh = true,
+                    ExpiresUtc = DateTime.Now.ToLocalTime().AddHours(8),
+                    IsPersistent = true
+                };
+
+                await HttpContext.SignInAsync(principal, props);
+
+                return Redirect("/");
+
+            }
+
+            ViewBag.Message = "Usuário e/ou Senha inválidos!";
+            return View();
+        }
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login", "Usuarios");
+        }
+
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
 
         // GET: Usuarios
