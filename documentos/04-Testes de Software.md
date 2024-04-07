@@ -61,3 +61,7 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 CT-05-Tela Cadastro do Vendedor
 ![Evidencias ](img/Vendedores.png)
 ![Evidencias ](img/Visualizar%20Dados%20do%20Vendedor.png)
+
+CT-21-Tela Cadastro de Despachante
+![Evidencias ](img/Adicionar%20Despachante.png)
+![Evidencias ](img/Despachante%20Adicionado.png)
