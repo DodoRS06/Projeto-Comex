@@ -17,7 +17,16 @@ namespace kaufer_comex.Controllers
         // GET: Processos
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.Processos.ToListAsync();
+            var dados = await _context.Processos
+                .Include(p => p.AgenteDeCarga)
+                .Include(p => p.Despachante)
+                .Include(p => p.Vendedor)
+                .Include(p => p.Destino)
+                .Include(p => p.Fronteira)
+                .Include(p => p.Status)
+                .Include(p => p.ExpImps)
+                .ThenInclude( p => p.ExpImp)
+                .ToListAsync();
             return View(dados);
         }
 
@@ -73,7 +82,17 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-            var dados = await _context.Processos.FindAsync(id);
+            var dados = await _context.Processos
+                .Include(p => p.AgenteDeCarga)
+                .Include(p => p.Despachante)
+                .Include(p => p.Vendedor)
+                .Include(p => p.Destino)
+                .Include(p => p.Fronteira)
+                .Include(p => p.Status)
+                .Include(p => p.ExpImps)
+                .ThenInclude(p => p.ExpImp)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
             if (dados == null)
                 return NotFound();
 
@@ -132,7 +151,16 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-            var dados = await _context.Processos.FindAsync(id);
+            var dados = await _context.Processos
+                .Include(p => p.AgenteDeCarga)
+                .Include(p => p.Despachante)
+                .Include(p => p.Vendedor)
+                .Include(p => p.Destino)
+                .Include(p => p.Fronteira)
+                .Include(p => p.Status)
+                .Include(p => p.ExpImps)
+                .ThenInclude(p => p.ExpImp)
+                .FirstOrDefaultAsync(p => p.Id == id);
 
             if (id == null)
                 return NotFound();
@@ -162,7 +190,16 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-            var dados = await _context.Processos.FindAsync(id);
+            var dados = await _context.Processos
+                .Include(p => p.AgenteDeCarga)
+                .Include(p => p.Despachante)
+                .Include(p => p.Vendedor)
+                .Include(p => p.Destino)
+                .Include(p => p.Fronteira)
+                .Include(p => p.Status)
+                .Include(p => p.ExpImps)
+                .ThenInclude(p => p.ExpImp)
+                .FirstOrDefaultAsync(p => p.Id == id);
 
             if (id == null)
                 return NotFound();

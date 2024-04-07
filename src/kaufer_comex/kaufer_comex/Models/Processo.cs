@@ -77,27 +77,21 @@ namespace kaufer_comex.Models
         public string Proforma { get; set; }
 
         [Display(Name = "Data de Início do Processo (*)")]
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime DataInicioProcesso { get; set; }
 
         [Display(Name = "Previsão de produção (*)")]
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime PrevisaoProducao { get; set; }
 
         [Display(Name = "Previsão de pagamento (*)")]
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime PrevisaoPagamento { get; set; }
 
         [Display(Name = "Previsão Coleta (*)")]
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime PrevisaoColeta { get; set; }
 
         [Display(Name = "Previsão Cruze (*)")]
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime PrevisaoCruze { get; set; }
 
         [Display(Name = "Previsão de entrega (*)")]
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime PrevisaoEntrega { get; set; }
 
         [Display(Name = "Observações (*)")]
