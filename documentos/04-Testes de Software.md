@@ -17,6 +17,18 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Passos 	| - Acessar o Site<br> - Digitar nome, e-mail, senha, CPF, Tipo de Usuário <br> - Clicar no botão 'Enviar cadastro' |  
 |Critério de Êxito | - O cadastro do usuário deve ser realizado.|
 |  |  |
+| **Caso de teste**   | **CT-03-Tela Cadastro de importador** |
+|Requisito Associado |  RF-003 - O sistema deve permitir ao usuário cadastrar o importador. | 
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro do importador.|
+| Passos 	| - Acessar o Site<br> - Digitar sigla, tipo, nome, endereço, cidade, estado, país, CEP, Telefone, Email, CNPJ, Contato e observações <br> - Clicar no botão 'Enviar cadastro' |  
+|Critério de Êxito | - O cadastro do importador deve ser realizado.|
+|  |  |
+| **Caso de teste**   | **CT-04-Tela Cadastro de exportador** |
+|Requisito Associado |  RF-004 - O sistema deve permitir ao usuário cadastrar o exportador. | 
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro do exportador.|
+| Passos 	| - Acessar o Site<br> - Digitar sigla, tipo, nome, endereço, cidade, estado, país, CEP, Telefone, Email, CNPJ, Contato e observações <br> - Clicar no botão 'Enviar cadastro' |  
+|Critério de Êxito | - O cadastro do exportador deve ser realizado.|
+|  |  |
 | **Caso de teste**   | **CT-05-Tela Cadastro do Vendedor** |
 |Requisito Associado |  RF-005 - O sistema deve permitir ao usuário cadastrar o vendedor.
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro do vendedor.|
@@ -35,12 +47,30 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Passos 	| - Acessar o Site<br> - Fazer o login <br> - Em cadastro de Destino digitar o nome do País <br> - Clicar no botão 'Enviar cadastro' <br> - Para editar, acessar a página de edição <br> - Alterar o nome do País  <br> - Clicar em Editar  |  
 |Critério de Êxito | - O cadastro do País de Destino deve ser realizado e depois deve ser editado.|
 |   |   |
+| **Caso de teste**   | **CT-09-Tela Cadastro de despesas** |
+|Requisito Associado |  RF-009 - O sistema deve permitir ao usuário cadastrar as despesas. | 
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro de despesas.|
+| Passos 	| - Acessar o Site<br> - Digitar o nome da despesa <br> - Clicar no botão 'Enviar cadastro' |  
+|Critério de Êxito | - O cadastro da despesa deve ser realizado.|
+|  |  |
+| **Caso de teste**   | **CT-10-Tela Cadastro de fornecedor de serviços** |
+|Requisito Associado |  RF-010 - O sistema deve permitir o usuário cadastrar o fornecedor de serviço. | 
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro de fornecedor de serviços.|
+| Passos 	| - Acessar o Site<br> - Digitar o nome do fornecedor, tipo de serviço <br> - Clicar no botão 'Enviar cadastro' |  
+|Critério de Êxito | - O cadastro do fornecedor de serviços deve ser realizado.|
+|  |  |
 | **Caso de teste**   | **CT-12-Tela Cadastro de Valores** |
 |Requisito Associado |  RF-012 - O sistema deve permitir o usuário cadastrar os valores da Exportação.
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro dos valores de exportação.|
 | Passos 	| - Acessar o Site<br> - Digitar os valores da exportação <br> - Clicar no botão 'Enviar cadastro' |  
 |Critério de Êxito | - O cadastro dos valores da exportação deve ser realizado.|
 |   |   |
+| **Caso de teste**   | **CT-13-Tela Cadastro de DCE** |
+|Requisito Associado |  RF-013 - O sistema deve permitir que o usuário vincule as despesas com o processo de exportação. | 
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro de DCE.|
+| Passos 	| - Acessar o Site<br> - Digitar a despesa, valor e observação <br> - Clicar no botão 'Enviar cadastro' |  
+|Critério de Êxito | - O cadastro da DCE deve ser realizado.|
+|  |  |
 | **Caso de teste**   | **CT-14-Tela Cadastro de Despacho** |
 |Requisito Associado | RF-014 - O sistema deve permitir que o usuário vincule os dados do despacho aduaneiro com o processo de exportação  | 
 | Objetivo do Teste 	| O usuário deverá cadastrar e editar os dados do despacho aduaneiro e vincular ao processo de exportação.|
