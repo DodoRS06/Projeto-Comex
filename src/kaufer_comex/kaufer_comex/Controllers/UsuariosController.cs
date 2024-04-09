@@ -33,7 +33,7 @@ namespace kaufer_comex.Controllers
             
             
             var dados = await _context.Usuarios
-                .FindAsync(usuario.Id);
+                .FirstOrDefaultAsync(u => u.Email == usuario.Email);
 
             if (dados == null)
             {
