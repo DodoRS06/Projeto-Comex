@@ -58,6 +58,25 @@ namespace kaufer_comex.Controllers
             {
                 _context.Processos.Add(processo);
                 await _context.SaveChangesAsync();
+
+                var importador_ = new ProcessoExpImp
+                {
+                    ProcessoId = processo.Id,
+                    ExpImpId = processo.ImportadorId
+                };
+
+                _context.ProcessosExpImp.Add(importador_);
+                await _context.SaveChangesAsync();
+
+                var exportador_ = new ProcessoExpImp
+                {
+                    ProcessoId = processo.Id,
+                    ExpImpId = processo.ExportadorId
+                };
+
+                _context.ProcessosExpImp.Add(exportador_);
+                await _context.SaveChangesAsync();
+
                 return RedirectToAction("Index");
             }
             ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
@@ -72,6 +91,8 @@ namespace kaufer_comex.Controllers
 
             ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
             ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+
+           
 
             return View(processo);
         }
@@ -126,6 +147,25 @@ namespace kaufer_comex.Controllers
             {
                 _context.Processos.Update(processo);
                 await _context.SaveChangesAsync();
+
+                var importador_ = new ProcessoExpImp
+                {
+                    ProcessoId = processo.Id,
+                    ExpImpId = processo.ImportadorId
+                };
+
+                _context.ProcessosExpImp.Update(importador_);
+                await _context.SaveChangesAsync();
+
+                var exportador_ = new ProcessoExpImp
+                {
+                    ProcessoId = processo.Id,
+                    ExpImpId = processo.ExportadorId
+                };
+
+                _context.ProcessosExpImp.Update(exportador_);
+                await _context.SaveChangesAsync();
+
                 return RedirectToAction("Index");
             }
             ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
@@ -209,5 +249,7 @@ namespace kaufer_comex.Controllers
             return RedirectToAction("Index");
 
         }
+
+
     }
 }
