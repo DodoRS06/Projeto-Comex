@@ -3,12 +3,14 @@
 @{
     ViewData["Title"] = "Lista de Despachos";
 }
-
-<h2>Lista de Despachos</h2>
-
-<p>
-    <a asp-action="Create" class="btn btn-secondary">Adicionar Despacho</a>
-</p>
+<div class="form-group " align="center">
+    <h2>Lista de Despachos</h2>
+</div>
+<div class="d-flex flex-row-reverse bd-highlight">
+    <p>
+        <a asp-action="Create" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #fd7e14; color: #FFF">Adicionar Despacho</a>
+    </p>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -79,9 +81,9 @@
                 @Html.DisplayFor(modelItem => item.Processo.CodProcessoExportacao)
             </td> 
             <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
             </td>
         </tr>
 }
