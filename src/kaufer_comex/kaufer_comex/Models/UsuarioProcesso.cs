@@ -1,4 +1,4 @@
-﻿/*using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
 
 namespace kaufer_comex.Models
@@ -16,4 +16,3 @@ namespace kaufer_comex.Models
             public Processo Processo { get; set; }
         }
     }
-*/

@@ -47,9 +47,9 @@ namespace kaufer_comex.Controllers
             {
                 var claims = new List<Claim>
                 {
+                    new Claim(ClaimTypes.Name,dados.NomeFuncionario),
                     new Claim(ClaimTypes.Name,dados.Email),
                     new Claim(ClaimTypes.NameIdentifier,dados.Id.ToString()),
-                    new Claim(ClaimTypes.Name,dados.NomeFuncionario),
                     new Claim(ClaimTypes.Name,dados.CPF.ToString()),
                     new Claim(ClaimTypes.Role,dados.Perfil.ToString())
                 };

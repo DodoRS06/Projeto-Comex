@@ -460,6 +460,21 @@ namespace kaufer_comex.Migrations
                     b.ToTable("Usuarios");
                 });
 
+            modelBuilder.Entity("kaufer_comex.Models.UsuarioProcesso", b =>
+                {
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProcessoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UsuarioId", "ProcessoId");
+
+                    b.HasIndex("ProcessoId");
+
+                    b.ToTable("UsuarioProcessos");
+                });
+
             modelBuilder.Entity("kaufer_comex.Models.ValorProcesso", b =>
                 {
                     b.Property<int>("Id")
@@ -625,6 +640,25 @@ namespace kaufer_comex.Migrations
                     b.Navigation("Processo");
                 });
 
+            modelBuilder.Entity("kaufer_comex.Models.UsuarioProcesso", b =>
+                {
+                    b.HasOne("kaufer_comex.Models.Processo", "Processo")
+                        .WithMany("ProcessosUsuarios")
+                        .HasForeignKey("ProcessoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("kaufer_comex.Models.Usuario", "Usuario")
+                        .WithMany("UsuarioProcessos")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Processo");
+
+                    b.Navigation("Usuario");
+                });
+
             modelBuilder.Entity("kaufer_comex.Models.DCE", b =>
                 {
                     b.Navigation("CadastroDespesas");
@@ -647,6 +681,13 @@ namespace kaufer_comex.Migrations
                     b.Navigation("DCES");
 
                     b.Navigation("ExpImps");
+
+                    b.Navigation("ProcessosUsuarios");
+                });
+
+            modelBuilder.Entity("kaufer_comex.Models.Usuario", b =>
+                {
+                    b.Navigation("UsuarioProcessos");
                 });
 #pragma warning restore 612, 618
         }
