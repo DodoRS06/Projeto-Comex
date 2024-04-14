@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JXaVBhTgszsuhAc2RGfqCgX9x243XVpGxmDzNIdDH5s=",
+  "Hash": "Td5IttRmALrw3NhW9sr3XV4DXepUsdYP1HA30+pkHlc=",
   "Source": "kaufer_comex",
   "BasePath": "_content/kaufer_comex",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\excluir.png"
+    },
+    {
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\Logo.png",
+      "SourceId": "kaufer_comex",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "BasePath": "_content/kaufer_comex",
+      "RelativePath": "Images/Logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Logo.png"
     },
     {
       "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\js\\site.js",
