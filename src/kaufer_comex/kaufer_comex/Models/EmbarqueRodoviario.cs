@@ -33,7 +33,7 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Código do processo (*)")]
         [Required(ErrorMessage = "Obrigatório informar o código.")]
-        public int IdProcesso { get; set; }
+        public int ProcessoId { get; set; }
 
         [ForeignKey("ProcessoId")]
         public Processo Processo { get; set; }
