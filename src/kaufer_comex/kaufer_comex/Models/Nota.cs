@@ -1,14 +1,14 @@
-﻿/*
+﻿
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace kaufer_comex.Models
 {
     [Table("Notas")]
-    public class Notas
+    public class Nota
     {
         [Key]
-        public int NotasId { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Obrigatório")]
         public int NumeroNf { get; set; }
@@ -43,12 +43,12 @@ namespace kaufer_comex.Models
         [Required(ErrorMessage = "Obrigatório")]
         public string CertificadoQualidade { get; set; }
 
-        public long? VeiculoId { get; set; } 
+        public int VeiculoId { get; set; } 
         
-        public Veiculo Veiculo { get; set; }
+        public  Veiculo  Veiculo { get; set; } 
 
-        public virtual ICollection<NotaItem> NotaItem { get; set; }
+       // public virtual ICollection<NotaItem> NotaItem { get; set; }
       
     }
 }
-*/
+

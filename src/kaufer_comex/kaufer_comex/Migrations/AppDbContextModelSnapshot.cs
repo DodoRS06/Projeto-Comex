@@ -545,6 +545,27 @@ namespace kaufer_comex.Migrations
                     b.ToTable("ValorProcessos");
                 });
 
+            modelBuilder.Entity("kaufer_comex.Models.Veiculo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Motorista")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Placa")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Veiculo");
+                });
+
             modelBuilder.Entity("kaufer_comex.Models.Vendedor", b =>
                 {
                     b.Property<int>("Id")
