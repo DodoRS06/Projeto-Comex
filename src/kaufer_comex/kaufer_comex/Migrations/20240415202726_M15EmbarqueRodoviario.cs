@@ -20,7 +20,6 @@ namespace kaufer_comex.Migrations
                     TransitTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ChegadaDestino = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AgenteDeCargaId = table.Column<int>(type: "int", nullable: false),
-                    IdProcesso = table.Column<int>(type: "int", nullable: false),
                     ProcessoId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
