@@ -5,6 +5,30 @@
       "PackagePath": "staticwebassets\\kaufer_comex.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\Details.png",
+      "PackagePath": "staticwebassets\\Images\\Details.png"
+    },
+    {
+      "Id": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\Edit.png",
+      "PackagePath": "staticwebassets\\Images\\Edit.png"
+    },
+    {
+      "Id": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\Logo.png",
+      "PackagePath": "staticwebassets\\Images\\Logo.png"
+    },
+    {
+      "Id": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\detail.png",
+      "PackagePath": "staticwebassets\\Images\\detail.png"
+    },
+    {
+      "Id": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\editar.png",
+      "PackagePath": "staticwebassets\\Images\\editar.png"
+    },
+    {
+      "Id": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\excluir.png",
+      "PackagePath": "staticwebassets\\Images\\excluir.png"
+    },
+    {
       "Id": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

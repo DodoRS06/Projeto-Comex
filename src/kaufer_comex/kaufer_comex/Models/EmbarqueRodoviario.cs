@@ -1,10 +1,10 @@
-﻿/*using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
 
 namespace kaufer_comex.Models
 {
-    [Table ("EmbarqueRodoviario")]
+    [Table("EmbarqueRodoviario")]
     public class EmbarqueRodoviario
     {
         [Key]
@@ -12,7 +12,7 @@ namespace kaufer_comex.Models
 
         [Required(ErrorMessage = "Obrigatório informar a transportadora")]
         public string Transportadora { get; set; }
-        
+
         [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         [Required(ErrorMessage = "Obrigatório informar a data de embarque")]
         public DateTime DataEmbarque { get; set; }
@@ -31,9 +31,12 @@ namespace kaufer_comex.Models
         [ForeignKey("AgenteDeCargaId")]
         public AgenteDeCarga AgenteDeCarga { get; set; }
 
-        public int ProcessoId { get; set; }
+        [Display(Name = "Código do processo (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o código.")]
+        public int IdProcesso { get; set; }
+
         [ForeignKey("ProcessoId")]
         public Processo Processo { get; set; }
     }
 }
-*/
+
