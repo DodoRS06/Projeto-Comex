@@ -206,45 +206,6 @@ namespace kaufer_comex.Migrations
                     b.ToTable("Documentos");
                 });
 
-            modelBuilder.Entity("kaufer_comex.Models.EmbarqueRodoviario", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("AgenteDeCargaId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ChegadaDestino")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DataEmbarque")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("IdProcesso")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProcessoId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TransitTime")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Transportadora")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AgenteDeCargaId");
-
-                    b.HasIndex("ProcessoId");
-
-                    b.ToTable("EmbarqueRodoviario");
-                });
-
             modelBuilder.Entity("kaufer_comex.Models.ExpImp", b =>
                 {
                     b.Property<int>("Id")
@@ -596,23 +557,6 @@ namespace kaufer_comex.Migrations
                     b.HasOne("kaufer_comex.Models.Processo", "Processo")
                         .WithMany()
                         .HasForeignKey("ProcessoId");
-
-                    b.Navigation("Processo");
-                });
-
-            modelBuilder.Entity("kaufer_comex.Models.EmbarqueRodoviario", b =>
-                {
-                    b.HasOne("kaufer_comex.Models.AgenteDeCarga", "AgenteDeCarga")
-                        .WithMany()
-                        .HasForeignKey("AgenteDeCargaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("kaufer_comex.Models.Processo", "Processo")
-                        .WithMany()
-                        .HasForeignKey("ProcessoId");
-
-                    b.Navigation("AgenteDeCarga");
 
                     b.Navigation("Processo");
                 });
