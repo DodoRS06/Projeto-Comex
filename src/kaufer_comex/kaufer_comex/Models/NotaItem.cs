@@ -3,13 +3,13 @@
 {
     public class NotaItem
     {
-        public long? ItemId { get; set; } 
+        public int ItemId { get; set; } 
 
         public Item Item { get; set; }  
 
-        public int NotasId { get; set; } 
+        public int NotaId { get; set; } 
 
-        public Notas Notas { get; set; }    
+        public Nota Nota { get; set; }    
     }
 }
 

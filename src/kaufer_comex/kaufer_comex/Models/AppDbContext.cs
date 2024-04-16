@@ -41,19 +41,21 @@ namespace kaufer_comex.Models
          public DbSet <Documento> Documentos { get; set; }
 public DbSet <EmbarqueRodoviario> EmbarqueRodoviarios { get; set; }
 
-        // public DbSet <Notas> Notas { get; set; } 
+        // public DbSet <Nota> Notas { get; set; } 
 
         //public DbSet <Item> Itens { get; set } 
 
-        //protect override void OnModelCreating(ModelBuilder modelBuilder)
+        // public DbSet
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
-        //base.onModelCreating(modelBuilde);
+        //base.onModelCreating(modelBuilder);
         //model.Builder.Entity<NotaItem>()
         //  .HasKey(pe => new {pe.NotasId, pe.ItemId});
         //model.Builder.Entity<NotaItem>()
-        //   .HasOne(p => p.Notas)
+        //   .HasOne(p => p.Nota)
         //   .WithMany(pe =>pe.NotaItem)
-        //   .HasForeignKey(p => p.NotasId)
+        //   .HasForeignKey(p => p.NotaId)
         //model.Builder.Entity<NotaItem>()
         //   .model.Builder.Entity<NotaItem>()
         //   .HasOne(e => e.Item)
