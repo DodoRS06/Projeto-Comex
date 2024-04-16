@@ -28,8 +28,6 @@ namespace kaufer_comex.Models
 
         public DbSet<ExpImp> ExpImps { get; set; }
 
-        public DbSet<UsuarioProcesso> UsuariosProcesso{ get; set; }
-
         public DbSet<Despacho> Despachos { get; set;}
 
         public DbSet<Destino> Destinos { get; set; }
@@ -67,17 +65,6 @@ public DbSet <EmbarqueRodoviario> EmbarqueRodoviarios { get; set; }
          protected override void OnModelCreating(ModelBuilder modelBuilder)
          {
              base.OnModelCreating(modelBuilder);
-
-             modelBuilder.Entity<UsuarioProcesso>()
-                 .HasKey(pe => new { pe.UsuarioId, pe.ProcessoId});
-             modelBuilder.Entity<UsuarioProcesso>()
-                 .HasOne(p => p.Usuario)
-                .WithMany(pe => pe.UsuarioProcessos)
-                .HasForeignKey(p => p.UsuarioId);
-             modelBuilder.Entity<UsuarioProcesso>()
-                .HasOne(e => e.Processo)
-                .WithMany(pe => pe.ProcessosUsuarios)
-                .HasForeignKey(e => e.ProcessoId);
 
              modelBuilder.Entity<ProcessoExpImp>()
                  .HasKey(p => new { p.ProcessoId, p.ExpImpId });
