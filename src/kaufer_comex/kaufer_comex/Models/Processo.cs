@@ -100,8 +100,6 @@ namespace kaufer_comex.Models
 
         public virtual  ICollection<DCE> DCES { get; set; }
 
-        public virtual  ICollection<UsuarioProcesso> ProcessosUsuarios { get; set; }
-
         public virtual ICollection<ProcessoExpImp> ExpImps { get; set; }
 
     }
