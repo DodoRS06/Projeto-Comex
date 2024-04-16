@@ -39,8 +39,7 @@ namespace kaufer_comex.Models
          public DbSet <Fronteira> Fronteiras { get; set; }
 
          public DbSet <Documento> Documentos { get; set; }
-
-        // public DbSet <EmbarqueRodoviario> EmbarqueRodoviarios { get; set; }
+public DbSet <EmbarqueRodoviario> EmbarqueRodoviarios { get; set; }
 
         // public DbSet <Notas> Notas { get; set; } 
 
