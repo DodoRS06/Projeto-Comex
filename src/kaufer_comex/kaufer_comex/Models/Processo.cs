@@ -37,12 +37,9 @@ namespace kaufer_comex.Models
         [ForeignKey("DestinoId")]
         public Destino Destino { get; set; }
 
-        [Display(Name = "Agente de Carga (*)")]
-        [Required(ErrorMessage = "Obrigatório informar o Agente de carga.")]
-        public int AgenteDeCargaId { get; set; }
-
-        [ForeignKey("AgenteDeCargaId")]
-        public AgenteDeCarga AgenteDeCarga { get; set; }
+        [Display(Name = "Responsável (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o usuário responsável.")]
+        public int UsuarioResponsavel { get; set; }
 
         [Display(Name = "Fronteira (*)")]
         [Required(ErrorMessage = "Obrigatório informar a fronteira.")]

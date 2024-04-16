@@ -18,7 +18,6 @@ namespace kaufer_comex.Controllers
         public async Task<IActionResult> Index()
         {
             var dados = await _context.Processos
-                .Include(p => p.AgenteDeCarga)
                 .Include(p => p.Despachante)
                 .Include(p => p.Vendedor)
                 .Include(p => p.Destino)
@@ -104,7 +103,6 @@ namespace kaufer_comex.Controllers
                 return NotFound();
 
             var dados = await _context.Processos
-                .Include(p => p.AgenteDeCarga)
                 .Include(p => p.Despachante)
                 .Include(p => p.Vendedor)
                 .Include(p => p.Destino)
@@ -192,7 +190,6 @@ namespace kaufer_comex.Controllers
                 return NotFound();
 
             var dados = await _context.Processos
-                .Include(p => p.AgenteDeCarga)
                 .Include(p => p.Despachante)
                 .Include(p => p.Vendedor)
                 .Include(p => p.Destino)
@@ -215,7 +212,7 @@ namespace kaufer_comex.Controllers
                 return NotFound();
 
             var dados = await _context.Processos
-                .Include(p => p.AgenteDeCarga)
+                
                 .Include(p => p.Despachante)
                 .Include(p => p.Vendedor)
                 .Include(p => p.Destino)
@@ -240,7 +237,7 @@ namespace kaufer_comex.Controllers
                 return NotFound();
 
             var dados = await _context.Processos
-                .Include(p => p.AgenteDeCarga)
+                
                 .Include(p => p.Despachante)
                 .Include(p => p.Vendedor)
                 .Include(p => p.Destino)
