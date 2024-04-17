@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using kaufer_comex.Models;
 
@@ -11,9 +12,10 @@ using kaufer_comex.Models;
 namespace kaufer_comex.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240416235645_M16Veiculo")]
+    partial class M16Veiculo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -346,58 +348,6 @@ namespace kaufer_comex.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Fronteiras");
-                });
-
-            modelBuilder.Entity("kaufer_comex.Models.Item", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<float>("AreaM2")
-                        .HasColumnType("real");
-
-                    b.Property<string>("CodigoProduto")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("Comprimento")
-                        .HasColumnType("real");
-
-                    b.Property<string>("DescricaoProduto")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("Diametro")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Expressura")
-                        .HasColumnType("real");
-
-                    b.Property<string>("Familia")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("Largura")
-                        .HasColumnType("real");
-
-                    b.Property<float>("LarguraAparente")
-                        .HasColumnType("real");
-
-                    b.Property<float>("PesoBruto")
-                        .HasColumnType("real");
-
-                    b.Property<float>("PesoLiquido")
-                        .HasColumnType("real");
-
-                    b.Property<float>("VolumeM2")
-                        .HasColumnType("real");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Itens");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Processo", b =>

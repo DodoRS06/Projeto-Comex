@@ -41,9 +41,9 @@ public DbSet <EmbarqueRodoviario> EmbarqueRodoviarios { get; set; }
 
         // public DbSet <Nota> Notas { get; set; } 
 
-        //public DbSet <Item> Itens { get; set } 
+        public DbSet<Item> Itens { get; set; }
 
-        // public DbSet
+        public DbSet <Veiculo> Veiculos { get; set; }  
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{

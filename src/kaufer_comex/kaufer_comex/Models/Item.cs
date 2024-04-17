@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace kaufer_comex.Models
 {
-    [Table("Item")]
+    [Table("Itens")]
     public class Item
     {
 

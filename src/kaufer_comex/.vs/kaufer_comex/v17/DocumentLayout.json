@@ -1,7 +1,36 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Migrations\\20240417000212_M17Item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:kaufer_comex\\Migrations\\20240417000212_M17Item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\models\\veiculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\models\\veiculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Migrations\\20240416235645_M16Veiculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:kaufer_comex\\Migrations\\20240416235645_M16Veiculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\models\\nota.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\models\\nota.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\models\\notaitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\models\\notaitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +55,97 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20240417000212_M17Item.cs",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Migrations\\20240417000212_M17Item.cs",
+              "RelativeDocumentMoniker": "kaufer_comex\\Migrations\\20240417000212_M17Item.cs",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Migrations\\20240417000212_M17Item.cs",
+              "RelativeToolTip": "kaufer_comex\\Migrations\\20240417000212_M17Item.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T00:02:12.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "20240416235645_M16Veiculo.cs",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Migrations\\20240416235645_M16Veiculo.cs",
+              "RelativeDocumentMoniker": "kaufer_comex\\Migrations\\20240416235645_M16Veiculo.cs",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Migrations\\20240416235645_M16Veiculo.cs",
+              "RelativeToolTip": "kaufer_comex\\Migrations\\20240416235645_M16Veiculo.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwCIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T23:56:46.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Models\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "kaufer_comex\\Models\\AppDbContext.cs",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Models\\AppDbContext.cs",
+              "RelativeToolTip": "kaufer_comex\\Models\\AppDbContext.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAA4wCkAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T22:00:06.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Models\\Item.cs",
+              "RelativeDocumentMoniker": "kaufer_comex\\Models\\Item.cs",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Models\\Item.cs",
+              "RelativeToolTip": "kaufer_comex\\Models\\Item.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwAcAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T21:59:30.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Veiculo.cs",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Models\\Veiculo.cs",
+              "RelativeDocumentMoniker": "kaufer_comex\\Models\\Veiculo.cs",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Models\\Veiculo.cs",
+              "RelativeToolTip": "kaufer_comex\\Models\\Veiculo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T21:59:15.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Nota.cs",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Models\\Nota.cs",
+              "RelativeDocumentMoniker": "kaufer_comex\\Models\\Nota.cs",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Models\\Nota.cs",
+              "RelativeToolTip": "kaufer_comex\\Models\\Nota.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T21:57:30.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NotaItem.cs",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Models\\NotaItem.cs",
+              "RelativeDocumentMoniker": "kaufer_comex\\Models\\NotaItem.cs",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Models\\NotaItem.cs",
+              "RelativeToolTip": "kaufer_comex\\Models\\NotaItem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T21:57:03.42Z",
+              "EditorCaption": ""
             }
           ]
         },
