@@ -1,4 +1,4 @@
-﻿/*
+﻿
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -54,6 +54,11 @@ namespace kaufer_comex.Models
         [Required(ErrorMessage = "Obrigatório")]
         public string CertificadoQualidade { get; set; }
 
+        public int EmbarqueRodoviarioId { get; set; }
+
+        [ForeignKey("EmbarqueRodoviarioId")]
+        public EmbarqueRodoviario EmbarqueRodoviario { get; set; }
+
         public int VeiculoId { get; set; }
 
         [ForeignKey("VeiculoId")]
@@ -64,4 +69,4 @@ namespace kaufer_comex.Models
     }
 }  
 
-*/
+

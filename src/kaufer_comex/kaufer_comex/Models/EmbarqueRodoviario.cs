@@ -36,6 +36,8 @@ namespace kaufer_comex.Models
         public int ProcessoId { get; set; }
         [ForeignKey("ProcessoId")]
         public Processo Processo { get; set; }
+
+   
     }
 }
 
