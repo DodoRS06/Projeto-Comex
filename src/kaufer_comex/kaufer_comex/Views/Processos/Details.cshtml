@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.UsuarioId)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.UsuarioId)
+            @Html.DisplayFor(model => model.Usuario.NomeFuncionario)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.ExportadorId)
@@ -135,6 +135,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px">Editar</a> |
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px">Editar</a> |
     <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>
