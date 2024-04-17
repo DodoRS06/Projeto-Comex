@@ -44,37 +44,37 @@ namespace kaufer_comex.Migrations
                         column: x => x.AgenteDeCargaId,
                         principalTable: "AgenteDeCargas",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Processo_Despachantes_DespachanteId",
                         column: x => x.DespachanteId,
                         principalTable: "Despachantes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Processo_Destino_DestinoId",
                         column: x => x.DestinoId,
                         principalTable: "Destino",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Processo_Fronteiras_FronteiraId",
                         column: x => x.FronteiraId,
                         principalTable: "Fronteiras",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Processo_Status_StatusId",
                         column: x => x.StatusId,
                         principalTable: "Status",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Processo_Vendedores_VendedorId",
                         column: x => x.VendedorId,
                         principalTable: "Vendedores",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(

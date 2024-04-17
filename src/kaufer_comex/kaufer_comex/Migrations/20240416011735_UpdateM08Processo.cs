@@ -40,7 +40,7 @@ namespace kaufer_comex.Migrations
                 column: "AgenteDeCargaId",
                 principalTable: "AgenteDeCargas",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.NoAction);
         }
     }
 }
