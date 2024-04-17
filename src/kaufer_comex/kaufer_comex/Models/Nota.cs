@@ -64,7 +64,7 @@ namespace kaufer_comex.Models
         [ForeignKey("VeiculoId")]
         public Veiculo Veiculo { get; set; }
 
-       // public virtual ICollection<NotaItem> NotaItem { get; set; }
+        public virtual ICollection<NotaItem> NotaItem { get; set; }
       
     }
 }  

@@ -1,15 +1,18 @@
 ﻿
-//    namespace kaufer_comex.Models
-//{
-//    public class NotaItem
-//    {
-//        public int ItemId { get; set; } 
+using System.ComponentModel.DataAnnotations.Schema;
 
-//        public Item Item { get; set; }  
+namespace kaufer_comex.Models
+{
+    [Table("NotaItens")]
+    public class NotaItem
+    {
+        public int ItemId { get; set; }
 
-//        public int NotaId { get; set; } 
+        public Item Item { get; set; }
 
-//        public Nota Nota { get; set; }    
-//    }
-//}
+        public int NotaId { get; set; }
+
+        public Nota Nota { get; set; }
+    }
+}
 
