@@ -34,10 +34,11 @@ namespace kaufer_comex.Models
 
         public DbSet<Status> Status { get; set; }
 
-         public DbSet <Fronteira> Fronteiras { get; set; }
+        public DbSet <Fronteira> Fronteiras { get; set; }
 
-         public DbSet <Documento> Documentos { get; set; }
-public DbSet <EmbarqueRodoviario> EmbarqueRodoviarios { get; set; }
+        public DbSet <Documento> Documentos { get; set; }
+
+        public DbSet <EmbarqueRodoviario> EmbarqueRodoviarios { get; set; }
 
         public DbSet<Nota> Notas { get; set; }
 
@@ -46,6 +47,7 @@ public DbSet <EmbarqueRodoviario> EmbarqueRodoviarios { get; set; }
         public DbSet <Veiculo> Veiculos { get; set; }  
 
         public DbSet <NotaItem> NotaItens { get; set; } 
+
         public DbSet <ProcessoExpImp> ProcessosExpImp  { get; set; }
 
          protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -63,16 +65,19 @@ public DbSet <EmbarqueRodoviario> EmbarqueRodoviarios { get; set; }
                   .HasOne(p => p.ExpImp).WithMany(p => p.ProcessoExpImps)
                   .HasForeignKey(p => p.ExpImpId);
 
-            modelBuilder.Entity<NotaItem>()
-         .HasKey(pe => new {pe.NotaId, pe.ItemId});
-            modelBuilder.Entity<NotaItem>()
-               .HasOne(p => p.Nota)
-               .WithMany(pe => pe.NotaItem)
-               .HasForeignKey(p => p.NotaId);
-        modelBuilder.Entity<NotaItem>()
-           .HasOne(e => e.Item)
-           .WithMany(pe => pe.NotaItem)
-          .HasForeignKey(e => e.ItemId);
+             modelBuilder.Entity<NotaItem>()
+                  .HasKey(pe => new {pe.NotaId, pe.ItemId});
+
+             modelBuilder.Entity<NotaItem>()
+                  .HasOne(p => p.Nota)
+                  .WithMany(pe => pe.NotaItem)
+                  .HasForeignKey(p => p.NotaId);
+
+             modelBuilder.Entity<NotaItem>()
+                  .HasOne(e => e.Item)
+                  .WithMany(pe => pe.NotaItem)
+                  .HasForeignKey(e => e.ItemId);
+                  
          }
 
     }

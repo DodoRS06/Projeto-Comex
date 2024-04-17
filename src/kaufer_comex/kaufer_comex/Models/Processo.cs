@@ -39,7 +39,10 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Responsável (*)")]
         [Required(ErrorMessage = "Obrigatório informar o usuário responsável.")]
-        public int UsuarioResponsavel { get; set; }
+        public int UsuarioId { get; set; }
+
+        [ForeignKey("UsuarioId")]
+        public Usuario Usuario { get; set; }
 
         [Display(Name = "Fronteira (*)")]
         [Required(ErrorMessage = "Obrigatório informar a fronteira.")]

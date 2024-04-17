@@ -23,6 +23,7 @@ namespace kaufer_comex.Controllers
                 .Include(p => p.Destino)
                 .Include(p => p.Fronteira)
                 .Include(p => p.Status)
+                .Include(p => p.Usuario)
                 .Include(p => p.ExpImps)
                 .ThenInclude( p => p.ExpImp)
                 .ToListAsync();
@@ -38,12 +39,14 @@ namespace kaufer_comex.Controllers
             ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
             ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
             ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
+            ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
+
 
             var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
             var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
 
-            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
-            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+            ViewData["Importador"] = new SelectList(importador, "Id", "Nome", "");
+            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome", "");
 
             return View();
         }
@@ -84,12 +87,13 @@ namespace kaufer_comex.Controllers
             ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
             ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
             ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
+            ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
 
             var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
             var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
 
-            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
-            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+            ViewData["Importador"] = new SelectList(importador, "Id", "Nome", "");
+            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome", "");
 
            
 
@@ -108,6 +112,7 @@ namespace kaufer_comex.Controllers
                 .Include(p => p.Destino)
                 .Include(p => p.Fronteira)
                 .Include(p => p.Status)
+                .Include(p => p.Usuario)
                 .Include(p => p.ExpImps)
                 .ThenInclude(p => p.ExpImp)
                 .FirstOrDefaultAsync(p => p.Id == id);
@@ -121,12 +126,13 @@ namespace kaufer_comex.Controllers
             ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
             ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
             ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
+            ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
 
             var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
             var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
 
-            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
-            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+            ViewData["Importador"] = new SelectList(importador, "Id", "Nome", "");
+            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome", "");
 
 
             return View(dados);
@@ -172,12 +178,13 @@ namespace kaufer_comex.Controllers
             ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
             ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
             ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
+            ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
 
             var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
             var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
 
-            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
-            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+            ViewData["Importador"] = new SelectList(importador, "Id", "Nome", "");
+            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome", "");
 
 
             return View();
@@ -195,6 +202,7 @@ namespace kaufer_comex.Controllers
                 .Include(p => p.Destino)
                 .Include(p => p.Fronteira)
                 .Include(p => p.Status)
+                .Include(p => p.Usuario)
                 .Include(p => p.ExpImps)
                 .ThenInclude(p => p.ExpImp)
                 .FirstOrDefaultAsync(p => p.Id == id);
@@ -218,6 +226,7 @@ namespace kaufer_comex.Controllers
                 .Include(p => p.Destino)
                 .Include(p => p.Fronteira)
                 .Include(p => p.Status)
+                .Include(p => p.Usuario)
                 .Include(p => p.ExpImps)
                 .ThenInclude(p => p.ExpImp)
                 .FirstOrDefaultAsync(p => p.Id == id); 
@@ -243,6 +252,7 @@ namespace kaufer_comex.Controllers
                 .Include(p => p.Destino)
                 .Include(p => p.Fronteira)
                 .Include(p => p.Status)
+                .Include(p => p.Usuario)
                 .Include(p => p.ExpImps)
                 .ThenInclude(p => p.ExpImp)
                 .FirstOrDefaultAsync(p => p.Id == id);
