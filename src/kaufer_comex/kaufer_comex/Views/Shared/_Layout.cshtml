@@ -42,8 +42,8 @@
                                 <li><a class="dropdown-item" asp-area="" asp-controller="CadastroDespesas" asp-action="Index">Despesas</a></li>
                                 <li><a class="dropdown-item" asp-area="" asp-controller="FornecedorServicos" asp-action="Index">Fornecedores</a></li>
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Veiculos" asp-action="Index">Veiculos</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="EmbarqueRodoviarios" asp-action="Index">Embarque Rodoviário</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Documentos" asp-action="Index">Documentos</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Itens" asp-action="Index">Itens</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Notas" asp-action="Index">Notas</a></li>
                             </ul>
                         </li>
                        @*  <li class="nav-item">
@@ -74,7 +74,11 @@
                         }
                         else
                         {
-                           
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Create">Usuarios</a>
+                            </li>
+                        </ul>
                         }
 
                     
