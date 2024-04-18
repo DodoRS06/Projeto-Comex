@@ -1,0 +1,30 @@
+﻿@model kaufer_comex.Models.Veiculo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br  />
+<h3> Veículo</h3>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Placa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Placa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Motorista)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Motorista)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px">Editar</a> |
+    <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+</div>
