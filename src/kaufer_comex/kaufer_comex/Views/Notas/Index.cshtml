@@ -1,0 +1,107 @@
+﻿@model IEnumerable<kaufer_comex.Models.Nota>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroNf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emissao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaseNota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorFob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorFrete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorSeguro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorCif)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PesoLiq)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PesoBruto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxaCambial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CertificadoQualidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmbarqueRodoviario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Veiculo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroNf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emissao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BaseNota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorFob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorFrete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorSeguro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorCif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PesoLiq)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PesoBruto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxaCambial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CertificadoQualidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmbarqueRodoviario.Transportadora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Veiculo.Motorista)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
