@@ -10,7 +10,6 @@
         <h4>Cadastrar Agente de Carga</h4>
     </div>
     <hr />
-    <div class="col-md-6">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -19,16 +18,16 @@
                 <input asp-for="NomeAgenteCarga" class="form-control" />
                 <span asp-validation-for="NomeAgenteCarga" class="text-danger"></span>
             </div>
-        <div class="form-group " align="center">
-            <br />
-            <input type="submit" value="Cadastrar" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px" />
-            <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-        </div>
+            <div class="form-group " align="center">
+                <br />
+                <input type="submit" value="Cadastrar" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px" />
+                <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+            </div>
         </form>
     </div>
 
-
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
