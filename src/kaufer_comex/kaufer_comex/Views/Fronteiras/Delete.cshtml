@@ -1,14 +1,11 @@
 ﻿@model kaufer_comex.Models.Fronteira
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Excluir Fronteira";
 }
 
-<h1>Apagar fronteira</h1>
-
-<h3>Tem certeza que deseja apagar esse registro?</h3>
 <div>
-    <h4>Fronteira</h4>
+    <h4>Você tem certeza que deseja excluir a fronteira?</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -21,7 +18,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <a asp-action="Index" class="btn btn-info">Voltar</a>
-        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        <input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
+        <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
     </form>
 </div>

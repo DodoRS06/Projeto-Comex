@@ -1,15 +1,13 @@
 ﻿@model kaufer_comex.Models.Fronteira
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Fronteira";
 }
-
-<h1>Editar dados da fronteira</h1>
-
-<h4>Fronteira</h4>
+<div class="container">
+<div class="form-group " align="center">
+<h4>Editar Fronteira</h4>
+</div>
 <hr />
-<div class="row">
-    <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -18,14 +16,15 @@
                 <input asp-for="NomeFronteira" class="form-control" />
                 <span asp-validation-for="NomeFronteira" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <a asp-action="Index" class="btn btn-info">Voltar</a>
-                <input type="submit" value="Salvar" class="btn btn-success" />
-            </div>
+    <div class="form-group " align="center">
+        <br />
+        <input type="submit" value="Editar" class="btn " style=" background-color:#F08433; color: #FFF; width: 100px" />
+        <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+    </div>
         </form>
     </div>
 </div>
-
+</div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

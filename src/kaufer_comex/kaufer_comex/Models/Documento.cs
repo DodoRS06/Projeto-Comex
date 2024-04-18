@@ -10,21 +10,26 @@ namespace kaufer_comex.Models
         [Key]
         public int Id { get; set; }
 
+        [Display(Name = "Certificado de origem (*)")]
         [Required(ErrorMessage = "Obrigatório informar certificado origem")]
         public string CertificadoOrigem { get; set; }
 
+        [Display(Name = "Certificado do Seguro (*)")]
         [Required(ErrorMessage = "Obrigatório informar certificado seguro")]
         public string CertificadoSeguro { get; set; }
 
+        [Display(Name = "Envio do Certificado de origem (*)")]
         [Required(ErrorMessage = "Obrigatório informar a data")]
 
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime DataEnvioOrigem { get; set; }
 
+        [Display(Name = "Envio do Certificado do seguro: (*)")]
         [Required(ErrorMessage = "Obrigatório informar a data")]
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
+
+
         public DateTime DataEnvioSeguro { get; set; }
 
+        [Display(Name = "Tracking: (*)")]
         [Required(ErrorMessage = "Obrigatório informar certificado tracking")]
         public string TrackinCourier { get; set;}
 

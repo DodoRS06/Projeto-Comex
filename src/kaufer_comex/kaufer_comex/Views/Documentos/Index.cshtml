@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<kaufer_comex.Models.Documento>
 
 @{
-    ViewData["Title"] = "Lista de documentos";
+    ViewData["Title"] = "Documentos";
 }
-
+<div class="container">
 <h1>Lista de documentos</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+    <div class="d-flex flex-row-reverse bd-highlight">
+    <p>
+        <a asp-action="Create" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #F08433; color: #FFF">Adicionar Documento</a>
+    </p>
+    </div>
 <table class="table">
     <thead>
         <tr>
@@ -49,11 +50,12 @@
                 @Html.DisplayFor(modelItem => item.TrackinCourier)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+</div>

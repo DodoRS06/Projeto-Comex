@@ -1,13 +1,13 @@
 ﻿@model kaufer_comex.Models.Fronteira
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes Fronteira";
 }
 
-<h1>Dados da fronteira</h1>
 
 <div>
-    <h4>Fronteira</h4>
+    <br />
+    <h3>Detalhes da Fonteira</h3>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -19,6 +19,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Index" class="btn btn-info">Voltar</a>
-    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.Id">Editar</a> 
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px">Editar</a> |
+    <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>
