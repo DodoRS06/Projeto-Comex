@@ -23,13 +23,13 @@ namespace kaufer_comex.Migrations
                         column: x => x.ExpImpId,
                         principalTable: "ExpImp",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Processo-Exportador-Importador_Processo_ProcessoId",
                         column: x => x.ProcessoId,
                         principalTable: "Processo",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(

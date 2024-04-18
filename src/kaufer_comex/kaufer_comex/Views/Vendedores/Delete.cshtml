@@ -4,11 +4,8 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Apagar dados do Vendedor</h1>
-
-<h3>Tem certeza que deseja continuar essa ação?</h3>
 <div>
-    <h4>Vendedor</h4>
+    <h4>Você tem certeza que deseja excluir o Vendedor? :  @Html.DisplayFor(model => model.NomeVendedor) ?</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -21,8 +18,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <a asp-action="Index" class="btn btn-danger">Voltar</a>|
-        <input type="submit" value="Delete" class="btn btn-danger" /> 
-       
+        <input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
+        <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
     </form>
 </div>
