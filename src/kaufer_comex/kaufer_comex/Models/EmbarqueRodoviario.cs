@@ -10,21 +10,24 @@ namespace kaufer_comex.Models
         [Key]
         public int Id { get; set; }
 
+        [Display(Name = "Trasportadora: (*)")]
         [Required(ErrorMessage = "Obrigatório informar a transportadora")]
         public string Transportadora { get; set; }
-        
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
+
+        [Display(Name = "Data do Embarque: (*)")]
         [Required(ErrorMessage = "Obrigatório informar a data de embarque")]
         public DateTime DataEmbarque { get; set; }
 
+        [Display(Name = "Transit Time: (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o Transit Time")]
         public string TransitTime { get; set; }
 
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
+        [Display(Name = "Chegada no Destino: (*)")]
         [Required(ErrorMessage = "Obrigatório informar a data de chegada")]
         public DateTime ChegadaDestino { get; set; }
 
 
-        [Display(Name = "Agente de Carga (*)")]
+        [Display(Name = "Agente de Carga: (*)")]
         [Required(ErrorMessage = "Obrigatório informar o agente.")]
         public int AgenteDeCargaId { get; set; }
 
