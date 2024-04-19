@@ -3243,3 +3243,4 @@ C:\repositório atual\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\ka
 C:\repositório atual\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Debug\net6.0\kaufer_comex.pdb
 C:\repositório atual\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Debug\net6.0\kaufer_comex.genruntimeconfig.cache
 C:\repositório atual\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Debug\net6.0\ref\kaufer_comex.dll
+C:\Users\dodos\Source\Repos\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\bin\Debug\net6.0\BCrypt.Net-Next.dll
