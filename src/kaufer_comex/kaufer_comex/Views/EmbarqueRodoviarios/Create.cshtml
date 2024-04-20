@@ -1,54 +1,56 @@
 ﻿@model kaufer_comex.Models.EmbarqueRodoviario
 
 @{
-    ViewData["Title"] = "Cadastrar Embarque";
+	ViewData["Title"] = "Cadastrar Embarque";
 }
 <div class="container">
-<div class="form-group " align="center">
-<h4>Cadastrar Embarque Rodoviário</h4>
-</div>
-<hr />
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="row">
-            <div class="form-group col-md-4">
-                <label asp-for="Transportadora" class="control-label"></label>
-                <input asp-for="Transportadora" class="form-control" />
-                <span asp-validation-for="Transportadora" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-4">
-                <label asp-for="DataEmbarque" class="control-label"></label>
-                <input asp-for="DataEmbarque" class="form-control" />
-                <span asp-validation-for="DataEmbarque" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-4">
-                <label asp-for="TransitTime" class="control-label"></label>
-                <input asp-for="TransitTime" class="form-control" />
-                <span asp-validation-for="TransitTime" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-4">
-                <label asp-for="ChegadaDestino" class="control-label"></label>
-                <input asp-for="ChegadaDestino" class="form-control" />
-                <span asp-validation-for="ChegadaDestino" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-4">
-                <label asp-for="AgenteDeCargaId" class="control-label"></label>
-                <select asp-for="AgenteDeCargaId" class ="form-control" asp-items="ViewBag.AgenteDeCargaId"></select>
-            </div>
-            <div class="form-group col-md-4">
-                <label asp-for="ProcessoId" class="control-label"></label>
-                <select asp-for="ProcessoId" class ="form-control" asp-items="ViewBag.ProcessoId"></select>
-                </div>
-                    <div class="form-group " align="center">
-                        <br />
-                        <input type="submit" value="Cadastrar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
-                        <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-                    </div>
-                </div>   
-        </form>
+	<div class="form-group " align="center">
+		<h4>Cadastrar Embarque Rodoviário</h4>
+	</div>
+	<hr />
+	<form asp-action="Create">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<div class="row">
+			<div class="form-group col-md-4">
+				<label asp-for="Transportadora" class="control-label"></label>
+				<input asp-for="Transportadora" class="form-control" />
+				<span asp-validation-for="Transportadora" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-4">
+				<label asp-for="DataEmbarque" class="control-label"></label>
+				<input asp-for="DataEmbarque" class="form-control" />
+				<span asp-validation-for="DataEmbarque" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-4">
+				<label asp-for="TransitTime" class="control-label"></label>
+				<input asp-for="TransitTime" class="form-control" />
+				<span asp-validation-for="TransitTime" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-4">
+				<label asp-for="ChegadaDestino" class="control-label"></label>
+				<input asp-for="ChegadaDestino" class="form-control" />
+				<span asp-validation-for="ChegadaDestino" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-4">
+				<label asp-for="AgenteDeCargaId" class="control-label"></label>
+				<select asp-for="AgenteDeCargaId" class="form-control" asp-items="ViewBag.AgenteDeCargaId"></select>
+			</div>
+			<div class="form-group col-md-4">
+				<label asp-for="ProcessoId" class="control-label"></label>
+				<select asp-for="ProcessoId" class="form-control" asp-items="ViewBag.ProcessoId"></select>
+			</div>
+			<div class="form-group " align="center">
+				<br />
+				<input type="submit" value="Cadastrar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
+				<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+			</div>
+		</div>
+	</form>
 
-    </div>
+</div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	}

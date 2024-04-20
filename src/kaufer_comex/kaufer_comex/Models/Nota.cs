@@ -16,7 +16,7 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Emissão (*)")]
         [Required(ErrorMessage = "Obrigatório")]
-        public DateTime Emissao{ get; set; }
+        public DateTime Emissao { get; set; }
 
         [Display(Name = "Base Nota (*)")]
         [Required(ErrorMessage = "Obrigatório")]
@@ -65,8 +65,8 @@ namespace kaufer_comex.Models
         public Veiculo Veiculo { get; set; }
 
         public virtual ICollection<NotaItem> NotaItem { get; set; }
-      
+
     }
-}  
+}
 
 

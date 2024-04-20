@@ -33,7 +33,7 @@ namespace kaufer_comex.Models
 
     public enum Moeda
     {
-       Real, 
+        Real,
         Dólar,
         Euro,
     }

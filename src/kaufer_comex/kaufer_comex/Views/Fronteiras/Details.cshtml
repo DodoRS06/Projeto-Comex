@@ -1,24 +1,24 @@
 ﻿@model kaufer_comex.Models.Fronteira
 
 @{
-    ViewData["Title"] = "Detalhes Fronteira";
+	ViewData["Title"] = "Detalhes Fronteira";
 }
 
 
 <div>
-    <br />
-    <h3>Detalhes da Fonteira</h3>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NomeFronteira)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NomeFronteira)
-        </dd>
-    </dl>
+	<br />
+	<h3>Detalhes da Fonteira</h3>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.NomeFronteira)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.NomeFronteira)
+		</dd>
+	</dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px">Editar</a> |
-    <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+	<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px">Editar</a> |
+	<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>

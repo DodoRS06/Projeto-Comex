@@ -27,7 +27,7 @@ namespace kaufer_comex.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(AgenteDeCarga agenteDeCarga)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _context.AgenteDeCargas.Add(agenteDeCarga);
                 await _context.SaveChangesAsync();
@@ -36,14 +36,14 @@ namespace kaufer_comex.Controllers
             return View(agenteDeCarga);
         }
 
-        public async Task<IActionResult> Edit (int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
-                return  NotFound();
+                return NotFound();
 
             var dados = await _context.AgenteDeCargas.FindAsync(id);
-            if(dados == null)
-                    return NotFound();
+            if (dados == null)
+                return NotFound();
 
             return View(dados);
 
@@ -76,7 +76,7 @@ namespace kaufer_comex.Controllers
             return View(dados);
         }
 
-      
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

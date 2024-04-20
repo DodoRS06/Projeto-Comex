@@ -55,18 +55,18 @@ namespace kaufer_comex.Models
 
     }
 
-        public enum Tipo
-        {
-            CRT,
-            AWB,
-            BL
-        }
-
-        public enum Parametrizacao
-        {
-            Verde,
-            Laranja,
-            Vermelho
-        }
+    public enum Tipo
+    {
+        CRT,
+        AWB,
+        BL
     }
+
+    public enum Parametrizacao
+    {
+        Verde,
+        Laranja,
+        Vermelho
+    }
+}
 

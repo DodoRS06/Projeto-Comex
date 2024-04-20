@@ -1,29 +1,31 @@
 ﻿@model kaufer_comex.Models.Fronteira
 
 @{
-    ViewData["Title"] = "Cadastrar Fronteira";
+	ViewData["Title"] = "Cadastrar Fronteira";
 }
 <div class="container">
-<div class="form-group " align="center">
-<h4>Cadastrar Fronteiras</h4>
-</div>
-<hr />
- 
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="NomeFronteira" class="control-label"></label>
-                <input asp-for="NomeFronteira" class="form-control" />
-                <span asp-validation-for="NomeFronteira" class="text-danger"></span>
-            </div>
-        <div class="form-group " align="center">
-            <br />
-            <input type="submit" value="Cadastrar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
-            <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-        </div>
-        </form>
+	<div class="form-group " align="center">
+		<h4>Cadastrar Fronteiras</h4>
+	</div>
+	<hr />
+
+	<form asp-action="Create">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<div class="form-group">
+			<label asp-for="NomeFronteira" class="control-label"></label>
+			<input asp-for="NomeFronteira" class="form-control" />
+			<span asp-validation-for="NomeFronteira" class="text-danger"></span>
+		</div>
+		<div class="form-group " align="center">
+			<br />
+			<input type="submit" value="Cadastrar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
+			<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+		</div>
+	</form>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	}

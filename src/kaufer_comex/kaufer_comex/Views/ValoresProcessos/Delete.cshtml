@@ -1,57 +1,57 @@
 ﻿@model kaufer_comex.Models.ValorProcesso
 
 @{
-    ViewData["Title"] = "Delete";
+	ViewData["Title"] = "Delete";
 }
 <div>
-    <h4>Você tem certeza que deseja excluir os valores desse processo? :  @Html.DisplayFor(model => model.ValorTotalCif) ?</h4>
-    <hr />
+	<h4>Você tem certeza que deseja excluir os valores desse processo? :  @Html.DisplayFor(model => model.ValorTotalCif) ?</h4>
+	<hr />
 
-<div>
-    <h4>ValorProcesso</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorExw)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValorExw)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorFobFca)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValorFobFca)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FreteInternacional)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FreteInternacional)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SeguroInternaciona)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SeguroInternaciona)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorTotalCif)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValorTotalCif)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Moeda)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Moeda)
-        </dd>
-    </dl>
+	<div>
+		<h4>ValorProcesso</h4>
+		<hr />
+		<dl class="row">
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.ValorExw)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.ValorExw)
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.ValorFobFca)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.ValorFobFca)
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.FreteInternacional)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.FreteInternacional)
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.SeguroInternaciona)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.SeguroInternaciona)
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.ValorTotalCif)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.ValorTotalCif)
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Moeda)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.Moeda)
+			</dd>
+		</dl>
 
-        <form asp-action="Delete">
-            <input type="hidden" asp-for="Id" />
-            <input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
-            <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-        </form>
-</div>
+		<form asp-action="Delete">
+			<input type="hidden" asp-for="Id" />
+			<input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
+			<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+		</form>
+	</div>

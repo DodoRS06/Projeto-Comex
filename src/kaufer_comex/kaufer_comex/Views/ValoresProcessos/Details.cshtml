@@ -1,54 +1,54 @@
 ﻿@model kaufer_comex.Models.ValorProcesso
 
 @{
-    ViewData["Title"] = "Details";
+	ViewData["Title"] = "Details";
 }
 <br />
 <h3>Valor Total do Processo: @Html.DisplayFor(model => model.ValorTotalCif)</h3>
 <hr />
 <div>
-    <h4>Valor do Processo</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorExw)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValorExw)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorFobFca)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValorFobFca)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FreteInternacional)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FreteInternacional)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SeguroInternaciona)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SeguroInternaciona)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorTotalCif)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValorTotalCif)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Moeda)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Moeda)
-        </dd>
-    </dl>
+	<h4>Valor do Processo</h4>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.ValorExw)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.ValorExw)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.ValorFobFca)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.ValorFobFca)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.FreteInternacional)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.FreteInternacional)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.SeguroInternaciona)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.SeguroInternaciona)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.ValorTotalCif)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.ValorTotalCif)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Moeda)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Moeda)
+		</dd>
+	</dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px">Editar</a> |
-    <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+	<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px">Editar</a> |
+	<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>

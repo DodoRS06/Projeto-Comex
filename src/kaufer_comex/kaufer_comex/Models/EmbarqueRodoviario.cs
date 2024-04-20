@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace kaufer_comex.Models
 {
-    [Table ("EmbarqueRodoviario")]
+    [Table("EmbarqueRodoviario")]
     public class EmbarqueRodoviario
     {
         [Key]
@@ -40,7 +40,7 @@ namespace kaufer_comex.Models
         [ForeignKey("ProcessoId")]
         public Processo Processo { get; set; }
 
-   
+
     }
 }
 

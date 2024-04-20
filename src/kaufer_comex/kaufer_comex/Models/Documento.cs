@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace kaufer_comex.Models
 {
-    [Table ("Documentos")]
+    [Table("Documentos")]
     public class Documento
     {
         [Key]
@@ -31,7 +31,7 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Tracking: (*)")]
         [Required(ErrorMessage = "Obrigatório informar certificado tracking")]
-        public string TrackinCourier { get; set;}
+        public string TrackinCourier { get; set; }
 
         [ForeignKey("ProcessoId")]
         public Processo Processo { get; set; }

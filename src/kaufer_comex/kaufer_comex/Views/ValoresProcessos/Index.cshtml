@@ -1,76 +1,77 @@
 ﻿@model IEnumerable<kaufer_comex.Models.ValorProcesso>
 
 @{
-    ViewData["Title"] = "Index";
+	ViewData["Title"] = "Index";
 }
 
 <div class="container">
-    <div class="form-group " align="center">
-        <h2>Valores do Processo</h2>
-    </div>
-    <div class="d-flex flex-row-reverse bd-highlight">
-        <p>
-            <a asp-action="Create" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #fd7e14; color: #FFF">Adicionar Agente de Carga</a>
-        </p>
-    </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValorExw)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValorFobFca)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FreteInternacional)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SeguroInternaciona)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValorTotalCif)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Moeda)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValorExw)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValorFobFca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FreteInternacional)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SeguroInternaciona)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValorTotalCif)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Moeda)
-            </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
-                        <a asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
-                    </td>
-             </tr>
-}
-    </tbody>
-</table>
+	<div class="form-group " align="center">
+		<h2>Valores do Processo</h2>
+	</div>
+	<div class="d-flex flex-row-reverse bd-highlight">
+		<p>
+			<a asp-action="Create" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #fd7e14; color: #FFF">Adicionar Agente de Carga</a>
+		</p>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.Id)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.ValorExw)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.ValorFobFca)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.FreteInternacional)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.SeguroInternaciona)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.ValorTotalCif)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Moeda)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Id)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.ValorExw)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.ValorFobFca)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.FreteInternacional)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.SeguroInternaciona)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.ValorTotalCif)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Moeda)
+					</td>
+					<td>
+						<a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
+						<a asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> |
+						<a asp-action="Delete" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
 </div>

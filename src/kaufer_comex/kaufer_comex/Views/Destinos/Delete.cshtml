@@ -1,25 +1,25 @@
 ﻿@model kaufer_comex.Models.Destino
 
 @{
-    ViewData["Title"] = "Delete";
+	ViewData["Title"] = "Delete";
 }
 
 <div>
-<h4>Você tem certeza que deseja excluir o Destino:  @Html.DisplayFor(model => model.NomePais) ?</h4>
-<hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NomePais)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NomePais)
-        </dd>
-    </dl>
+	<h4>Você tem certeza que deseja excluir o Destino:  @Html.DisplayFor(model => model.NomePais) ?</h4>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.NomePais)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.NomePais)
+		</dd>
+	</dl>
 
 
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
-        <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-    </form>
+	<form asp-action="Delete">
+		<input type="hidden" asp-for="Id" />
+		<input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
+		<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+	</form>
 </div>

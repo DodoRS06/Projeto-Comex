@@ -1,26 +1,26 @@
 ﻿@model kaufer_comex.Models.AgenteDeCarga
 
 @{
-    ViewData["Title"] = "Details";
+	ViewData["Title"] = "Details";
 }
 
-    <br />
-    <h3>Nome do Agente de Carga: @Html.DisplayFor(model => model.NomeAgenteCarga)</h3>
-    <hr />
+<br />
+<h3>Nome do Agente de Carga: @Html.DisplayFor(model => model.NomeAgenteCarga)</h3>
+<hr />
 
 <div>
-    <h4>Agente De Carga</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NomeAgenteCarga)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NomeAgenteCarga)
-        </dd>
-    </dl>
+	<h4>Agente De Carga</h4>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.NomeAgenteCarga)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.NomeAgenteCarga)
+		</dd>
+	</dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px">Editar</a> |
-    <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+	<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px">Editar</a> |
+	<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>

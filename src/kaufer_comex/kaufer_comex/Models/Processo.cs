@@ -99,9 +99,9 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Pedidos Relacionados (*)")]
         public string PedidosRelacionados { get; set; }
-   
 
-        public virtual  ICollection<DCE> DCES { get; set; }
+
+        public virtual ICollection<DCE> DCES { get; set; }
 
         public virtual ICollection<ProcessoExpImp> ExpImps { get; set; }
 
@@ -132,4 +132,3 @@ namespace kaufer_comex.Models
         FOB
     }
 }
- 

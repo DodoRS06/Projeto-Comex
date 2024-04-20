@@ -1,91 +1,92 @@
 ﻿@model IEnumerable<kaufer_comex.Models.Despacho>
 
 @{
-    ViewData["Title"] = "Lista de Despachos";
+	ViewData["Title"] = "Lista de Despachos";
 }
 <div class="form-group " align="center">
-    <h2>Lista de Despachos</h2>
+	<h2>Lista de Despachos</h2>
 </div>
 <div class="d-flex flex-row-reverse bd-highlight">
-    <p>
-        <a asp-action="Create" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #F08433; color: #FFF">Adicionar Despacho</a>
-    </p>
+	<p>
+		<a asp-action="Create" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #F08433; color: #FFF">Adicionar Despacho</a>
+	</p>
 </div>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NumeroDue)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataDue)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataExportacao)
-            </th>
-@*             <th>
-                @Html.DisplayNameFor(model => model.ConhecimentoEmbarque)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataConhecimento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tipo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataAverbacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CodPais)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Parametrizacao)
-            </th> *@
-            <th>
-                @Html.DisplayNameFor(model => model.Processo)
-            </th> 
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumeroDue)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataDue)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataExportacao)
-            </td>
-                @*            <td>
-                @Html.DisplayFor(modelItem => item.ConhecimentoEmbarque)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataConhecimento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataAverbacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodPais)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Parametrizacao)
-            </td> *@
-            <td>
-                @Html.DisplayFor(modelItem => item.Processo.CodProcessoExportacao)
-            </td> 
-            <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
-            </td>
-        </tr>
-}
-    </tbody>
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.NumeroDue)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.DataDue)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.DataExportacao)
+			</th>
+			@*             <th>
+			@Html.DisplayNameFor(model => model.ConhecimentoEmbarque)
+			</th>
+			<th>
+			@Html.DisplayNameFor(model => model.DataConhecimento)
+			</th>
+			<th>
+			@Html.DisplayNameFor(model => model.Tipo)
+			</th>
+			<th>
+			@Html.DisplayNameFor(model => model.DataAverbacao)
+			</th>
+			<th>
+			@Html.DisplayNameFor(model => model.CodPais)
+			</th>
+			<th>
+			@Html.DisplayNameFor(model => model.Parametrizacao)
+			</th> *@
+			<th>
+				@Html.DisplayNameFor(model => model.Processo)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.NumeroDue)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DataDue)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DataExportacao)
+				</td>
+				@*            <td>
+			@Html.DisplayFor(modelItem => item.ConhecimentoEmbarque)
+			</td>
+			<td>
+			@Html.DisplayFor(modelItem => item.DataConhecimento)
+			</td>
+			<td>
+			@Html.DisplayFor(modelItem => item.Tipo)
+			</td>
+			<td>
+			@Html.DisplayFor(modelItem => item.DataAverbacao)
+			</td>
+			<td>
+			@Html.DisplayFor(modelItem => item.CodPais)
+			</td>
+			<td>
+			@Html.DisplayFor(modelItem => item.Parametrizacao)
+			</td> *@
+				<td>
+					@Html.DisplayFor(modelItem => item.Processo.CodProcessoExportacao)
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
+					<a asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> |
+					<a asp-action="Delete" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>

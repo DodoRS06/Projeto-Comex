@@ -57,7 +57,7 @@ namespace kaufer_comex.Models
         [Required(ErrorMessage = "Obrigatório")]
         public float PesoBruto { get; set; }
 
-       public virtual ICollection<NotaItem> NotaItem { get; set; }
+        public virtual ICollection<NotaItem> NotaItem { get; set; }
 
     }
 }

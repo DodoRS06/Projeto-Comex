@@ -1,109 +1,110 @@
 ﻿@model IEnumerable<kaufer_comex.Models.ExpImp>
 
 @{
-    ViewData["Title"] = "Lista de Importadores/Exportadores";
+	ViewData["Title"] = "Lista de Importadores/Exportadores";
 }
 <div class="form-group " align="center">
-    <h2>Lista de Importadores/Exportadores</h2>
+	<h2>Lista de Importadores/Exportadores</h2>
 </div>
 <div class="d-flex flex-row-reverse bd-highlight">
-    <p>
-        <a asp-action="Create" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #F08433; color: #FFF">Adicionar Importador/Exportador</a>
-    </p>
+	<p>
+		<a asp-action="Create" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #F08433; color: #FFF">Adicionar Importador/Exportador</a>
+	</p>
 </div>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Sigla)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TipoExpImp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Endereco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pais)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cep)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cnpj)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contato)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Observacoes)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sigla)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TipoExpImp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Endereco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pais)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cep)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cnpj)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Contato)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Observacoes)
-            </td>
-            <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
-                </td>
-        </tr>
-}
-    </tbody>
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Sigla)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.TipoExpImp)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Nome)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Endereco)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Cidade)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Estado)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Pais)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Cep)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Telefone)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Email)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Cnpj)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Contato)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Observacoes)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Sigla)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.TipoExpImp)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Nome)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Endereco)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Cidade)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Estado)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Pais)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Cep)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Telefone)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Email)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Cnpj)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Contato)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Observacoes)
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
+					<a asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> |
+					<a asp-action="Delete" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>

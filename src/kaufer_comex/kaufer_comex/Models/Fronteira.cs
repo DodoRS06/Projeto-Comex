@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace kaufer_comex.Models
 {
-    [Table ("Fronteiras")]
+    [Table("Fronteiras")]
     public class Fronteira
     {
         [Key]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório")]
-        [Display (Name = "Fronteira(*)")]
+        [Display(Name = "Fronteira(*)")]
         public string NomeFronteira { get; set; }
 
         //public virtual ICollection<Processo> Processos { get; set; }
