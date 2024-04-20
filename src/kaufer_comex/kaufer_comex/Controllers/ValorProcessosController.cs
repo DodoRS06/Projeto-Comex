@@ -29,6 +29,8 @@ namespace kaufer_comex.Controllers
         {
             if (ModelState.IsValid)
             {
+                valorprocesso.ValorTotalCif = valorprocesso.ValorExw + valorprocesso.ValorFobFca + valorprocesso.FreteInternacional + valorprocesso.SeguroInternaciona;
+
                 _context.ValorProcessos.Add(valorprocesso);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
