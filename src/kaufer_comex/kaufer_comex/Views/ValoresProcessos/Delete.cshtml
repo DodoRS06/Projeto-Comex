@@ -3,10 +3,10 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<div>
+    <h4>Você tem certeza que deseja excluir os valores desse processo? :  @Html.DisplayFor(model => model.ValorTotalCif) ?</h4>
+    <hr />
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>ValorProcesso</h4>
     <hr />
@@ -48,10 +48,10 @@
             @Html.DisplayFor(model => model.Moeda)
         </dd>
     </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
+            <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+        </form>
 </div>
