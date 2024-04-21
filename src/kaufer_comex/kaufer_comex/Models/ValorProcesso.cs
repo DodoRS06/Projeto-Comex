@@ -19,7 +19,7 @@ namespace kaufer_comex.Models
         [Display(Name = "Frete Internacional ")]
         public float FreteInternacional { get; set; }
 
-        [Display(Name = "Seguro Internaciona")]
+        [Display(Name = "Seguro Internacional")]
         public float SeguroInternaciona { get; set; }
 
         [Display(Name = "Valor Total (*)")]
