@@ -22,49 +22,69 @@
 
             <div class="form-group col-md-4">
                 <label asp-for="Modal" class="control-label"></label>
-                <select asp-for="Modal" class="form-control" asp-items="Html.GetEnumSelectList<Modal>()"></select>
+                <select asp-for="Modal" class="form-control" asp-items="Html.GetEnumSelectList<Modal>()">
+                    <option value="">Selecione modal</option>
+                </select>
                 <span asp-validation-for="Modal" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="Incoterm" class="control-label"></label>
-                <select asp-for="Incoterm" class="form-control" asp-items="Html.GetEnumSelectList<Incoterm>()"></select>
+                <select asp-for="Incoterm" class="form-control" asp-items="Html.GetEnumSelectList<Incoterm>()">
+                    <option value="">Selecione o Incoterm</option>
+                </select>
                 <span asp-validation-for="Incoterm" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="UsuarioId" class="control-label"></label>
-                <select asp-for="UsuarioId" class="form-control" asp-items="ViewBag.Usuario"></select>
+                <select asp-for="UsuarioId" class="form-control" asp-items="ViewBag.Usuario">
+                    <option value="">Selecione o responsável</option>
+                </select>
                 <span asp-validation-for="UsuarioId" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="ExportadorId" class="control-label"></label>
-                <select asp-for="ExportadorId" class="form-control" asp-items="ViewBag.Exportador"></select>
+                <select asp-for="ExportadorId" class="form-control" asp-items="ViewBag.Exportador">
+                    <option value="">Selecione o exportador</option>
+                </select>
                 <span asp-validation-for="ExportadorId" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="ImportadorId" class="control-label"></label>
-                <select asp-for="ImportadorId" class="form-control" asp-items="ViewBag.Importador"></select>
+                <select asp-for="ImportadorId" class="form-control" asp-items="ViewBag.Importador">
+                    <option value="">Selecione o importador</option>
+                </select>
                 <span asp-validation-for="ImportadorId" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="DestinoId" class="control-label"></label>
-                <select asp-for="DestinoId" class="form-control" asp-items="ViewBag.DestinoId"></select>
+                <select asp-for="DestinoId" class="form-control" asp-items="ViewBag.DestinoId">
+                    <option value="">Selecione o destino</option>
+                </select>
             </div>
- 
+
             <div class="form-group col-md-4">
                 <label asp-for="FronteiraId" class="control-label"></label>
-                <select asp-for="FronteiraId" class="form-control" asp-items="ViewBag.FronteiraId"></select>
+                <select asp-for="FronteiraId" class="form-control" asp-items="ViewBag.FronteiraId">
+                    <option value="">Selecione a fronteira</option>
+                </select>
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="DespachanteId" class="control-label"></label>
-                <select asp-for="DespachanteId" class="form-control" asp-items="ViewBag.DespachanteId"></select>
+                <select asp-for="DespachanteId" class="form-control" asp-items="ViewBag.DespachanteId">
+                    <option value="">Selecione o despachante</option>
+                </select>
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="VendedorId" class="control-label"></label>
-                <select asp-for="VendedorId" class="form-control" asp-items="ViewBag.VendedorId"></select>
+                <select asp-for="VendedorId" class="form-control" asp-items="ViewBag.VendedorId">
+                    <option value="">Selecione o vendedor</option>
+                </select>
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="StatusId" class="control-label"></label>
-                <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
+                <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusId">
+                    <option value="">Selecione o Status</option>
+                </select>
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="Proforma" class="control-label"></label>

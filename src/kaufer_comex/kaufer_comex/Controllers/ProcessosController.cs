@@ -27,7 +27,16 @@ namespace kaufer_comex.Controllers
                 .Include(p => p.ExpImps)
                 .ThenInclude( p => p.ExpImp)
                 .ToListAsync();
-            return View(dados);
+
+		//	var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
+
+			//ViewData["exportador"] = exportador.Nome;
+
+			//var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
+
+			//ViewData["importador"] = importador.Nome;
+
+			return View(dados);
         }
 
         // GET: Processos/Create
@@ -207,7 +216,16 @@ namespace kaufer_comex.Controllers
                 .ThenInclude(p => p.ExpImp)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
-            if (id == null)
+			var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
+
+            ViewData["exportador"] = exportador.Nome;
+
+			var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
+
+			ViewData["importador"] = importador.Nome;
+
+
+			if (id == null)
                 return NotFound();
 
             return View(dados);
@@ -233,6 +251,14 @@ namespace kaufer_comex.Controllers
 
             if (id == null)
                 return NotFound();
+
+            var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
+
+            ViewData["exportador"] = exportador.Nome;
+
+            var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
+
+            ViewData["importador"] = importador.Nome;
 
             return View(dados);
         }
