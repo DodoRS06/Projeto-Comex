@@ -16,9 +16,9 @@ namespace kaufer_comex.Models
         //[ForeignKey("CadastroDespesaId")]
         //public CadastroDespesa CadastroDespesa { get; set; }
 
-        //[Display(Name = "Fornecedor (*)")]
-        //[Required]
-        //public int FornecedorServicoId { get; set; }
+        [Display(Name = "Fornecedor (*)")]
+        [Required]
+        public int FornecedorServicoId { get; set; }
 
         //[ForeignKey("FornecedorServicoId")]
         //public FornecedorServico FornecedorServico { get; set; }
@@ -31,9 +31,9 @@ namespace kaufer_comex.Models
         [Required]
         public string Observacao { get; set; }
 
-        public virtual ICollection<CadastroDespesa> CadastroDespesas { get; set; }
+        public ICollection<CadastroDespesa> CadastroDespesas { get; set; }
 
-        public virtual ICollection<FornecedorServico> FornecedorServicos { get; set; }
+        public ICollection<FornecedorServico> FornecedorServicos { get; set; }
 
         [ForeignKey("ProcessoId")]
         public Processo Processo { get; set; }

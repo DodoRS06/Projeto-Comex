@@ -1,46 +1,89 @@
 ﻿@model kaufer_comex.Models.DCE
 
 @{
-	ViewData["Title"] = "Cadastrar DCE";
+    ViewData["Title"] = "Cadastrar DCE";
 }
 
 <div class="container">
-	<br />
-	<div class="form-group " align="center">
-		<h4>Cadastrar DCE</h4>
-	</div>
-	<hr />
-	@* <div class="col-md-4"> *@
-	<form asp-action="Create">
-		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-		<div class="row">
-			<div class="form-group col-md-6">
-				<label asp-for="CadastroDespesaId" class="control-label"></label>
-				<input asp-for="CadastroDespesaId" class="form-control" />
-				<span asp-validation-for="CadastroDespesaId" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-6">
-				<label asp-for="Valor" class="control-label"></label>
-				<input asp-for="Valor" class="form-control" />
-				<span asp-validation-for="Valor" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="Observacao" class="control-label"></label>
-				<input asp-for="Observacao" class="form-control" />
-				<span asp-validation-for="Observacao" class="text-danger"></span>
-			</div>
-			<div class="form-group" align="center">
-				<br />
-				<input type="submit" value="Cadastrar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
-				<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-			</div>
-		</div>
-	</form>
+    <br />
+    <div class="form-group " align="center">
+        <h4>Cadastrar DCE</h4>
+    </div>
+    <hr />
+    @* <div class="col-md-4"> *@
+    <form asp-action="Create" id="createDCEForm">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <button type="button" id="addDespesaBtn" class="btn btn-primary">Adicionar Despesa</button>
+        <div id="despesasContainer">
+            <div class="despesa">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="CadastroDespesaId" class="control-label"></label>
+                        <select asp-for="CadastroDespesaId" class="form-control" asp-items="ViewBag.CadastroDespesaId"></select>
+                        <span asp-validation-for="CadastroDespesaId" class="text-danger"></span>
+                    </div>
+                    @* <div class="form-group col-md-6">
+                        <label asp-for="FornecedorServicoId" class="control-label"></label>
+                        <select asp-for="FornecedorServicoId" class="form-control" asp-items="ViewBag.FornecedorServicoId"></select>
+                        <span asp-validation-for="FornecedorServicoId" class="text-danger"></span>
+                    </div> *@
+                    <div class="form-group col-md-6">
+                        <label asp-for="Valor" class="control-label"></label>
+                        <input asp-for="Valor" class="form-control" />
+                        <span asp-validation-for="Valor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Observacao" class="control-label"></label>
+                        <input asp-for="Observacao" class="form-control" />
+                        <span asp-validation-for="Observacao" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group" align="center">
+            <br />
+            <input type="submit" value="Cadastrar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
+            <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+        </div>
+    </form>
 </div>
 
 
 @section Scripts {
-	@{
-		await Html.RenderPartialAsync("_ValidationScriptsPartial");
-	}
+    
+    @* Função para clonar o formulário e repetir ele permitindo uma nova entrada  *@
+    <script>
+        $(document).ready(function () {
+            $('#addDespesaBtn').click(function () {
+                var $despesa = $('.despesa').first().clone(); 
+                $despesa.find('input').val(''); 
+                $('#despesasContainer').append($despesa); 
+            });
+        });
+    </script>
+
+    @* Função para gerar log do formulário no console antes de enviar  *@
+    @* <script>
+        $(document).ready(function () {
+            $(document).ready(function () {
+                $('#createDCEForm').submit(function (e) {
+                    e.preventDefault(); 
+
+                    $(this).find('input, select').each(function () {
+                        console.log($(this).attr('name') + ': ' + $(this).val());
+                    });
+                    
+                    setTimeout(function () {
+                        this.submit();
+                    }, 5000);
+
+                });
+            });
+        });
+
+    </script> *@
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 	}

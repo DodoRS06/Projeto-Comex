@@ -1,5 +1,6 @@
 ﻿using kaufer_comex.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace kaufer_comex.Controllers
@@ -16,12 +17,20 @@ namespace kaufer_comex.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.DCEs.ToListAsync();
+            var dados = await _context.DCEs
+                .Include(p => p.CadastroDespesas)
+                .Include(p => p.FornecedorServicos)
+                .ToListAsync();
 
             return View(dados);
         }
+
         public IActionResult Create()
         {
+            
+            ViewData["CadastroDespesaId"] = new SelectList(_context.CadastroDespesas, "Id", "NomeDespesa", "");
+            ViewData["FornecedorServicoId"] = new SelectList(_context.FornecedorServicos, "Id", "Nome", "");
+
             return View();
         }
 
@@ -35,6 +44,10 @@ namespace kaufer_comex.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+
+            ViewData["CadastroDespesaId"] = new SelectList(_context.CadastroDespesas, "Id", "NomeDespesa");
+            ViewData["FornecedorServicoId"] = new SelectList(_context.FornecedorServicos, "Id", "Nome");
+
             return View(dce);
         }
 

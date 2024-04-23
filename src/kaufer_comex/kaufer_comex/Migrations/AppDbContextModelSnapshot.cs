@@ -72,6 +72,9 @@ namespace kaufer_comex.Migrations
                     b.Property<int>("CadastroDespesaId")
                         .HasColumnType("int");
 
+                    b.Property<int>("FornecedorServicoId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Observacao")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
