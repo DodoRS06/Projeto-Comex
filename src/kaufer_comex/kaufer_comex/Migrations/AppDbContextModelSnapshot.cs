@@ -47,18 +47,28 @@ namespace kaufer_comex.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("DCEId")
-                        .HasColumnType("int");
-
                     b.Property<string>("NomeDespesa")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.ToTable("CadastroDespesa");
+                });
+
+            modelBuilder.Entity("kaufer_comex.Models.CadastroDespesaDCE", b =>
+                {
+                    b.Property<int>("CadastroDespesaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DCEId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CadastroDespesaId", "DCEId");
+
                     b.HasIndex("DCEId");
 
-                    b.ToTable("CadastroDespesa");
+                    b.ToTable("Despesa-DCE");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.DCE", b =>
@@ -76,7 +86,6 @@ namespace kaufer_comex.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Observacao")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ProcessoId")
@@ -230,6 +239,7 @@ namespace kaufer_comex.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("TransitTime")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Transportadora")
@@ -286,7 +296,6 @@ namespace kaufer_comex.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Observacoes")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Pais")
@@ -317,9 +326,6 @@ namespace kaufer_comex.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("DCEId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -329,9 +335,22 @@ namespace kaufer_comex.Migrations
 
                     b.HasKey("Id");
 
+                    b.ToTable("FornecedorServico");
+                });
+
+            modelBuilder.Entity("kaufer_comex.Models.FornecedorServicoDCE", b =>
+                {
+                    b.Property<int>("FornecedorServicoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DCEId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FornecedorServicoId", "DCEId");
+
                     b.HasIndex("DCEId");
 
-                    b.ToTable("FornecedorServico");
+                    b.ToTable("Fornecedor-DCE");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Fronteira", b =>
@@ -692,11 +711,21 @@ namespace kaufer_comex.Migrations
                     b.ToTable("Vendedores");
                 });
 
-            modelBuilder.Entity("kaufer_comex.Models.CadastroDespesa", b =>
+            modelBuilder.Entity("kaufer_comex.Models.CadastroDespesaDCE", b =>
                 {
+                    b.HasOne("kaufer_comex.Models.CadastroDespesa", "CadastroDespesa")
+                        .WithMany("CadastroDespesaDCEs")
+                        .HasForeignKey("CadastroDespesaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("kaufer_comex.Models.DCE", "DCE")
                         .WithMany("CadastroDespesas")
-                        .HasForeignKey("DCEId");
+                        .HasForeignKey("DCEId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CadastroDespesa");
 
                     b.Navigation("DCE");
                 });
@@ -749,13 +778,23 @@ namespace kaufer_comex.Migrations
                     b.Navigation("Processo");
                 });
 
-            modelBuilder.Entity("kaufer_comex.Models.FornecedorServico", b =>
+            modelBuilder.Entity("kaufer_comex.Models.FornecedorServicoDCE", b =>
                 {
                     b.HasOne("kaufer_comex.Models.DCE", "DCE")
                         .WithMany("FornecedorServicos")
-                        .HasForeignKey("DCEId");
+                        .HasForeignKey("DCEId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("kaufer_comex.Models.FornecedorServico", "FornecedorServico")
+                        .WithMany("FornecedorServicoDCEs")
+                        .HasForeignKey("FornecedorServicoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("DCE");
+
+                    b.Navigation("FornecedorServico");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Nota", b =>
@@ -866,6 +905,11 @@ namespace kaufer_comex.Migrations
                     b.Navigation("Processo");
                 });
 
+            modelBuilder.Entity("kaufer_comex.Models.CadastroDespesa", b =>
+                {
+                    b.Navigation("CadastroDespesaDCEs");
+                });
+
             modelBuilder.Entity("kaufer_comex.Models.DCE", b =>
                 {
                     b.Navigation("CadastroDespesas");
@@ -881,6 +925,11 @@ namespace kaufer_comex.Migrations
             modelBuilder.Entity("kaufer_comex.Models.ExpImp", b =>
                 {
                     b.Navigation("ProcessoExpImps");
+                });
+
+            modelBuilder.Entity("kaufer_comex.Models.FornecedorServico", b =>
+                {
+                    b.Navigation("FornecedorServicoDCEs");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Item", b =>

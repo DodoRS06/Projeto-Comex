@@ -50,7 +50,11 @@ namespace kaufer_comex.Models
 
         public DbSet<ProcessoExpImp> ProcessosExpImp { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+		public DbSet<FornecedorServicoDCE> FornecedorServicoDCEs { get; set; }
+
+		public DbSet<CadastroDespesaDCE> CadastroDespesaDCEs { get; set; }
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
@@ -78,7 +82,29 @@ namespace kaufer_comex.Models
                  .WithMany(pe => pe.NotaItem)
                  .HasForeignKey(e => e.ItemId);
 
-        }
+			modelBuilder.Entity<FornecedorServicoDCE>()
+				 .HasKey(p => new { p.FornecedorServicoId, p.DCEId });
+
+			modelBuilder.Entity<FornecedorServicoDCE>()
+				.HasOne(p => p.FornecedorServico).WithMany(p => p.FornecedorServicoDCEs)
+				.HasForeignKey(p => p.FornecedorServicoId);
+
+			modelBuilder.Entity<FornecedorServicoDCE>()
+				.HasOne(p => p.DCE).WithMany(p => p.FornecedorServicos)
+				.HasForeignKey(p => p.DCEId);
+
+			modelBuilder.Entity<CadastroDespesaDCE>()
+				 .HasKey(p => new { p.CadastroDespesaId, p.DCEId });
+
+			modelBuilder.Entity<CadastroDespesaDCE>()
+				.HasOne(p => p.CadastroDespesa).WithMany(p => p.CadastroDespesaDCEs)
+				.HasForeignKey(p => p.CadastroDespesaId);
+
+			modelBuilder.Entity<CadastroDespesaDCE>()
+				.HasOne(p => p.DCE).WithMany(p => p.CadastroDespesas)
+				.HasForeignKey(p => p.DCEId);
+
+		}
 
     }
 }

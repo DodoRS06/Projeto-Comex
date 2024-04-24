@@ -10,55 +10,59 @@ namespace kaufer_comex.Models
         public int Id { get; set; }
 
         [Display(Name = "Sigla (*)")]
-        [Required]
-        public string Sigla { get; set; }
+		[Required(ErrorMessage = "Obrigatório informar a sigla!")]
+		public string Sigla { get; set; }
 
         [Display(Name = "Tipo (*)")]
-        [Required]
-        public TipoExpImp TipoExpImp { get; set; }
+		[Required(ErrorMessage = "Obrigatório informar o tipo!")]
+		public TipoExpImp TipoExpImp { get; set; }
 
         [Display(Name = "Nome (*)")]
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o nome!")]
         public string Nome { get; set; }
 
         [Display(Name = "Endereço (*)")]
-        [Required]
-        public string Endereco { get; set; }
+		[Required(ErrorMessage = "Obrigatório informar o endereço!")]
+		public string Endereco { get; set; }
 
         [Display(Name = "Cidade (*)")]
-        [Required]
-        public string Cidade { get; set; }
+		[Required(ErrorMessage = "Obrigatório informar a cidade!")]
+		public string Cidade { get; set; }
 
         [Display(Name = "Estado (*)")]
-        [Required]
-        public string Estado { get; set; }
+		[Required(ErrorMessage = "Obrigatório informar o estado!")]
+		public string Estado { get; set; }
 
         [Display(Name = "Pais (*)")]
-        [Required]
-        public string Pais { get; set; }
+		[Required(ErrorMessage = "Obrigatório informar o país!")]
+		public string Pais { get; set; }
 
         [Display(Name = "CEP (*)")]
-        [Required]
-        public string Cep { get; set; }
+		[RegularExpression(@"\d{5}\-\d{3}", ErrorMessage = "Por favor, digite um CEP válido!")]
+		[Required(ErrorMessage = "Obrigatório informar o CEP!")]
+		public string Cep { get; set; }
 
         [Display(Name = "Telefone (*)")]
-        [Required]
-        public string Telefone { get; set; }
+		[RegularExpression(@"\d{2}\-\d{4}-\d{4}", ErrorMessage = "Por favor, digite um Telefone válido!")]
+		[Required(ErrorMessage = "Obrigatório informar o telefone!")]
+		public string Telefone { get; set; }
 
         [Display(Name = "Email (*)")]
-        [Required]
-        public string Email { get; set; }
+		[RegularExpression(@"^[^@\s]+@[^@\s]+\.(com|org|net|gov|br)$", ErrorMessage = "Por favor, digite um e-mail válido!")]
+        [Required(ErrorMessage = "Obrigatório informar o email!")]
+		public string Email { get; set; }
 
         [Display(Name = "Cnpj (*)")]
-        [Required]
-        public string Cnpj { get; set; }
+		[RegularExpression(@"\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}", ErrorMessage = "Por favor, digite um CNPJ válido!")]
+		[Required(ErrorMessage = "Obrigatório informar o CNPJ!")]
+		public string Cnpj { get; set; }
 
         [Display(Name = "Contato (*)")]
-        [Required]
-        public string Contato { get; set; }
+		[RegularExpression(@"\d{2}\-\d{4}-\d{4}", ErrorMessage = "Por favor, digite um Contato válido!")]
+		[Required(ErrorMessage = "Obrigatório informar o contato!")]
+		public string Contato { get; set; }
 
-        [Display(Name = "Obsercações (*)")]
-        [Required]
+        [Display(Name = "Obsercações")]
         public string Observacoes { get; set; }
 
         public virtual ICollection<ProcessoExpImp> ProcessoExpImps { get; set; }
