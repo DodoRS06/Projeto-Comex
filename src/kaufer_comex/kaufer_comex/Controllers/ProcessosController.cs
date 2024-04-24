@@ -54,8 +54,8 @@ namespace kaufer_comex.Controllers
             var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
             var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
 
-            ViewData["Importador"] = new SelectList(importador, "Id", "Nome", "");
-            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome", "");
+            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
+            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
 
             return View();
         }
@@ -101,8 +101,8 @@ namespace kaufer_comex.Controllers
             var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
             var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
 
-            ViewData["Importador"] = new SelectList(importador, "Id", "Nome", "");
-            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome", "");
+            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
+            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
 
            
 
@@ -140,8 +140,8 @@ namespace kaufer_comex.Controllers
             var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
             var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
 
-            ViewData["Importador"] = new SelectList(importador, "Id", "Nome", "");
-            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome", "");
+            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
+            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
 
 
             return View(dados);
@@ -192,8 +192,8 @@ namespace kaufer_comex.Controllers
             var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
             var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
 
-            ViewData["Importador"] = new SelectList(importador, "Id", "Nome", "");
-            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome", "");
+            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
+            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
 
 
             return View();
