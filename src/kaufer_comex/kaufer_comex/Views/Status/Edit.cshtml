@@ -4,30 +4,29 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Editar</h1>
-
-<h4>Status</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="StatusAtual" class="control-label"></label>
-                <input asp-for="StatusAtual" class="form-control" />
-                <span asp-validation-for="StatusAtual" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-sucess" />
-                <a  class="btn btn-info" asp-action="Index">Voltar</a>
-            </div>
-        </form>
+<div class="container">
+    <br />
+    <div class="form-group " align="center">
+        <h4>Editar Status</h4>
     </div>
+    <hr />
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="StatusAtual" class="control-label"></label>
+            <input asp-for="StatusAtual" class="form-control" />
+            <span asp-validation-for="StatusAtual" class="text-danger"></span>
+        </div>
+        <div class="form-group " align="center">
+            <br />
+            <input type="submit" value="Editar" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px" />
+            <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+        </div>
+    </form>
 </div>
 
-</>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

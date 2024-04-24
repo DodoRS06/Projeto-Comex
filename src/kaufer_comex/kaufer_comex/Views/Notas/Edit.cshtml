@@ -4,91 +4,107 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
 
-<h4>Nota</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
+<div class="container">
+	<br />
+	<div class="form-group " align="center">
+		<h4>Editar Nota</h4>
+	</div>
+	<hr />
+	<form asp-action="Edit">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<div class="row">
+            <div class="form-group col-md-4">
                 <label asp-for="NumeroNf" class="control-label"></label>
                 <input asp-for="NumeroNf" class="form-control" />
                 <span asp-validation-for="NumeroNf" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="Emissao" class="control-label"></label>
                 <input asp-for="Emissao" class="form-control" />
                 <span asp-validation-for="Emissao" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="BaseNota" class="control-label"></label>
                 <input asp-for="BaseNota" class="form-control" />
                 <span asp-validation-for="BaseNota" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="ValorFob" class="control-label"></label>
                 <input asp-for="ValorFob" class="form-control" />
                 <span asp-validation-for="ValorFob" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="ValorFrete" class="control-label"></label>
                 <input asp-for="ValorFrete" class="form-control" />
                 <span asp-validation-for="ValorFrete" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="ValorSeguro" class="control-label"></label>
                 <input asp-for="ValorSeguro" class="form-control" />
                 <span asp-validation-for="ValorSeguro" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="ValorCif" class="control-label"></label>
                 <input asp-for="ValorCif" class="form-control" />
                 <span asp-validation-for="ValorCif" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="PesoLiq" class="control-label"></label>
                 <input asp-for="PesoLiq" class="form-control" />
                 <span asp-validation-for="PesoLiq" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="PesoBruto" class="control-label"></label>
                 <input asp-for="PesoBruto" class="form-control" />
                 <span asp-validation-for="PesoBruto" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="TaxaCambial" class="control-label"></label>
                 <input asp-for="TaxaCambial" class="form-control" />
                 <span asp-validation-for="TaxaCambial" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="CertificadoQualidade" class="control-label"></label>
                 <input asp-for="CertificadoQualidade" class="form-control" />
                 <span asp-validation-for="CertificadoQualidade" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="EmbarqueRodoviarioId" class="control-label"></label>
                 <select asp-for="EmbarqueRodoviarioId" class="form-control" asp-items="ViewBag.EmbarqueRodoviarioId"></select>
                 <span asp-validation-for="EmbarqueRodoviarioId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="VeiculoId" class="control-label"></label>
                 <select asp-for="VeiculoId" class="form-control" asp-items="ViewBag.VeiculoId"></select>
                 <span asp-validation-for="VeiculoId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
+		</div>
+		<div class="form-group " align="center">
+			<br />
+			<input type="submit" value="Editar" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px" />
+			<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+		</div>
+	</form>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+    <script>
+        $(document).ready(function () {
+            $('#ValorFob, #ValorFrete, #ValorSeguro').on('input', function () {
+                var valorFob = parseFloat($('#ValorFob').val()) || 0;
+                var valorFrete = parseFloat($('#ValorFrete').val()) || 0;
+                var valorSeguro = parseFloat($('#ValorSeguro').val()) || 0;
+
+                var valorCif = valorFob + valorFrete + valorSeguro;
+                $('#ValorCif').val(valorCif.toFixed(2));
+            });
+        });
+    </script>
 }
