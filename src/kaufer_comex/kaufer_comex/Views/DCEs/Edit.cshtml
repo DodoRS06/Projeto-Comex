@@ -1,47 +1,52 @@
 ﻿@model kaufer_comex.Models.DCE
 
 @{
-	ViewData["Title"] = "Editar DCE";
+    ViewData["Title"] = "Editar DCE";
 }
 
 <div class="container">
-	<br />
-	<div class="form-group " align="center">
-		<h4>Editar DCE</h4>
-	</div>
-	<hr />
-	@* <div class="col-md-4"> *@
-	<form asp-action="Edit">
-		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-		<input type="hidden" asp-for="Id" />
-		<div class="row">
-			<div class="form-group col-md-6">
-				<label asp-for="CadastroDespesaId" class="control-label"></label>
-				<input asp-for="CadastroDespesaId" class="form-control" />
-				<span asp-validation-for="CadastroDespesaId" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-6">
-				<label asp-for="Valor" class="control-label"></label>
-				<input asp-for="Valor" class="form-control" />
-				<span asp-validation-for="Valor" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="Observacao" class="control-label"></label>
-				<input asp-for="Observacao" class="form-control" />
-				<span asp-validation-for="Observacao" class="text-danger"></span>
-			</div>
-			<div class="form-group" align="center">
-				<br />
-				<input type="submit" value="Editar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
-				<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-			</div>
-		</div>
-	</form>
+    <br />
+    <div class="form-group " align="center">
+        <h4>Editar DCE</h4>
+    </div>
+    <hr />
+    @* <div class="col-md-4"> *@
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label asp-for="CadastroDespesaId" class="control-label"></label>
+                <select asp-for="CadastroDespesaId" class="form-control" asp-items="ViewBag.CadastroDespesaId"></select>
+                <span asp-validation-for="CadastroDespesaId" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="FornecedorServicoId" class="control-label"></label>
+                <select asp-for="FornecedorServicoId" class="form-control" asp-items="ViewBag.FornecedorServicoId"></select>
+                <span asp-validation-for="FornecedorServicoId" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Valor" class="control-label"></label>
+                <input asp-for="Valor" class="form-control" />
+                <span asp-validation-for="Valor" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Observacao" class="control-label"></label>
+                <input asp-for="Observacao" class="form-control" />
+                <span asp-validation-for="Observacao" class="text-danger"></span>
+            </div>
+            <div class="form-group" align="center">
+                <br />
+                <input type="submit" value="Editar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
+                <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+            </div>
+        </div>
+    </form>
 </div>
 
 
 @section Scripts {
-	@{
-		await Html.RenderPartialAsync("_ValidationScriptsPartial");
-	}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 	}

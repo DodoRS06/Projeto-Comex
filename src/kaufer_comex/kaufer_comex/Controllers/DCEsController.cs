@@ -15,23 +15,36 @@ namespace kaufer_comex.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+		private async Task Dropdowns(DCE dce = null)
+		{
+			var cadastroDespesaItems = await _context.CadastroDespesas.ToListAsync();
+			cadastroDespesaItems.Insert(0, new CadastroDespesa { Id = 0, NomeDespesa = "" });
+
+			var cadastroFornecedorItems = await _context.FornecedorServicos.ToListAsync();
+			cadastroFornecedorItems.Insert(0, new FornecedorServico { Id = 0, Nome = "" });
+
+			ViewData["CadastroDespesaId"] = new SelectList(cadastroDespesaItems, "Id", "NomeDespesa", dce?.CadastroDespesaId);
+			ViewData["FornecedorServicoId"] = new SelectList(cadastroFornecedorItems, "Id", "Nome", dce?.FornecedorServicoId);
+		}
+
+		public async Task<IActionResult> Index()
         {
             var dados = await _context.DCEs
                 .Include(p => p.CadastroDespesas)
                 .Include(p => p.FornecedorServicos)
                 .ToListAsync();
 
-            return View(dados);
+			await Dropdowns();
+
+			return View(dados);
         }
 
         public IActionResult Create()
         {
-            
-            ViewData["CadastroDespesaId"] = new SelectList(_context.CadastroDespesas, "Id", "NomeDespesa", "");
-            ViewData["FornecedorServicoId"] = new SelectList(_context.FornecedorServicos, "Id", "Nome", "");
 
-            return View();
+			Dropdowns();
+
+			return View();
         }
 
         [HttpPost]
@@ -45,10 +58,9 @@ namespace kaufer_comex.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewData["CadastroDespesaId"] = new SelectList(_context.CadastroDespesas, "Id", "NomeDespesa");
-            ViewData["FornecedorServicoId"] = new SelectList(_context.FornecedorServicos, "Id", "Nome");
+			await Dropdowns();
 
-            return View(dce);
+			return View(dce);
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -60,7 +72,9 @@ namespace kaufer_comex.Controllers
             if (dados == null)
                 return NotFound();
 
-            return View(dados);
+			await Dropdowns();
+
+			return View(dados);
 
         }
         [HttpPost]
@@ -76,7 +90,10 @@ namespace kaufer_comex.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View();
+
+			await Dropdowns();
+
+			return View();
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -89,7 +106,9 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-            return View(dados);
+			await Dropdowns();
+
+			return View(dados);
         }
 
 
@@ -103,7 +122,9 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-            return View(dados);
+			await Dropdowns();
+
+			return View(dados);
         }
 
         [HttpPost, ActionName("Delete")]
@@ -118,7 +139,9 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-            _context.DCEs.Remove(dados);
+			await Dropdowns();
+
+			_context.DCEs.Remove(dados);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
 

@@ -19,6 +19,9 @@
 				@Html.DisplayNameFor(model => model.CadastroDespesaId)
 			</th>
 			<th>
+				@Html.DisplayNameFor(model => model.FornecedorServicoId)
+			</th>
+			<th>
 				@Html.DisplayNameFor(model => model.Valor)
 			</th>
 			<th>
@@ -31,8 +34,25 @@
 		@foreach (var item in Model)
 		{
 			<tr>
+				@* <td>
+					@foreach (var despesa in item.CadastroDespesas)
+					{
+						@despesa.NomeDespesa
+						<br />
+					}
+				</td>
+				<td>
+					@foreach (var fornecedor in item.FornecedorServicos)
+					{
+						@fornecedor.Nome
+						<br />
+					}
+				</td> *@
 				<td>
 					@Html.DisplayFor(modelItem => item.CadastroDespesaId)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.FornecedorServicoId)
 				</td>
 				<td>
 					@Html.DisplayFor(modelItem => item.Valor)
