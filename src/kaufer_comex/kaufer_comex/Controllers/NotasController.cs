@@ -1,5 +1,6 @@
 ﻿using kaufer_comex.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace kaufer_comex.Controllers
@@ -15,13 +16,17 @@ namespace kaufer_comex.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.Notas.ToListAsync();
+            var dados = await _context.Notas
+                .Include(p => p.Veiculo)
+                .ToListAsync();
 
             return View(dados);
         }
 
         public IActionResult Create()
         {
+            ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
+
             return View();
         }
         [HttpPost]
@@ -36,6 +41,8 @@ namespace kaufer_comex.Controllers
 
             }
 
+            ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
+
             return View(nota);
         }
 
@@ -45,10 +52,14 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-            var dados = await _context.Notas.FindAsync(id);
+            var dados = await _context.Notas
+                .Include(p => p.Veiculo)
+                .FirstOrDefaultAsync(p => p.Id == id);
 
             if (dados == null)
                 return NotFound();
+
+            ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
 
             return View(dados);
         }
@@ -67,6 +78,8 @@ namespace kaufer_comex.Controllers
 
             }
 
+            ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
+
             return View();
         }
 
@@ -75,7 +88,9 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-            var dados = await _context.Notas.FindAsync(id);
+            var dados = await _context.Notas
+                .Include(p => p.Veiculo)
+                .FirstOrDefaultAsync(p => p.Id == id);
 
             if (dados == null)
                 return NotFound();
@@ -88,7 +103,9 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-            var dados = await _context.Notas.FindAsync(id);
+            var dados = await _context.Notas
+                .Include(p => p.Veiculo)
+                .FirstOrDefaultAsync(p => p.Id == id);
 
             if (dados == null)
                 return NotFound();
@@ -102,7 +119,9 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-            var dados = await _context.Notas.FindAsync(id);
+            var dados = await _context.Notas
+                .Include(p => p.Veiculo)
+                .FirstOrDefaultAsync(p => p.Id == id);
 
             if (dados == null)
                 return NotFound();
