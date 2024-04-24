@@ -1,36 +1,37 @@
 ﻿@model kaufer_comex.Models.CadastroDespesa
 
 @{
-	ViewData["Title"] = "Cadastrar Despesa";
+    ViewData["Title"] = "Cadastrar Despesa";
 }
 
 <div class="container">
-	<br />
-	<div class="form-group " align="center">
-		<h4>Cadastrar Despesa</h4>
-	</div>
-	<hr />
-	@* <div class="col-md-4"> *@
-	<form asp-action="Create">
-		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-		<div class="row">
-			<div class="form-group">
-				<label asp-for="NomeDespesa" class="control-label"></label>
-				<input asp-for="NomeDespesa" class="form-control" />
-				<span asp-validation-for="NomeDespesa" class="text-danger"></span>
-			</div>
-			<div class="form-group" align="center">
-				<br />
-				<input type="submit" value="Cadastrar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
-				<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-			</div>
-		</div>
-	</form>
+    <br />
+    <div class="form-group " align="center">
+        <h4>Cadastrar Despesa</h4>
+    </div>
+    <hr />
+    <div class="row justify-content-center">
+        <div class="col-md-4" align="center">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="NomeDespesa" class="control-label"></label>
+                    <input asp-for="NomeDespesa" class="form-control" />
+                    <span asp-validation-for="NomeDespesa" class="text-danger"></span>
+                </div>
+                <div class="form-group" align="center">
+                    <br />
+                    <input type="submit" value="Cadastrar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
+                    <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 
 @section Scripts {
-	@{
-		await Html.RenderPartialAsync("_ValidationScriptsPartial");
-	}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 	}

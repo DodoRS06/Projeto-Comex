@@ -1,42 +1,43 @@
 ﻿@model kaufer_comex.Models.FornecedorServico
 
 @{
-	ViewData["Title"] = "Editar fornecedor de serviço";
+    ViewData["Title"] = "Editar fornecedor de serviço";
 }
 
 <div class="container">
-	<br />
-	<div class="form-group " align="center">
-		<h4>Editar fornecedor de serviço</h4>
-	</div>
-	<hr />
-	@* <div class="col-md-4"> *@
-	<form asp-action="Edit">
-		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-		<input type="hidden" asp-for="Id" />
-		<div class="row">
-			<div class="form-group col-md-6">
-				<label asp-for="Nome" class="control-label"></label>
-				<input asp-for="Nome" class="form-control" />
-				<span asp-validation-for="Nome" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-6">
-				<label asp-for="TipoServico" class="control-label"></label>
-				<select asp-for="TipoServico" class="form-control" asp-items="Html.GetEnumSelectList<TipoServico>()"></select>
-				<span asp-validation-for="TipoServico" class="text-danger"></span>
-			</div>
-			<div class="form-group" align="center">
-				<br />
-				<input type="submit" value="Editar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
-				<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-			</div>
-		</div>
-	</form>
+    <br />
+    <div class="form-group " align="center">
+        <h4>Editar fornecedor de serviço</h4>
+    </div>
+    <hr />
+    <div class="row justify-content-center">
+        <div class="col-md-4" align="center">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TipoServico" class="control-label"></label>
+                    <select asp-for="TipoServico" class="form-control" asp-items="Html.GetEnumSelectList<TipoServico>()"></select>
+                    <span asp-validation-for="TipoServico" class="text-danger"></span>
+                </div>
+                <div class="form-group" align="center">
+                    <br />
+                    <input type="submit" value="Editar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
+                    <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 
 @section Scripts {
-	@{
-		await Html.RenderPartialAsync("_ValidationScriptsPartial");
-	}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 	}
