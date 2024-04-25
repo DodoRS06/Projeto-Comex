@@ -58,7 +58,7 @@ namespace kaufer_comex.Controllers
                 return RedirectToAction("Index");
             }
 
-			await Dropdowns();
+			await Dropdowns(dce);
 
 			return View(dce);
         }
@@ -72,7 +72,7 @@ namespace kaufer_comex.Controllers
             if (dados == null)
                 return NotFound();
 
-			await Dropdowns();
+			await Dropdowns(dados);
 
 			return View(dados);
 
@@ -91,9 +91,9 @@ namespace kaufer_comex.Controllers
                 return RedirectToAction("Index");
             }
 
-			await Dropdowns();
+			await Dropdowns(dce);
 
-			return View();
+			return View(dce);
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -106,7 +106,7 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-			await Dropdowns();
+			await Dropdowns(dados);
 
 			return View(dados);
         }
@@ -122,7 +122,7 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-			await Dropdowns();
+			await Dropdowns(dados);
 
 			return View(dados);
         }
@@ -139,7 +139,7 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-			await Dropdowns();
+			await Dropdowns(dados);
 
 			_context.DCEs.Remove(dados);
             await _context.SaveChangesAsync();

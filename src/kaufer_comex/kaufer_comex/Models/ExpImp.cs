@@ -38,27 +38,22 @@ namespace kaufer_comex.Models
 		public string Pais { get; set; }
 
         [Display(Name = "CEP (*)")]
-		[RegularExpression(@"\d{5}\-\d{3}", ErrorMessage = "Por favor, digite um CEP válido!")]
 		[Required(ErrorMessage = "Obrigatório informar o CEP!")]
 		public string Cep { get; set; }
 
         [Display(Name = "Telefone (*)")]
-		[RegularExpression(@"\d{2}\-\d{4}-\d{4}", ErrorMessage = "Por favor, digite um Telefone válido!")]
 		[Required(ErrorMessage = "Obrigatório informar o telefone!")]
 		public string Telefone { get; set; }
 
         [Display(Name = "Email (*)")]
-		[RegularExpression(@"^[^@\s]+@[^@\s]+\.(com|org|net|gov|br)$", ErrorMessage = "Por favor, digite um e-mail válido!")]
         [Required(ErrorMessage = "Obrigatório informar o email!")]
 		public string Email { get; set; }
 
         [Display(Name = "Cnpj (*)")]
-		[RegularExpression(@"\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}", ErrorMessage = "Por favor, digite um CNPJ válido!")]
 		[Required(ErrorMessage = "Obrigatório informar o CNPJ!")]
 		public string Cnpj { get; set; }
 
         [Display(Name = "Contato (*)")]
-		[RegularExpression(@"\d{2}\-\d{4}-\d{4}", ErrorMessage = "Por favor, digite um Contato válido!")]
 		[Required(ErrorMessage = "Obrigatório informar o contato!")]
 		public string Contato { get; set; }
 

@@ -40,15 +40,15 @@ namespace kaufer_comex.Migrations
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)");
 
-            //migrationBuilder.AlterColumn<string>(
-            //    name: "TransitTime",
-            //    table: "EmbarqueRodoviario",
-            //    type: "nvarchar(max)",
-            //    nullable: false,
-            //    defaultValue: "",
-            //    oldClrType: typeof(string),
-            //    oldType: "nvarchar(max)",
-            //    oldNullable: true);
+            migrationBuilder.AlterColumn<string>(
+                name: "TransitTime",
+                table: "EmbarqueRodoviario",
+                type: "nvarchar(max)",
+                nullable: false,
+                defaultValue: "",
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)",
+                oldNullable: true);
 
             migrationBuilder.AlterColumn<string>(
                 name: "Observacao",
@@ -57,6 +57,13 @@ namespace kaufer_comex.Migrations
                 nullable: true,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)");
+
+            migrationBuilder.AddColumn<int>(
+                name: "FornecedorServicoId",
+                table: "DCE",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
 
             migrationBuilder.CreateTable(
                 name: "Despesa-DCE",
@@ -125,6 +132,10 @@ namespace kaufer_comex.Migrations
             migrationBuilder.DropTable(
                 name: "Fornecedor-DCE");
 
+            migrationBuilder.DropColumn(
+                name: "FornecedorServicoId",
+                table: "DCE");
+
             migrationBuilder.AddColumn<int>(
                 name: "DCEId",
                 table: "FornecedorServico",
@@ -141,13 +152,13 @@ namespace kaufer_comex.Migrations
                 oldType: "nvarchar(max)",
                 oldNullable: true);
 
-            //migrationBuilder.AlterColumn<string>(
-            //    name: "TransitTime",
-            //    table: "EmbarqueRodoviario",
-            //    type: "nvarchar(max)",
-            //    nullable: true,
-            //    oldClrType: typeof(string),
-            //    oldType: "nvarchar(max)");
+            migrationBuilder.AlterColumn<string>(
+                name: "TransitTime",
+                table: "EmbarqueRodoviario",
+                type: "nvarchar(max)",
+                nullable: true,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)");
 
             migrationBuilder.AlterColumn<string>(
                 name: "Observacao",

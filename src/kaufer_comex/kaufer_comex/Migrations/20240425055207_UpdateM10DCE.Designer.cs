@@ -12,7 +12,7 @@ using kaufer_comex.Models;
 namespace kaufer_comex.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240424160902_UpdateM10DCE")]
+    [Migration("20240425055207_UpdateM10DCE")]
     partial class UpdateM10DCE
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

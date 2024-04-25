@@ -13,15 +13,9 @@ namespace kaufer_comex.Models
 		[Required(ErrorMessage = "Obrigatório informar a despesa!")]
 		public int CadastroDespesaId { get; set; }
 
-        //[ForeignKey("CadastroDespesaId")]
-        //public CadastroDespesa CadastroDespesa { get; set; }
-
         [Display(Name = "Fornecedor (*)")]
 		[Required(ErrorMessage = "Obrigatório informar o fornecedor!")]
 		public int FornecedorServicoId { get; set; }
-
-        //[ForeignKey("FornecedorServicoId")]
-        //public FornecedorServico FornecedorServico { get; set; }
 
         [Display(Name = "Valor (*)")]
 		[Required(ErrorMessage = "Obrigatório informar o valor!")]
@@ -30,8 +24,8 @@ namespace kaufer_comex.Models
         [Display(Name = "Observação")]
         public string Observacao { get; set; }
 
-		public virtual ICollection<CadastroDespesaDCE> CadastroDespesas { get; set; }
-		public virtual ICollection<FornecedorServicoDCE> FornecedorServicos { get; set; }
+		public ICollection<CadastroDespesaDCE> CadastroDespesas { get; set; }
+		public ICollection<FornecedorServicoDCE> FornecedorServicos { get; set; }
 
         [ForeignKey("ProcessoId")]
         public Processo Processo { get; set; }
