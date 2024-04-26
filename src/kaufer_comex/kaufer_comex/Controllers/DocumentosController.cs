@@ -1,5 +1,6 @@
 ﻿using kaufer_comex.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace kaufer_comex.Controllers
@@ -11,15 +12,17 @@ namespace kaufer_comex.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> Index()
+		public async Task<IActionResult> Index()
         {
-            var dados = await _context.Documentos.ToListAsync();
+            var dados = await _context.Documentos
+                .Include(d => d.Processo).ToListAsync();
 
             return View(dados);
         }
         public IActionResult Create()
         {
-            return View();
+			ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+			return View();
         }
 
         [HttpPost]
@@ -38,15 +41,21 @@ namespace kaufer_comex.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            if (id == null || _context.Documentos == null)
                 return NotFound();
 
-            var dados = await _context.Documentos.FindAsync(id);
+            var dados = await _context.Documentos
+                .Include(d=>d.Processo)
+				.FirstOrDefaultAsync(d => d.Id == id);
+			if (dados == null)
 
-            return View(dados);
+				return NotFound();
+			ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+			return View(dados);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, Documento documento)
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> Edit(int id, Documento documento)
         {
             if (id != documento.Id)
                 return NotFound();
@@ -62,12 +71,14 @@ namespace kaufer_comex.Controllers
 
         public async Task<ActionResult> Details(int? id)
         {
-            if (id == null)
+			if (id == null || _context.Documentos == null)
 
-                return NotFound();
-            var dados = await _context.Documentos.FindAsync(id);
+				return NotFound();
+            var dados = await _context.Documentos
+				.Include(e => e.Processo)
+				.FirstOrDefaultAsync(d => d.Id == id);
 
-            if (dados == null)
+			if (dados == null)
 
                 return NotFound();
 
@@ -76,24 +87,26 @@ namespace kaufer_comex.Controllers
 
         public async Task<ActionResult> Delete(int? id)
         {
-            if (id == null)
+			if (id == null || _context.Documentos == null)
+
+				return NotFound();
+            var dados = await _context.Documentos
+                .Include(d => d.Processo)
+				.FirstOrDefaultAsync(d => d.Id == id);
+			if (dados == null)
 
                 return NotFound();
-            var dados = await _context.Documentos.FindAsync(id);
-
-            if (dados == null)
-
-                return NotFound();
-
-            return View(dados);
+			ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+			return View(dados);
         }
 
         [HttpPost, ActionName("Delete")]
-        public async Task<ActionResult> DeleteConfirmed(int? id)
+		[ValidateAntiForgeryToken]
+		public async Task<ActionResult> DeleteConfirmed(int? id)
         {
-            if (id == null)
+			if (id == null)
 
-                return NotFound();
+				return NotFound();
 
             var dados = await _context.Documentos.FindAsync(id);
 
