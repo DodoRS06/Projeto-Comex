@@ -54,7 +54,9 @@ namespace kaufer_comex.Models
 
 		public DbSet<CadastroDespesaDCE> CadastroDespesaDCEs { get; set; }
 
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public DbSet<ValorProcessoProcesso> ValorProcessoProcessos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
@@ -103,8 +105,17 @@ namespace kaufer_comex.Models
 			modelBuilder.Entity<CadastroDespesaDCE>()
 				.HasOne(p => p.DCE).WithMany(p => p.CadastroDespesas)
 				.HasForeignKey(p => p.DCEId);
+            modelBuilder.Entity<ValorProcessoProcesso>()
+                .HasKey(p => new { p.ValorProcessoId, p.ProcessoId });
 
-		}
+            modelBuilder.Entity<ValorProcessoProcesso>()
+                .HasOne(p => p.ValorProcesso).WithMany(p => p.Processos)
+                .HasForeignKey(p => p.ValorProcessoId);
+
+            modelBuilder.Entity<ValorProcessoProcesso>()
+                .HasOne(p => p.Processo).WithMany(p => p.ProcessosValores)
+                .HasForeignKey(p => p.ProcessoId);
+        }
 
     }
 }

@@ -673,6 +673,21 @@ namespace kaufer_comex.Migrations
                     b.ToTable("ValorProcessos");
                 });
 
+            modelBuilder.Entity("kaufer_comex.Models.ValorProcessoProcesso", b =>
+                {
+                    b.Property<int>("ValorProcessoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProcessoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ValorProcessoId", "ProcessoId");
+
+                    b.HasIndex("ProcessoId");
+
+                    b.ToTable("ValorProcessoProcessos");
+                });
+
             modelBuilder.Entity("kaufer_comex.Models.Veiculo", b =>
                 {
                     b.Property<int>("Id")
@@ -907,6 +922,25 @@ namespace kaufer_comex.Migrations
                     b.Navigation("Processo");
                 });
 
+            modelBuilder.Entity("kaufer_comex.Models.ValorProcessoProcesso", b =>
+                {
+                    b.HasOne("kaufer_comex.Models.Processo", "Processo")
+                        .WithMany("ProcessosValores")
+                        .HasForeignKey("ProcessoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("kaufer_comex.Models.ValorProcesso", "ValorProcesso")
+                        .WithMany("Processos")
+                        .HasForeignKey("ValorProcessoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Processo");
+
+                    b.Navigation("ValorProcesso");
+                });
+
             modelBuilder.Entity("kaufer_comex.Models.CadastroDespesa", b =>
                 {
                     b.Navigation("CadastroDespesaDCEs");
@@ -949,6 +983,13 @@ namespace kaufer_comex.Migrations
                     b.Navigation("DCES");
 
                     b.Navigation("ExpImps");
+
+                    b.Navigation("ProcessosValores");
+                });
+
+            modelBuilder.Entity("kaufer_comex.Models.ValorProcesso", b =>
+                {
+                    b.Navigation("Processos");
                 });
 #pragma warning restore 612, 618
         }

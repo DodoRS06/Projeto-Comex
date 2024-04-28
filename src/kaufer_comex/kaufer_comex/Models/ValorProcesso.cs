@@ -26,6 +26,8 @@ namespace kaufer_comex.Models
         [Required(ErrorMessage = "Obrigatório")]
         public float ValorTotalCif { get; set; }
 
+        public virtual ICollection<ValorProcessoProcesso> Processos { get; set; }
+
         public Moeda Moeda { get; set; }
 
 
