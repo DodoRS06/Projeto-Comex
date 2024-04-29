@@ -24,12 +24,16 @@
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label asp-for="CadastroDespesaId" class="control-label"></label>
-                        <select asp-for="CadastroDespesaId" class="form-control" asp-items="ViewBag.CadastroDespesaId"></select>
+                        <select asp-for="CadastroDespesaId" class="form-control" asp-items="ViewBag.CadastroDespesaId">
+                            <option value="">Selecione a despesa</option>
+                        </select>
                         <span asp-validation-for="CadastroDespesaId" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-6">
                         <label asp-for="FornecedorServicoId" class="control-label"></label>
-                        <select asp-for="FornecedorServicoId" class="form-control" asp-items="ViewBag.FornecedorServicoId"></select>
+                        <select asp-for="FornecedorServicoId" class="form-control" asp-items="ViewBag.FornecedorServicoId">
+                            <option value="">Selecione o fornecedor</option>
+                        </select>
                         <span asp-validation-for="FornecedorServicoId" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-6">

@@ -17,14 +17,9 @@ namespace kaufer_comex.Controllers
 
 		private async Task Dropdowns(DCE dce = null)
 		{
-			var cadastroDespesaItems = await _context.CadastroDespesas.ToListAsync();
-			cadastroDespesaItems.Insert(0, new CadastroDespesa { Id = 0, NomeDespesa = "" });
 
-			var cadastroFornecedorItems = await _context.FornecedorServicos.ToListAsync();
-			cadastroFornecedorItems.Insert(0, new FornecedorServico { Id = 0, Nome = "" });
-
-			ViewData["CadastroDespesaId"] = new SelectList(cadastroDespesaItems, "Id", "NomeDespesa", dce?.CadastroDespesaId);
-			ViewData["FornecedorServicoId"] = new SelectList(cadastroFornecedorItems, "Id", "Nome", dce?.FornecedorServicoId);
+			ViewData["CadastroDespesaId"] = new SelectList(_context.CadastroDespesas, "Id", "NomeDespesa", dce?.CadastroDespesaId);
+			ViewData["FornecedorServicoId"] = new SelectList(_context.FornecedorServicos, "Id", "Nome", dce?.FornecedorServicoId);
 		}
 
 		public async Task<IActionResult> Index()
