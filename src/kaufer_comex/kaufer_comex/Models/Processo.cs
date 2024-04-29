@@ -105,7 +105,7 @@ namespace kaufer_comex.Models
 
         public virtual ICollection<ProcessoExpImp> ExpImps { get; set; }
 
-        public virtual ICollection<ValorProcessoProcesso> ProcessosValores { get; set; }
+       
 
     }
 

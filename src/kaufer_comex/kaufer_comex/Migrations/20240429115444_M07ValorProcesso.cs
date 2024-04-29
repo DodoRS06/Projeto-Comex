@@ -4,10 +4,48 @@
 
 namespace kaufer_comex.Migrations
 {
-    public partial class ValorProcessoProcessoM20 : Migration
+    public partial class M07ValorProcesso : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "ValorProcessoProcessos");
+
+            migrationBuilder.AddColumn<int>(
+                name: "ProcessoId",
+                table: "ValorProcessos",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ValorProcessos_ProcessoId",
+                table: "ValorProcessos",
+                column: "ProcessoId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_ValorProcessos_Processo_ProcessoId",
+                table: "ValorProcessos",
+                column: "ProcessoId",
+                principalTable: "Processo",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropForeignKey(
+                name: "FK_ValorProcessos_Processo_ProcessoId",
+                table: "ValorProcessos");
+
+            migrationBuilder.DropIndex(
+                name: "IX_ValorProcessos_ProcessoId",
+                table: "ValorProcessos");
+
+            migrationBuilder.DropColumn(
+                name: "ProcessoId",
+                table: "ValorProcessos");
+
             migrationBuilder.CreateTable(
                 name: "ValorProcessoProcessos",
                 columns: table => new
@@ -36,12 +74,6 @@ namespace kaufer_comex.Migrations
                 name: "IX_ValorProcessoProcessos_ProcessoId",
                 table: "ValorProcessoProcessos",
                 column: "ProcessoId");
-        }
-
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropTable(
-                name: "ValorProcessoProcessos");
         }
     }
 }

@@ -26,7 +26,14 @@ namespace kaufer_comex.Models
         [Required(ErrorMessage = "Obrigatório")]
         public float ValorTotalCif { get; set; }
 
-        public virtual ICollection<ValorProcessoProcesso> Processos { get; set; }
+        [Required(ErrorMessage = "Obrigatório informar o código do processo.")]
+        [Display(Name = "Código de processo (*)")]
+        public int ProcessoId { get; set; }
+
+        [ForeignKey("ProcessoId")]
+        public Processo Processo { get; set; }
+
+   
 
         public Moeda Moeda { get; set; }
 

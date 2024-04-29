@@ -12,8 +12,8 @@ using kaufer_comex.Models;
 namespace kaufer_comex.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240428130205_ValorProcessoProcessoM20")]
-    partial class ValorProcessoProcessoM20
+    [Migration("20240429115444_M07ValorProcesso")]
+    partial class M07ValorProcesso
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -658,6 +658,9 @@ namespace kaufer_comex.Migrations
                     b.Property<int>("Moeda")
                         .HasColumnType("int");
 
+                    b.Property<int>("ProcessoId")
+                        .HasColumnType("int");
+
                     b.Property<float>("SeguroInternaciona")
                         .HasColumnType("real");
 
@@ -672,22 +675,9 @@ namespace kaufer_comex.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ValorProcessos");
-                });
-
-            modelBuilder.Entity("kaufer_comex.Models.ValorProcessoProcesso", b =>
-                {
-                    b.Property<int>("ValorProcessoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProcessoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ValorProcessoId", "ProcessoId");
-
                     b.HasIndex("ProcessoId");
 
-                    b.ToTable("ValorProcessoProcessos");
+                    b.ToTable("ValorProcessos");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Veiculo", b =>
@@ -924,23 +914,15 @@ namespace kaufer_comex.Migrations
                     b.Navigation("Processo");
                 });
 
-            modelBuilder.Entity("kaufer_comex.Models.ValorProcessoProcesso", b =>
+            modelBuilder.Entity("kaufer_comex.Models.ValorProcesso", b =>
                 {
                     b.HasOne("kaufer_comex.Models.Processo", "Processo")
-                        .WithMany("ProcessosValores")
+                        .WithMany()
                         .HasForeignKey("ProcessoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("kaufer_comex.Models.ValorProcesso", "ValorProcesso")
-                        .WithMany("Processos")
-                        .HasForeignKey("ValorProcessoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Processo");
-
-                    b.Navigation("ValorProcesso");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.CadastroDespesa", b =>
@@ -985,13 +967,6 @@ namespace kaufer_comex.Migrations
                     b.Navigation("DCES");
 
                     b.Navigation("ExpImps");
-
-                    b.Navigation("ProcessosValores");
-                });
-
-            modelBuilder.Entity("kaufer_comex.Models.ValorProcesso", b =>
-                {
-                    b.Navigation("Processos");
                 });
 #pragma warning restore 612, 618
         }
