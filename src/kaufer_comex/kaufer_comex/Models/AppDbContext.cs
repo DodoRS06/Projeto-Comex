@@ -54,7 +54,7 @@ namespace kaufer_comex.Models
 
 		public DbSet<CadastroDespesaDCE> CadastroDespesaDCEs { get; set; }
 
-       
+     
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

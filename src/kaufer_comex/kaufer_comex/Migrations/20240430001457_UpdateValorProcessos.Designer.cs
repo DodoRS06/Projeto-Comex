@@ -12,8 +12,8 @@ using kaufer_comex.Models;
 namespace kaufer_comex.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240429115444_M07ValorProcesso")]
-    partial class M07ValorProcesso
+    [Migration("20240430001457_UpdateValorProcessos")]
+    partial class UpdateValorProcessos
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
