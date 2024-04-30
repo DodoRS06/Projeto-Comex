@@ -1,5 +1,6 @@
 ﻿using kaufer_comex.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace kaufer_comex.Controllers
@@ -21,7 +22,8 @@ namespace kaufer_comex.Controllers
         }
         public IActionResult Create()
         {
-            return View();
+			ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+			return View();
         }
 
         [HttpPost]
@@ -33,7 +35,10 @@ namespace kaufer_comex.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(valorprocesso);
+
+			ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+
+			return View(valorprocesso);
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -45,7 +50,9 @@ namespace kaufer_comex.Controllers
             if (dados == null)
                 return NotFound();
 
-            return View(dados);
+			ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+
+			return View(dados);
 
         }
         [HttpPost]
@@ -60,7 +67,10 @@ namespace kaufer_comex.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View();
+
+			ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+
+			return View();
         }
        
                 public async Task<IActionResult> Details(int? id)
@@ -68,7 +78,9 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-            var dados = await _context.ValorProcessos.FindAsync(id);
+            var dados = await _context.ValorProcessos
+				.Include(d => d.Processo)
+				.FirstOrDefaultAsync(d => d.Id == id); ;
 
             if (id == null)
                 return NotFound();
@@ -82,7 +94,9 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-            var dados = await _context.ValorProcessos.FindAsync(id);
+            var dados = await _context.ValorProcessos
+				.Include(d => d.Processo)
+				.FirstOrDefaultAsync(d => d.Id == id); ;
 
             if (id == null)
                 return NotFound();
