@@ -443,6 +443,9 @@ namespace kaufer_comex.Migrations
                     b.Property<DateTime>("Emissao")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
                     b.Property<int>("NumeroNf")
                         .HasColumnType("int");
 
@@ -473,6 +476,8 @@ namespace kaufer_comex.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("EmbarqueRodoviarioId");
+
+                    b.HasIndex("ItemId");
 
                     b.HasIndex("VeiculoId");
 
@@ -812,6 +817,12 @@ namespace kaufer_comex.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("kaufer_comex.Models.Item", "Item")
+                        .WithMany()
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("kaufer_comex.Models.Veiculo", "Veiculo")
                         .WithMany()
                         .HasForeignKey("VeiculoId")
@@ -819,6 +830,8 @@ namespace kaufer_comex.Migrations
                         .IsRequired();
 
                     b.Navigation("EmbarqueRodoviario");
+
+                    b.Navigation("Item");
 
                     b.Navigation("Veiculo");
                 });

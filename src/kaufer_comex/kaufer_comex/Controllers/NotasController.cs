@@ -26,6 +26,8 @@ namespace kaufer_comex.Controllers
         public IActionResult Create()
         {
             ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
+            ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
+            ViewData["EmbarqueRodoviarioId"] = new SelectList(_context.EmbarqueRodoviarios, "Id", "Transportadora");
 
             return View();
         }
@@ -42,6 +44,8 @@ namespace kaufer_comex.Controllers
             }
 
             ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
+            ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
+            ViewData["EmbarqueRodoviarioId"] = new SelectList(_context.EmbarqueRodoviarios, "Id", "Transportadora");
 
             return View(nota);
         }
