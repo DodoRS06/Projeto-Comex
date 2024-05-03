@@ -54,11 +54,6 @@ namespace kaufer_comex.Models
         [Required(ErrorMessage = "Obrigatório")]
         public string CertificadoQualidade { get; set; }
 
-        [Display(Name = "Itens (*)")]
-        public int ItemId { get; set; }
-
-        [ForeignKey("ItemId")]
-        public Item  Item { get; set; }
 
         [Display(Name = "Embarque Rodoviário (*)")]
         public int EmbarqueRodoviarioId { get; set; }
