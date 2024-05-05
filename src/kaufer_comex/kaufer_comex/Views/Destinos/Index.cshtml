@@ -4,6 +4,15 @@
 	ViewData["Title"] = "Destinos";
 }
 
+@section Estilos {
+	<style>
+		.btn-exportar-excel {
+			background-color: #198754 !important;
+			color: white !important;
+		}
+	</style>
+
+}
 
 <div class="container">
 	<div class="form-group " align="center">
@@ -14,7 +23,7 @@
 			<a asp-action="Create" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #F08433; color: #FFF">Adicionar Destino</a>
 		</p>
 	</div>
-	<table class="table">
+	<table id="myTable" class="table">
 		<thead>
 			<tr>
 				<th>
@@ -40,3 +49,31 @@
 		</tbody>
 	</table>
 </div>
+
+@section Scripts {
+	<script>
+		let table = new DataTable('#myTable',
+			{
+				language: {
+					url: '//cdn.datatables.net/plug-ins/2.0.6/i18n/pt-BR.json',
+				},
+				buttons: [{
+					extend: 'excelHtml5',
+					text: '<i class="fa-solid fa-file-excel"></i>',
+					filename: 'Destinos-Kaufer',
+					title: '',
+					exportOptions: {
+						columns: [0]
+					},
+					className: 'btn-exportar-excel',
+				},
+					'pageLength'
+				],
+				layout: {
+					topStart: 'buttons'
+				},
+				ordering: false
+			});
+	</script>
+
+}
