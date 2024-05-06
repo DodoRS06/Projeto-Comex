@@ -19,8 +19,8 @@
 				<span asp-validation-for="NomeFuncionario" class="text-danger"></span>
 			</div>
 			<div class="form-group col-md-4">
-				<label asp-for="Email" class="control-label"></label>
-				<input asp-for="Email" class="form-control" />
+				<label asp-for="Email" class="control-label">Email</label>
+				<input id="emailInput" asp-for="Email" class="form-control" name="Email" placeholder="exemplo@exemplo.com.br" />
 				<span asp-validation-for="Email" class="text-danger"></span>
 			</div>
 			<div class="form-group col-md-4">
@@ -30,7 +30,7 @@
 			</div>
 			<div class="form-group col-md-4">
 				<label asp-for="CPF" class="control-label"></label>
-				<input asp-for="CPF" class="form-control" />
+				<input id="cpfInput" type="text" class="form-control" name="CPF" placeholder="Exemplo: 000.000.000-00">
 				<span asp-validation-for="CPF" class="text-danger"></span>
 			</div>
 			<div class="form-group col-md-4">
@@ -46,6 +46,8 @@
 		</div>
 	</form>
 </div>
+
+
 
 @section Scripts {
 	@{

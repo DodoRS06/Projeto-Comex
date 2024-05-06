@@ -17,7 +17,7 @@ namespace kaufer_comex.Migrations
                     NomeFuncionario = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Senha = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CPF = table.Column<int>(type: "int", nullable: false),
+                    CPF = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Perfil = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
