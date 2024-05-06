@@ -24,6 +24,12 @@ namespace kaufer_comex.Models
         [Display(Name = "Observação")]
         public string Observacao { get; set; }
 
+		[NotMapped]
+		public string CadastroDespesaNome { get; set; }
+
+		[NotMapped]
+		public string FornecedorServicoNome { get; set; }
+
 		public ICollection<CadastroDespesaDCE> CadastroDespesas { get; set; }
 		public ICollection<FornecedorServicoDCE> FornecedorServicos { get; set; }
 

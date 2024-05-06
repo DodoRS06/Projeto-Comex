@@ -22,12 +22,35 @@ namespace kaufer_comex.Controllers
 			ViewData["FornecedorServicoId"] = new SelectList(_context.FornecedorServicos, "Id", "Nome", dce?.FornecedorServicoId);
 		}
 
+        //Recuperar nome das despesas a partir do ID (adicionei variável temporária na model)
+		private async Task<string> GetDespesaNome(int id)
+		{
+			var despesa = await _context.CadastroDespesas.FindAsync(id);
+			return despesa != null ? despesa.NomeDespesa : string.Empty;
+		}
+
+        //Recuperar nome dos fornecedores a partir do ID (adicionei variável temporária na model)
+        private async Task<string> GetFornecedorNome(int id)
+		{
+			var fornecedor = await _context.FornecedorServicos.FindAsync(id);
+			return fornecedor != null ? fornecedor.Nome : string.Empty;
+		}
+
 		public async Task<IActionResult> Index()
         {
-            var dados = await _context.DCEs
-                .Include(p => p.CadastroDespesas)
-                .Include(p => p.FornecedorServicos)
-                .ToListAsync();
+			//        var dados = await _context.DCEs
+			//            .Include(p => p.CadastroDespesas)
+			//            .Include(p => p.FornecedorServicos)
+			//.ToListAsync();
+
+			var dados = await _context.DCEs.ToListAsync();
+
+            //Procurar um nome com aquele id dentro da tabela de despesa e fornecedor
+			foreach (var dce in dados)
+			{
+				dce.CadastroDespesaNome = await GetDespesaNome(dce.CadastroDespesaId);
+				dce.FornecedorServicoNome = await GetFornecedorNome(dce.FornecedorServicoId);
+			}
 
 			await Dropdowns();
 
@@ -56,6 +79,46 @@ namespace kaufer_comex.Controllers
 			await Dropdowns(dce);
 
 			return View(dce);
+        }
+
+        //Método praa criar um id no banco para cada item da lista que foi feita na view Create
+        [HttpPost]
+        public async Task<IActionResult> CadastrarListaItens([FromBody] List<DCE> itensLista)
+        {
+            try
+            {
+                if (itensLista != null && itensLista.Any())
+                {
+                    foreach (var item in itensLista)
+                    {
+                        _context.DCEs.Add(item);
+                    }
+                    await _context.SaveChangesAsync();
+                }
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro ao cadastrar itens: {ex.Message}");
+            }
+        }
+
+        //Metodo para recuperar nomes de despesa e fornecedor para ser usado na view create (na lista de itens temporária)
+        //Criei outro método pois o retorno desse é um json (pra ficar mais fácil implementar)
+        [HttpPost]
+        public async Task<IActionResult> GetDespesaAndFornecedorNames([FromBody] DCE novoItem)
+        {
+            try
+            {
+                string despesaNome = await GetDespesaNome(novoItem.CadastroDespesaId);
+                string fornecedorNome = await GetFornecedorNome(novoItem.FornecedorServicoId);
+
+                return Json(new { despesaNome, fornecedorNome });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro ao obter nomes: {ex.Message}");
+            }
         }
 
         public async Task<IActionResult> Edit(int? id)

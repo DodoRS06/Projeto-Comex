@@ -6,93 +6,161 @@
 
 <div class="container">
     <br />
-    <div class="form-group " align="center">
+    <div class="form-group" align="center">
         <h4>Cadastrar DCE</h4>
     </div>
     <hr />
-    @* <div class="col-md-4"> *@
-    <form asp-action="Create" id="createDCEForm">
+    <form id="createDCEForm">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="d-flex flex-row-reverse bd-highlight">
-            <p>
-                <button type="button" id="addDespesaBtn" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #F08433; color: #FFF">Adicionar Despesa</button>
-            </p>
-        </div>
-        @* <button type="button" id="addDespesaBtn" class="btn btn-primary">Adicionar Despesa</button> *@
+
         <div id="despesasContainer">
             <div class="despesa">
                 <div class="row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label asp-for="CadastroDespesaId" class="control-label"></label>
                         <select asp-for="CadastroDespesaId" class="form-control" asp-items="ViewBag.CadastroDespesaId">
                             <option value="">Selecione a despesa</option>
                         </select>
                         <span asp-validation-for="CadastroDespesaId" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label asp-for="FornecedorServicoId" class="control-label"></label>
                         <select asp-for="FornecedorServicoId" class="form-control" asp-items="ViewBag.FornecedorServicoId">
                             <option value="">Selecione o fornecedor</option>
                         </select>
                         <span asp-validation-for="FornecedorServicoId" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label asp-for="Valor" class="control-label"></label>
                         <input asp-for="Valor" class="form-control" />
                         <span asp-validation-for="Valor" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group">
                         <label asp-for="Observacao" class="control-label"></label>
                         <input asp-for="Observacao" class="form-control" />
                         <span asp-validation-for="Observacao" class="text-danger"></span>
                     </div>
                 </div>
             </div>
-
-        </div>
-        <div class="form-group" align="center">
-            <br />
-            <input type="submit" value="Cadastrar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
-            <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
         </div>
     </form>
+
+    <div class="form-group" align="center">
+        <br />
+        <p>
+            <button type="button" id="addDespesaBtn" class="btn" style="background-color: #F08433; color: #FFF">Adicionar Despesa</button>
+        </p>
+    </div>
+
+    <!-- Tabela que mostra os itens listados -->
+    <div class="row">
+        <div class="col-md-12">
+            <h5>Lista de despesas a serem cadastradas</h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Despesa</th>
+                        <th>Fornecedor</th>
+                        <th>Valor</th>
+                        <th>Observação</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="itensBody">
+                    <!-- Lista de itens -->
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="form-group" align="center">
+        <br />
+        <!-- Botão para cadastrar todos os itens -->
+        <button type="button" id="cadastrarItensBtn" class="btn" style="background-color: #F08433; color: #FFF; width: 200px">Cadastrar Todos os Itens</button>
+        <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+    </div>
 </div>
 
-
 @section Scripts {
-
-    @* Função para clonar o formulário e repetir ele permitindo uma nova entrada  *@
     <script>
         $(document).ready(function () {
+            // Array para armazenar os itens da lista
+            var listaItens = [];
+
+            // Função para adicionar item a lista
             $('#addDespesaBtn').click(function () {
-                var $despesa = $('.despesa').first().clone();
-                $despesa.find('input').val('');
-                $('#despesasContainer').append($despesa);
+                var novoItem = {
+                    CadastroDespesaId: $('#CadastroDespesaId').val(),
+                    FornecedorServicoId: $('#FornecedorServicoId').val(),
+                    Valor: $('#Valor').val(),
+                    Observacao: $('#Observacao').val()
+                };
+
+                // Buscar nome da despesa e do fornecedor
+                $.ajax({
+                    url: '/DCEs/GetDespesaAndFornecedorNames',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(novoItem), // Enviar o objeto novoItem (criado em cima) JSON na solicitação
+                    success: function (result) {
+                        novoItem.CadastroDespesaNome = result.despesaNome;
+                        novoItem.FornecedorServicoNome = result.fornecedorNome;
+
+                        listaItens.push(novoItem);
+                        // Limpa os campos depois de adicionar item na lista
+                        $('#CadastroDespesaId').val('');
+                        $('#FornecedorServicoId').val('');
+                        $('#Valor').val('');
+                        $('#Observacao').val('');
+                        // Atualizar a lsita
+                        atualizarLista();
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+
+            // Função para atualizar a lista de itens
+            function atualizarLista() {
+                var tbody = $('#itensBody');
+                tbody.empty();
+                listaItens.forEach(function (item, index) {
+                    var tr = $('<tr></tr>');
+                    tr.append('<td>' + item.CadastroDespesaNome + '</td>');
+                    tr.append('<td>' + item.FornecedorServicoNome + '</td>');
+                    tr.append('<td>' + item.Valor + '</td>');
+                    tr.append('<td>' + item.Observacao + '</td>');
+                    tr.append('<td><button type="button" class="btn btn-danger btn-excluir-item" data-index="' + index + '">Excluir</button></td>');
+                    tbody.append(tr);
+                });
+            }
+
+            // Função para cadastrar todos os itens da lista
+            $('#cadastrarItensBtn').click(function () {
+                // Enviar a lista de itens ao servidor
+                $.ajax({
+                    url: '/DCEs/CadastrarListaItens',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(listaItens),
+                    success: function () {
+                        // Redirecionar após cadastrar os itens
+                        window.location.href = '/DCEs/Index';
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+
+            //Função para excluir um item da lista
+            $(document).on('click', '.btn-excluir-item', function () {
+                var index = $(this).data('index');
+                listaItens.splice(index, 1); // Remove o item do array
+                atualizarTabelaLista(); // Atualiza a tabela após a exclusão
             });
         });
     </script>
-
-    @* Função para gerar log do formulário no console antes de enviar  *@
-    @* <script>
-        $(document).ready(function () {
-            $(document).ready(function () {
-                $('#createDCEForm').submit(function (e) {
-                    e.preventDefault();
-
-                    $(this).find('input, select').each(function () {
-                        console.log($(this).attr('name') + ': ' + $(this).val());
-                    });
-
-                    setTimeout(function () {
-                        this.submit();
-                    }, 5000);
-
-                });
-            });
-        });
-
-    </script> *@
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-	}
+}
