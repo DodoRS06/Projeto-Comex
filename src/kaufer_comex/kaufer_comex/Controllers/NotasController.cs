@@ -34,6 +34,7 @@ namespace kaufer_comex.Controllers
                 Data = DateTime.Now,
                 NotaItens = _context.NotaItens.ToList(),
                 Notas = _context.Notas.ToList(),
+                NotaItemTemps = _context.NotaItemTemps.ToList(),
 
             };
 

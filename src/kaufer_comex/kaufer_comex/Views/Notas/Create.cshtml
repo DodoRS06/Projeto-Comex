@@ -99,7 +99,7 @@
         <h3>Itens adicionados</h3>
     </div>
 
-@* @if(Model.NotaItemTemps.Count == 0)
+@if(Model.NotaItemTemps.Count == 0)
 {
     <h3>Nenhum item adicionado.</h3>
 }
@@ -133,14 +133,13 @@ else
                     @Html.DisplayFor(modelItem => item.Valor)
                  </td>
                 <td>
-                   
-                    <a asp-action="Delete" asp-route-id="@item.ItemId" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                     <a  class="btn btn-danger" style="width: 100px">Excluir</a>
                 </td>
             </tr>
         }
     </tbody> 
 </table>
-} *@
+}
 
 
 <div class="modal fade" id="AdicionaItem" tabindex="-1" aria-labelledby="AdicionaItemLabel" aria-hidden="true">
