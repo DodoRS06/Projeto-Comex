@@ -48,13 +48,15 @@ namespace kaufer_comex.Models
 
         public DbSet<NotaItem> NotaItens { get; set; }
 
+        public DbSet<NotaItemTemp> NotaItemTemps { get; set; }
+
         public DbSet<ProcessoExpImp> ProcessosExpImp { get; set; }
 
 		public DbSet<FornecedorServicoDCE> FornecedorServicoDCEs { get; set; }
 
 		public DbSet<CadastroDespesaDCE> CadastroDespesaDCEs { get; set; }
 
-        public DbSet<AdicionaItem> AdicionaItens { get; set; }
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

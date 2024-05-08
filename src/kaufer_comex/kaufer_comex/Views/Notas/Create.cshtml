@@ -92,28 +92,55 @@
 
 
 
-<div class="container">
+
 
     <div class="form-group" style="margin-top: 20px">
-        <h4>Lista de Itens</h4>
+    <hr />
+        <h3>Itens adicionados</h3>
     </div>
 
-    <table id="myTable" class="table">
-        <thead>
+@* @if(Model.NotaItemTemps.Count == 0)
+{
+    <h3>Nenhum item adicionado.</h3>
+}
+else
+{
+<table id="myTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                Código do item
+            </th>
+            <th>
+                Nome do item
+            </th>
+            <th>
+                Valor
+            </th>
+        </tr>
+    </thead>
+   <tbody>
+        @foreach (var item in Model.NotaItemTemps)
+        {
             <tr>
-                <th>
-                    Código do item
-                </th>
-                <th>
-                    Quantidade
-                </th>
-                <th></th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemId)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.Valor)
+                 </td>
+                <td>
+                   
+                    <a asp-action="Delete" asp-route-id="@item.ItemId" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-</div>
+        }
+    </tbody> 
+</table>
+} *@
 
 
 <div class="modal fade" id="AdicionaItem" tabindex="-1" aria-labelledby="AdicionaItemLabel" aria-hidden="true">

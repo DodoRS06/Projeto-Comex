@@ -14,7 +14,9 @@ namespace kaufer_comex.Models
 
         public NotaItem NotaItem { get; set; }
 
-		public AdicionaItem AdicionaItem { get; set; }
+        public NotaItemTemp NotaItemTemp { get; set; }
+
+		public AdicionaItemView AdicionaItem { get; set; }
 
 		[DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
         public double QuantidadeTotal { get { return NotaItens == null ? 0 : NotaItens.Sum(d => d.Quantidade); } }
@@ -25,9 +27,11 @@ namespace kaufer_comex.Models
 
 		public List<NotaItem> NotaItens { get; set; }
 
-		public List<Nota> Notas { get; set; }
+        public List<NotaItemTemp> NotaItemTemps { get; set; }
 
-		public List<AdicionaItem> Itens { get; set; }
+        public List<Nota> Notas { get; set; }
+
+		public List<AdicionaItemView> Itens { get; set; }
 
 	}
 }

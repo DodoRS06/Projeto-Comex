@@ -22,25 +22,6 @@ namespace kaufer_comex.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("kaufer_comex.Models.AdicionaItem", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
-
-                    b.Property<int>("ItemId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AdicionaItens");
-                });
-
             modelBuilder.Entity("kaufer_comex.Models.AgenteDeCarga", b =>
                 {
                     b.Property<int>("Id")
@@ -433,6 +414,9 @@ namespace kaufer_comex.Migrations
                     b.Property<float>("PesoLiquido")
                         .HasColumnType("real");
 
+                    b.Property<decimal>("Preco")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<float>("VolumeM2")
                         .HasColumnType("real");
 
@@ -520,6 +504,34 @@ namespace kaufer_comex.Migrations
                     b.HasIndex("ItemId");
 
                     b.ToTable("NotaItens");
+                });
+
+            modelBuilder.Entity("kaufer_comex.Models.NotaItemTemp", b =>
+                {
+                    b.Property<int>("NotaItemTempId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NotaItemTempId"), 1L, 1);
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Preco")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<double>("Quantidade")
+                        .HasColumnType("float");
+
+                    b.HasKey("NotaItemTempId");
+
+                    b.HasIndex("ItemId");
+
+                    b.ToTable("NotaItemTemps");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Processo", b =>
@@ -870,6 +882,17 @@ namespace kaufer_comex.Migrations
                     b.Navigation("Item");
 
                     b.Navigation("Nota");
+                });
+
+            modelBuilder.Entity("kaufer_comex.Models.NotaItemTemp", b =>
+                {
+                    b.HasOne("kaufer_comex.Models.Item", "Item")
+                        .WithMany()
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Item");
                 });
 
             modelBuilder.Entity("kaufer_comex.Models.Processo", b =>

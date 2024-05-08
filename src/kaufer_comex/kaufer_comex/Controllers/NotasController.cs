@@ -69,21 +69,24 @@ namespace kaufer_comex.Controllers
 
         // POST: ADD ITEM
         [HttpPost]
-        public async Task<IActionResult> AdicionaItem(AdicionaItem view)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AdicionaItem(AdicionaItemView view)
         {
             if (ModelState.IsValid)
             {
 
                 var item = _context.Itens.Find(view.ItemId);
 
-                var novoItem = new AdicionaItem
+                var novoItem = new NotaItemTemp
                 {
                     ItemId = item.Id,
                     Quantidade = view.Quantidade,
+                    Descricao = item.DescricaoProduto,
+                    Preco = item.Preco,
 
                 };
 
-                _context.AdicionaItens.Add(novoItem);
+                _context.NotaItemTemps.Add(novoItem);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Create");
 

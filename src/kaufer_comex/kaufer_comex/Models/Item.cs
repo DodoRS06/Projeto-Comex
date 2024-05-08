@@ -57,6 +57,10 @@ namespace kaufer_comex.Models
         [Required(ErrorMessage = "Obrigatório")]
         public float PesoBruto { get; set; }
 
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal Preco { get; set; }
+
         public virtual ICollection<NotaItem> NotaItem { get; set; }
 
     }
