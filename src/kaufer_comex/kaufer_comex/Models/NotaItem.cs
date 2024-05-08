@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace kaufer_comex.Models
@@ -6,6 +7,8 @@ namespace kaufer_comex.Models
     [Table("NotaItens")]
     public class NotaItem
     {
+        [Key]
+        public int Id { get; set; }
         public int ItemId { get; set; }
 
         public Item Item { get; set; }
@@ -13,6 +16,13 @@ namespace kaufer_comex.Models
         public int NotaId { get; set; }
 
         public Nota Nota { get; set; }
+
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        public double Quantidade {  get; set; }
+
+		[Column(TypeName = "decimal(18,2)")]
+		[Required(ErrorMessage = "O campo é obrigatório")]
+        public decimal Valor {  get; set; }
     }
 }
 

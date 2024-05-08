@@ -1,0 +1,44 @@
+﻿@model kaufer_comex.Models.AdicionaItem
+
+@{
+	ViewData["Title"] = "Adicionar Item";
+}
+
+<div class="container">
+	<br />
+	<div class="form-group " align="center">
+		<h4>Adicionar Item</h4>
+	</div>
+	<hr />
+	<div class="row justify-content-center">
+		<div class="col-md-4" align="center">
+
+			<form asp-action="AdicionaItem">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="form-group">
+					<label asp-for="ItemId" class="control-label"></label>
+					<select asp-for="ItemId" class="form-control" asp-items="ViewBag.ItemId"></select>
+				</div>
+				<div class="form-group">
+					<label asp-for="Quantidade" class="control-label"></label>
+					<input asp-for="Quantidade" class="form-control" />
+					<span asp-validation-for="Quantidade" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<div class="form-group " align="center">
+						<br />
+						<input type="submit" value="Salvar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
+
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

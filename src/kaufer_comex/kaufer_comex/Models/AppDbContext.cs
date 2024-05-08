@@ -54,7 +54,7 @@ namespace kaufer_comex.Models
 
 		public DbSet<CadastroDespesaDCE> CadastroDespesaDCEs { get; set; }
 
-     
+        public DbSet<AdicionaItem> AdicionaItens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -71,7 +71,7 @@ namespace kaufer_comex.Models
                  .HasOne(p => p.ExpImp).WithMany(p => p.ProcessoExpImps)
                  .HasForeignKey(p => p.ExpImpId);
 
-            modelBuilder.Entity<NotaItem>()
+           modelBuilder.Entity<NotaItem>()
                  .HasKey(pe => new { pe.NotaId, pe.ItemId });
 
             modelBuilder.Entity<NotaItem>()

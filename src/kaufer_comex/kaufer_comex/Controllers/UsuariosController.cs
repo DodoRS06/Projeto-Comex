@@ -69,7 +69,7 @@ namespace kaufer_comex.Controllers
 
                 await HttpContext.SignInAsync(principal, props);
 
-                return Redirect("/");
+                return RedirectToAction("Index", "Processos");
 
             }
 

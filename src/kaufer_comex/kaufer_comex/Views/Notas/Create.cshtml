@@ -1,109 +1,182 @@
-﻿@model kaufer_comex.Models.Nota
+﻿@model kaufer_comex.Models.NovaNotaView
 
 @{
-	ViewData["Title"] = "Create";
+    ViewData["Title"] = "Cadastrar Nota";
 }
 
 <div class="container">
-	<br />
-	<div class="form-group" align="center">
-		<h4>Cadastrar Nota</h4>
-	</div>
-	<hr />
-	<form asp-action="Create">
-		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <br />
+    <div class="form-group" align="center">
+        <h4>Cadastrar Nota</h4>
+    </div>
+    <hr />
+    <form asp-controller="Notas" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-		<div class="row">
-			<div class="form-group col-md-4">
-				<label asp-for="NumeroNf" class="control-label"></label>
-				<input asp-for="NumeroNf" class="form-control" />
-				<span asp-validation-for="NumeroNf" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="Emissao" class="control-label"></label>
-				<input asp-for="Emissao" class="form-control" />
-				<span asp-validation-for="Emissao" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="BaseNota" class="control-label"></label>
-				<input asp-for="BaseNota" class="form-control" />
-				<span asp-validation-for="BaseNota" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="ValorFob" class="control-label"></label>
-				<input asp-for="ValorFob" class="form-control" />
-				<span asp-validation-for="ValorFob" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="ValorFrete" class="control-label"></label>
-				<input asp-for="ValorFrete" class="form-control" />
-				<span asp-validation-for="ValorFrete" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="ValorSeguro" class="control-label"></label>
-				<input asp-for="ValorSeguro" class="form-control" />
-				<span asp-validation-for="ValorSeguro" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="ValorCif" class="control-label"></label>
-				<input asp-for="ValorCif" class="form-control" />
-				<span asp-validation-for="ValorCif" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="PesoLiq" class="control-label"></label>
-				<input asp-for="PesoLiq" class="form-control" />
-				<span asp-validation-for="PesoLiq" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="PesoBruto" class="control-label"></label>
-				<input asp-for="PesoBruto" class="form-control" />
-				<span asp-validation-for="PesoBruto" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="TaxaCambial" class="control-label"></label>
-				<input asp-for="TaxaCambial" class="form-control" />
-				<span asp-validation-for="TaxaCambial" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="CertificadoQualidade" class="control-label"></label>
-				<input asp-for="CertificadoQualidade" class="form-control" />
-				<span asp-validation-for="CertificadoQualidade" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="EmbarqueRodoviarioId" class="control-label"></label>
-				<select asp-for="EmbarqueRodoviarioId" class="form-control" asp-items="ViewBag.EmbarqueRodoviarioId"></select>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="VeiculoId" class="control-label"></label>
-				<select asp-for="VeiculoId" class="form-control" asp-items="ViewBag.VeiculoId"></select>
-			</div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Nota.NumeroNf" class="control-label"></label>
+                <input asp-for="@Model.Nota.NumeroNf" class="form-control" />
+                <span asp-validation-for="@Model.Nota.NumeroNf" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Nota.Emissao" class="control-label"></label>
+                <input asp-for="@Model.Nota.Emissao" class="form-control" />
+                <span asp-validation-for="@Model.Nota.Emissao" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Nota.BaseNota" class="control-label"></label>
+                <input asp-for="@Model.Nota.BaseNota" class="form-control" />
+                <span asp-validation-for="@Model.Nota.BaseNota" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Nota.ValorFob" class="control-label"></label>
+                <input asp-for="@Model.Nota.ValorFob" class="form-control" />
+                <span asp-validation-for="@Model.Nota.ValorFob" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Nota.ValorFrete" class="control-label"></label>
+                <input asp-for="@Model.Nota.ValorFrete" class="form-control" />
+                <span asp-validation-for="@Model.Nota.ValorFrete" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Nota.ValorSeguro" class="control-label"></label>
+                <input asp-for="@Model.Nota.ValorSeguro" class="form-control" />
+                <span asp-validation-for="@Model.Nota.ValorSeguro" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Nota.ValorCif" class="control-label"></label>
+                <input asp-for="@Model.Nota.ValorCif" class="form-control" />
+                <span asp-validation-for="@Model.Nota.ValorCif" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Nota.PesoLiq" class="control-label"></label>
+                <input asp-for="@Model.Nota.PesoLiq" class="form-control" />
+                <span asp-validation-for="@Model.Nota.PesoLiq" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Nota.PesoBruto" class="control-label"></label>
+                <input asp-for="@Model.Nota.PesoBruto" class="form-control" />
+                <span asp-validation-for="@Model.Nota.PesoBruto" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Nota.TaxaCambial" class="control-label"></label>
+                <input asp-for="@Model.Nota.TaxaCambial" class="form-control" />
+                <span asp-validation-for="@Model.Nota.TaxaCambial" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Nota.CertificadoQualidade" class="control-label"></label>
+                <input asp-for="@Model.Nota.CertificadoQualidade" class="form-control" />
+                <span asp-validation-for="@Model.Nota.CertificadoQualidade" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Nota.EmbarqueRodoviarioId" class="control-label"></label>
+                <select asp-for="@Model.Nota.EmbarqueRodoviarioId" class="form-control" asp-items="ViewBag.EmbarqueRodoviarioId"></select>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Nota.VeiculoId" class="control-label"></label>
+                <select asp-for="@Model.Nota.VeiculoId" class="form-control" asp-items="ViewBag.VeiculoId"></select>
+            </div>
+            <div class="form-group col-md-4">
+                <a onclick="AdicionaItem" asp-action="AdicionaItem" class="btn btn-outline-secondary dialog-window" style=" margin-top: 23px">Adicionar Item</a>
+            </div>
 
-				
-		</div>
-		<div class="form-group " align="center">
-			<br />
-			<input type="submit" value="Cadastrar" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px" />
-			<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-		</div>
-	</form>
+        </div>
+        <div class="form-group " align="center">
+            <br />
+            <input type="submit" value="Cadastrar" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px" />
+            <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+        </div>
+    </form>
 </div>
 
 
 
-@section Scripts {
-	@{
-		await Html.RenderPartialAsync("_ValidationScriptsPartial");
-	}
-	<script>
-		$(document).ready(function () {
-			$('#ValorFob, #ValorFrete, #ValorSeguro').on('input', function () {
-				var valorFob = parseFloat($('#ValorFob').val()) || 0;
-				var valorFrete = parseFloat($('#ValorFrete').val()) || 0;
-				var valorSeguro = parseFloat($('#ValorSeguro').val()) || 0;
+<div class="container">
 
-				var valorCif = valorFob + valorFrete + valorSeguro;
-				$('#ValorCif').val(valorCif.toFixed(2));
-			});
-		});
-	</script>
-}
+    <div class="form-group" style="margin-top: 20px">
+        <h4>Lista de Itens</h4>
+    </div>
+
+    <table id="myTable" class="table">
+        <thead>
+            <tr>
+                <th>
+                    Código do item
+                </th>
+                <th>
+                    Quantidade
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="modal fade" id="AdicionaItem" tabindex="-1" aria-labelledby="AdicionaItemLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="AdicionaItem">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="@Model.AdicionaItem.ItemId" class="control-label"></label>
+                        <select asp-for="@Model.AdicionaItem.ItemId" class="form-control" asp-items="ViewBag.ItemId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.AdicionaItem.Quantidade" class="control-label"></label>
+                        <input asp-for="@Model.AdicionaItem.ItemId" class="form-control" />
+                        <span asp-validation-for="@Model.AdicionaItem.ItemId" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <br />
+                        <input type="submit" value="Salvar" class="btn " style=" display:; background-color: #F08433; color: #FFF; width: 100px" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+        <script>
+            $(document).ready(function () {
+                $('#ValorFob, #ValorFrete, #ValorSeguro').on('input', function () {
+                    var valorFob = parseFloat($('#ValorFob').val()) || 0;
+                    var valorFrete = parseFloat($('#ValorFrete').val()) || 0;
+                    var valorSeguro = parseFloat($('#ValorSeguro').val()) || 0;
+
+                    var valorCif = valorFob + valorFrete + valorSeguro;
+                    $('#ValorCif').val(valorCif.toFixed(2));
+                });
+            });
+
+            $(document).ready(function () {
+                $("body").on("click", "a.dialog-window", function (e) {
+                    e.preventDefault();
+                    var $link = $(this);
+                    var title = $link.text();
+                    $('#AdicionaItemLabel').html(title); // Update modal title
+                    var url = $(this).attr('href');
+                    if (url.indexOf('#') == 0) {
+                        $('#AdicionaItem').modal('show');
+                    } else {
+                        $.get(url, function (data) {
+                            $('#AdicionaItem .modal-body').html(data); // Update modal body content
+                            $('#AdicionaItem').modal('show');
+                        }).success(function () { $('input:text:visible:first').focus(); });
+                    }
+                });
+            });
+
+        </script>
+    }

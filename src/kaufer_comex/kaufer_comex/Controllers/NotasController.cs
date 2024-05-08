@@ -29,8 +29,18 @@ namespace kaufer_comex.Controllers
             ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
             ViewData["EmbarqueRodoviarioId"] = new SelectList(_context.EmbarqueRodoviarios, "Id", "Transportadora");
 
-            return View();
+            var view = new NovaNotaView
+            {
+                Data = DateTime.Now,
+                NotaItens = _context.NotaItens.ToList(),
+                Notas = _context.Notas.ToList(),
+
+            };
+
+            return View(view);
         }
+
+
         [HttpPost]
         public async Task<IActionResult> Create(Nota nota)
         {
@@ -49,6 +59,42 @@ namespace kaufer_comex.Controllers
 
             return View(nota);
         }
+
+        // GET: ADD ITEM
+        public IActionResult AdicionaItem()
+        {
+            ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
+            return PartialView();
+        }
+
+        // POST: ADD ITEM
+        [HttpPost]
+        public async Task<IActionResult> AdicionaItem(AdicionaItem view)
+        {
+            if (ModelState.IsValid)
+            {
+
+                var item = _context.Itens.Find(view.ItemId);
+
+                var novoItem = new AdicionaItem
+                {
+                    ItemId = item.Id,
+                    Quantidade = view.Quantidade,
+
+                };
+
+                _context.AdicionaItens.Add(novoItem);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Create");
+
+            }
+
+            ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
+
+
+            return PartialView();
+        }
+
 
         public async Task<IActionResult> Edit(int? id)
         {
