@@ -1,4 +1,4 @@
-﻿@model kaufer_comex.Models.NovaNotaView
+﻿@model kaufer_comex.Models.Nota
 
 @{
     ViewData["Title"] = "Cadastrar Nota";
@@ -15,67 +15,77 @@
 
         <div class="row">
             <div class="form-group col-md-4">
-                <label asp-for="@Model.Nota.NumeroNf" class="control-label"></label>
-                <input asp-for="@Model.Nota.NumeroNf" class="form-control" />
-                <span asp-validation-for="@Model.Nota.NumeroNf" class="text-danger"></span>
+                <label asp-for="NumeroNf" class="control-label"></label>
+                <input asp-for="NumeroNf" class="form-control" />
+                <span asp-validation-for="NumeroNf" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="@Model.Nota.Emissao" class="control-label"></label>
-                <input asp-for="@Model.Nota.Emissao" class="form-control" />
-                <span asp-validation-for="@Model.Nota.Emissao" class="text-danger"></span>
+                <label asp-for="Emissao" class="control-label"></label>
+                <input asp-for="Emissao" class="form-control" />
+                <span asp-validation-for="Emissao" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="@Model.Nota.BaseNota" class="control-label"></label>
-                <input asp-for="@Model.Nota.BaseNota" class="form-control" />
-                <span asp-validation-for="@Model.Nota.BaseNota" class="text-danger"></span>
+                <label asp-for="BaseNota" class="control-label"></label>
+                <input asp-for="BaseNota" class="form-control" />
+                <span asp-validation-for="BaseNota" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="@Model.Nota.ValorFob" class="control-label"></label>
-                <input asp-for="@Model.Nota.ValorFob" class="form-control" />
-                <span asp-validation-for="@Model.Nota.ValorFob" class="text-danger"></span>
+                <label asp-for="ValorFob" class="control-label"></label>
+                <input asp-for="ValorFob" class="form-control" />
+                <span asp-validation-for="ValorFob" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="@Model.Nota.ValorFrete" class="control-label"></label>
-                <input asp-for="@Model.Nota.ValorFrete" class="form-control" />
-                <span asp-validation-for="@Model.Nota.ValorFrete" class="text-danger"></span>
+                <label asp-for="ValorFrete" class="control-label"></label>
+                <input asp-for="ValorFrete" class="form-control" />
+                <span asp-validation-for="ValorFrete" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="@Model.Nota.ValorSeguro" class="control-label"></label>
-                <input asp-for="@Model.Nota.ValorSeguro" class="form-control" />
-                <span asp-validation-for="@Model.Nota.ValorSeguro" class="text-danger"></span>
+                <label asp-for="ValorSeguro" class="control-label"></label>
+                <input asp-for="ValorSeguro" class="form-control" />
+                <span asp-validation-for="ValorSeguro" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="@Model.Nota.ValorCif" class="control-label"></label>
-                <input asp-for="@Model.Nota.ValorCif" class="form-control" />
-                <span asp-validation-for="@Model.Nota.ValorCif" class="text-danger"></span>
+                <label asp-for="ValorCif" class="control-label"></label>
+                <input asp-for="ValorCif" class="form-control" />
+                <span asp-validation-for="ValorCif" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="@Model.Nota.PesoLiq" class="control-label"></label>
-                <input asp-for="@Model.Nota.PesoLiq" class="form-control" />
-                <span asp-validation-for="@Model.Nota.PesoLiq" class="text-danger"></span>
+                <label asp-for="PesoLiq" class="control-label"></label>
+                <input asp-for="PesoLiq" class="form-control" />
+                <span asp-validation-for="PesoLiq" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="@Model.Nota.PesoBruto" class="control-label"></label>
-                <input asp-for="@Model.Nota.PesoBruto" class="form-control" />
-                <span asp-validation-for="@Model.Nota.PesoBruto" class="text-danger"></span>
+                <label asp-for="PesoBruto" class="control-label"></label>
+                <input asp-for="PesoBruto" class="form-control" />
+                <span asp-validation-for="PesoBruto" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="@Model.Nota.TaxaCambial" class="control-label"></label>
-                <input asp-for="@Model.Nota.TaxaCambial" class="form-control" />
-                <span asp-validation-for="@Model.Nota.TaxaCambial" class="text-danger"></span>
+                <label asp-for="TaxaCambial" class="control-label"></label>
+                <input asp-for="TaxaCambial" class="form-control" />
+                <span asp-validation-for="TaxaCambial" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="@Model.Nota.CertificadoQualidade" class="control-label"></label>
-                <input asp-for="@Model.Nota.CertificadoQualidade" class="form-control" />
-                <span asp-validation-for="@Model.Nota.CertificadoQualidade" class="text-danger"></span>
+                <label asp-for="CertificadoQualidade" class="control-label"></label>
+                <input asp-for="CertificadoQualidade" class="form-control" />
+                <span asp-validation-for="CertificadoQualidade" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="@Model.Nota.EmbarqueRodoviarioId" class="control-label"></label>
-                <select asp-for="@Model.Nota.EmbarqueRodoviarioId" class="form-control" asp-items="ViewBag.EmbarqueRodoviarioId"></select>
+                <label asp-for="EmbarqueRodoviarioId" class="control-label"></label>
+                <select asp-for="EmbarqueRodoviarioId" class="form-control" asp-items="ViewBag.EmbarqueRodoviarioId"></select>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="@Model.Nota.VeiculoId" class="control-label"></label>
-                <select asp-for="@Model.Nota.VeiculoId" class="form-control" asp-items="ViewBag.VeiculoId"></select>
+                <label asp-for="VeiculoId" class="control-label"></label>
+                <select asp-for="VeiculoId" class="form-control" asp-items="ViewBag.VeiculoId"></select>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="ValorTotal" class="control-label"></label>
+                <input asp-for="ValorTotal" class="form-control" />
+                <span asp-validation-for="ValorTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="QuantidadeTotal" class="control-label"></label>
+                <input asp-for="QuantidadeTotal" class="form-control" />
+                <span asp-validation-for="QuantidadeTotal" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
                 <a onclick="AdicionaItem" asp-action="AdicionaItem" class="btn btn-outline-secondary dialog-window" style=" margin-top: 23px">Adicionar Item</a>
@@ -98,8 +108,8 @@
     <hr />
     <h5>Itens adicionados</h5>
 </div>
-
-@if (Model.NotaItemTemps.Count == 0)
+@* 
+@if (Model.NotaItem.Count == 0)
 {
     <h6>Nenhum item adicionado.</h6>
 }
@@ -128,17 +138,17 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.NotaItemTemps)
+            @foreach (var item in Model.NotaItem)
             {
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.ItemId)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Descricao)
+                        @Html.DisplayFor(modelItem => item.Item.DescricaoProduto)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Preco)
+                        @Html.DisplayFor(modelItem => item.Item.Preco)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Quantidade)
@@ -167,7 +177,7 @@ else
         </tbody>
     </table>
 }
-
+ *@
 
 <div class="modal fade" id="AdicionaItem" tabindex="-1" aria-labelledby="AdicionaItemLabel" aria-hidden="true">
     <div class="modal-dialog">

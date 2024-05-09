@@ -35,45 +35,20 @@ namespace kaufer_comex.Controllers
             ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
             ViewData["EmbarqueRodoviarioId"] = new SelectList(_context.EmbarqueRodoviarios, "Id", "Transportadora");
 
-            var view = new NovaNotaView
-            {
-                Data = DateTime.Now,
-                NotaItens = _context.NotaItens.ToList(),
-                Notas = _context.Notas.ToList(),
-                NotaItemTemps = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList(),
+            
 
-            };
-
-            return View(view);
+            return View();
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(NovaNotaView view)
+        public async Task<IActionResult> Create(Nota nota)
         {
             var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
             if (ModelState.IsValid)
             {
-                var novaNota = new Nota
-                {
-                    NumeroNf = view.NumeroNf,
-                    Emissao = view.Emissao,
-                    BaseNota = view.BaseNota,
-                    ValorFob = view.ValorFob,
-                    ValorCif = view.ValorCif,
-                    ValorFrete = view.ValorFrete,
-                    ValorSeguro = view.ValorSeguro,
-                    VeiculoId = view.VeiculoId,
-                    PesoBruto = view.PesoBruto,
-                    PesoLiq = view.PesoLiq,
-                    TaxaCambial = view.TaxaCambial,
-                    CertificadoQualidade = view.CertificadoQualidade,
-                    EmbarqueRodoviarioId = view.EmbarqueRodoviarioId
-                };
-
-
-                _context.Notas.Add(novaNota);
+                _context.Notas.Add(nota);
                 _context.SaveChanges();
 
                 var itens = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
@@ -83,7 +58,7 @@ namespace kaufer_comex.Controllers
                     var notaItem = new NotaItem
                     {
                         ItemId = item.ItemId,
-                        NotaId = novaNota.Id,
+                        NotaId = nota.Id,
                         Quantidade = item.Quantidade,
                         Valor = item.Valor,
                     };
@@ -94,17 +69,14 @@ namespace kaufer_comex.Controllers
 
 				}
 
-
 			}
         
-
-			
 			ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
             ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
             ViewData["EmbarqueRodoviarioId"] = new SelectList(_context.EmbarqueRodoviarios, "Id", "Transportadora");
 			var notaItemTemps = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
 
-			return View(view);
+			return View(nota);
         }
 
         // GET: ADD ITEM

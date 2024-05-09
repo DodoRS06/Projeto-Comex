@@ -1,4 +1,5 @@
 ﻿
+using kaufer_comex.Migrations;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -67,9 +68,16 @@ namespace kaufer_comex.Models
         [ForeignKey("VeiculoId")]
         public Veiculo Veiculo { get; set; }
 
-        public virtual ICollection<NotaItem> NotaItem { get; set; }
+		public double QuantidadeTotal { get; set; }
 
-    }
+		[Column(TypeName = "decimal(18,2)")]
+		[DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+		public decimal ValorTotal { get; set; }
+
+		public virtual List<NotaItem> NotaItem { get; set; }
+
+        
+	}
 }
 
 
