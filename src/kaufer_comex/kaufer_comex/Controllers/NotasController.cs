@@ -50,34 +50,52 @@ namespace kaufer_comex.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Nota nota)
+        public async Task<IActionResult> Create(NovaNotaView view)
         {
-			var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
-			if (ModelState.IsValid)
-			{
-                    _context.Notas.Add(nota);
-                    _context.SaveChanges();
+            var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
+            if (ModelState.IsValid)
+            {
+                var novaNota = new Nota
+                {
+                    NumeroNf = view.NumeroNf,
+                    Emissao = view.Emissao,
+                    BaseNota = view.BaseNota,
+                    ValorFob = view.ValorFob,
+                    ValorCif = view.ValorCif,
+                    ValorFrete = view.ValorFrete,
+                    ValorSeguro = view.ValorSeguro,
+                    VeiculoId = view.VeiculoId,
+                    PesoBruto = view.PesoBruto,
+                    PesoLiq = view.PesoLiq,
+                    TaxaCambial = view.TaxaCambial,
+                    CertificadoQualidade = view.CertificadoQualidade,
+                    EmbarqueRodoviarioId = view.EmbarqueRodoviarioId
+                };
 
-                    var itens = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
 
-                    foreach (var item in itens)
+                _context.Notas.Add(novaNota);
+                _context.SaveChanges();
+
+                var itens = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
+
+                foreach (var item in itens)
+                {
+                    var notaItem = new NotaItem
                     {
-                        var notaItem = new NotaItem
-                        {
-                            ItemId = item.ItemId,
-                            NotaId = nota.Id,
-                            Quantidade = item.Quantidade,
-                            Valor = item.Valor,
-                        };
+                        ItemId = item.ItemId,
+                        NotaId = novaNota.Id,
+                        Quantidade = item.Quantidade,
+                        Valor = item.Valor,
+                    };
 
-                        _context.NotaItens.Add(notaItem);
-                        _context.NotaItemTemps.Remove(item);
-                    }
-
-                     _context.SaveChanges();
-
+                    _context.NotaItens.Add(notaItem);
+                    _context.NotaItemTemps.Remove(item);
                 }
-				
+
+                _context.SaveChanges();
+
+            }
+        
 
 			
 			ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
@@ -85,7 +103,7 @@ namespace kaufer_comex.Controllers
             ViewData["EmbarqueRodoviarioId"] = new SelectList(_context.EmbarqueRodoviarios, "Id", "Transportadora");
 			var notaItemTemps = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
 
-			return View(nota);
+			return View(view);
         }
 
         // GET: ADD ITEM
