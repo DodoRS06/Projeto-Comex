@@ -36,17 +36,30 @@ namespace kaufer_comex.Controllers
 			return fornecedor != null ? fornecedor.Nome : string.Empty;
 		}
 
-		public async Task<IActionResult> Index()
+		public async Task<IActionResult> Index(int? id)
         {
-			//        var dados = await _context.DCEs
-			//            .Include(p => p.CadastroDespesas)
-			//            .Include(p => p.FornecedorServicos)
-			//.ToListAsync();
+            //Testar se o id passado é válido
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-			var dados = await _context.DCEs.ToListAsync();
+            var dados = await _context.DCEs
+                .Where(d => d.ProcessoId == id)
+                .ToListAsync();
+
+            //Testar se tem algum item com o id fornecido
+            //if (dados == null)
+            //{
+            //    return NotFound();
+            //}
+            //if (!dados.Any())
+            //{
+            //    return RedirectToAction("Detail", "Processo", new { id = id});
+            //}
 
             //Procurar um nome com aquele id dentro da tabela de despesa e fornecedor
-			foreach (var dce in dados)
+            foreach (var dce in dados)
 			{
 				dce.CadastroDespesaNome = await GetDespesaNome(dce.CadastroDespesaId);
 				dce.FornecedorServicoNome = await GetFornecedorNome(dce.FornecedorServicoId);
@@ -57,10 +70,16 @@ namespace kaufer_comex.Controllers
 			return View(dados);
         }
 
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-			Dropdowns();
+            ViewData["ProcessoId"] = id.Value;
+
+            Dropdowns();
 
 			return View();
         }
@@ -71,6 +90,12 @@ namespace kaufer_comex.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Recupere o ProcessoId do formulário
+                int processoId = Convert.ToInt32(Request.Form["ProcessoId"]);
+
+                // Atribua o ProcessoId ao objeto DCE
+                dce.ProcessoId = processoId;
+
                 _context.DCEs.Add(dce);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -130,7 +155,7 @@ namespace kaufer_comex.Controllers
             if (dados == null)
                 return NotFound();
 
-			await Dropdowns(dados);
+            await Dropdowns(dados);
 
 			return View(dados);
 
@@ -144,33 +169,37 @@ namespace kaufer_comex.Controllers
 
             if (ModelState.IsValid)
             {
+                if (Request.Form.ContainsKey("ProcessoId"))
+                {
+                    dce.ProcessoId = Convert.ToInt32(Request.Form["ProcessoId"]);
+                }
+
                 _context.DCEs.Update(dce);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = dce.ProcessoId });
             }
 
 			await Dropdowns(dce);
 
-			return View(dce);
+            return View(dce);
         }
 
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-                return NotFound();
+   //     public async Task<IActionResult> Details(int? id)
+   //     {
+   //         if (id == null)
+   //             return NotFound();
 
-            var dados = await _context.DCEs.FindAsync(id);
+   //         var dados = await _context.DCEs.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+   //         if (id == null)
+   //             return NotFound();
 
-			await Dropdowns(dados);
+			//await Dropdowns(dados);
 
-			return View(dados);
-        }
+			//return View(dados);
+   //     }
 
-
-        public async Task<IActionResult> Delete(int? id)
+		public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
                 return NotFound();
@@ -201,8 +230,7 @@ namespace kaufer_comex.Controllers
 
 			_context.DCEs.Remove(dados);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
-
-        }
+			return RedirectToAction("Index", new { id = dados.ProcessoId });
+		}
     }
 }

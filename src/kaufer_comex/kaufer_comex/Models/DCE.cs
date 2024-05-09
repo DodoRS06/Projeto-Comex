@@ -34,6 +34,7 @@ namespace kaufer_comex.Models
 		public ICollection<FornecedorServicoDCE> FornecedorServicos { get; set; }
 
         [ForeignKey("ProcessoId")]
+        public int ProcessoId { get; set; }
         public Processo Processo { get; set; }
-    }
+	}
 }

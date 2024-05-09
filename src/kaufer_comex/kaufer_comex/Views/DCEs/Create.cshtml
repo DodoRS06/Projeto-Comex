@@ -16,6 +16,7 @@
         <div id="despesasContainer">
             <div class="despesa">
                 <div class="row">
+                    <input type="hidden" id="ProcessoId" name="ProcessoId" value="@ViewData["ProcessoId"]" />
                     <div class="form-group col-md-4">
                         <label asp-for="CadastroDespesaId" class="control-label"></label>
                         <select asp-for="CadastroDespesaId" class="form-control" asp-items="ViewBag.CadastroDespesaId">
@@ -78,7 +79,7 @@
         <br />
         <!-- Botão para cadastrar todos os itens -->
         <button type="button" id="cadastrarItensBtn" class="btn" style="background-color: #F08433; color: #FFF; width: 200px">Cadastrar Todos os Itens</button>
-        <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+        <a asp-action="Index" asp-route-id="@ViewContext.RouteData.Values["id"]" class="btn btn-dark" style="width: 100px">Voltar</a>
     </div>
 </div>
 
@@ -94,7 +95,8 @@
                     CadastroDespesaId: $('#CadastroDespesaId').val(),
                     FornecedorServicoId: $('#FornecedorServicoId').val(),
                     Valor: $('#Valor').val(),
-                    Observacao: $('#Observacao').val()
+                    Observacao: $('#Observacao').val(),
+                    ProcessoId: $('#ProcessoId').val()
                 };
 
                 // Buscar nome da despesa e do fornecedor
@@ -147,7 +149,8 @@
                     data: JSON.stringify(listaItens),
                     success: function () {
                         // Redirecionar após cadastrar os itens
-                        window.location.href = '/DCEs/Index';
+                        var processoId = $('#ProcessoId').val();
+                        window.location.href = '/DCEs/Index/' + processoId;
                     },
                     error: function (xhr, status, error) {
                         console.error(xhr.responseText);
