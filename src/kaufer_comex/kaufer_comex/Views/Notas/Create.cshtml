@@ -1,4 +1,4 @@
-﻿@model kaufer_comex.Models.Nota
+﻿@model kaufer_comex.Models.NovaNotaView
 
 @{
     ViewData["Title"] = "Cadastrar Nota";
@@ -10,7 +10,7 @@
         <h4>Cadastrar Nota</h4>
     </div>
     <hr />
-    <form asp-controller="Notas" asp-action="Create">
+    <form asp-action="Create">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <div class="row">
@@ -108,8 +108,8 @@
     <hr />
     <h5>Itens adicionados</h5>
 </div>
-@* 
-@if (Model.NotaItem.Count == 0)
+
+@if (Model.NotaItemTemps.Count == 0)
 {
     <h6>Nenhum item adicionado.</h6>
 }
@@ -138,17 +138,17 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.NotaItem)
+            @foreach (var item in Model.NotaItemTemps)
             {
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.ItemId)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Item.DescricaoProduto)
+                        @Html.DisplayFor(modelItem => item.Descricao)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Item.Preco)
+                        @Html.DisplayFor(modelItem => item.Preco)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Quantidade)
@@ -157,7 +157,7 @@ else
                         @Html.DisplayFor(modelItem => item.Valor)
                     </td>
                     <td>
-                        <a asp-action="ExcluirItem" asp-route-id="@item.ItemId" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                        <a asp-controller="Notas" asp-action="ExcluirItem" asp-route-id="@item.ItemId" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
                     </td>
 
                 </tr>
@@ -177,7 +177,7 @@ else
         </tbody>
     </table>
 }
- *@
+ 
 
 <div class="modal fade" id="AdicionaItem" tabindex="-1" aria-labelledby="AdicionaItemLabel" aria-hidden="true">
     <div class="modal-dialog">

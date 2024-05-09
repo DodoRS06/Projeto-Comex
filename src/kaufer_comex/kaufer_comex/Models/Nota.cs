@@ -76,7 +76,8 @@ namespace kaufer_comex.Models
 
 		public virtual List<NotaItem> NotaItem { get; set; }
 
-        
+        [NotMapped]
+        public List<NotaItemTemp> NotaItemTemps { get; set; }
 	}
 }
 
