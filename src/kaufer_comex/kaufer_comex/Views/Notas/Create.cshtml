@@ -96,7 +96,7 @@
 
 <div class="form-group" style="margin-top: 20px">
     <hr />
-    <h4>Itens adicionados</h4>
+    <h5>Itens adicionados</h5>
 </div>
 
 @if (Model.NotaItemTemps.Count == 0)
@@ -176,23 +176,6 @@ else
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form asp-action="AdicionaItem">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="@Model.AdicionaItem.ItemId" class="control-label"></label>
-                        <select asp-for="@Model.AdicionaItem.ItemId" class="form-control" asp-items="ViewBag.ItemId"></select>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="@Model.AdicionaItem.Quantidade" class="control-label"></label>
-                        <input asp-for="@Model.AdicionaItem.ItemId" class="form-control" />
-                        <span asp-validation-for="@Model.AdicionaItem.ItemId" class="text-danger"></span>
-                    </div>
-
-                    <div class="row">
-                        <br />
-                        <input type="submit" value="Salvar" class="btn " style=" display:; background-color: #F08433; color: #FFF; width: 100px" />
-                    </div>
-                </form>
             </div>
         </div>
    </div>

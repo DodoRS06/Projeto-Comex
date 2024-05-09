@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Net;
 
 namespace kaufer_comex.Controllers
@@ -51,22 +52,40 @@ namespace kaufer_comex.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Nota nota)
         {
-            var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
+			var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
+			if (ModelState.IsValid)
+			{
+                    _context.Notas.Add(nota);
+                    _context.SaveChanges();
 
-            if (ModelState.IsValid)
-            {
+                    var itens = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
 
-                _context.Notas.Add(nota);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                    foreach (var item in itens)
+                    {
+                        var notaItem = new NotaItem
+                        {
+                            ItemId = item.ItemId,
+                            NotaId = nota.Id,
+                            Quantidade = item.Quantidade,
+                            Valor = item.Valor,
+                        };
 
-            }
+                        _context.NotaItens.Add(notaItem);
+                        _context.NotaItemTemps.Remove(item);
+                    }
 
-            ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
+                     _context.SaveChanges();
+
+                }
+				
+
+			
+			ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
             ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
             ViewData["EmbarqueRodoviarioId"] = new SelectList(_context.EmbarqueRodoviarios, "Id", "Transportadora");
+			var notaItemTemps = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
 
-            return View(nota);
+			return View(nota);
         }
 
         // GET: ADD ITEM

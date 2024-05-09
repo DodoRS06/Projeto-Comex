@@ -6,7 +6,52 @@ namespace kaufer_comex.Models
     public class NovaNotaView
     {
 
-        [Required(ErrorMessage = "O campo é obrigatório")]
+		[Display(Name = "Número Nf (*)")]
+		public int NumeroNf { get; set; }
+
+		[Display(Name = "Emissão (*)")]
+		public DateTime Emissao { get; set; }
+
+		[Display(Name = "Base Nota (*)")]
+		public DateTime BaseNota { get; set; }
+
+		[Display(Name = "Valor Fob (*)")]
+		public float ValorFob { get; set; }
+
+		[Display(Name = "Valor Frete (*)")]
+		public float ValorFrete { get; set; }
+
+		[Display(Name = "Valor Seguro (*)")]
+		public float ValorSeguro { get; set; }
+
+		[Display(Name = "Valor Cif (*)")]
+		public float ValorCif { get; set; }
+
+		[Display(Name = "Peso Liq (*)")]
+		public float PesoLiq { get; set; }
+
+		[Display(Name = "Peso Bruto (*)")]
+		public float PesoBruto { get; set; }
+
+		[Display(Name = "Taxa Cambial (*)")]
+		public float TaxaCambial { get; set; }
+
+		[Display(Name = "Certificado Qualidade (*)")]
+		public string CertificadoQualidade { get; set; }
+
+
+		[Display(Name = "Embarque Rodoviário (*)")]
+		public int EmbarqueRodoviarioId { get; set; }
+
+		[ForeignKey("EmbarqueRodoviarioId")]
+		public EmbarqueRodoviario EmbarqueRodoviario { get; set; }
+
+		[Display(Name = "Veículo (*)")]
+		public int VeiculoId { get; set; }
+
+		public Veiculo Veiculo { get; set; }
+
+		[Required(ErrorMessage = "O campo é obrigatório")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/YYYY}", ApplyFormatInEditMode = true)]
         public DateTime Data { get; set; }
