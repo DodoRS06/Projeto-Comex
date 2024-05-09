@@ -90,11 +90,12 @@ namespace kaufer_comex.Controllers
 
                     _context.NotaItens.Add(notaItem);
                     _context.NotaItemTemps.Remove(item);
-                }
+					_context.SaveChanges();
 
-                _context.SaveChanges();
+				}
 
-            }
+
+			}
         
 
 			
