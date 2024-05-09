@@ -18,12 +18,12 @@ namespace kaufer_comex.Models
 
 		public AdicionaItemView AdicionaItem { get; set; }
 
-		[DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
-        public double QuantidadeTotal { get { return NotaItens == null ? 0 : NotaItens.Sum(d => d.Quantidade); } }
+		
+        public double QuantidadeTotal { get { return NotaItemTemps == null ? 0 : NotaItemTemps.Sum(d => d.Quantidade); } }
 
 		[Column(TypeName = "decimal(18,2)")]
-		[DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
-        public decimal ValorTotal { get { return NotaItens == null ? 0 : NotaItens.Sum(d => d.Valor); } }
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        public decimal ValorTotal { get { return NotaItemTemps == null ? 0 : NotaItemTemps.Sum(d => d.Valor); } }
 
 		public List<NotaItem> NotaItens { get; set; }
 

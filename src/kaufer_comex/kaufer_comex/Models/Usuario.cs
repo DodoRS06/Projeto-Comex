@@ -26,7 +26,7 @@ namespace kaufer_comex.Models
 
         [Display(Name = "CPF (*)")]
         [Required(ErrorMessage = "Obrigatório informar o CPF do Funcionário!")]
-        //[RegularExpression(@"\d{3}\.\d{3}.\d{3}-\d{2}", ErrorMessage = "Por favor, digite um CPF válido!")]
+        [RegularExpression(@"\d{3}\.\d{3}.\d{3}-\d{2}", ErrorMessage = "Por favor, digite um CPF válido!")]
         public string CPF { get; set; }
 
         [Display(Name = "Tipo de Usuário (*)")]
