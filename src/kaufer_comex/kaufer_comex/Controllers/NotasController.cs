@@ -35,8 +35,6 @@ namespace kaufer_comex.Controllers
             ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
             ViewData["EmbarqueRodoviarioId"] = new SelectList(_context.EmbarqueRodoviarios, "Id", "Transportadora");
 
-            
-
             return View();
         }
 
@@ -66,7 +64,7 @@ namespace kaufer_comex.Controllers
                     _context.NotaItens.Add(notaItem);
                     _context.NotaItemTemps.Remove(item);
 					_context.SaveChanges();
-
+                    return Redirect("Index");
 				}
 
 			}
