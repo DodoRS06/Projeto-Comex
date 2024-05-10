@@ -73,7 +73,7 @@ namespace kaufer_comex.Controllers
                     EmbarqueRodoviarioId = view.EmbarqueRodoviarioId
                 };
                 _context.Notas.Add(novaNota);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
 
                 var itens = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
 
@@ -89,7 +89,7 @@ namespace kaufer_comex.Controllers
 
                     _context.NotaItens.Add(notaItem);
                     _context.NotaItemTemps.Remove(item);
-					_context.SaveChanges();
+					await _context.SaveChangesAsync();
                     
 				}
                 return RedirectToAction("Index");
