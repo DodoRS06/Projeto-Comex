@@ -95,12 +95,17 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Passos 	| - Acessar o Site<br> - Digitar os dados do processo. <br> - Clicar no botão 'Enviar cadastro' |  
 |Critério de Êxito | - O cadastro do Processo deve ser realizado.|
 |   |   |
-| **Caso de teste**   | **CT-20-Tela Cadastro de Status** |
+| **Caso de teste**   | **CT-23-Tela Cadastro de Status** |
 |Requisito Associado |  RF-020 - sistema deve permitir ao usuário cadastrar o Status do Processo.
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro dos Status .|
 | Passos 	| - Acessar o Site<br> - Digitar o Status. <br> - Clicar no botão 'Enviar' |  
 |Critério de Êxito | - O cadastro do Status deve ser realizado.|
-
+|   |   |
+| **Caso de teste**   | **CT-24-Tela teste de lógica valor processo** |
+|Requisito Associado |  RF-012 - O sistema deve permitir o usuário cadastrar os valores da Exportação.
+| Objetivo do Teste 	| O usuário ao imputar os valores a soma deverá ser realizada automaticamente.|
+| Passos 	| - Acessar o Site<br> - Digitar os valores da exportação <br> - Clicar no botão 'Enviar cadastro' |  
+|Critério de Êxito | - A soma dos valores da exportação deve ser realizado.|
 
 
 # Evidências de Testes de Software
@@ -152,10 +157,14 @@ CT-21-Tela Cadastro de Despachante
 CT-22- Tela Cadastro de Processo
 ![Evidencias](img/teste_processo.png)
 
-** CT-20- Tela Cadastro de Status 
+** CT-23- Tela Cadastro de Status 
 ![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-04-07%20153402.png)
 
 ![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-04-07%20153411.png)
 
 *** Erro do teste : Editar na página Visualizar não funciona
 ![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-04-07%20153550.png)
+
+CT-22- Tela Cadastro de Processo
+![Evidencias](img/Tela%20Cadastro%20de%20valores%20teste%20de%20lógica.png)
+s
