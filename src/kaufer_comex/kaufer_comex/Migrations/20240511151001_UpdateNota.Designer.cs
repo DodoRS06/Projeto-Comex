@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using kaufer_comex.Models;
 
@@ -11,9 +12,10 @@ using kaufer_comex.Models;
 namespace kaufer_comex.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240511151001_UpdateNota")]
+    partial class UpdateNota
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -458,20 +460,20 @@ namespace kaufer_comex.Migrations
                     b.Property<double>("QuantidadeTotal")
                         .HasColumnType("float");
 
-                    b.Property<decimal>("TaxaCambial")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<float>("TaxaCambial")
+                        .HasColumnType("real");
 
-                    b.Property<decimal>("ValorCif")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<float>("ValorCif")
+                        .HasColumnType("real");
 
-                    b.Property<decimal>("ValorFob")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<float>("ValorFob")
+                        .HasColumnType("real");
 
-                    b.Property<decimal>("ValorFrete")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<float>("ValorFrete")
+                        .HasColumnType("real");
 
-                    b.Property<decimal>("ValorSeguro")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<float>("ValorSeguro")
+                        .HasColumnType("real");
 
                     b.Property<decimal>("ValorTotalNota")
                         .HasColumnType("decimal(18,2)");

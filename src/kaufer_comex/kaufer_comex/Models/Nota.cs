@@ -17,27 +17,35 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Emissão (*)")]
         [Required(ErrorMessage = "Obrigatório")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Emissao { get; set; }
 
         [Display(Name = "Base Nota (*)")]
         [Required(ErrorMessage = "Obrigatório")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime BaseNota { get; set; }
 
         [Display(Name = "Valor Fob (*)")]
+        [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "Obrigatório")]
-        public float ValorFob { get; set; }
+        public decimal ValorFob { get; set; }
 
         [Display(Name = "Valor Frete (*)")]
+        [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "Obrigatório")]
-        public float ValorFrete { get; set; }
+        public decimal ValorFrete { get; set; }
 
         [Display(Name = "Valor Seguro (*)")]
+        [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "Obrigatório")]
-        public float ValorSeguro { get; set; }
+        public decimal ValorSeguro { get; set; }
 
         [Display(Name = "Valor Cif (*)")]
+        [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "Obrigatório")]
-        public float ValorCif { get; set; }
+        public decimal ValorCif { get; set; }
 
         [Display(Name = "Peso Liq (*)")]
         [Required(ErrorMessage = "Obrigatório")]
@@ -48,8 +56,9 @@ namespace kaufer_comex.Models
         public float PesoBruto { get; set; }
 
         [Display(Name = "Taxa Cambial (*)")]
+        [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "Obrigatório")]
-        public float TaxaCambial { get; set; }
+        public decimal TaxaCambial { get; set; }
 
         [Display(Name = "Certificado Qualidade (*)")]
         [Required(ErrorMessage = "Obrigatório")]
@@ -72,7 +81,7 @@ namespace kaufer_comex.Models
 
 		[Column(TypeName = "decimal(18,2)")]
 		[DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
-		public decimal ValorTotal { get; set; }
+		public decimal ValorTotalNota { get; set; }
 
 		public virtual List<NotaItem> NotaItem { get; set; }
 
