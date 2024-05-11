@@ -169,6 +169,7 @@ CT-21-Tela Cadastro de Despachante
 ![Evidencias ](img/Despachante%20Adicionado.png)
 
 CT-22- Tela Cadastro de Processo
+![Evidencias](img/processo_teste2.png)
 ![Evidencias](img/processo_teste.png)
 
 ** CT-23- Tela Cadastro de Status 
