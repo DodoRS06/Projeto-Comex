@@ -30,21 +30,25 @@ namespace kaufer_comex.Models
         [Display(Name = "Valor Fob (*)")]
         [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "Obrigatório")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorFob { get; set; }
 
         [Display(Name = "Valor Frete (*)")]
         [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "Obrigatório")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorFrete { get; set; }
 
         [Display(Name = "Valor Seguro (*)")]
         [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "Obrigatório")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorSeguro { get; set; }
 
         [Display(Name = "Valor Cif (*)")]
         [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "Obrigatório")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorCif { get; set; }
 
         [Display(Name = "Peso Liq (*)")]
@@ -58,6 +62,7 @@ namespace kaufer_comex.Models
         [Display(Name = "Taxa Cambial (*)")]
         [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "Obrigatório")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal TaxaCambial { get; set; }
 
         [Display(Name = "Certificado Qualidade (*)")]

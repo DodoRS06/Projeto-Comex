@@ -21,18 +21,22 @@ namespace kaufer_comex.Models
 
 		[Display(Name = "Valor Fob (*)")]
         [Column(TypeName = "decimal(18,2)")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorFob { get; set; }
 
 		[Display(Name = "Valor Frete (*)")]
         [Column(TypeName = "decimal(18,2)")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorFrete { get; set; }
 
 		[Display(Name = "Valor Seguro (*)")]
         [Column(TypeName = "decimal(18,2)")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorSeguro { get; set; }
 
 		[Display(Name = "Valor Cif (*)")]
         [Column(TypeName = "decimal(18,2)")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorCif { get; set; }
 
 		[Display(Name = "Peso Liq (*)")]
@@ -43,6 +47,7 @@ namespace kaufer_comex.Models
 
 		[Display(Name = "Taxa Cambial (*)")]
         [Column(TypeName = "decimal(18,2)")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal TaxaCambial { get; set; }
 
 		[Display(Name = "Certificado Qualidade (*)")]
@@ -60,7 +65,8 @@ namespace kaufer_comex.Models
 
 		public Veiculo Veiculo { get; set; }
 
-		[Column(TypeName = "decimal(18,2)")]
+        [Display(Name = "Valor Total (*)")]
+        [Column(TypeName = "decimal(18,2)")]
 		[DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
 		public decimal ValorTotalNota { get; set; }
 
@@ -76,10 +82,11 @@ namespace kaufer_comex.Models
 
 		public AdicionaItemView AdicionaItem { get; set; }
 
-		
+        [Display(Name = "Quantidade Total (*)")]
         public double QuantidadeTotal { get { return NotaItemTemps == null ? 0 : NotaItemTemps.Sum(d => d.Quantidade); } }
 
-		[Column(TypeName = "decimal(18,2)")]
+        [Display(Name = "Valor Total (*)")]
+        [Column(TypeName = "decimal(18,2)")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorTotal { get { return NotaItemTemps == null ? 0 : NotaItemTemps.Sum(d => d.Valor); } }
 
