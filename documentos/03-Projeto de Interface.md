@@ -18,7 +18,7 @@
 ![Tela de Cadastro de Processo](img/cadastro_processo.png)
 
 
-## Tela para Visualizar Protocolos 
+## Tela para Visualizar Processo 
 
 ![Processo Index](img/processo_index.png)
 

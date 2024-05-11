@@ -169,7 +169,7 @@ CT-21-Tela Cadastro de Despachante
 ![Evidencias ](img/Despachante%20Adicionado.png)
 
 CT-22- Tela Cadastro de Processo
-![Evidencias](img/teste_processo.png)
+![Evidencias](img/processo_teste.png)
 
 ** CT-23- Tela Cadastro de Status 
 ![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-04-07%20153402.png)
