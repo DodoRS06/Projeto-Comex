@@ -86,7 +86,7 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | **Caso de teste**   | **CT-18-Tela Cadastro de Nota** |
 |Requisito Associado | RF-018 - O sistema deve permitir que o usuário vincule os itens nas notas fiscais do embarque rodoviário|
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro da nota fiscal incluindo os itens.|
-| Passos 	| - Acessar a página de Cadastro de Notas<br> - Clicar em Adicionar item . <br> - Selecionar o item e a quantidade do item. |  Clicar em salvar. | Digitar as informações da Nota e clicar em Cadastrar.|
+| Passos 	| - Acessar a página de Cadastro de Notas<br> - Clicar em Adicionar item . <br> - Selecionar o item e a quantidade do item. <br> - Clicar em salvar. <br>- Digitar as informações da Nota e clicar em Cadastrar.|
 |Critério de Êxito | - O cadastro da Nota deve ser realizado.|
 |   |   |
 | **Caso de teste**   | **CT-21-Tela Cadastro de Despachante** |
