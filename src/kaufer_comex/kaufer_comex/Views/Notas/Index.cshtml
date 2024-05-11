@@ -51,12 +51,12 @@
                 <th>
                     @Html.DisplayNameFor(model => model.TaxaCambial)
                 </th>
-                <th>
+              @*   <th>
                     @Html.DisplayNameFor(model => model.EmbarqueRodoviario)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Veiculo)
-                </th>
+                </th> *@
                 <th></th>
             </tr>
         </thead>
@@ -88,12 +88,12 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.TaxaCambial)
                     </td>
-                    <td>
+      @*               <td>
                         @Html.DisplayFor(modelItem => item.EmbarqueRodoviario.Transportadora)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Veiculo.Motorista)
-                    </td>
+                    </td> *@
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
                         <a asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> |

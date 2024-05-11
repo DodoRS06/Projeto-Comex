@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("kaufer_comex")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+829e1f45abd8605231fc62e9e761c47aebd53b27")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9513c3caa57e67f0f36e3004f752ae4bdd6d6085")]
 [assembly: System.Reflection.AssemblyProductAttribute("kaufer_comex")]
 [assembly: System.Reflection.AssemblyTitleAttribute("kaufer_comex")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

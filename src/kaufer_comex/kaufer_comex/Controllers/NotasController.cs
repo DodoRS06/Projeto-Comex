@@ -20,6 +20,7 @@ namespace kaufer_comex.Controllers
         {
             var dados = await _context.Notas
                 .Include(p => p.Veiculo)
+                .Include(p => p.EmbarqueRodoviario)
                 .ToListAsync();
 
             return View(dados);
@@ -220,6 +221,7 @@ namespace kaufer_comex.Controllers
 
             var dados = await _context.Notas
                 .Include(p => p.Veiculo)
+                .Include(p => p.EmbarqueRodoviario)
                 .Include(p => p.NotaItem)
                     .ThenInclude(ni => ni.Item)
                 .FirstOrDefaultAsync(p => p.Id == id);
