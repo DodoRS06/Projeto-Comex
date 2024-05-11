@@ -220,6 +220,8 @@ namespace kaufer_comex.Controllers
 
             var dados = await _context.Notas
                 .Include(p => p.Veiculo)
+                .Include(p => p.NotaItem)
+                    .ThenInclude(ni => ni.Item)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (dados == null)

@@ -90,6 +90,26 @@
         </dd>
     </dl>
 </div>
+<h3>Itens da Nota</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantidade</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.NotaItem)
+        {
+            <tr>
+                <td>@item.Item.DescricaoProduto</td>
+                <td>@item.Quantidade</td>
+                <td>@item.Valor</td>
+            </tr>
+        }
+    </tbody>
+</table>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px">Editar</a> |
     <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
