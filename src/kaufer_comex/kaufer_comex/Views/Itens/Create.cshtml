@@ -29,41 +29,63 @@
 			<input asp-for="Familia" class="form-control" />
 			<span asp-validation-for="Familia" class="text-danger"></span>
 		</div>
-		<div class="form-group col-md-4">
-			<label asp-for="Largura" class="control-label"></label>
-			<input asp-for="Largura" class="form-control" />
-			<span asp-validation-for="Largura" class="text-danger"></span>
 		</div>
-		<div class="form-group col-md-4">
-			<label asp-for="Comprimento" class="control-label"></label>
-			<input asp-for="Comprimento" class="form-control" />
-			<span asp-validation-for="Comprimento" class="text-danger"></span>
+		<br />
+		<div class="card">
+			<div class="card-header">Caixa/Pacote </div>
+			<div class="card-body row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label asp-for="Largura" class="control-label"></label>
+						<input asp-for="Largura" class="form-control" />
+						<span asp-validation-for="Largura" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Comprimento" class="control-label"></label>
+						<input asp-for="Comprimento" class="form-control" />
+						<span asp-validation-for="Comprimento" class="text-danger"></span>
+					</div>
+					</div>
+					<div class="col-md-6">
+					<div class="form-group">
+						<label asp-for="Expressura" class="control-label"></label>
+						<input asp-for="Expressura" class="form-control" />
+						<span asp-validation-for="Expressura" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="AreaM2" class="control-label"></label>
+						<input asp-for="AreaM2" class="form-control" />
+						<span asp-validation-for="AreaM2" class="text-danger"></span>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="form-group col-md-4">
-			<label asp-for="Expressura" class="control-label"></label>
-			<input asp-for="Expressura" class="form-control" />
-			<span asp-validation-for="Expressura" class="text-danger"></span>
+		
+		<br />
+
+		<div class=" card">
+			<div class="card-header">Cílindro</div>
+			<div class="card-body row">
+					<div class="form-group col-md-4">
+						<label asp-for="Diametro" class="control-label"></label>
+						<input asp-for="Diametro" class="form-control" />
+						<span asp-validation-for="Diametro" class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-4">
+						<label asp-for="LarguraAparente" class="control-label"></label>
+						<input asp-for="LarguraAparente" class="form-control" />
+						<span asp-validation-for="LarguraAparente" class="text-danger"></span>
+					</div>
+					<div class="form-group col-md-4">
+						<label asp-for="VolumeM2" class="control-label"></label>
+						<input asp-for="VolumeM2" class="form-control" />
+						<span asp-validation-for="VolumeM2" class="text-danger"></span>
+					</div>
+			</div>
 		</div>
-		<div class="form-group col-md-4">
-			<label asp-for="AreaM2" class="control-label"></label>
-			<input asp-for="AreaM2" class="form-control" />
-			<span asp-validation-for="AreaM2" class="text-danger"></span>
-		</div>
-		<div class="form-group col-md-4">
-			<label asp-for="Diametro" class="control-label"></label>
-			<input asp-for="Diametro" class="form-control" />
-			<span asp-validation-for="Diametro" class="text-danger"></span>
-		</div>
-		<div class="form-group col-md-4">
-			<label asp-for="LarguraAparente" class="control-label"></label>
-			<input asp-for="LarguraAparente" class="form-control" />
-			<span asp-validation-for="LarguraAparente" class="text-danger"></span>
-		</div>
-		<div class="form-group col-md-4">
-			<label asp-for="VolumeM2" class="control-label"></label>
-			<input asp-for="VolumeM2" class="form-control" />
-			<span asp-validation-for="VolumeM2" class="text-danger"></span>
-		</div>
+
+		<br />
+		<div class="row">
 		<div class="form-group col-md-4">
 			<label asp-for="PesoLiquido" class="control-label"></label>
 			<input asp-for="PesoLiquido" class="form-control" />
@@ -94,4 +116,33 @@
 	@{
 		await Html.RenderPartialAsync("_ValidationScriptsPartial");
 	}
-	}
+
+	<script>
+		$(document).ready(function () {
+			$('#Largura, #Comprimento, #Expressura').on('input', function () {
+				var largura = parseFloat($('#Largura').val()) || 0;
+				var comprimento = parseFloat($('#Comprimento').val()) || 0;
+				var expressura = parseFloat($('#Expressura').val()) || 0;
+
+
+				var areaM2 = largura + comprimento + expressura;
+				$('#AreaM2').val(areaM2.toFixed());
+			});
+		});
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			$('#Diametro, #LarguraAparente').on('input', function () {
+				var diametro = parseFloat($('#Diametro').val()) || 0;
+				var larguraAparente = parseFloat($('#LarguraAparente').val()) || 0;
+
+
+
+				var volumeM2 = diametro + larguraAparente;
+				$('#VolumeM2').val(volumeM2.toFixed());
+			});
+		});
+	</script>	
+
+}
