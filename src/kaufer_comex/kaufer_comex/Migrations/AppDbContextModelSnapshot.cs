@@ -88,7 +88,7 @@ namespace kaufer_comex.Migrations
                     b.Property<string>("Observacao")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProcessoId")
+                    b.Property<int>("ProcessoId")
                         .HasColumnType("int");
 
                     b.Property<float>("Valor")
@@ -455,20 +455,26 @@ namespace kaufer_comex.Migrations
                     b.Property<float>("PesoLiq")
                         .HasColumnType("real");
 
-                    b.Property<float>("TaxaCambial")
-                        .HasColumnType("real");
+                    b.Property<double>("QuantidadeTotal")
+                        .HasColumnType("float");
 
-                    b.Property<float>("ValorCif")
-                        .HasColumnType("real");
+                    b.Property<decimal>("TaxaCambial")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<float>("ValorFob")
-                        .HasColumnType("real");
+                    b.Property<decimal>("ValorCif")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<float>("ValorFrete")
-                        .HasColumnType("real");
+                    b.Property<decimal>("ValorFob")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<float>("ValorSeguro")
-                        .HasColumnType("real");
+                    b.Property<decimal>("ValorFrete")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("ValorSeguro")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("ValorTotalNota")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("VeiculoId")
                         .HasColumnType("int");
@@ -488,9 +494,6 @@ namespace kaufer_comex.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("ItemId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<double>("Quantidade")
@@ -520,6 +523,11 @@ namespace kaufer_comex.Migrations
 
                     b.Property<int>("ItemId")
                         .HasColumnType("int");
+
+                    b.Property<string>("NomeUsuario")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<decimal>("Preco")
                         .HasColumnType("decimal(18,2)");
@@ -781,7 +789,9 @@ namespace kaufer_comex.Migrations
                 {
                     b.HasOne("kaufer_comex.Models.Processo", "Processo")
                         .WithMany("DCES")
-                        .HasForeignKey("ProcessoId");
+                        .HasForeignKey("ProcessoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Processo");
                 });

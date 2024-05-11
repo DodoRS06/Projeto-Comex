@@ -58,6 +58,7 @@ namespace kaufer_comex.Models
         public float PesoBruto { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         [Column(TypeName = "decimal(18,2)")]
         public decimal Preco { get; set; }
 

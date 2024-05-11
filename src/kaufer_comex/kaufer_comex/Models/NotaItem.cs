@@ -7,8 +7,6 @@ namespace kaufer_comex.Models
     [Table("NotaItens")]
     public class NotaItem
     {
-        [Key]
-        public int Id { get; set; }
         public int ItemId { get; set; }
 
         public Item Item { get; set; }
@@ -23,6 +21,8 @@ namespace kaufer_comex.Models
 		[Column(TypeName = "decimal(18,2)")]
 		[Required(ErrorMessage = "O campo é obrigatório")]
         public decimal Valor {  get; set; }
+
+        
     }
 }
 

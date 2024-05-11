@@ -3,7 +3,7 @@
 
 ## Tela para Login do Usuário Previamente Cadastrado
 
-![](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-03-03%20161340.png)
+![Tela de Login](img/login.png)
 
 
 ## Tela com as tabelas para Cadastro
@@ -13,13 +13,12 @@
 ![](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-03-03%20161251.png)
 ![](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-03-03%20161258.png)
 
-## Tela para Criar Protocolo  
+## Tela para Criar Processo 
 
-![](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-03-03%20161312.png)
-![](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-03-03%20161319.png)
+![Tela de Cadastro de Processo](img/cadastro_processo.png)
 
 
-## Tela para Visualizar Protocolos 
+## Tela para Visualizar Processo 
 
-![](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-03-03%20161334.png)
+![Processo Index](img/processo_index.png)
 

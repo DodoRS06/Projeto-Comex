@@ -83,6 +83,12 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Passos 	| - Acessar o Site<br> - Fazer o login <br> - Em cadastro de Despacho digitar o dados indicados e o código do processo ao qual está vinculado <br> - Clicar no botão 'Enviar cadastro' <br> - Para editar, acessar a página de edição <br> -  Alterar os dados  <br> - Clicar em Editar  |  
 |Critério de Êxito | - O cadastro dos dados de despacho deve ser realizado e depois deve ser editado.|
 |   |   |
+| **Caso de teste**   | **CT-18-Tela Cadastro de Nota** |
+|Requisito Associado | RF-018 - O sistema deve permitir que o usuário vincule os itens nas notas fiscais do embarque rodoviário|
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro da nota fiscal incluindo os itens.|
+| Passos 	| - Acessar a página de Cadastro de Notas<br> - Clicar em Adicionar item . <br> - Selecionar o item e a quantidade do item. <br> - Clicar em salvar. <br>- Digitar as informações da Nota e clicar em Cadastrar.|
+|Critério de Êxito | - O cadastro da Nota deve ser realizado.|
+|   |   |
 | **Caso de teste**   | **CT-21-Tela Cadastro de Despachante** |
 |Requisito Associado |  RF-021 - O sistema deve permitir ao usuário cadastrar o Despachante.
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro do Despachante.|
@@ -95,11 +101,17 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Passos 	| - Acessar o Site<br> - Digitar os dados do processo. <br> - Clicar no botão 'Enviar cadastro' |  
 |Critério de Êxito | - O cadastro do Processo deve ser realizado.|
 |   |   |
-| **Caso de teste**   | **CT-20-Tela Cadastro de Status** |
+| **Caso de teste**   | **CT-23-Tela Cadastro de Status** |
 |Requisito Associado |  RF-020 - sistema deve permitir ao usuário cadastrar o Status do Processo.
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro dos Status .|
 | Passos 	| - Acessar o Site<br> - Digitar o Status. <br> - Clicar no botão 'Enviar' |  
 |Critério de Êxito | - O cadastro do Status deve ser realizado.|
+|   |   |
+| **Caso de teste**   | **CT-24-Tela teste de lógica valor processo** |
+|Requisito Associado |  RF-012 - O sistema deve permitir o usuário cadastrar os valores da Exportação.
+| Objetivo do Teste 	| O usuário ao imputar os valores a soma deverá ser realizada automaticamente.|
+| Passos 	| - Acessar o Site<br> - Digitar os valores da exportação <br> - Clicar no botão 'Enviar cadastro' |  
+|Critério de Êxito | - A soma dos valores da exportação deve ser realizado.|
 
 
 
@@ -145,17 +157,29 @@ CT-13-Tela Cadastro de DCE
 CT-14-Tela Cadastro do Despacho
 ![Evidencias](img/teste_despacho.png)
 
+CT-18-Tela Cadastro de Nota
+![Evidencias](img/Notas_teste.png)
+![Evidencias](img/Notas_teste2.png)
+
+*** Erro de teste ao implementar o Cadastro de Nota
+![Erro_teste](img/Nota_erro.png)
+
 CT-21-Tela Cadastro de Despachante
 ![Evidencias ](img/Adicionar%20Despachante.png)
 ![Evidencias ](img/Despachante%20Adicionado.png)
 
 CT-22- Tela Cadastro de Processo
-![Evidencias](img/teste_processo.png)
+![Evidencias](img/processo_teste2.png)
+![Evidencias](img/processo_teste.png)
 
-** CT-20- Tela Cadastro de Status 
+** CT-23- Tela Cadastro de Status 
 ![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-04-07%20153402.png)
 
 ![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-04-07%20153411.png)
 
 *** Erro do teste : Editar na página Visualizar não funciona
 ![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-04-07%20153550.png)
+
+CT-22- Tela Cadastro de Processo
+![Evidencias](img/Tela%20Cadastro%20de%20valores%20teste%20de%20lógica.png)
+s
