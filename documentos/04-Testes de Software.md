@@ -94,9 +94,15 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Passos 	| - Acessar o Site<br> - Fazer o login <br> - Acessar a opçao Embarque rodoviário <br> - Clicar no botão Adicionar embarque <br> -Inserir os dados e clicar no botão cadastrar<br> |  
 |Critério de Êxito | - O cadastro do embarque deve ser realizado |
 |   |   |
+| **Caso de teste**   | **CT-17-Tela Cadastro de Veículos** |
+|Requisito Associado |RF-17 O sistema deve permitir que o usuário vincule veículos com as notas fiscais  | 
+| Objetivo do Teste 	| O usuário deverá cadastrar os dados do veículo e vincular a notas fiscais |
+| Passos 	| - Acessar o Site<br> - Fazer o login <br> - Acessar a opçao veículo <br> - Clicar no botão Adicionar veiculo <br> -Inserir os dados e clicar no botão cadastrar<br>- Acessar a opção notas<br>-clicar no botão adicionar nota<br>-selecionar o veículo para cadastrar a nota<br> |  
+|Critério de Êxito | - O cadastro do veículo deve ser realizado e vinculado a notas |
+|   |   |
 | **Caso de teste**   | **CT-18-Tela Cadastro de Nota** |
 |Requisito Associado | RF-018 - O sistema deve permitir que o usuário vincule os itens nas notas fiscais do embarque rodoviário|
-| Objetivo do Teste 	| O usuário deverá realizar o cadastro da nota fiscal incluindo os itens.|
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro da nota fiscal incluindo os itens cadastrados anteriormente.|
 | Passos 	| - Acessar a página de Cadastro de Notas<br> - Clicar em Adicionar item . <br> - Selecionar o item e a quantidade do item. <br> - Clicar em salvar. <br>- Digitar as informações da Nota e clicar em Cadastrar.|
 |Critério de Êxito | - O cadastro da Nota deve ser realizado.|
 |   |   |
@@ -192,12 +198,20 @@ CT-22- Tela Cadastro de Processo
 ![Evidencias](img/processo_teste.png)
 
 ** CT-23- Tela Cadastro de Status 
-![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-04-07%20153402.png)
 
-![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-04-07%20153411.png)
+![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-05-12%20161906.png)
 
-*** Erro do teste : Editar na página Visualizar não funciona
-![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-04-07%20153550.png)
+** CT-17- Tela Cadastro Veículos
+
+![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-05-12%20161923.png)
+
+** CT-18- Tela Cadastro Itens
+![Evidência](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-05-12%20161849.png)
+
+*** Erro do teste : Faltava um atributo na tabela para cilindro ,além disso não o cálculo é multiplicado o e não somado como realizado abaixo. 
+
+![Evidência](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-05-09%20212246.png)
+
 
 CT-22- Tela Cadastro de Processo
 ![Evidencias](img/Tela%20Cadastro%20de%20valores%20teste%20de%20lógica.png)
