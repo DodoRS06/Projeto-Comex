@@ -39,25 +39,30 @@ namespace kaufer_comex.Models
 
         [Display(Name = "CEP (*)")]
 		[Required(ErrorMessage = "Obrigatório informar o CEP!")]
-		public string Cep { get; set; }
+        [RegularExpression(@"\d{5}\-\d{3}", ErrorMessage = "Por favor, digite um CEP válido!")]
+        public string Cep { get; set; }
 
         [Display(Name = "Telefone (*)")]
-		[Required(ErrorMessage = "Obrigatório informar o telefone!")]
+        [RegularExpression(@"\(\d{2}\)\d{4}-\d{4}", ErrorMessage = "Por favor, digite um Telefone válido!")]
+        [Required(ErrorMessage = "Obrigatório informar o telefone!")]
 		public string Telefone { get; set; }
 
         [Display(Name = "Email (*)")]
         [Required(ErrorMessage = "Obrigatório informar o email!")]
-		public string Email { get; set; }
+        [RegularExpression(@"^[^@\s]+@[^@\s]+\.(com|org|net|gov|br)$", ErrorMessage = "Por favor, digite um e-mail válido!")]
+
+        public string Email { get; set; }
 
         [Display(Name = "Cnpj (*)")]
 		[Required(ErrorMessage = "Obrigatório informar o CNPJ!")]
-		public string Cnpj { get; set; }
+        [RegularExpression(@"\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}", ErrorMessage = "Por favor, digite um CNPJ válido!")]
+        public string Cnpj { get; set; }
 
         [Display(Name = "Contato (*)")]
 		[Required(ErrorMessage = "Obrigatório informar o contato!")]
 		public string Contato { get; set; }
 
-        [Display(Name = "Obsercações")]
+        [Display(Name = "Observações")]
         public string Observacoes { get; set; }
 
         public virtual ICollection<ProcessoExpImp> ProcessoExpImps { get; set; }
