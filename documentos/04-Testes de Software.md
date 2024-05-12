@@ -64,6 +64,11 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro de fornecedor de serviços.|
 | Passos 	| - Acessar o Site<br> - Digitar o nome do fornecedor, tipo de serviço <br> - Clicar no botão 'Enviar cadastro' |  
 |Critério de Êxito | - O cadastro do fornecedor de serviços deve ser realizado.|
+| **Caso de teste**   | **CT-11-Tela Cadastro de documentos de exportação** |
+|Requisito Associado |  RF-011 - O sistema deve permitir o usuário cadastrar os documentos de exportação. | 
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro do documento de exportação.|
+| Passos 	| - Acessar o Site<br> - fazer o login <br> - Clicar na opção Documentos<br>-Clicar no botão Adicionar documento<br>-Inserir os dados e clicar em cadastrar<br>|  
+|Critério de Êxito | - O cadastro do  documento de exportação deverá ser realizado.|
 |  |  |
 | **Caso de teste**   | **CT-12-Tela Cadastro de Valores** |
 |Requisito Associado |  RF-012 - O sistema deve permitir o usuário cadastrar os valores da Exportação.
@@ -82,6 +87,12 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Objetivo do Teste 	| O usuário deverá cadastrar e editar os dados do despacho aduaneiro e vincular ao processo de exportação.|
 | Passos 	| - Acessar o Site<br> - Fazer o login <br> - Em cadastro de Despacho digitar o dados indicados e o código do processo ao qual está vinculado <br> - Clicar no botão 'Enviar cadastro' <br> - Para editar, acessar a página de edição <br> -  Alterar os dados  <br> - Clicar em Editar  |  
 |Critério de Êxito | - O cadastro dos dados de despacho deve ser realizado e depois deve ser editado.|
+|   |   |
+| **Caso de teste**   | **CT-15-Tela Cadastro de Embarque Rodoviário** |
+|Requisito Associado | RF-015 - O sistema deve permitir ao usuário cadastrar embarques rodoviários  | 
+| Objetivo do Teste 	| O usuário deverá cadastrar os dados do embarque |
+| Passos 	| - Acessar o Site<br> - Fazer o login <br> - Acessar a opçao Embarque rodoviário <br> - Clicar no botão Adicionar embarque <br> -Inserir os dados e clicar no botão cadastrar<br> |  
+|Critério de Êxito | - O cadastro do embarque deve ser realizado |
 |   |   |
 | **Caso de teste**   | **CT-18-Tela Cadastro de Nota** |
 |Requisito Associado | RF-018 - O sistema deve permitir que o usuário vincule os itens nas notas fiscais do embarque rodoviário|
@@ -150,12 +161,20 @@ CT-10-Tela Cadastro de fornecedor
 ![Evidencias ](img/Fornecedor-create.png)
 ![Evidencias ](img/Fornecedor-Details.png)
 
+CT-11-Tela Cadastro de documentos
+![Evidencias](img/Cadastro%20documentos.png)
+![Evidencias](img/Detalhes_documento.png)
+
 CT-13-Tela Cadastro de DCE
 ![Evidencias ](img/Dce-create.png)
 ![Evidencias ](img/Dce-details.png)
 
 CT-14-Tela Cadastro do Despacho
 ![Evidencias](img/teste_despacho.png)
+
+CT-15-Tela Cadastro de Embarque rodoviário
+![Evidencias](img/Cadastro_embarque.png)
+![Evidencias](img/Detalhe_embarque.png)
 
 CT-18-Tela Cadastro de Nota
 ![Evidencias](img/Notas_teste.png)
