@@ -24,29 +24,33 @@ namespace kaufer_comex.Models
         public string Familia { get; set; }
 
         [Display(Name = "Largura (*)")]
-        [Required(ErrorMessage = "Obrigatório")]
+        
         public float Largura { get; set; }
-
-        [Required(ErrorMessage = "Obrigatório")]
+        
         public float Comprimento { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório")]
+        [Display(Name = "Espessura")]
+       
         public float Expressura { get; set; }
 
-        [Display(Name = "Área M2 (*)")]
-        [Required(ErrorMessage = "Obrigatório")]
+        [Display(Name = "Área M2")]
+       
         public float AreaM2 { get; set; }
 
-        [Display(Name = "Diâmetro (*)")]
-        [Required(ErrorMessage = "Obrigatório")]
-        public float Diametro { get; set; }
+        [Display(Name = "Diâmetro/Altura")]
+       
+        public float DiametroAltura { get; set; }
 
-        [Display(Name = "Largura Aparente (*)")]
-        [Required(ErrorMessage = "Obrigatório")]
+        [Display(Name = "Diâmetro/Comprimento")]
+
+        public float DiametroComprimento { get; set; }
+
+        [Display(Name = "Largura Aparente")]
+      
         public float LarguraAparente { get; set; }
 
-        [Display(Name = "Volume M2 (*)")]
-        [Required(ErrorMessage = "Obrigatório")]
+        [Display(Name = "Volume M3")]
+       
         public float VolumeM2 { get; set; }
 
         [Display(Name = "Peso Líquido (*)")]
@@ -59,7 +63,8 @@ namespace kaufer_comex.Models
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
-        [Column(TypeName = "decimal(18,2)")]
+		[Display(Name = "Peço (*)")]
+		[Column(TypeName = "decimal(18,2)")]
         public decimal Preco { get; set; }
 
         public virtual ICollection<NotaItem> NotaItem { get; set; }
