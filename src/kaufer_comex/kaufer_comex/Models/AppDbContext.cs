@@ -107,7 +107,11 @@ namespace kaufer_comex.Models
 			modelBuilder.Entity<CadastroDespesaDCE>()
 				.HasOne(p => p.DCE).WithMany(p => p.CadastroDespesas)
 				.HasForeignKey(p => p.DCEId);
-           
+
+            modelBuilder.Entity<DCE>()
+                .HasOne(d => d.Processo)
+                .WithMany(p => p.DCES)
+                .HasForeignKey(d => d.ProcessoId);
         }
 
     }
