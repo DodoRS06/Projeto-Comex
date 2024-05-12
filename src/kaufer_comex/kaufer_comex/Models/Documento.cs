@@ -19,11 +19,15 @@ namespace kaufer_comex.Models
         public string CertificadoSeguro { get; set; }
 
         [Display(Name = "Envio do Certificado de origem (*)")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Obrigatório informar a data")]
 
         public DateTime DataEnvioOrigem { get; set; }
 
         [Display(Name = "Envio do Certificado do seguro: (*)")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Obrigatório informar a data")]
 
         public DateTime DataEnvioSeguro { get; set; }

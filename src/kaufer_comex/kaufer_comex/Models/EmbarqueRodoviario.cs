@@ -15,6 +15,8 @@ namespace kaufer_comex.Models
         public string Transportadora { get; set; }
 
         [Display(Name = "Data do Embarque: (*)")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Obrigatório informar a data de embarque")]
         public DateTime DataEmbarque { get; set; }
 
@@ -23,6 +25,8 @@ namespace kaufer_comex.Models
         public string TransitTime { get; set; }
 
         [Display(Name = "Chegada no Destino: (*)")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Obrigatório informar a data de chegada")]
         public DateTime ChegadaDestino { get; set; }
 
