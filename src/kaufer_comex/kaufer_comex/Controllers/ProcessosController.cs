@@ -286,6 +286,16 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
+            var exportador = _context.ProcessosExpImp.Where(e => e.ExpImpId == dados.ExportadorId && e.ProcessoId == id).FirstOrDefault();
+
+            _context.ProcessosExpImp.Remove(exportador);
+            await _context.SaveChangesAsync();
+
+            var importador = _context.ProcessosExpImp.Where(e => e.ExpImpId == dados.ImportadorId && e.ProcessoId == id).FirstOrDefault();
+
+            _context.ProcessosExpImp.Remove(importador);
+            await _context.SaveChangesAsync();
+
             _context.Processos.Remove(dados);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");

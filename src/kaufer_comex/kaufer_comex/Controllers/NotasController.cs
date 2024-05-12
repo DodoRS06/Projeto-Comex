@@ -184,6 +184,9 @@ namespace kaufer_comex.Controllers
 
             var dados = await _context.Notas
                 .Include(p => p.Veiculo)
+                .Include(p => p.EmbarqueRodoviario)
+                .Include(p => p.NotaItem)
+                .ThenInclude(ni => ni.Item)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (dados == null)
@@ -198,6 +201,7 @@ namespace kaufer_comex.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Nota nota)
         {
+           
             if (id != nota.Id)
                 return NotFound();
 
@@ -205,6 +209,7 @@ namespace kaufer_comex.Controllers
             {
                 _context.Notas.Update(nota);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction("Index");
 
             }
@@ -214,7 +219,40 @@ namespace kaufer_comex.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Details(int? id)
+
+        // GET: Editar item na nota criada
+        public IActionResult EditarItemNota()
+        {
+            //var item = _context.NotaItens.Where(u => u.NotaId == notaId && u.ItemId == id).FirstOrDefault();
+            //ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
+            return PartialView();
+        }
+
+
+        //POST : Editar item na nota criada
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditarItemNota(int id, int notaId)
+        {
+
+            //if (id == null && notaId == null)
+            //{
+            //    return BadRequest();
+            //}
+
+            var item = _context.NotaItens.Where(u => u.NotaId ==  notaId && u.ItemId == id).FirstOrDefault();
+
+            if (item == null)
+            {
+                return NotFound();
+            }
+            _context.NotaItens.Update(item);
+            await _context.SaveChangesAsync();
+
+            return View();
+
+        }
+            public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
                 return NotFound();
@@ -223,7 +261,7 @@ namespace kaufer_comex.Controllers
                 .Include(p => p.Veiculo)
                 .Include(p => p.EmbarqueRodoviario)
                 .Include(p => p.NotaItem)
-                    .ThenInclude(ni => ni.Item)
+                .ThenInclude(ni => ni.Item)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (dados == null)
@@ -256,10 +294,16 @@ namespace kaufer_comex.Controllers
 
             var dados = await _context.Notas
                 .Include(p => p.Veiculo)
+                .Include(p => p.EmbarqueRodoviario)
+                .Include(p => p.NotaItem)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (dados == null)
                 return NotFound();
+
+            // var item = _context.NotaItens.Where(u => u.NotaId == id).FirstOrDefault();
+            //_context.NotaItens.Remove(item);
+            //await _context.SaveChangesAsync();
 
             _context.Notas.Remove(dados);
             await _context.SaveChangesAsync();

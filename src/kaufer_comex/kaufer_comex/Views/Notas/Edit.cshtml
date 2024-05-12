@@ -79,9 +79,6 @@
                 <select asp-for="VeiculoId" class="form-control" asp-items="ViewBag.VeiculoId"></select>
                 <span asp-validation-for="VeiculoId" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-4">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
 		</div>
 		<div class="form-group " align="center">
 			<br />
@@ -90,6 +87,76 @@
 		</div>
 	</form>
 </div>
+
+<div class="form-group" style="margin-top: 20px">
+    <hr />
+    <h5>Itens da Nota</h5>
+</div>
+<table id="myTable" class="table">
+        <thead>
+            <tr>
+                <th>
+                    Código do item
+                </th>
+                <th>
+                    Nome do item
+                </th>
+                <th>
+                    Valor
+                </th>
+                <th>
+                    Quantidade
+                </th>
+                <th>
+                    Total
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.NotaItem)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Item.DescricaoProduto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Item.Preco)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantidade)
+                    </td>
+                    @* <td>
+                        @Html.DisplayFor(modelItem => item.Valor)
+                    </td> *@
+                    <td>
+                        <a asp-controller="Notas" asp-action="EditarItemNota" asp-route-id="@item.ItemId" class="btn"><img src="~/Images/editar.png" id="Details" style="height:20px; "></a>
+                    </td>
+                    <td>
+                        <a asp-controller="Notas" asp-action="ExcluirItemNota" asp-route-id="@item.ItemId" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                    </td>
+
+                </tr>
+            }
+            <tr>
+                <td colspan="3">
+                    <strong>Total:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.QuantidadeTotal)
+                </td>
+             @*    <td>
+                    @Html.DisplayFor(modelItem => Model.ValorTotal)
+                </td> *@
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
 
 @section Scripts {
 	@{

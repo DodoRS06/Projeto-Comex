@@ -31,7 +31,7 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Espessura")]
        
-        public float Expressura { get; set; }
+        public float Espessura { get; set; }
 
         [Display(Name = "Área M2")]
        
