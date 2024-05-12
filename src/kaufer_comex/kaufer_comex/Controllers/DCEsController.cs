@@ -36,13 +36,22 @@ namespace kaufer_comex.Controllers
 			return fornecedor != null ? fornecedor.Nome : string.Empty;
 		}
 
-		public async Task<IActionResult> Index(int? id)
+        private async Task<int?> GetDCEExists(int id)
+        {
+            var DCEExists = await _context.DCEs.FindAsync(id);
+            return DCEExists?.ProcessoId;
+        }
+
+        public async Task<IActionResult> Index(int? id)
         {
             //Testar se o id passado é válido
             if (id == null)
             {
                 return NotFound();
             }
+
+
+            //ViewBag.DCEExists = (int?)await GetDCEExists(id);
 
             var dados = await _context.DCEs
                 .Where(d => d.ProcessoId == id)
@@ -143,6 +152,33 @@ namespace kaufer_comex.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, $"Erro ao obter nomes: {ex.Message}");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ExcluirTodosItens(int? id)
+        {
+            try
+            {
+                if (id == null)
+                    return NotFound();
+
+                // Encontrar todos os itens relacionados ao ProcessoId
+                var itensParaExcluir = await _context.DCEs.Where(d => d.ProcessoId == id).ToListAsync();
+
+                // Remover os itens do contexto
+                _context.DCEs.RemoveRange(itensParaExcluir);
+
+                // Salvar as mudanças no banco de dados
+                await _context.SaveChangesAsync();
+
+                // Retornar uma resposta de sucesso
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                // Retornar um código de erro com uma mensagem de erro
+                return StatusCode(500, $"Erro ao excluir itens: {ex.Message}");
             }
         }
 

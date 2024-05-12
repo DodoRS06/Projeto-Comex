@@ -20,7 +20,7 @@
 </div>
 <div class="d-flex flex-row-reverse bd-highlight">
 	<p>
-		<a asp-action="Create" asp-route-id="@ViewContext.RouteData.Values["id"]" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #F08433; color: #FFF">Adicionar Itens</a>
+		<a asp-action="Create" asp-route-id="@ViewContext.RouteData.Values["id"]" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #F08433; color: #FFF">Adicionar Despesas</a>
 	</p>
 </div>
 <table id="myTable" class="table">
@@ -80,6 +80,12 @@
 		}
 	</tbody>
 </table>
+	<div class="form-group" align="center">
+		<br />
+		<!-- Botão para excluir todos os itens -->
+	<button type="button" id="excluirTodosItensBtn" data-processo-id="@ViewContext.RouteData.Values["id"]" class="btn btn-danger" style="width: 200px">Excluir Todos os Itens</button>
+	<a asp-controller="Processos" asp-action="Details" asp-route-id="@ViewContext.RouteData.Values["id"]" class="btn btn-dark" style="width: 100px">Voltar</a>
+	</div>
 
 @section Scripts {
 	<script>
@@ -105,6 +111,30 @@
 				},
 				ordering: false
 			});
+
+		$(document).ready(function () {
+			// Função para excluir todos os itens da lista
+			$('#excluirTodosItensBtn').click(function () {
+				var processoId = $(this).data('processo-id');
+
+				// Confirmar se o usuário realmente deseja excluir todos os itens
+				if (confirm('Tem certeza de que deseja excluir todos os itens relacionados a este processo?')) {
+					// Enviar solicitação AJAX para excluir os itens
+					$.ajax({
+						url: '/DCEs/ExcluirTodosItens',
+						type: 'POST',
+						data: { id: processoId },
+						success: function () {
+							// Recarregar a página para atualizar a lista de itens
+							location.reload();
+						},
+						error: function (xhr, status, error) {
+							console.error(xhr.responseText);
+						}
+					});
+				}
+			});
+		});
 	</script>
 
 }
