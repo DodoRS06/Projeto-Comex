@@ -226,7 +226,7 @@ else
                     var valorSeguro = parseFloat($('#ValorSeguro').val()) || 0;
 
                     var valorCif = valorFob + valorFrete + valorSeguro;
-                    $('#ValorCif').val(valorCif.toFixed(2));
+                    $('#ValorCif').val(valorCif.toFixed());
                 });
             });
 
@@ -237,7 +237,7 @@ else
                 var valorTotal = parseFloat($('#ValorTotal').val()) || 0;
 
                 var valorTotalNota = valorCif + taxaCambial + valorTotal;
-                $('#ValorTotalNota').val(valorTotalNota.toFixed(2));
+                $('#ValorTotalNota').val(valorTotalNota.toFixed());
             });
         });
 
