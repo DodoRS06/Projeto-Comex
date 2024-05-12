@@ -130,14 +130,14 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Quantidade)
                     </td>
-                    @* <td>
+                   @*  <td>
                         @Html.DisplayFor(modelItem => item.Valor)
-                    </td> *@
+                    </td>  *@
                     <td>
-                        <a asp-controller="Notas" asp-action="EditarItemNota" asp-route-id="@item.ItemId" class="btn"><img src="~/Images/editar.png" id="Details" style="height:20px; "></a>
+                    <a asp-controller="Notas" asp-action="EditarItem"  class="btn dialog-window" onclick="EditarItem"><img src="~/Images/editar.png" id="Details" style="height:20px; "></a>
                     </td>
                     <td>
-                        <a asp-controller="Notas" asp-action="ExcluirItemNota" asp-route-id="@item.ItemId" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                    <a asp-controller="Notas" asp-action="ExcluirItemNota" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
                     </td>
 
                 </tr>
@@ -149,14 +149,26 @@
                 <td>
                     @Html.DisplayFor(modelItem => Model.QuantidadeTotal)
                 </td>
-             @*    <td>
+                @*  <td>
                     @Html.DisplayFor(modelItem => Model.ValorTotal)
-                </td> *@
+                </td>  *@
                 <td></td>
             </tr>
         </tbody>
     </table>
 
+
+<div class="modal fade" id="EditarItem" tabindex="-1" aria-labelledby="EditarItemLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts {
 	@{
@@ -171,6 +183,25 @@
 
                 var valorCif = valorFob + valorFrete + valorSeguro;
                 $('#ValorCif').val(valorCif.toFixed(2));
+            });
+        });
+
+
+        $(document).ready(function () {
+            $("body").on("click", "a.dialog-window", function (e) {
+                e.preventDefault();
+                var $link = $(this);
+                var title = $link.text();
+                $('#EditarItemLabel').html(title);
+                var url = $(this).attr('href');
+                if (url.indexOf('#') == 0) {
+                    $('#EditarItem').modal('show');
+                } else {
+                    $.get(url, function (data) {
+                        $('#EditarItem .modal-body').html(data);
+                        $('#EditarItem').modal('show');
+                    }).success(function () { $('input:text:visible:first').focus(); });
+                }
             });
         });
     </script>

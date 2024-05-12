@@ -1,4 +1,5 @@
-﻿using kaufer_comex.Models;
+﻿using kaufer_comex.Migrations;
+using kaufer_comex.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -127,7 +128,7 @@ namespace kaufer_comex.Controllers
 
                     var item = _context.Itens.Find(view.ItemId);
 
-                    novoItem = new NotaItemTemp
+                    novoItem = new Models.NotaItemTemp
                     {
                         ItemId = item.Id,
                         Quantidade = view.Quantidade,
@@ -221,10 +222,10 @@ namespace kaufer_comex.Controllers
 
 
         // GET: Editar item na nota criada
-        public IActionResult EditarItemNota()
+        public IActionResult EditarItem(int id, int notaId)
         {
-            //var item = _context.NotaItens.Where(u => u.NotaId == notaId && u.ItemId == id).FirstOrDefault();
-            //ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
+            var item = _context.NotaItens.Where(u => u.ItemId == id && u.NotaId == notaId).FirstOrDefault();
+            ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
             return PartialView();
         }
 
@@ -232,27 +233,49 @@ namespace kaufer_comex.Controllers
         //POST : Editar item na nota criada
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditarItemNota(int id, int notaId)
+        public async Task<IActionResult> EditarItem(int id, int notaId, EditarItemView view)
         {
+            if (ModelState.IsValid)
+            {
+                var item = _context.NotaItens.Where(u => u.ItemId == id && u.NotaId == notaId).FirstOrDefault();
 
-            //if (id == null && notaId == null)
-            //{
-            //    return BadRequest();
-            //}
+                if (item == null)
+                {
+                    return NotFound();
+                }
+                _context.NotaItens.Update(item);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Edit");
+            }
+            return PartialView();
 
-            var item = _context.NotaItens.Where(u => u.NotaId ==  notaId && u.ItemId == id).FirstOrDefault();
+        }
+
+
+       //Excluir item da nota já criada
+        public async Task<IActionResult> ExcluirItemNota(int? id, int?notaId)
+        {
+      
+            if (id == null || notaId == null)
+            {
+                return BadRequest();
+            }
+
+            var item = _context.NotaItens.Where(u => u.ItemId == id && u.NotaId == notaId).FirstOrDefault();
 
             if (item == null)
             {
                 return NotFound();
             }
-            _context.NotaItens.Update(item);
+            _context.NotaItens.Remove(item);
             await _context.SaveChangesAsync();
 
-            return View();
-
+         
+            return RedirectToAction("Edit");
         }
-            public async Task<IActionResult> Details(int? id)
+
+        //GET: Detalhes da Nota
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
                 return NotFound();
@@ -270,6 +293,8 @@ namespace kaufer_comex.Controllers
             return View(dados);
         }
 
+
+        //GET: Excluir Nota
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -285,6 +310,7 @@ namespace kaufer_comex.Controllers
             return View(dados);
         }
 
+        //POST : Excluir Nota
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id)
@@ -301,7 +327,7 @@ namespace kaufer_comex.Controllers
             if (dados == null)
                 return NotFound();
 
-            // var item = _context.NotaItens.Where(u => u.NotaId == id).FirstOrDefault();
+            // var item = _context.NotaItens.Where(u => u.NotaId == notaId).FirstOrDefault();
             //_context.NotaItens.Remove(item);
             //await _context.SaveChangesAsync();
 
