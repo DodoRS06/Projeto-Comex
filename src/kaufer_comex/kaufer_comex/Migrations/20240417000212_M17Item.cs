@@ -21,8 +21,9 @@ namespace kaufer_comex.Migrations
                     Comprimento = table.Column<float>(type: "real", nullable: false),
                     Expressura = table.Column<float>(type: "real", nullable: false),
                     AreaM2 = table.Column<float>(type: "real", nullable: false),
-                    Diametro = table.Column<float>(type: "real", nullable: false),
-                    LarguraAparente = table.Column<float>(type: "real", nullable: false),
+					DiametroAltura = table.Column<float>(type: "real", nullable: false),
+					DiametroComprimento = table.Column<float>(type: "real", nullable: false),
+					LarguraAparente = table.Column<float>(type: "real", nullable: false),
                     VolumeM2 = table.Column<float>(type: "real", nullable: false),
                     PesoLiquido = table.Column<float>(type: "real", nullable: false),
                     PesoBruto = table.Column<float>(type: "real", nullable: false)
