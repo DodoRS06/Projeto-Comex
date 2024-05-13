@@ -25,18 +25,18 @@ namespace kaufer_comex.Controllers
                 .Include(p => p.Status)
                 .Include(p => p.Usuario)
                 .Include(p => p.ExpImps)
-                .ThenInclude( p => p.ExpImp)
+                .ThenInclude(p => p.ExpImp)
                 .ToListAsync();
 
-		//	var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
+            //	var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
 
-			//ViewData["exportador"] = exportador.Nome;
+            //ViewData["exportador"] = exportador.Nome;
 
-			//var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
+            //var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
 
-			//ViewData["importador"] = importador.Nome;
+            //ViewData["importador"] = importador.Nome;
 
-			return View(dados);
+            return View(dados);
         }
 
         // GET: Processos/Create
@@ -104,7 +104,7 @@ namespace kaufer_comex.Controllers
             ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
             ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
 
-           
+
 
             return View(processo);
         }
@@ -161,22 +161,10 @@ namespace kaufer_comex.Controllers
                 _context.Processos.Update(processo);
                 await _context.SaveChangesAsync();
 
-                var importador_ = new ProcessoExpImp
-                {
-                    ProcessoId = processo.Id,
-                    ExpImpId = processo.ImportadorId
-                };
-
-                _context.ProcessosExpImp.Update(importador_);
+                // _context.ProcessosExpImp.Update(importador_);
                 await _context.SaveChangesAsync();
 
-                var exportador_ = new ProcessoExpImp
-                {
-                    ProcessoId = processo.Id,
-                    ExpImpId = processo.ExportadorId
-                };
-
-                _context.ProcessosExpImp.Update(exportador_);
+                //  _context.ProcessosExpImp.Update(exportador_);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("Index");
@@ -199,6 +187,7 @@ namespace kaufer_comex.Controllers
             return View();
         }
 
+
         // GET: Processos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -216,16 +205,16 @@ namespace kaufer_comex.Controllers
                 .ThenInclude(p => p.ExpImp)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
-			var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
+            var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
 
             ViewData["exportador"] = exportador.Nome;
 
-			var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
+            var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
 
-			ViewData["importador"] = importador.Nome;
+            ViewData["importador"] = importador.Nome;
 
 
-			if (id == null)
+            if (id == null)
                 return NotFound();
 
             return View(dados);
@@ -238,7 +227,7 @@ namespace kaufer_comex.Controllers
                 return NotFound();
 
             var dados = await _context.Processos
-                
+
                 .Include(p => p.Despachante)
                 .Include(p => p.Vendedor)
                 .Include(p => p.Destino)
@@ -247,7 +236,7 @@ namespace kaufer_comex.Controllers
                 .Include(p => p.Usuario)
                 .Include(p => p.ExpImps)
                 .ThenInclude(p => p.ExpImp)
-                .FirstOrDefaultAsync(p => p.Id == id); 
+                .FirstOrDefaultAsync(p => p.Id == id);
 
             if (id == null)
                 return NotFound();
@@ -272,7 +261,6 @@ namespace kaufer_comex.Controllers
                 return NotFound();
 
             var dados = await _context.Processos
-                
                 .Include(p => p.Despachante)
                 .Include(p => p.Vendedor)
                 .Include(p => p.Destino)
@@ -280,18 +268,19 @@ namespace kaufer_comex.Controllers
                 .Include(p => p.Status)
                 .Include(p => p.Usuario)
                 .Include(p => p.ExpImps)
-                .ThenInclude(p => p.ExpImp)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
-            if (id == null)
-                return NotFound();
 
             var exportador = _context.ProcessosExpImp.Where(e => e.ExpImpId == dados.ExportadorId && e.ProcessoId == id).FirstOrDefault();
+
+            var importador = _context.ProcessosExpImp.Where(e => e.ExpImpId == dados.ImportadorId && e.ProcessoId == id).FirstOrDefault();
+
+            if (exportador == null) return NotFound();
 
             _context.ProcessosExpImp.Remove(exportador);
             await _context.SaveChangesAsync();
 
-            var importador = _context.ProcessosExpImp.Where(e => e.ExpImpId == dados.ImportadorId && e.ProcessoId == id).FirstOrDefault();
+            if (importador == null) return NotFound();
 
             _context.ProcessosExpImp.Remove(importador);
             await _context.SaveChangesAsync();

@@ -222,34 +222,38 @@ namespace kaufer_comex.Controllers
 
 
         // GET: Editar item na nota criada
-        public IActionResult EditarItem(int id, int notaId)
-        {
-            var item = _context.NotaItens.Where(u => u.ItemId == id && u.NotaId == notaId).FirstOrDefault();
-            ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
-            return PartialView();
-        }
+        //public IActionResult EditarItem(int id)
+        //{
+        //    var nota = _context.NotaItens.Where(u => u.NotaId == id ).FirstOrDefault();
+        //    var item = _context.Itens.Where(i => i.Id == nota.ItemId).FirstOrDefault();
+            
+        //    ViewData["ItemId"] = item;
+        //    return PartialView();
+        //}
 
 
         //POST : Editar item na nota criada
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditarItem(int id, int notaId, EditarItemView view)
-        {
-            if (ModelState.IsValid)
-            {
-                var item = _context.NotaItens.Where(u => u.ItemId == id && u.NotaId == notaId).FirstOrDefault();
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> EditarItem(int id, NotaItem notaItem)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var nota = _context.NotaItens.Where(u => u.NotaId == id).FirstOrDefault();
+        //        var item = _context.Itens.Where(i => i.Id == notaItem.ItemId).FirstOrDefault();
+        //        if (nota == null)
+        //        {
+        //            return NotFound();
+        //        }
 
-                if (item == null)
-                {
-                    return NotFound();
-                }
-                _context.NotaItens.Update(item);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Edit");
-            }
-            return PartialView();
 
-        }
+        //        _context.NotaItens.Update(notaItem);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction("/");
+        //    }
+        //    return PartialView();
+
+        //}
 
 
        //Excluir item da nota já criada
@@ -302,6 +306,7 @@ namespace kaufer_comex.Controllers
 
             var dados = await _context.Notas
                 .Include(p => p.Veiculo)
+                .Include(p =>p.NotaItem)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (dados == null)
@@ -320,16 +325,15 @@ namespace kaufer_comex.Controllers
 
             var dados = await _context.Notas
                 .Include(p => p.Veiculo)
-                .Include(p => p.EmbarqueRodoviario)
                 .Include(p => p.NotaItem)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (dados == null)
                 return NotFound();
 
-            // var item = _context.NotaItens.Where(u => u.NotaId == notaId).FirstOrDefault();
-            //_context.NotaItens.Remove(item);
-            //await _context.SaveChangesAsync();
+           var item = _context.NotaItens.Where(i => i.NotaId == dados.Id).FirstOrDefault();
+           _context.NotaItens.Remove(item);
+           await _context.SaveChangesAsync();
 
             _context.Notas.Remove(dados);
             await _context.SaveChangesAsync();
