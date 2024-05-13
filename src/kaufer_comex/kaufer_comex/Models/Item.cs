@@ -63,7 +63,7 @@ namespace kaufer_comex.Models
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
-		[Display(Name = "Peço (*)")]
+		[Display(Name = "Preço (*)")]
 		[Column(TypeName = "decimal(18,2)")]
         public decimal Preco { get; set; }
 

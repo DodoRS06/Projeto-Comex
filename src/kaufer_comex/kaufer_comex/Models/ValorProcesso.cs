@@ -10,21 +10,31 @@ namespace kaufer_comex.Models
         public int Id { get; set; }
 
         [Display(Name = "Valor Exw (*)")]
+        [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "Obrigatório")]
-        public float ValorExw { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        public decimal ValorExw { get; set; }
 
         [Display(Name = " Valor Fob/Fca ")]
-        public float ValorFobFca { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        public decimal ValorFobFca { get; set; }
 
         [Display(Name = "Frete Internacional ")]
-        public float FreteInternacional { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        public decimal FreteInternacional { get; set; }
 
         [Display(Name = "Seguro Internacional")]
-        public float SeguroInternaciona { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        public decimal SeguroInternaciona { get; set; }
 
         [Display(Name = "Valor Total (*)")]
+        [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "Obrigatório")]
-        public float ValorTotalCif { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        public decimal ValorTotalCif { get; set; }
 
 		[Required(ErrorMessage = "Obrigatório informar o código do processo.")]
 		[Display(Name = "Código de processo (*)")]

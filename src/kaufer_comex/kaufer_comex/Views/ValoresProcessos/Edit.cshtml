@@ -10,46 +10,49 @@
 		<h4>Editar Valores do Processo</h4>
 	</div>
 	<hr />
-	<div class="row justify-content-center">
-		<div class="col-md-4" align="center">
+
 	<form asp-action="Edit">
-		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-		<div class="form-group">
-			<label asp-for="ValorExw" class="control-label"></label>
-			<input asp-for="ValorExw" class="form-control" />
-			<span asp-validation-for="ValorExw" class="text-danger"></span>
-		</div>
-		<div class="form-group">
-			<label asp-for="ValorFobFca" class="control-label"></label>
-			<input asp-for="ValorFobFca" class="form-control" />
-			<span asp-validation-for="ValorFobFca" class="text-danger"></span>
-		</div>
-		<div class="form-group">
-			<label asp-for="FreteInternacional" class="control-label"></label>
-			<input asp-for="FreteInternacional" class="form-control" />
-			<span asp-validation-for="FreteInternacional" class="text-danger"></span>
-		</div>
-		<div class="form-group">
-			<label asp-for="SeguroInternaciona" class="control-label"></label>
-			<input asp-for="SeguroInternaciona" class="form-control" />
-			<span asp-validation-for="SeguroInternaciona" class="text-danger"></span>
-		</div>
-		<div class="form-group">
-			<label asp-for="ValorTotalCif" class="control-label"></label>
-			<input asp-for="ValorTotalCif" class="form-control" readonly />
-			<span asp-validation-for="ValorTotalCif" class="text-danger"></span>
-		</div>
-		<div class="form-group">
-			<label asp-for="Moeda" class="control-label"></label>
-			<select asp-for="Moeda" class="form-control" asp-items="Html.GetEnumSelectList<Moeda>()"></select>
-			<span asp-validation-for="Moeda" class="text-danger"></span>
-		</div>
-	    <div class="form-group ">
-			<label asp-for="ProcessoId" class="control-label"></label>
-			<select asp-for="ProcessoId" class="form-control" asp-items="ViewBag.ProcessoId">
-			<option value="">Selecione o código de processo</option>
-			</select>
-		</div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="Moeda" class="control-label"></label>
+                        <select asp-for="Moeda" class="form-control" asp-items="Html.GetEnumSelectList<Moeda>()">
+                            <option value="">Selecione Moeda</option>
+                        </select>
+                        <span asp-validation-for="Moeda" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="ValorExw" class="control-label"></label>
+                        <input asp-for="ValorExw" class="form-control" id="ValorExw" />
+                        <span asp-validation-for="ValorExw" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="ValorFobFca" class="control-label"></label>
+                        <input asp-for="ValorFobFca" class="form-control" id="ValorFobFca" />
+                        <span asp-validation-for="ValorFobFca" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="FreteInternacional" class="control-label"></label>
+                        <input asp-for="FreteInternacional" class="form-control" id="FreteInternacional" />
+                        <span asp-validation-for="FreteInternacional" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="SeguroInternaciona" class="control-label"></label>
+                        <input asp-for="SeguroInternaciona" class="form-control" id="SeguroInternacional" />
+                        <span asp-validation-for="SeguroInternaciona" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="ValorTotalCif" class="control-label"></label>
+                        <input asp-for="ValorTotalCif" id="ValorTotalCif" class="form-control" readonly />
+                        <span asp-validation-for="ValorTotalCif" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="ProcessoId" class="control-label"></label>
+                        <select asp-for="ProcessoId" class="form-control" asp-items="ViewBag.ProcessoId">
+                            <option value="">Selecione o código de processo</option>
+                        </select>
+                    </div>
+                </div>
 		<div class="form-group " align="center">
 			<br />
 			<input type="submit" value="Editar" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px" />
@@ -57,8 +60,7 @@
 				</div>
 			</form>
 		</div>
-	</div>
-</div>
+
 @section Scripts {
 	@{
 		await Html.RenderPartialAsync("_ValidationScriptsPartial");

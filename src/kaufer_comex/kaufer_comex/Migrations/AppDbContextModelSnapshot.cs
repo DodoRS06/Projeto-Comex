@@ -703,8 +703,8 @@ namespace kaufer_comex.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<float>("FreteInternacional")
-                        .HasColumnType("real");
+                    b.Property<decimal>("FreteInternacional")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Moeda")
                         .HasColumnType("int");
@@ -712,17 +712,17 @@ namespace kaufer_comex.Migrations
                     b.Property<int>("ProcessoId")
                         .HasColumnType("int");
 
-                    b.Property<float>("SeguroInternaciona")
-                        .HasColumnType("real");
+                    b.Property<decimal>("SeguroInternaciona")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<float>("ValorExw")
-                        .HasColumnType("real");
+                    b.Property<decimal>("ValorExw")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<float>("ValorFobFca")
-                        .HasColumnType("real");
+                    b.Property<decimal>("ValorFobFca")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<float>("ValorTotalCif")
-                        .HasColumnType("real");
+                    b.Property<decimal>("ValorTotalCif")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
