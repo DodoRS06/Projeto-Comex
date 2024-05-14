@@ -4,7 +4,12 @@
     ViewData["Title"] = "Excluir";
 }
 
-
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert" align="center">
+        @TempData["MensagemErro"]
+    </div>
+}
 
 <div>
     <h4>Você tem certeza que deseja excluir o processo:  @Html.DisplayFor(model => model.CodProcessoExportacao) ?</h4>

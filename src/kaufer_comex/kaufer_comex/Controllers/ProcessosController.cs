@@ -17,47 +17,55 @@ namespace kaufer_comex.Controllers
         // GET: Processos
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.Processos
-                .Include(p => p.Despachante)
-                .Include(p => p.Vendedor)
-                .Include(p => p.Destino)
-                .Include(p => p.Fronteira)
-                .Include(p => p.Status)
-                .Include(p => p.Usuario)
-                .Include(p => p.ExpImps)
-                .ThenInclude(p => p.ExpImp)
-                .ToListAsync();
+            try
+            {
+                var dados = await _context.Processos
+                    .Include(p => p.Despachante)
+                    .Include(p => p.Vendedor)
+                    .Include(p => p.Destino)
+                    .Include(p => p.Fronteira)
+                    .Include(p => p.Status)
+                    .Include(p => p.Usuario)
+                    .Include(p => p.ExpImps)
+                    .ThenInclude(p => p.ExpImp)
+                    .ToListAsync();
 
-            //	var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
-
-            //ViewData["exportador"] = exportador.Nome;
-
-            //var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
-
-            //ViewData["importador"] = importador.Nome;
-
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         // GET: Processos/Create
         public IActionResult Create()
         {
-            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
-            ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
-            ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
-            ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
-            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
-            ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
+            try
+            {
+                ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
+                ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
+                ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
+                ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
+                ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
+                ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
+                ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
 
 
-            var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
-            var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
+                var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
+                var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
 
-            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
-            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+                ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
+                ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
 
-            return View();
+                return View();
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         //POST: Processos/Create
@@ -65,86 +73,99 @@ namespace kaufer_comex.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Processo processo)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Processos.Add(processo);
-                await _context.SaveChangesAsync();
-
-                var importador_ = new ProcessoExpImp
+                if (ModelState.IsValid)
                 {
-                    ProcessoId = processo.Id,
-                    ExpImpId = processo.ImportadorId
-                };
+                    _context.Processos.Add(processo);
+                    await _context.SaveChangesAsync();
 
-                _context.ProcessosExpImp.Add(importador_);
-                await _context.SaveChangesAsync();
+                    var importador_ = new ProcessoExpImp
+                    {
+                        ProcessoId = processo.Id,
+                        ExpImpId = processo.ImportadorId
+                    };
 
-                var exportador_ = new ProcessoExpImp
-                {
-                    ProcessoId = processo.Id,
-                    ExpImpId = processo.ExportadorId
-                };
+                    _context.ProcessosExpImp.Add(importador_);
+                    await _context.SaveChangesAsync();
 
-                _context.ProcessosExpImp.Add(exportador_);
-                await _context.SaveChangesAsync();
+                    var exportador_ = new ProcessoExpImp
+                    {
+                        ProcessoId = processo.Id,
+                        ExpImpId = processo.ExportadorId
+                    };
 
-                return RedirectToAction("Index");
+                    _context.ProcessosExpImp.Add(exportador_);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction("Index");
+                }
+                ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
+                ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
+                ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
+                ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
+                ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
+                ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
+                ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
+
+                var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
+                var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
+
+                ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
+                ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+
+                return View(processo);
             }
-            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
-            ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
-            ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
-            ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
-            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
-            ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
-
-            var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
-            var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
-
-            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
-            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
-
-
-
-            return View(processo);
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         // GET: Processos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Processos
-                .Include(p => p.Despachante)
-                .Include(p => p.Vendedor)
-                .Include(p => p.Destino)
-                .Include(p => p.Fronteira)
-                .Include(p => p.Status)
-                .Include(p => p.Usuario)
-                .Include(p => p.ExpImps)
-                .ThenInclude(p => p.ExpImp)
-                .FirstOrDefaultAsync(p => p.Id == id);
+                var dados = await _context.Processos
+                    .Include(p => p.Despachante)
+                    .Include(p => p.Vendedor)
+                    .Include(p => p.Destino)
+                    .Include(p => p.Fronteira)
+                    .Include(p => p.Status)
+                    .Include(p => p.Usuario)
+                    .Include(p => p.ExpImps)
+                    .ThenInclude(p => p.ExpImp)
+                    .FirstOrDefaultAsync(p => p.Id == id);
 
-            if (dados == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
-            ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
-            ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
-            ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
-            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
-            ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
+                ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
+                ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
+                ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
+                ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
+                ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
+                ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
+                ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
 
-            var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
-            var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
+                var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
+                var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
 
-            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
-            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+                ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
+                ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
 
-
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
 
         }
 
@@ -153,103 +174,141 @@ namespace kaufer_comex.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Processo processo)
         {
-            if (id != processo.Id)
-                return NotFound();
-
-            if (ModelState.IsValid)
+            try
             {
-                _context.Processos.Update(processo);
-                await _context.SaveChangesAsync();
+                if (id != processo.Id)
+                    return NotFound();
 
-                // _context.ProcessosExpImp.Update(importador_);
-                await _context.SaveChangesAsync();
+                if (ModelState.IsValid)
+                {
+					_context.Processos.Update(processo);
+					await _context.SaveChangesAsync();
 
-                //  _context.ProcessosExpImp.Update(exportador_);
-                await _context.SaveChangesAsync();
+					var dados = await _context.Processos
+								 .Include(p => p.Despachante)
+								 .Include(p => p.Vendedor)
+								 .Include(p => p.Destino)
+								 .Include(p => p.Fronteira)
+								 .Include(p => p.Status)
+								 .Include(p => p.Usuario)
+								 .Include(p => p.ExpImps)
+								 .FirstOrDefaultAsync(p => p.Id == id);
 
-                return RedirectToAction("Index");
+					if (dados == null)
+						return NotFound();
+
+					//var exp = _context.ProcessosExpImp.Where(e => e.ExpImpId == dados.ExportadorId && e.ProcessoId == id).FirstOrDefault();
+					//if (exp == null) return NotFound();
+     //               _context.ProcessosExpImp.Update(exp);
+
+					//var imp = _context.ProcessosExpImp.Where(e => e.ExpImpId == dados.ImportadorId && e.ProcessoId == id).FirstOrDefault();
+					//if (imp == null) return NotFound();
+					//_context.ProcessosExpImp.Update(imp);
+
+					return RedirectToAction("Index");
+                }
+                ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
+                ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
+                ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
+                ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
+                ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
+                ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
+                ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
+
+                var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
+                var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
+
+                ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
+                ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+
+                return View();
             }
-            ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
-            ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
-            ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
-            ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
-            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
-            ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
-
-            var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
-            var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
-
-            ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
-            ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
-
-
-            return View();
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
 
         // GET: Processos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Processos
-                .Include(p => p.Despachante)
-                .Include(p => p.Vendedor)
-                .Include(p => p.Destino)
-                .Include(p => p.Fronteira)
-                .Include(p => p.Status)
-                .Include(p => p.Usuario)
-                .Include(p => p.ExpImps)
-                .ThenInclude(p => p.ExpImp)
-                .FirstOrDefaultAsync(p => p.Id == id);
+                var dados = await _context.Processos
+                    .Include(p => p.Despachante)
+                    .Include(p => p.Vendedor)
+                    .Include(p => p.Destino)
+                    .Include(p => p.Fronteira)
+                    .Include(p => p.Status)
+                    .Include(p => p.Usuario)
+                    .Include(p => p.ExpImps)
+                    .ThenInclude(p => p.ExpImp)
+                    .FirstOrDefaultAsync(p => p.Id == id);
 
-            var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
+                var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
 
-            ViewData["exportador"] = exportador.Nome;
+                ViewData["exportador"] = exportador.Nome;
 
-            var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
+                var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
 
-            ViewData["importador"] = importador.Nome;
+                ViewData["importador"] = importador.Nome;
 
 
-            if (id == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         // GET: Processos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Processos
+                var dados = await _context.Processos
 
-                .Include(p => p.Despachante)
-                .Include(p => p.Vendedor)
-                .Include(p => p.Destino)
-                .Include(p => p.Fronteira)
-                .Include(p => p.Status)
-                .Include(p => p.Usuario)
-                .Include(p => p.ExpImps)
-                .ThenInclude(p => p.ExpImp)
-                .FirstOrDefaultAsync(p => p.Id == id);
+                    .Include(p => p.Despachante)
+                    .Include(p => p.Vendedor)
+                    .Include(p => p.Destino)
+                    .Include(p => p.Fronteira)
+                    .Include(p => p.Status)
+                    .Include(p => p.Usuario)
+                    .Include(p => p.ExpImps)
+                    .ThenInclude(p => p.ExpImp)
+                    .FirstOrDefaultAsync(p => p.Id == id);
 
-            if (id == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
+                var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
 
-            ViewData["exportador"] = exportador.Nome;
+                ViewData["exportador"] = exportador.Nome;
 
-            var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
+                var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
 
-            ViewData["importador"] = importador.Nome;
+                ViewData["importador"] = importador.Nome;
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         // POST: Processos/Delete/5
@@ -257,39 +316,50 @@ namespace kaufer_comex.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Processos
-                .Include(p => p.Despachante)
-                .Include(p => p.Vendedor)
-                .Include(p => p.Destino)
-                .Include(p => p.Fronteira)
-                .Include(p => p.Status)
-                .Include(p => p.Usuario)
-                .Include(p => p.ExpImps)
-                .FirstOrDefaultAsync(p => p.Id == id);
+                var dados = await _context.Processos
+                    .Include(p => p.Despachante)
+                    .Include(p => p.Vendedor)
+                    .Include(p => p.Destino)
+                    .Include(p => p.Fronteira)
+                    .Include(p => p.Status)
+                    .Include(p => p.Usuario)
+                    .Include(p => p.ExpImps)
+                    .FirstOrDefaultAsync(p => p.Id == id);
 
+                if (dados == null)
+                    return NotFound();
 
-            var exportador = _context.ProcessosExpImp.Where(e => e.ExpImpId == dados.ExportadorId && e.ProcessoId == id).FirstOrDefault();
+                var exportador = _context.ProcessosExpImp.Where(e => e.ExpImpId == dados.ExportadorId && e.ProcessoId == id).FirstOrDefault();
 
-            var importador = _context.ProcessosExpImp.Where(e => e.ExpImpId == dados.ImportadorId && e.ProcessoId == id).FirstOrDefault();
+                var importador = _context.ProcessosExpImp.Where(e => e.ExpImpId == dados.ImportadorId && e.ProcessoId == id).FirstOrDefault();
 
-            if (exportador == null) return NotFound();
+                if (exportador == null) return NotFound();
 
-            _context.ProcessosExpImp.Remove(exportador);
-            await _context.SaveChangesAsync();
+                _context.ProcessosExpImp.Remove(exportador);
+                await _context.SaveChangesAsync();
 
-            if (importador == null) return NotFound();
+                if (importador == null) return NotFound();
 
-            _context.ProcessosExpImp.Remove(importador);
-            await _context.SaveChangesAsync();
+                _context.ProcessosExpImp.Remove(importador);
+                await _context.SaveChangesAsync();
 
-            _context.Processos.Remove(dados);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+                _context.Processos.Remove(dados);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
 
         }
+            
 
 
     }

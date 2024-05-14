@@ -1,11 +1,16 @@
 ﻿@model kaufer_comex.Models.Nota
 
 @{
-	ViewData["Title"] = "Delete";
+	ViewData["Title"] = "Excluir";
 }
 
-<h1>Delete</h1>
-
+<h1>Excluir</h1>
+@if (TempData["MensagemErro"] != null)
+{
+	<div class="alert alert-danger" role="alert" align="center">
+		@TempData["MensagemErro"]
+	</div>
+}
 
 <div>
 	<h4>Você tem certeza que deseja excluir a Nota? </h4>

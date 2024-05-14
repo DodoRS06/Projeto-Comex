@@ -12,102 +12,164 @@ namespace kaufer_comex.Controllers
         {
             _context = context;
         }
-
+        //GET: Destinos/Index
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.Destinos.ToListAsync();
+            try
+            {
 
-            return View(dados);
+                var dados = await _context.Destinos.ToListAsync();
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+
         }
+
+        //GET: Destinos/Create
         public IActionResult Create()
         {
+
             return View();
         }
 
+
+        //POST: Destinos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Destino destino)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Destinos.Add(destino);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    _context.Destinos.Add(destino);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return View(destino);
             }
-            return View(destino);
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
+        //GET: Destinos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Destinos.FindAsync(id);
-            if (dados == null)
-                return NotFound();
+                var dados = await _context.Destinos.FindAsync(id);
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);
-
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
+
+
+        //POST: Destinos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Destino destino)
         {
-            if (id != destino.Id)
-                return NotFound();
-
-            if (ModelState.IsValid)
+            try
             {
-                _context.Destinos.Update(destino);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (id != destino.Id)
+                    return NotFound();
+
+                if (ModelState.IsValid)
+                {
+                    _context.Destinos.Update(destino);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return View();
             }
-            return View();
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
+        //GET: Destinos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Destinos.FindAsync(id);
+                var dados = await _context.Destinos.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);
+                return View(dados);
+            }catch { return NotFound(); }
         }
 
-
+        //GET: Destinos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Destinos.FindAsync(id);
+                var dados = await _context.Destinos.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
+
+        //POST: Destinos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Destinos.FindAsync(id);
+                var dados = await _context.Destinos.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            _context.Destinos.Remove(dados);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
-
+                _context.Destinos.Remove(dados);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
     }
 }

@@ -17,18 +17,34 @@ namespace kaufer_comex.Controllers
         // GET : Despachos
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.Despachos
-                .Include(d => d.Processo)
-                .ToListAsync();
+            try
+            {
+                var dados = await _context.Despachos
+                    .Include(d => d.Processo)
+                    .ToListAsync();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         // GET : Despachos/Create
         public IActionResult Create()
         {
-            ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
-            return View();
+            try
+            {
+                ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+                return View();
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         // POST : Despachos/Create
@@ -36,30 +52,46 @@ namespace kaufer_comex.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Despacho despacho)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Despachos.Add(despacho);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    _context.Despachos.Add(despacho);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
 
-            ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
-            return View(despacho);
+                ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+                return View(despacho);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         // GET: Despachos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Despachos.FindAsync(id);
-            if (dados == null)
-                return NotFound();
+                var dados = await _context.Despachos.FindAsync(id);
+                if (dados == null)
+                    return NotFound();
 
-            ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+                ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
 
         }
 
@@ -68,50 +100,74 @@ namespace kaufer_comex.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Despacho despacho)
         {
-            if (id != despacho.Id)
-                return NotFound();
-
-            if (ModelState.IsValid)
+            try
             {
-                _context.Despachos.Update(despacho);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
+                if (id != despacho.Id)
+                    return NotFound();
 
-            ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
-            return View();
+                if (ModelState.IsValid)
+                {
+                    _context.Despachos.Update(despacho);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+
+                ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+                return View();
+            }
+            catch 
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View(despacho);
+            }
         }
 
         // GET : Despachos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Despachos
-                .Include(d => d.Processo)
-                .FirstOrDefaultAsync(d => d.Id == id);
+                var dados = await _context.Despachos
+                    .Include(d => d.Processo)
+                    .FirstOrDefaultAsync(d => d.Id == id);
 
-            if (id == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         // GET: Despachos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Despachos
-                .Include(d => d.Processo)
-                .FirstOrDefaultAsync(d => d.Id == id);
+                var dados = await _context.Despachos
+                    .Include(d => d.Processo)
+                    .FirstOrDefaultAsync(d => d.Id == id);
 
-            if (id == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch 
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         // POST: Despachos/Delete/5
@@ -119,18 +175,25 @@ namespace kaufer_comex.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Despachos.FindAsync(id);
+                var dados = await _context.Despachos.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            _context.Despachos.Remove(dados);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
-
+                _context.Despachos.Remove(dados);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            catch 
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
     }
 }
