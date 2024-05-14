@@ -89,7 +89,9 @@ namespace kaufer_comex.Controllers
                         PesoLiq = view.PesoLiq,
                         TaxaCambial = view.TaxaCambial,
                         CertificadoQualidade = view.CertificadoQualidade,
-                        EmbarqueRodoviarioId = view.EmbarqueRodoviarioId
+                        EmbarqueRodoviarioId = view.EmbarqueRodoviarioId,
+                        QuantidadeTotal = view.QuantidadeTotal,
+                        ValorTotalNota = view.ValorTotalNota,
                     };
                     _context.Notas.Add(novaNota);
                     await _context.SaveChangesAsync();
