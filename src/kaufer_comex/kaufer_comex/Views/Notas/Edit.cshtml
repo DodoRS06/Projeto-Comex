@@ -133,12 +133,12 @@
                    @*  <td>
                         @Html.DisplayFor(modelItem => item.Valor)
                     </td>  *@
-                    <td>
+                    @* <td>
                     <a asp-controller="Notas" asp-action="EditarItem"  asp-route-id="@item.ItemId" asp-route-notaId="@item.NotaId" class="btn dialog-window" onclick="EditarItem"><img src="~/Images/editar.png" id="Details" style="height:20px; "></a>
                     </td>
                     <td>
                     <a asp-controller="Notas" asp-action="ExcluirItemNota" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
-                    </td>
+                    </td> *@
 
                 </tr>
             }

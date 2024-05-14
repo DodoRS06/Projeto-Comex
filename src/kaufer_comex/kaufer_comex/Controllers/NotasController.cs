@@ -221,62 +221,24 @@ namespace kaufer_comex.Controllers
         }
 
 
-        // GET: Editar item na nota criada
-        //public IActionResult EditarItem(int id)
+        //Excluir item da nota já criada
+        //public async Task<IActionResult> ExcluirItemNota(int? id)
         //{
-        //    var nota = _context.NotaItens.Where(u => u.NotaId == id ).FirstOrDefault();
-        //    var item = _context.Itens.Where(i => i.Id == nota.ItemId).FirstOrDefault();
-            
-        //    ViewData["ItemId"] = item;
-        //    return PartialView();
+
+        //    var dados = await _context.NotaItens
+        //      .Include(p => p.Nota)
+        //      .FirstOrDefaultAsync(p => p.ItemId == id);
+
+        //    if (dados == null)
+        //        return NotFound();
+
+        //    var itemNota = _context.NotaItens.Where(i => i.NotaId == dados.NotaId).FirstOrDefault();
+        //    _context.NotaItens.Remove(itemNota);
+        //    await _context.SaveChangesAsync();
+
+
+        //    return RedirectToAction("Edit", "Notas");
         //}
-
-
-        //POST : Editar item na nota criada
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> EditarItem(int id, NotaItem notaItem)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var nota = _context.NotaItens.Where(u => u.NotaId == id).FirstOrDefault();
-        //        var item = _context.Itens.Where(i => i.Id == notaItem.ItemId).FirstOrDefault();
-        //        if (nota == null)
-        //        {
-        //            return NotFound();
-        //        }
-
-
-        //        _context.NotaItens.Update(notaItem);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction("/");
-        //    }
-        //    return PartialView();
-
-        //}
-
-
-       //Excluir item da nota já criada
-        public async Task<IActionResult> ExcluirItemNota(int? id, int?notaId)
-        {
-      
-            if (id == null || notaId == null)
-            {
-                return BadRequest();
-            }
-
-            var item = _context.NotaItens.Where(u => u.ItemId == id && u.NotaId == notaId).FirstOrDefault();
-
-            if (item == null)
-            {
-                return NotFound();
-            }
-            _context.NotaItens.Remove(item);
-            await _context.SaveChangesAsync();
-
-         
-            return RedirectToAction("Edit");
-        }
 
         //GET: Detalhes da Nota
         public async Task<IActionResult> Details(int? id)
