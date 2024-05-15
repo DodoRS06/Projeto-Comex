@@ -181,31 +181,36 @@ namespace kaufer_comex.Controllers
 
                 if (ModelState.IsValid)
                 {
-					_context.Processos.Update(processo);
-					await _context.SaveChangesAsync();
+                    var dados = await _context.Processos
+                                 .Include(p => p.ExpImps)
+                                 .FirstOrDefaultAsync(p => p.Id == id);
+                    if (dados == null)
+                        return NotFound();
 
-					var dados = await _context.Processos
-								 .Include(p => p.Despachante)
-								 .Include(p => p.Vendedor)
-								 .Include(p => p.Destino)
-								 .Include(p => p.Fronteira)
-								 .Include(p => p.Status)
-								 .Include(p => p.Usuario)
-								 .Include(p => p.ExpImps)
-								 .FirstOrDefaultAsync(p => p.Id == id);
+                    _context.Processos.Update(processo);
+                    await _context.SaveChangesAsync();
 
-					if (dados == null)
-						return NotFound();
+                    var exp = _context.ProcessosExpImp
+                        .Where(e => e.ExpImpId == dados.ExportadorId && e.ProcessoId == dados.Id)
+                        .FirstOrDefault();
+                    var imp = _context.ProcessosExpImp
+                        .Where(i => i.ExpImpId == dados.ImportadorId && i.ProcessoId == dados.Id)
+                        .FirstOrDefault();
 
-					//var exp = _context.ProcessosExpImp.Where(e => e.ExpImpId == dados.ExportadorId && e.ProcessoId == id).FirstOrDefault();
-					//if (exp == null) return NotFound();
-     //               _context.ProcessosExpImp.Update(exp);
+                    if (exp != null)
+                    {
+                        exp.ExpImpId = processo.ExportadorId;
+                        _context.ProcessosExpImp.Update(exp);
+                    }
 
-					//var imp = _context.ProcessosExpImp.Where(e => e.ExpImpId == dados.ImportadorId && e.ProcessoId == id).FirstOrDefault();
-					//if (imp == null) return NotFound();
-					//_context.ProcessosExpImp.Update(imp);
+                    if (imp != null)
+                    {
+                        imp.ExpImpId = processo.ImportadorId;
+                        _context.ProcessosExpImp.Update(imp);
+                    }
 
-					return RedirectToAction("Index");
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
                 }
                 ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
                 ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
@@ -359,7 +364,7 @@ namespace kaufer_comex.Controllers
             }
 
         }
-            
+
 
 
     }
