@@ -225,6 +225,8 @@ namespace kaufer_comex.Controllers
                             };
 
                             _context.ProcessosExpImp.Add(novoExportadorExpImp);
+
+                            //exportadorExpImp.ExpImpId = processo.ExportadorId;
                         }
                     }
 
@@ -246,6 +248,8 @@ namespace kaufer_comex.Controllers
                             };
 
                             _context.ProcessosExpImp.Add(novoImportadorExpImp);
+
+                            //importadorExpImp.ExpImpId = processo.ImportadorId;
                         }
                     }
 
