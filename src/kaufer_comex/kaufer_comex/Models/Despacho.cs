@@ -15,13 +15,13 @@ namespace kaufer_comex.Models
 
         [Required(ErrorMessage = "Obrigatório informar a data DUE.")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         [Display(Name = "Data DUE (*)")]
         public DateTime DataDue { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar a data da exportação.")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         [Display(Name = "Data de Exportação (*)")]
         public DateTime DataExportacao { get; set; }
 
@@ -31,7 +31,7 @@ namespace kaufer_comex.Models
 
         [Required(ErrorMessage = "Obrigatório informar a data de conhecimento.")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         [Display(Name = "Data de Conhecimento (*)")]
         public DateTime DataConhecimento { get; set; }
 
@@ -41,7 +41,7 @@ namespace kaufer_comex.Models
 
         [Required(ErrorMessage = "Obrigatório informar a data da averbação.")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         [Display(Name = "Data da Averbação (*)")]
         public DateTime DataAverbacao { get; set; }
 
