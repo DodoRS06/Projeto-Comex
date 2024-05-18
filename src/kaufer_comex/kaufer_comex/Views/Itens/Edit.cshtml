@@ -29,46 +29,68 @@
 				<input asp-for="Familia" class="form-control" />
 				<span asp-validation-for="Familia" class="text-danger"></span>
 			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="Largura" class="control-label"></label>
-				<input asp-for="Largura" class="form-control" />
-				<span asp-validation-for="Largura" class="text-danger"></span>
+		</div>
+		<br />
+		<div class="card">
+			<div class="card-header">Caixa/Pacote </div>
+			<div class="card-body row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label asp-for="Largura" class="control-label"></label>
+						<input asp-for="Largura" class="form-control" />
+						<span asp-validation-for="Largura" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Espessura" class="control-label"></label>
+						<input asp-for="Espessura" class="form-control" />
+						<span asp-validation-for="Espessura" class="text-danger"></span>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label asp-for="Comprimento" class="control-label"></label>
+						<input asp-for="Comprimento" class="form-control" />
+						<span asp-validation-for="Comprimento" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="AreaM2" class="control-label"></label>
+						<input asp-for="AreaM2" class="form-control" readonly />
+						<span asp-validation-for="AreaM2" class="text-danger"></span>
+					</div>
+				</div>
 			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="Comprimento" class="control-label"></label>
-				<input asp-for="Comprimento" class="form-control" />
-				<span asp-validation-for="Comprimento" class="text-danger"></span>
+		</div>
+
+		<br />
+
+		<div class=" card">
+			<div class="card-header">Cilindro</div>
+			<div class="card-body row">
+				<div class="form-group col-md-6">
+					<label asp-for="DiametroAltura" class="control-label"></label>
+					<input asp-for="DiametroAltura" class="form-control" />
+					<span asp-validation-for="DiametroAltura" class="text-danger"></span>
+				</div>
+				<div class="form-group col-md-6">
+					<label asp-for="DiametroComprimento" class="control-label"></label>
+					<input asp-for="DiametroComprimento" class="form-control" />
+					<span asp-validation-for="DiametroComprimento" class="text-danger"></span>
+				</div>
+				<div class="form-group col-md-6">
+					<label asp-for="LarguraAparente" class="control-label"></label>
+					<input asp-for="LarguraAparente" class="form-control" />
+					<span asp-validation-for="LarguraAparente" class="text-danger"></span>
+				</div>
+				<div class="form-group col-md-6">
+					<label asp-for="VolumeM2" class="control-label"></label>
+					<input asp-for="VolumeM2" class="form-control" readonly />
+					<span asp-validation-for="VolumeM2" class="text-danger"></span>
+				</div>
 			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="Espessura" class="control-label"></label>
-				<input asp-for="Espessura" class="form-control" />
-				<span asp-validation-for="Espessura" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="AreaM2" class="control-label"></label>
-				<input asp-for="AreaM2" class="form-control" />
-				<span asp-validation-for="AreaM2" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="DiametroAltura" class="control-label"></label>
-				<input asp-for="DiametroAltura" class="form-control" />
-				<span asp-validation-for="DiametroAltura" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="DiametroComprimento" class="control-label"></label>
-				<input asp-for="DiametroComprimento" class="form-control" />
-				<span asp-validation-for="DiametroComprimento" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="LarguraAparente" class="control-label"></label>
-				<input asp-for="LarguraAparente" class="form-control" />
-				<span asp-validation-for="LarguraAparente" class="text-danger"></span>
-			</div>
-			<div class="form-group col-md-4">
-				<label asp-for="VolumeM2" class="control-label"></label>
-				<input asp-for="VolumeM2" class="form-control" />
-				<span asp-validation-for="VolumeM2" class="text-danger"></span>
-			</div>
+		</div>
+
+		<br />
+		<div class="row">
 			<div class="form-group col-md-4">
 				<label asp-for="PesoLiquido" class="control-label"></label>
 				<input asp-for="PesoLiquido" class="form-control" />
@@ -78,6 +100,11 @@
 				<label asp-for="PesoBruto" class="control-label"></label>
 				<input asp-for="PesoBruto" class="form-control" />
 				<span asp-validation-for="PesoBruto" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-4">
+				<label asp-for="Preco" class="control-label"></label>
+				<input asp-for="Preco" class="form-control" />
+				<span asp-validation-for="Preco" class="text-danger"></span>
 			</div>
 		</div>
 		<div class="form-group " align="center">
@@ -92,4 +119,34 @@
 	@{
 		await Html.RenderPartialAsync("_ValidationScriptsPartial");
 	}
+
+	<script>
+		$(document).ready(function () {
+			$('#Largura, #Comprimento').on('input', function () {
+				var largura = parseFloat($('#Largura').val()) || 0;
+				var comprimento = parseFloat($('#Comprimento').val()) || 0;
+
+
+
+				var areaM2 = largura * comprimento;
+				$('#AreaM2').val(areaM2.toFixed());
+			});
+		});
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			$('#DiametroAltura , #DiametroComprimento , #LarguraAparente').on('input', function () {
+				var diametroAltura = parseFloat($('#DiametroAltura').val()) || 0;
+				var diametroComprimento = parseFloat($('#DiametroComprimento').val()) || 0;
+				var larguraAparente = parseFloat($('#LarguraAparente').val()) || 0;
+
+
+
+				var volumeM2 = diametroAltura * diametroComprimento * larguraAparente;
+				$('#VolumeM2').val(volumeM2.toFixed());
+			});
+		});
+	</script>
+
 	}

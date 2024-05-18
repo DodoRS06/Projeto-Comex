@@ -41,20 +41,20 @@
 						<span asp-validation-for="Largura" class="text-danger"></span>
 					</div>
 					<div class="form-group">
-						<label asp-for="Comprimento" class="control-label"></label>
-						<input asp-for="Comprimento" class="form-control" />
-						<span asp-validation-for="Comprimento" class="text-danger"></span>
-					</div>
-					</div>
-					<div class="col-md-6">
-					<div class="form-group">
 						<label asp-for="Espessura" class="control-label"></label>
 						<input asp-for="Espessura" class="form-control" />
 						<span asp-validation-for="Espessura" class="text-danger"></span>
 					</div>
+					</div>
+					<div class="col-md-6">				
+					<div class="form-group">
+						<label asp-for="Comprimento" class="control-label"></label>
+						<input asp-for="Comprimento" class="form-control" />
+						<span asp-validation-for="Comprimento" class="text-danger"></span>
+					</div>
 					<div class="form-group">
 						<label asp-for="AreaM2" class="control-label"></label>
-						<input asp-for="AreaM2" class="form-control" />
+						<input asp-for="AreaM2" class="form-control" readonly />
 						<span asp-validation-for="AreaM2" class="text-danger"></span>
 					</div>
 				</div>
@@ -83,7 +83,7 @@
 					</div>
 					<div class="form-group col-md-6">
 						<label asp-for="VolumeM2" class="control-label"></label>
-						<input asp-for="VolumeM2" class="form-control" />
+						<input asp-for="VolumeM2" class="form-control" readonly />
 						<span asp-validation-for="VolumeM2" class="text-danger"></span>
 					</div>
 			</div>
