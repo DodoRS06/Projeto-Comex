@@ -44,21 +44,7 @@ namespace kaufer_comex.Controllers
         {
             try
             {
-                ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
-                ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
-                ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
-                ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
-                ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
-                ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
-                ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
-
-
-                var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
-                var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
-
-                ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
-                ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
-
+                InfoViewData();
                 return View();
             }
             catch
@@ -100,19 +86,8 @@ namespace kaufer_comex.Controllers
 
                     return RedirectToAction("Index");
                 }
-                ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
-                ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
-                ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
-                ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
-                ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
-                ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
-                ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
 
-                var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
-                var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
-
-                ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
-                ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+                InfoViewData();
 
                 return View(processo);
             }
@@ -145,19 +120,7 @@ namespace kaufer_comex.Controllers
                 if (dados == null)
                     return NotFound();
 
-                ViewData["DestinoId"] = new SelectList(_context.Destinos, "Id", "NomePais");
-                ViewData["FronteiraId"] = new SelectList(_context.Fronteiras, "Id", "NomeFronteira");
-                ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
-                ViewData["DespachanteId"] = new SelectList(_context.Despachantes, "Id", "NomeDespachante");
-                ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "NomeVendedor");
-                ViewData["StatusId"] = new SelectList(_context.Status, "Id", "StatusAtual");
-                ViewData["Usuario"] = new SelectList(_context.Usuarios, "Id", "NomeFuncionario");
-
-                var importador = _context.ExpImps.Where(i => i.TipoExpImp == TipoExpImp.Importador).ToList();
-                var exportador = _context.ExpImps.Where(e => e.TipoExpImp == TipoExpImp.Exportador).ToList();
-
-                ViewData["Importador"] = new SelectList(importador, "Id", "Nome");
-                ViewData["Exportador"] = new SelectList(exportador, "Id", "Nome");
+                InfoViewData();
 
                 return View(dados);
             }
@@ -268,6 +231,7 @@ namespace kaufer_comex.Controllers
             }
         }
 
+     
         // GET: Processos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -285,13 +249,15 @@ namespace kaufer_comex.Controllers
                    .Include(p => p.ExpImps)
                    .FirstOrDefaultAsync(p => p.Id == id);
 
-                var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
+                if (dados == null)
+                    return NotFound();
 
-                ViewData["exportador"] = exportador.Nome;
-
-                var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
-
-                ViewData["importador"] = importador.Nome;
+                ViewData["exportador"] = GetNomeExportador(dados.ExportadorId);
+                ViewData["importador"] = GetNomeImportador(dados.ImportadorId);
+                ViewData["destino"] = GetNomeDestino(dados.DestinoId);
+                ViewData["fronteira"] = GetNomeFronteira(dados.FronteiraId);
+                ViewData["responsavel"] = GetNomeResponsavel(dados.UsuarioId);
+                ViewData["despachante"] = GetNomeDespachante(dados.DespachanteId);
 
                 var view = new DetalhesProcessoView
                 {
@@ -320,6 +286,7 @@ namespace kaufer_comex.Controllers
                     Documentos = _context.Documentos.Where(d => d.ProcessoId == dados.Id).ToList(),
                     EmbarquesRodoviarios = _context.EmbarqueRodoviarios.Where(d => d.ProcessoId == dados.Id).ToList(),
                     DCES = _context.DCEs.Where(d => d.ProcessoId == dados.Id).ToList(),
+                    ValorProcessos = _context.ValorProcessos.Where(v => v.ProcessoId == dados.Id).ToList()
 
                 };
 
@@ -332,6 +299,13 @@ namespace kaufer_comex.Controllers
                 return View();
             }
         }
+
+        private string GetNomeExportador(int? id) => id != null ? _context.ExpImps.FirstOrDefault(e => e.Id == id)?.Nome : string.Empty;
+        private string GetNomeImportador(int? id) => id != null ? _context.ExpImps.FirstOrDefault(i => i.Id == id)?.Nome : string.Empty;
+        private string GetNomeDestino(int? id) => id != null ? _context.Destinos.FirstOrDefault(d => d.Id == id)?.NomePais : string.Empty;
+        private string GetNomeFronteira(int? id) => id != null ? _context.Fronteiras.FirstOrDefault(f => f.Id == id)?.NomeFronteira : string.Empty;
+        private string GetNomeResponsavel(int? id) => id != null ? _context.Usuarios.FirstOrDefault(u => u.Id == id)?.NomeFuncionario : string.Empty;
+        private string GetNomeDespachante(int? id) => id != null ? _context.Despachantes.FirstOrDefault(d => d.Id == id)?.NomeDespachante : string.Empty;
 
         // GET: Processos/Delete/5
         public async Task<IActionResult> Delete(int? id)

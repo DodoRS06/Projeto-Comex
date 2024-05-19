@@ -16,7 +16,7 @@
     <h4>Detalhes do Processo</h4>
     <hr />
     <div class="card mb-3">
-        <div class="card-header">Processo: <strong>@Html.DisplayFor(model => model.CodProcessoExportacao)</strong></div>
+        <div class="card-header">Processo: <strong>@Html.DisplayFor(model => model.Id)</strong></div>
         <dl class="card-body row">
             <div class="col-md-4">
                 <dt>
@@ -31,7 +31,7 @@
                     @Html.DisplayNameFor(model => model.UsuarioId)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Usuario.NomeFuncionario)
+                    @ViewBag.responsavel
                 </dd>
             </div>
             <div class="col-md-4">
@@ -72,7 +72,7 @@
                     @Html.DisplayNameFor(model => model.Destino)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Destino.NomePais)
+                    @ViewBag.destino
                 </dd>
             </div>
             <div class="col-md-4">
@@ -80,7 +80,7 @@
                     @Html.DisplayNameFor(model => model.Fronteira)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Fronteira.NomeFronteira)
+                    @ViewBag.fronteira
                 </dd>
             </div>
             <div class="col-md-4">
@@ -88,7 +88,7 @@
                     @Html.DisplayNameFor(model => model.Despachante)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Despachante.NomeDespachante)
+                    @ViewBag.despachante
                 </dd>
             </div>
             <div class="col-md-4">
@@ -181,202 +181,337 @@
             </div>
         </dl>
     </div>
-     @foreach (var item in Model.Despachos)
+    @if (Model.Despachos.Count != 0)
+    {
+        @foreach (var item in Model.Despachos)
         {
-    <div class="card mb-3">
-        <div class="card-header"> Despacho: <strong>@item.Id</strong></div>
-        <dl class="card-body row">
-            <div class="col-md-4">
-                <dt>
-                    Número DUE:
-                </dt>
-                <dd>
-                  @item.NumeroDue
-                </dd>
+            <div class="card mb-3">
+                <div class="card-header"> Despacho: <strong>@item.Id</strong></div>
+                <dl class="card-body row">
+                    <div class="col-md-4">
+                        <dt>
+                            Número DUE:
+                        </dt>
+                        <dd>
+                            @item.NumeroDue
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Data DUE:
+                        </dt>
+                        <dd>
+                            @item.DataDue
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Data Exportação:
+                        </dt>
+                        <dd>
+                            @item.DataExportacao
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Conhecimento Embarque:
+                        </dt>
+                        <dd>
+                            @item.ConhecimentoEmbarque
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Data de Conhecimento:
+                        </dt>
+                        <dd>
+                            @item.DataConhecimento
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Data da Averbação:
+                        </dt>
+                        <dd>
+                            @item.DataAverbacao
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Código do país:
+                        </dt>
+                        <dd>
+                            @item.CodPais
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Parametrização:
+                        </dt>
+                        <dd>
+                            @item.Parametrizacao
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Código do processo:
+                        </dt>
+                        <dd>
+                            @item.ProcessoId
+                        </dd>
+                    </div>
+
+                </dl>
             </div>
-            <div class="col-md-4">
-                <dt>
-                    Data DUE:
-                </dt>
-                <dd>
-                    @item.DataDue
-                </dd>
+        }
+
+    }
+    @if (Model.Documentos.Count != 0)
+    {
+        @foreach (var item in Model.Documentos)
+        {
+            <div class="card mb-3">
+                <div class="card-header"> Documento: <strong>@item.Id</strong></div>
+                <dl class="card-body row">
+                    <div class="col-md-4">
+                        <dt>
+                            Certificado de Origem:
+                        </dt>
+                        <dd>
+                            @item.CertificadoOrigem
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Certificado Seguro:
+                        </dt>
+                        <dd>
+                            @item.CertificadoSeguro
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Data de Envio Origem:
+                        </dt>
+                        <dd>
+                            @item.DataEnvioOrigem
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Data envio de Seguro:
+                        </dt>
+                        <dd>
+                            @item.DataEnvioSeguro
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Tracking Courier:
+                        </dt>
+                        <dd>
+                            @item.TrackinCourier
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Código do processo:
+                        </dt>
+                        <dd>
+                            @item.ProcessoId
+                        </dd>
+                    </div>
+
+                </dl>
             </div>
-                <div class="col-md-4">
-                    <dt>
-                        Data Exportação:
-                    </dt>
-                    <dd>
-                        @item.DataExportacao
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                        Conhecimento Embarque:
-                    </dt>
-                    <dd>
-                        @item.ConhecimentoEmbarque
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                        Data de Conhecimento:
-                    </dt>
-                    <dd>
-                        @item.DataConhecimento
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                        Data da Averbação:
-                    </dt>
-                    <dd>
-                        @item.DataAverbacao
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                        Código do país:
-                    </dt>
-                    <dd>
-                        @item.CodPais
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                        Parametrização:
-                    </dt>
-                    <dd>
-                        @item.Parametrizacao
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                        Código do processo:
-                    </dt>
-                    <dd>
-                        @item.ProcessoId
-                    </dd>
-                </div>
-               
-        </dl>
-    </div>
+        }
+
     }
-
-    @foreach (var item in Model.Documentos)
+   @*  @if (Model.EmbarquesRodoviarios.Count != 0)
     {
-        <div class="card mb-3">
-            <div class="card-header"> Documento: <strong>@item.Id</strong></div>
-            <dl class="card-body row">
-                <div class="col-md-4">
-                    <dt>
-                        Certificado de Origem:
-                    </dt>
-                    <dd>
-                        @item.CertificadoOrigem
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                        Certificado Seguro:
-                    </dt>
-                    <dd>
-                        @item.CertificadoSeguro
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                        Data de Envio Origem:
-                    </dt>
-                    <dd>
-                        @item.DataEnvioOrigem
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                        Data envio de Seguro:
-                    </dt>
-                    <dd>
-                        @item.DataEnvioSeguro
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                        Tracking Courier:
-                    </dt>
-                    <dd>
-                        @item.TrackinCourier
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                        Código do processo:
-                    </dt>
-                    <dd>
-                        @item.ProcessoId
-                    </dd>
-                </div>
+        @foreach (var item in Model.EmbarquesRodoviarios)
+        {
+            <div class="card mb-3">
+                <div class="card-header"> Embarque Rodoviário: <strong>@item.Id</strong></div>
+                <dl class="card-body row">
+                    <div class="col-md-4">
+                        <dt>
+                            Transportadora:
+                        </dt>
+                        <dd>
+                            @item.Transportadora
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Data de embarque:
+                        </dt>
+                        <dd>
+                            @item.DataEmbarque
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Transit time:
+                        </dt>
+                        <dd>
+                            @item.TransitTime
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Data de chegada no destino:
+                        </dt>
+                        <dd>
+                            @item.ChegadaDestino
+                        </dd>
+                    </div> 
+                    <div class="col-md-4">
+                        <dt>
+                            Agente de Carga:
+                        </dt>
+                        <dd>
+                            @item.AgenteDeCarga.NomeAgenteCarga
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Código do processo:
+                        </dt>
+                        <dd>
+                            @item.ProcessoId
+                        </dd>
+                    </div>
 
-            </dl>
-        </div>
-    }
-  @*   @foreach (var item in Model.EmbarquesRodoviarios)
-    {
-        <div class="card mb-3">
-            <div class="card-header"> Embarque Rodoviário: <strong>@item.Id</strong></div>
-            <dl class="card-body row">
-                <div class="col-md-4">
-                    <dt>
-                        Transportadora:
-                    </dt>
-                    <dd>
-                        @item.Transportadora
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                        Data de embarque:
-                    </dt>
-                    <dd>
-                        @item.DataEmbarque
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                       Transit time:
-                    </dt>
-                    <dd>
-                        @item.TransitTime
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                        Data de chegada no destino:
-                    </dt>
-                    <dd>
-                        @item.ChegadaDestino
-                    </dd>
-                </div> 
-                <div class="col-md-4">
-                    <dt>
-                        Agente de Carga:
-                    </dt>
-                    <dd>
-                        @item.AgenteDeCarga.NomeAgenteCarga
-                    </dd>
-                </div>
-                <div class="col-md-4">
-                    <dt>
-                        Código do processo:
-                    </dt>
-                    <dd>
-                        @item.ProcessoId
-                    </dd>
-                </div>
+                </dl>
+            </div>
+        }
 
-            </dl>
-        </div>
     } *@
+
+    @if (Model.ValorProcessos.Count != 0)
+    {
+        @foreach (var item in Model.ValorProcessos)
+        {
+            <div class="card mb-3">
+                <div class="card-header"> Valores de Processo: <strong>@item.Id</strong></div>
+                <dl class="card-body row">
+                    <div class="col-md-4">
+                        <dt>
+                           Moeda:
+                        </dt>
+                        <dd>
+                            @item.Moeda
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Valor EXW:
+                        </dt>
+                        <dd>
+                            @item.ValorExw
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Valor FOB:
+                        </dt>
+                        <dd>
+                            @item.ValorFobFca
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Valor do frete:
+                        </dt>
+                        <dd>
+                            @item.FreteInternacional
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Seguro Internacional:
+                        </dt>
+                        <dd>
+                            @item.SeguroInternaciona
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Valor Total Cif:
+                        </dt>
+                        <dd>
+                            @item.ValorTotalCif
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Código do processo:
+                        </dt>
+                        <dd>
+                            @item.ProcessoId
+                        </dd>
+                    </div>
+
+                </dl>
+            </div>
+        }
+
+    }
+
+    @if (Model.DCES.Count != 0)
+    {
+        @foreach (var item in Model.DCES)
+        {
+            <div class="card mb-3">
+                <div class="card-header"> DCE: <strong>@item.Id</strong></div>
+                <dl class="card-body row">
+                    <div class="col-md-4">
+                        <dt>
+                            Despesa:
+                        </dt>
+                        <dd>
+                            @item.CadastroDespesaNome
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Fornecedor:
+                        </dt>
+                        <dd>
+                            @item.FornecedorServicoNome
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                           Valor:
+                        </dt>
+                        <dd>
+                            @item.Valor
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Observação:
+                        </dt>
+                        <dd>
+                            @item.Observacao
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Código do processo:
+                        </dt>
+                        <dd>
+                            @item.ProcessoId
+                        </dd>
+                    </div>
+
+                </dl>
+            </div>
+        }
+
+    }
 </div>
 
 <div class="form-group " align="center">

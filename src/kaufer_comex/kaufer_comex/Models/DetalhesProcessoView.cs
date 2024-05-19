@@ -119,6 +119,8 @@ namespace kaufer_comex.Models
 
         public List<EmbarqueRodoviario> EmbarquesRodoviarios { get; set; }
 
+        public List<ValorProcesso> ValorProcessos { get; set; }
+
 
     }
 }
