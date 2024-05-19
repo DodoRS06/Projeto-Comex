@@ -275,17 +275,15 @@ namespace kaufer_comex.Controllers
             {
                 if (id == null)
                     return NotFound();
-
                 var dados = await _context.Processos
-                    .Include(p => p.Despachante)
-                    .Include(p => p.Vendedor)
-                    .Include(p => p.Destino)
-                    .Include(p => p.Fronteira)
-                    .Include(p => p.Status)
-                    .Include(p => p.Usuario)
-                    .Include(p => p.ExpImps)
-                    .ThenInclude(p => p.ExpImp)
-                    .FirstOrDefaultAsync(p => p.Id == id);
+                   .Include(p => p.Despachante)
+                   .Include(p => p.Vendedor)
+                   .Include(p => p.Destino)
+                   .Include(p => p.Fronteira)
+                   .Include(p => p.Status)
+                   .Include(p => p.Usuario)
+                   .Include(p => p.ExpImps)
+                   .FirstOrDefaultAsync(p => p.Id == id);
 
                 var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
 
@@ -295,11 +293,38 @@ namespace kaufer_comex.Controllers
 
                 ViewData["importador"] = importador.Nome;
 
+                var view = new DetalhesProcessoView
+                {
+                    Id = dados.Id,
+                    CodProcessoExportacao = dados.CodProcessoExportacao,
+                    ExportadorId = dados.ExportadorId,
+                    ImportadorId = dados.ImportadorId,
+                    Modal = dados.Modal,
+                    Incoterm = dados.Incoterm,
+                    DestinoId = dados.DestinoId,
+                    UsuarioId = dados.UsuarioId,
+                    DespachanteId = dados.DespachanteId,
+                    FronteiraId = dados.FronteiraId,
+                    Vendedor = dados.Vendedor,
+                    Status = dados.Status,
+                    Proforma = dados.Proforma,
+                    DataInicioProcesso = dados.DataInicioProcesso,
+                    PrevisaoProducao = dados.PrevisaoProducao,
+                    PrevisaoPagamento = dados.PrevisaoPagamento,
+                    PrevisaoCruze = dados.PrevisaoCruze,
+                    PrevisaoColeta = dados.PrevisaoColeta,
+                    PrevisaoEntrega = dados.PrevisaoEntrega,
+                    PedidosRelacionados = dados.PedidosRelacionados,
+                    Observacoes = dados.Observacoes,
+                    Despachos = _context.Despachos.Where(d => d.ProcessoId == dados.Id).ToList(),
+                    Documentos = _context.Documentos.Where(d => d.ProcessoId == dados.Id).ToList(),
+                    EmbarquesRodoviarios = _context.EmbarqueRodoviarios.Where(d => d.ProcessoId == dados.Id).ToList(),
+                    DCES = _context.DCEs.Where(d => d.ProcessoId == dados.Id).ToList(),
 
-                if (dados == null)
-                    return NotFound();
+                };
 
-                return View(dados);
+                return View(view);
+
             }
             catch
             {
