@@ -26,7 +26,8 @@ namespace kaufer_comex.Migrations
                         name: "FK_DCE_Processo_ProcessoId",
                         column: x => x.ProcessoId,
                         principalTable: "Processo",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

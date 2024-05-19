@@ -34,7 +34,7 @@ namespace kaufer_comex.Migrations
                         column: x => x.ProcessoId,
                         principalTable: "Processo",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
