@@ -306,6 +306,7 @@ namespace kaufer_comex.Controllers
         private string GetNomeFronteira(int? id) => id != null ? _context.Fronteiras.FirstOrDefault(f => f.Id == id)?.NomeFronteira : string.Empty;
         private string GetNomeResponsavel(int? id) => id != null ? _context.Usuarios.FirstOrDefault(u => u.Id == id)?.NomeFuncionario : string.Empty;
         private string GetNomeDespachante(int? id) => id != null ? _context.Despachantes.FirstOrDefault(d => d.Id == id)?.NomeDespachante : string.Empty;
+       
 
         // GET: Processos/Delete/5
         public async Task<IActionResult> Delete(int? id)
