@@ -12,18 +12,32 @@ namespace kaufer_comex.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
             var dados = await _context.EmbarqueRodoviarios
-               .Include(e => e.AgenteDeCarga)
-               .Include(e=> e.Processo).ToListAsync();
+                .Where(d => d.ProcessoId == id)
+                .Include(e => e.AgenteDeCarga)
+                .ToListAsync();
+              
 
             return View(dados);
         }
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["ProcessoId"] = id.Value;
+
             ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
-            ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+           
             return View();
         }
 
@@ -33,9 +47,24 @@ namespace kaufer_comex.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.EmbarqueRodoviarios.Add(embarqueRodoviario);
+
+                int processoId = Convert.ToInt32(Request.Form["ProcessoId"]);
+
+
+				EmbarqueRodoviario novoEmbarque = new EmbarqueRodoviario
+				{
+					ProcessoId = processoId,
+                    Transportadora = embarqueRodoviario.Transportadora,
+                    TransitTime = embarqueRodoviario.TransitTime,
+                    DataEmbarque = embarqueRodoviario.DataEmbarque,
+                    ChegadaDestino = embarqueRodoviario.ChegadaDestino,
+                    AgenteDeCargaId = embarqueRodoviario.AgenteDeCargaId,
+
+				};
+
+				_context.EmbarqueRodoviarios.Add(novoEmbarque);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Processos", new { id = novoEmbarque.ProcessoId });
             }
 
 
@@ -56,7 +85,7 @@ namespace kaufer_comex.Controllers
 
                 return NotFound();
             ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
-            ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+            
             return View(dados);
         }
         [HttpPost]
@@ -67,9 +96,14 @@ namespace kaufer_comex.Controllers
                 return NotFound();
             if (ModelState.IsValid)
             {
+                if (Request.Form.ContainsKey("ProcessoId"))
+                {
+                    embarqueRodoviario.ProcessoId = Convert.ToInt32(Request.Form["ProcessoId"]);
+                }
+
                 _context.EmbarqueRodoviarios.Update(embarqueRodoviario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = embarqueRodoviario.ProcessoId });
             }
 
 
@@ -127,7 +161,7 @@ namespace kaufer_comex.Controllers
             _context.EmbarqueRodoviarios.Remove(dados);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = dados.ProcessoId });
         }
     }
 }

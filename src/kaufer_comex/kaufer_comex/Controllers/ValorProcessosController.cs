@@ -14,15 +14,22 @@ namespace kaufer_comex.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            var dados = await _context.ValorProcessos.ToListAsync();
+            var dados = await _context.ValorProcessos
+                .Where(v => v.ProcessoId == id)
+                .ToListAsync();
 
             return View(dados);
         }
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
-			ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+			if (id == null)
+			{
+				return NotFound();
+			}
+
+			ViewData["ProcessoId"] = id.Value;
 			return View();
         }
 
@@ -31,12 +38,24 @@ namespace kaufer_comex.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.ValorProcessos.Add(valorprocesso);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
+				int processoId = Convert.ToInt32(Request.Form["ProcessoId"]);
 
-			ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+
+				ValorProcesso novoValor = new ValorProcesso
+				{
+					ProcessoId = processoId,
+					ValorExw = valorprocesso.ValorExw,
+                    ValorFobFca = valorprocesso.ValorFobFca,
+                    ValorTotalCif = valorprocesso.ValorTotalCif,
+                    FreteInternacional = valorprocesso.FreteInternacional,
+                    SeguroInternaciona = valorprocesso.SeguroInternaciona,
+                    Moeda = valorprocesso.Moeda,
+
+				};
+				_context.ValorProcessos.Add(novoValor);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Details", "Processos", new { id = novoValor.ProcessoId });
+            }
 
 			return View(valorprocesso);
         }
@@ -50,8 +69,6 @@ namespace kaufer_comex.Controllers
             if (dados == null)
                 return NotFound();
 
-			ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
-
 			return View(dados);
 
         }
@@ -63,12 +80,16 @@ namespace kaufer_comex.Controllers
 
             if (ModelState.IsValid)
             {
-                _context.ValorProcessos.Update(valorprocesso);
+				if (Request.Form.ContainsKey("ProcessoId"))
+				{
+					valorprocesso.ProcessoId = Convert.ToInt32(Request.Form["ProcessoId"]);
+				}
+				_context.ValorProcessos.Update(valorprocesso);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-			ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+		
 
 			return View();
         }
@@ -117,7 +138,7 @@ namespace kaufer_comex.Controllers
 
             _context.ValorProcessos.Remove(dados);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = dados.ProcessoId });
 
         }
     }

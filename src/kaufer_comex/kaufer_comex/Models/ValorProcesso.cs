@@ -36,8 +36,7 @@ namespace kaufer_comex.Models
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorTotalCif { get; set; }
 
-		[Required(ErrorMessage = "Obrigatório informar o código do processo.")]
-		[Display(Name = "Código de processo (*)")]
+		
 		public int ProcessoId { get; set; }
 
 		[ForeignKey("ProcessoId")]

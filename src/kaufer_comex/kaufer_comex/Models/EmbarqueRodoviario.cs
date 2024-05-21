@@ -38,7 +38,6 @@ namespace kaufer_comex.Models
         [ForeignKey("AgenteDeCargaId")]
         public AgenteDeCarga AgenteDeCarga { get; set; }
 
-        [Display(Name = "Código do Processo (*)")]
         [Required(ErrorMessage = "Obrigatório informar o código.")]
         public int ProcessoId { get; set; }
         [ForeignKey("ProcessoId")]

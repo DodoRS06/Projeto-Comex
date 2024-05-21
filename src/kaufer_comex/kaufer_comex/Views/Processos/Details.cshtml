@@ -16,11 +16,11 @@
     <h4>Detalhes do Processo</h4>
     <hr />
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px"> DCE</a>
-    <a asp-controller="Despachos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Despacho</a>
-    <a asp-controller="Documentos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Documento</a>
-        <a asp-controller="EmbarqueRodoviarios" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Embarque</a>
+    <a asp-controller="EmbarqueRodoviarios" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Embarque</a>
     <a asp-controller="Valores" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Valores</a>
+    <a asp-controller="Documentos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Documento</a>
+    <a asp-controller="Despachos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Despacho</a>
+    <a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px"> DCE</a>
     </div>
     <div class="card mb-3">
         <div class="card-header">Processo:</div>
@@ -193,7 +193,7 @@
         @foreach (var item in Model.Despachos)
         {
             <div class="card mb-3">
-                <div class="card-header"> Despacho: <strong>@item.Id</strong></div>
+                <div class="card-header"> Despacho: </div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
@@ -270,7 +270,7 @@
         @foreach (var item in Model.Documentos)
         {
             <div class="card mb-3">
-                <div class="card-header"> Documento: <strong>@item.Id</strong></div>
+                <div class="card-header"> Documento:</div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
@@ -323,7 +323,7 @@
         @foreach (var item in Model.EmbarquesRodoviarios)
         {
             <div class="card mb-3">
-                <div class="card-header"> Embarque Rodoviário: <strong>@item.Id</strong></div>
+                <div class="card-header"> Embarque Rodoviário:</div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
@@ -378,7 +378,7 @@
         @foreach (var item in Model.ValorProcessos)
         {
             <div class="card mb-3">
-                <div class="card-header"> Valores de Processo: <strong>@item.Id</strong></div>
+                <div class="card-header"> Valores de Processo:</div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
