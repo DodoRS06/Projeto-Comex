@@ -16,7 +16,7 @@
     <h4>Detalhes do Processo</h4>
     <hr />
     <div class="card mb-3">
-        <div class="card-header">Processo: <strong>@Html.DisplayFor(model => model.Id)</strong></div>
+        <div class="card-header">Processo:</div>
         <dl class="card-body row">
             <div class="col-md-4">
                 <dt>
@@ -186,7 +186,7 @@
         @foreach (var item in Model.Despachos)
         {
             <div class="card mb-3">
-                <div class="card-header"> Despacho: <strong>@item.Id</strong></div>
+                <div class="card-header"> Despacho: </div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
@@ -252,16 +252,7 @@
                             @item.Parametrizacao
                         </dd>
                     </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Código do processo:
-                        </dt>
-                        <dd>
-                            @item.ProcessoId
-                        </dd>
-                    </div>
-
-                </dl>
+                  </dl>
             </div>
         }
 
@@ -271,7 +262,7 @@
         @foreach (var item in Model.Documentos)
         {
             <div class="card mb-3">
-                <div class="card-header"> Documento: <strong>@item.Id</strong></div>
+                <div class="card-header"> Documento: </div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
@@ -313,15 +304,6 @@
                             @item.TrackinCourier
                         </dd>
                     </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Código do processo:
-                        </dt>
-                        <dd>
-                            @item.ProcessoId
-                        </dd>
-                    </div>
-
                 </dl>
             </div>
         }
@@ -332,7 +314,7 @@
         @foreach (var item in Model.EmbarquesRodoviarios)
         {
             <div class="card mb-3">
-                <div class="card-header"> Embarque Rodoviário: <strong>@item.Id</strong></div>
+                <div class="card-header"> Embarque Rodoviário: </div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
@@ -371,18 +353,9 @@
                             Agente de Carga:
                         </dt>
                         <dd>
-                            @item.AgenteDeCarga
+                            @ViewBag.agenteDeCarga
                         </dd>
                     </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Código do processo:
-                        </dt>
-                        <dd>
-                            @item.ProcessoId
-                        </dd>
-                    </div>
-
                 </dl>
             </div>
         }
@@ -394,7 +367,7 @@
         @foreach (var item in Model.ValorProcessos)
         {
             <div class="card mb-3">
-                <div class="card-header"> Valores de Processo: <strong>@item.Id</strong></div>
+                <div class="card-header"> Valores de Processo: </div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
@@ -444,15 +417,6 @@
                             @item.ValorTotalCif
                         </dd>
                     </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Código do processo:
-                        </dt>
-                        <dd>
-                            @item.ProcessoId
-                        </dd>
-                    </div>
-
                 </dl>
             </div>
         }
@@ -461,8 +425,8 @@
 
     @if (Model.DCES.Count == 0)
     {
-          <a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark" style="width: 100px">Criar DCE</a>
-       
+        <a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark" style="width: 100px">Criar DCE</a>
+
     }
     else
     {
@@ -470,14 +434,16 @@
         @foreach (var item in Model.DCES)
         {
             <div class="card mb-3">
-                <div class="card-header"> DCE: <strong>@item.Id</strong>  <a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn btn" style="width: 100px">Criar DCE</a></div>
+                <div class="card-header d-flex justify-content-between">
+                    <span class="mt-1">DCE:</span>  <div class="justify-content-sm-end d-flex"><a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark">Adicionar DCE</a> </div>
+                </div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
                             Despesa:
                         </dt>
                         <dd>
-                            @item.CadastroDespesaNome
+                            @ViewBag.despesa
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -485,7 +451,7 @@
                             Fornecedor:
                         </dt>
                         <dd>
-                            @item.FornecedorServicoNome
+                            @ViewBag.fornecedor
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -504,15 +470,6 @@
                             @item.Observacao
                         </dd>
                     </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Código do processo:
-                        </dt>
-                        <dd>
-                            @item.ProcessoId
-                        </dd>
-                    </div>
-
                 </dl>
             </div>
         }
