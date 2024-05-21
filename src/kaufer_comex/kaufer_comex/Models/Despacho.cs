@@ -53,7 +53,6 @@ namespace kaufer_comex.Models
         [Display(Name = "Parametrização (*)")]
         public Parametrizacao Parametrizacao { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar o código do processo.")]
         [Display(Name = "Código de processo (*)")]
         public int ProcessoId { get; set; }
 

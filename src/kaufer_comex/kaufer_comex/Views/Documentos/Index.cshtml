@@ -18,7 +18,7 @@
 	<h1>Lista de documentos</h1>
 	<div class="d-flex flex-row-reverse bd-highlight">
 		<p>
-			<a asp-action="Create" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #F08433; color: #FFF">Adicionar Documento</a>
+		<a asp-action="Create" asp-route-id="@ViewContext.RouteData.Values["id"]"  class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #F08433; color: #FFF">Adicionar Documento</a>
 		</p>
 	</div>
 <table id="myTable" class="table">

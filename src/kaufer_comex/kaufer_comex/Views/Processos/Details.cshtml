@@ -19,6 +19,7 @@
     <a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px"> DCE</a>
     <a asp-controller="Despachos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Despacho</a>
     <a asp-controller="Documentos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Documento</a>
+        <a asp-controller="EmbarqueRodoviarios" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Embarque</a>
     <a asp-controller="Valores" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Valores</a>
     </div>
     <div class="card mb-3">
@@ -436,13 +437,12 @@
 
     @if (Model.DCES.Count > 0)
     {
-
-        @foreach (var item in Model.DCES)
-        {
             <div class="card mb-3">
                 <div class="card-header d-flex justify-content-between">
                     <span class="mt-1">DCE:</span> <div class="justify-content-sm-end d-flex">  <a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark" >Adicionar DCE</a> </div>
                 </div>
+            @foreach (var item in Model.DCES)
+            {
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
@@ -476,10 +476,11 @@
                             @item.Observacao
                         </dd>
                     </div>
-            
                 </dl>
+                <hr />
+                }
             </div>
-        }
+        
 
     }
 </div>

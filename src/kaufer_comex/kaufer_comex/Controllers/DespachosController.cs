@@ -67,15 +67,27 @@ namespace kaufer_comex.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    // Recupere o ProcessoId do formulário
+                    
                     int processoId = Convert.ToInt32(Request.Form["ProcessoId"]);
 
-                    // Atribua o ProcessoId ao objeto Despacho
-                    despacho.ProcessoId = processoId;
+					Despacho novoDespacho = new Despacho
+					{
+						ProcessoId = processoId,
+                        NumeroDue = despacho.NumeroDue,
+                        DataDue = despacho.DataDue,
+                        DataAverbacao = despacho.DataAverbacao,
+                        DataConhecimento = despacho.DataConhecimento,
+                        DataExportacao = despacho.DataExportacao,
+                        ConhecimentoEmbarque = despacho.ConhecimentoEmbarque,
+                        CodPais = despacho.CodPais,
+                        Tipo = despacho.Tipo,
+                        Parametrizacao = despacho.Parametrizacao,
+						
+					};
 
-                    _context.Despachos.Add(despacho);
+					_context.Despachos.Add(novoDespacho);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Details", "Processos", new { id = novoDespacho.ProcessoId });
                 }
 
                 
