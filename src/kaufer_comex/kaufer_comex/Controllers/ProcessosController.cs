@@ -259,6 +259,25 @@ namespace kaufer_comex.Controllers
                 ViewData["responsavel"] = GetNomeResponsavel(dados.UsuarioId);
                 ViewData["despachante"] = GetNomeDespachante(dados.DespachanteId);
 
+                var agenteDeCarga = _context.EmbarqueRodoviarios.FirstOrDefault(e => e.ProcessoId == dados.Id);
+                if (agenteDeCarga != null)
+                {
+                    ViewData["agenteDeCarga"] = GetNomeAgenteDeCarga(agenteDeCarga.AgenteDeCargaId);
+                }
+               
+
+                var despesa = _context.DCEs.FirstOrDefault(e => e.ProcessoId == dados.Id);
+                if (despesa != null)
+                {
+                    ViewData["despesa"] = GetNomeDespesa(despesa.CadastroDespesaId);
+                }
+
+                var fornecedor = _context.DCEs.FirstOrDefault(e => e.ProcessoId == dados.Id);
+                if (fornecedor != null)
+                {
+                    ViewData["fornecedor"] = GetNomeFornecedor(fornecedor.FornecedorServicoId);
+                }
+
                 var view = new DetalhesProcessoView
                 {
                     Id = dados.Id,
@@ -306,7 +325,10 @@ namespace kaufer_comex.Controllers
         private string GetNomeFronteira(int? id) => id != null ? _context.Fronteiras.FirstOrDefault(f => f.Id == id)?.NomeFronteira : string.Empty;
         private string GetNomeResponsavel(int? id) => id != null ? _context.Usuarios.FirstOrDefault(u => u.Id == id)?.NomeFuncionario : string.Empty;
         private string GetNomeDespachante(int? id) => id != null ? _context.Despachantes.FirstOrDefault(d => d.Id == id)?.NomeDespachante : string.Empty;
-       
+        private string GetNomeAgenteDeCarga(int? id) => id != null ? _context.AgenteDeCargas.FirstOrDefault(d => d.Id == id)?.NomeAgenteCarga : string.Empty;
+        private string GetNomeDespesa(int? id) => id != null ? _context.CadastroDespesas.FirstOrDefault(d => d.Id == id)?.NomeDespesa : string.Empty;
+        private string GetNomeFornecedor(int? id) => id != null ? _context.FornecedorServicos.FirstOrDefault(d => d.Id == id)?.Nome : string.Empty;
+
 
         // GET: Processos/Delete/5
         public async Task<IActionResult> Delete(int? id)

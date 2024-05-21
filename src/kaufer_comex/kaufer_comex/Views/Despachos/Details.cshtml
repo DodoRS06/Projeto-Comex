@@ -80,5 +80,5 @@
 </div>
 <div>
 	<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px">Editar</a> |
-	<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+	<a asp-controller="Despachos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>

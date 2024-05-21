@@ -15,12 +15,17 @@ namespace kaufer_comex.Controllers
         }
 
         // GET : Despachos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
             try
             {
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
                 var dados = await _context.Despachos
-                    .Include(d => d.Processo)
+                    .Where(d => d.ProcessoId == id)
                     .ToListAsync();
 
                 return View(dados);
@@ -33,11 +38,17 @@ namespace kaufer_comex.Controllers
         }
 
         // GET : Despachos/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
             try
             {
-                ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                ViewData["ProcessoId"] = id.Value;
+               
                 return View();
             }
             catch
@@ -56,12 +67,18 @@ namespace kaufer_comex.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    // Recupere o ProcessoId do formulário
+                    int processoId = Convert.ToInt32(Request.Form["ProcessoId"]);
+
+                    // Atribua o ProcessoId ao objeto Despacho
+                    despacho.ProcessoId = processoId;
+
                     _context.Despachos.Add(despacho);
                     await _context.SaveChangesAsync();
                     return RedirectToAction("Index");
                 }
 
-                ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+                
                 return View(despacho);
             }
             catch
@@ -107,9 +124,13 @@ namespace kaufer_comex.Controllers
 
                 if (ModelState.IsValid)
                 {
+                    if (Request.Form.ContainsKey("ProcessoId"))
+                    {
+                        despacho.ProcessoId = Convert.ToInt32(Request.Form["ProcessoId"]);
+                    }
                     _context.Despachos.Update(despacho);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", new { id = despacho.ProcessoId });
                 }
 
                 ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
@@ -187,7 +208,7 @@ namespace kaufer_comex.Controllers
 
                 _context.Despachos.Remove(dados);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = dados.ProcessoId });
             }
             catch 
             {
