@@ -90,7 +90,13 @@ namespace kaufer_comex.Controllers
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Usuarios.ToListAsync());
+            var userId = User.FindFirstValue(claimType:ClaimTypes.NameIdentifier);
+
+            var usuario = await _context.Usuarios
+                .Where(u => u.Id == int.Parse(userId))
+                .ToListAsync(); 
+
+              return View(usuario);
         }
 
         // GET: Usuarios/Details/5
