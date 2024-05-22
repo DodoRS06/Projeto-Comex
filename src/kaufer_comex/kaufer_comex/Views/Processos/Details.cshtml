@@ -23,7 +23,12 @@
     <a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px"> DCE</a>
     </div>
     <div class="card mb-3">
-        <div class="card-header">Processo:</div>
+        <div class="card-header  d-flex justify-content-between">
+            <span class="mt-1">Processo: </span>
+            <div class="justify-content-sm-end d-flex m-0">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
+            </div>
+            </div>
         <dl class="card-body row">
             <div class="col-md-4">
                 <dt>
@@ -498,6 +503,6 @@
     <a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn btn" style="width: 100px">Editar DCE</a> |
     }
     } *@
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px">Editar</a> |
+ 
     <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>
