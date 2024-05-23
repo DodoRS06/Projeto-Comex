@@ -36,12 +36,6 @@ namespace kaufer_comex.Controllers
 			return fornecedor != null ? fornecedor.Nome : string.Empty;
 		}
 
-        private async Task<int?> GetDCEExists(int id)
-        {
-            var DCEExists = await _context.DCEs.FindAsync(id);
-            return DCEExists?.ProcessoId;
-        }
-
         public async Task<IActionResult> Index(int? id)
         {
             //Testar se o id passado é válido
@@ -50,22 +44,9 @@ namespace kaufer_comex.Controllers
                 return NotFound();
             }
 
-
-            //ViewBag.DCEExists = (int?)await GetDCEExists(id);
-
             var dados = await _context.DCEs
                 .Where(d => d.ProcessoId == id)
                 .ToListAsync();
-
-            //Testar se tem algum item com o id fornecido
-            //if (dados == null)
-            //{
-            //    return NotFound();
-            //}
-            //if (!dados.Any())
-            //{
-            //    return RedirectToAction("Detail", "Processo", new { id = id});
-            //}
 
             //Procurar um nome com aquele id dentro da tabela de despesa e fornecedor
             foreach (var dce in dados)
@@ -79,7 +60,7 @@ namespace kaufer_comex.Controllers
 			return View(dados);
         }
 
-        public IActionResult Create(int? id)
+        public async Task<IActionResult> Create(int? id)
         {
             if (id == null)
             {
@@ -87,6 +68,22 @@ namespace kaufer_comex.Controllers
             }
 
             ViewData["ProcessoId"] = id.Value;
+
+            var dados = await _context.DCEs
+                .Where(d => d.ProcessoId == id)
+                .ToListAsync();
+
+            //Procurar um nome com aquele id dentro da tabela de despesa e fornecedor
+            foreach (var dce in dados)
+            {
+                dce.CadastroDespesaNome = await GetDespesaNome(dce.CadastroDespesaId);
+                dce.FornecedorServicoNome = await GetFornecedorNome(dce.FornecedorServicoId);
+            }
+
+            ViewBag.DCEs = dados;
+
+            // Disparar evento personalizado para notificar a view que os dados estão disponíveis
+            Response.Headers.Add("X-Dados-Disponiveis", "true");
 
             Dropdowns();
 

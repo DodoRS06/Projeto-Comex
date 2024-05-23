@@ -58,7 +58,7 @@
         <div class="col-md-12">
             <h5>Lista de despesas a serem cadastradas</h5>
             <table class="table">
-                <thead>
+                @* <thead>
                     <tr>
                         <th>Despesa</th>
                         <th>Fornecedor</th>
@@ -66,10 +66,29 @@
                         <th>Observação</th>
                         <th></th>
                     </tr>
-                </thead>
+                </thead> *@
                 <tbody id="itensBody">
+                    <tr>
+                        <td>Despesa</td>
+                        <td>Fornecedor</td>
+                        <td>Valor</td>
+                        <td>Observação</td>
+                        <td></td>
+                    </tr>
                     <!-- Lista de itens -->
-                    
+                    @foreach (var item in ViewBag.DCEs)
+                    {
+                        <tr>
+                            <td>@item.CadastroDespesaNome</td>
+                            <td>@item.FornecedorServicoNome</td>
+                            <td>@item.Valor</td>
+                            <td>@item.Observacao</td>
+                            <td>
+                                <!-- Botão de exclusão -->
+                                <button type="button" class="btn btn-danger btn-excluir-item">Excluir</button>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
@@ -85,8 +104,35 @@
 
 @section Scripts {
     <script>
+        // Recuperar e exibir os itens existentes da lista ao carregar a página
         $(document).ready(function () {
-                // Iterar sobre os itens existentes na tabela e adicionar à lista
+            var itensExistentes = $('#itensBody').children();
+            if (itensExistentes && itensExistentes.length > 0) {
+                listaItens = [];
+
+                // Iterar sobre os itens existentes na tabela e adicionar na lista
+                itensExistentes.each(function (index) {
+                    var item = $(this);
+                    var despesaNome = item.find('td:eq(0)').text();
+                    var fornecedorNome = item.find('td:eq(1)').text();
+                    var valor = item.find('td:eq(2)').text();
+                    var observacao = item.find('td:eq(3)').text();
+
+                    listaItens.push({
+                        CadastroDespesaNome: despesaNome,
+                        FornecedorServicoNome: fornecedorNome,
+                        Valor: valor,
+                        Observacao: observacao
+                    });
+                });
+
+                atualizarLista();
+            } else {
+                console.log("Nenhum item existente encontrado na tabela.");
+            }
+        });
+
+        $(document).ready(function () {
             // Array para armazenar os itens da lista
             var listaItens = [];
 
@@ -110,13 +156,21 @@
                         novoItem.CadastroDespesaNome = result.despesaNome;
                         novoItem.FornecedorServicoNome = result.fornecedorNome;
 
-                        listaItens.push(novoItem);
+                        // Verificar se já existem itens na lista
+                        if (listaItens && listaItens.length > 0) {
+                            // Adicionar novo item à lista existente
+                            listaItens.push(novoItem);
+                        } else {
+                            // Criar uma nova lista com o novo item
+                            listaItens = [novoItem];
+                        }
+
                         // Limpa os campos depois de adicionar item na lista
                         $('#CadastroDespesaId').val('');
                         $('#FornecedorServicoId').val('');
                         $('#Valor').val('');
                         $('#Observacao').val('');
-                        // Atualizar a lsita
+                        // Atualizar a lista
                         atualizarLista();
                     },
                     error: function (xhr, status, error) {
@@ -163,10 +217,22 @@
             $(document).on('click', '.btn-excluir-item', function () {
                 var index = $(this).data('index');
                 listaItens.splice(index, 1); // Remove o item do array
-                atualizarTabelaLista(); // Atualiza a tabela após a exclusão
+                atualizarLista(); // Atualiza a tabela após a exclusão
             });
 
-            
+            // Evento personalizado para atualizar os dados quando estiverem disponíveis
+            $(document).on('dadosDisponiveis', function (event, dados) {
+                listaItens = dados;
+                atualizarLista();
+            });
+
+            // Escutar o evento personalizado para dados disponíveis
+            $(document).ajaxComplete(function (event, xhr, settings) {
+                if (xhr.getResponseHeader('X-Dados-Disponiveis') === 'true') {
+                    var itensExistentes = @Html.Raw(Json.Serialize(ViewBag.DCEs));
+                    $(document).trigger('dadosDisponiveis', [itensExistentes]);
+                }
+            });
         });
     </script>
 }
