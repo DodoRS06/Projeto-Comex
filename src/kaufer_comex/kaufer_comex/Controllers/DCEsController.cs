@@ -26,14 +26,14 @@ namespace kaufer_comex.Controllers
 		private async Task<string> GetDespesaNome(int id)
 		{
 			var despesa = await _context.CadastroDespesas.FindAsync(id);
-			return despesa != null ? despesa.NomeDespesa : string.Empty;
+			return despesa != null ? despesa.NomeDespesa : "Despesa não encontrada";
 		}
 
         //Recuperar nome dos fornecedores a partir do ID (adicionei variável temporária na model)
         private async Task<string> GetFornecedorNome(int id)
 		{
 			var fornecedor = await _context.FornecedorServicos.FindAsync(id);
-			return fornecedor != null ? fornecedor.Nome : string.Empty;
+			return fornecedor != null ? fornecedor.Nome : "Fornecedor não encontrado";
 		}
 
         public async Task<IActionResult> Index(int? id)
@@ -76,7 +76,10 @@ namespace kaufer_comex.Controllers
 
             ViewData["ProcessoId"] = id.Value;
 
-            var dados = await _context.DCEs
+			// Lista temporária para armazenar os dados
+			var DCETemp = new List<DCE>();
+
+			var dados = await _context.DCEs
                 .Where(d => d.ProcessoId == id)
                 .ToListAsync();
 
@@ -85,11 +88,12 @@ namespace kaufer_comex.Controllers
             {
                 dce.CadastroDespesaNome = await GetDespesaNome(dce.CadastroDespesaId);
                 dce.FornecedorServicoNome = await GetFornecedorNome(dce.FornecedorServicoId);
-            }
+				DCETemp.Add(dce);
+			}
 
-            ViewBag.DCEs = dados;
+			ViewBag.DCEsTemp = DCETemp;
 
-            // Disparar evento personalizado para notificar a view que os dados estão disponíveis
+            // Disparar evento personalizado para notificar a view que os dados estão disponíveis (teste)
             Response.Headers.Add("X-Dados-Disponiveis", "true");
 
             Dropdowns();
@@ -103,10 +107,10 @@ namespace kaufer_comex.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Recupere o ProcessoId do formulário
+                // Recupera o ProcessoId do formulário
                 int processoId = Convert.ToInt32(Request.Form["ProcessoId"]);
 
-                // Atribua o ProcessoId ao objeto DCE
+                // Atribui o ProcessoId ao objeto DCE
                 dce.ProcessoId = processoId;
 
                 _context.DCEs.Add(dce);
@@ -119,44 +123,62 @@ namespace kaufer_comex.Controllers
 			return View(dce);
         }
 
-        //Método praa criar um id no banco para cada item da lista que foi feita na view Create
         [HttpPost]
-        public async Task<IActionResult> CadastrarListaItens([FromBody] List<DCE> itensLista)
+        public async Task<IActionResult> AddDespesaTemp([FromBody] DCETemp dceTemp)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (itensLista != null && itensLista.Any())
-                {
-                    foreach (var item in itensLista)
-                    {
-                        _context.DCEs.Add(item);
-                    }
-                    await _context.SaveChangesAsync();
-                }
-                return Ok();
+                // Recuperar os nomes de CadastroDespesa e FornecedorServico
+                dceTemp.CadastroDespesaNome = await GetDespesaNome(dceTemp.CadastroDespesaId);
+                dceTemp.FornecedorServicoNome = await GetFornecedorNome(dceTemp.FornecedorServicoId);
+
+                _context.DCEsTemp.Add(dceTemp);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true, despesa = dceTemp });
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Erro ao cadastrar itens: {ex.Message}");
-            }
+            return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
         }
 
-        //Metodo para recuperar nomes de despesa e fornecedor para ser usado na view create (na lista de itens temporária)
-        //Criei outro método pois o retorno desse é um json (pra ficar mais fácil implementar)
         [HttpPost]
-        public async Task<IActionResult> GetDespesaAndFornecedorNames([FromBody] DCE novoItem)
+        public async Task<IActionResult> ExcluirDespesaTemp(int id)
         {
-            try
+            var dceTemp = await _context.DCEsTemp.FindAsync(id);
+            if (dceTemp == null)
             {
-                string despesaNome = await GetDespesaNome(novoItem.CadastroDespesaId);
-                string fornecedorNome = await GetFornecedorNome(novoItem.FornecedorServicoId);
+                return Json(new { success = false, errors = new[] { "Item não encontrado" } });
+            }
 
-                return Json(new { despesaNome, fornecedorNome });
-            }
-            catch (Exception ex)
+            _context.DCEsTemp.Remove(dceTemp);
+            await _context.SaveChangesAsync();
+
+            return Json(new { success = true });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CadastrarTodosOsItens()
+        {
+            var dcesTemp = await _context.DCEsTemp.ToListAsync();
+
+            foreach (var temp in dcesTemp)
             {
-                return StatusCode(500, $"Erro ao obter nomes: {ex.Message}");
+                var dce = new DCE
+                {
+                    CadastroDespesaId = temp.CadastroDespesaId,
+                    FornecedorServicoId = temp.FornecedorServicoId,
+                    Valor = temp.Valor,
+                    Observacao = temp.Observacao,
+                    ProcessoId = temp.ProcessoId
+                };
+
+                _context.DCEs.Add(dce);
             }
+
+            // Remover itens temporários após a transferência
+            _context.DCEsTemp.RemoveRange(dcesTemp);
+            await _context.SaveChangesAsync();
+
+            return Json(new { success = true });
         }
 
         [HttpPost]
