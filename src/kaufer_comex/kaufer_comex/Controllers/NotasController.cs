@@ -45,22 +45,15 @@ namespace kaufer_comex.Controllers
 
 
         //GET: Notas/Create
-        public IActionResult Create(int? id)
+        public IActionResult Create()
         {
             try
             {
-                if (id == null)
-                {
-                    return NotFound();
-                }
-
-                ViewData["EmbarqueId"] = id.Value;
-
                 var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
 
                 ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
                 ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
-                ViewData["EmbarqueRodoviarioId"] = new SelectList(_context.EmbarqueRodoviarios, "Id", "Transportadora");
+                ViewData["EmbarqueRodoviario"] = new SelectList(_context.EmbarqueRodoviarios, "Id", "Transportadora");
 
                 var view = new NovaNotaView
                 {
@@ -86,9 +79,9 @@ namespace kaufer_comex.Controllers
         {
             try
             {
-                int embarqueId = Convert.ToInt32(Request.Form["EmbarqueId"]);
-
+               
                 var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
+
                 if (ModelState.IsValid)
                 {
                     var novaNota = new Nota
@@ -105,7 +98,7 @@ namespace kaufer_comex.Controllers
                         PesoLiq = view.PesoLiq,
                         TaxaCambial = view.TaxaCambial,
                         CertificadoQualidade = view.CertificadoQualidade,
-                        EmbarqueRodoviarioId = embarqueId,
+                        EmbarqueRodoviarioId = view.EmbarqueRodoviarioId,
                         QuantidadeTotal = view.QuantidadeTotal,
                         ValorTotalNota = view.ValorTotalNota,
                     };
@@ -129,12 +122,12 @@ namespace kaufer_comex.Controllers
                         await _context.SaveChangesAsync();
 
                     }
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Notas", new { id = novaNota.EmbarqueRodoviarioId });
                 }
 
                 ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
                 ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
-                ViewData["EmbarqueRodoviarioId"] = new SelectList(_context.EmbarqueRodoviarios, "Id", "Transportadora");
+                ViewData["EmbarqueRodoviario"] = new SelectList(_context.EmbarqueRodoviarios, "Id", "Transportadora");
                 var notaItemTemps = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
 
                 return View(view);
@@ -305,41 +298,24 @@ namespace kaufer_comex.Controllers
 
 
         //Excluir item da nota já criada
-        public async Task<IActionResult> ExcluirItemNota(int? id)
-        {
+        //public async Task<IActionResult> ExcluirItemNota(int? id)
+        //{
 
-            var dados = await _context.NotaItens
-                  .Where(d => d.NotaId == id)
-                  .Include(d => d.Item)
-                  .FirstOrDefaultAsync(p => p.ItemId == id);
+        //    var dados = await _context.NotaItens
+        //          .Where(d => d.NotaId == id)
+        //          .Include(d => d.Item)
+        //          .FirstOrDefaultAsync(p => p.ItemId == id);
 
-            if (dados == null)
-                return NotFound();
+        //    if (dados == null)
+        //        return NotFound();
 
 
-            _context.NotaItens.Remove(dados);
-            await _context.SaveChangesAsync();
+        //    _context.NotaItens.Remove(dados);
+        //    await _context.SaveChangesAsync();
 
-            return RedirectToAction("Edit");
-        }
-
-        // GET: ADD ITEM NOTA EDIT
-        public IActionResult AdicionaItemNota()
-        {
-            try
-            {
-
-                ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
-                return PartialView();
-            }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-            }
-        }
-
-        
+        //    return RedirectToAction("Edit");
+        //}
+      
 
 
         //GET: Notas/Details/5

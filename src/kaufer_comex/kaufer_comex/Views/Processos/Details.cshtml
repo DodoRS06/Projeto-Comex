@@ -17,7 +17,7 @@
     <hr />
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <a asp-controller="EmbarqueRodoviarios" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Embarque</a>
-    <a asp-controller="Notas" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Nota Fiscal</a>
+    <a asp-controller="Notas" asp-action="Index" asp-route-id="@ViewBag.EmbarqueId" class="btn btn-outline-dark mb-2" style="width: 110px">Nota Fiscal</a>
     <a asp-controller="ValoresProcessos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Valores</a>
     <a asp-controller="Documentos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Documento</a>
     <a asp-controller="Despachos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Despacho</a>
@@ -329,7 +329,7 @@
         @foreach (var item in Model.EmbarquesRodoviarios)
         {
             <div class="card mb-3">
-                <div class="card-header"> Embarque Rodoviário:</div>
+                <div class="card-header"> Embarque Rodoviário: @item.Id</div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
@@ -378,7 +378,7 @@
         }
 
     }
-    @if (Model.Notas.Count > 0)
+    @if (Model.Notas.Count > 0 )
     {
         @foreach (var item in Model.Notas)
         {
@@ -489,14 +489,20 @@
                         <dd>
                             @item.ValorTotalNota
                         </dd>
-                    </div>   
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Embarque Rodoviário:
+                        </dt>
+                        <dd>
+                            @ViewBag.EmbarqueId
+                        </dd>
+                    </div>
                 </dl>
                   <hr />
             </div>
         }
 
-    }else{
-        <div></div>
     }
 
     @if (Model.ValorProcessos.Count > 0)
@@ -554,7 +560,7 @@
                             @item.ValorTotalCif
                         </dd>
                     </div>
-             
+                    
                 </dl>
             </div>
         }

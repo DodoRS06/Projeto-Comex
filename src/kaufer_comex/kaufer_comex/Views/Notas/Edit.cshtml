@@ -149,6 +149,7 @@
                 </th>
 
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -170,12 +171,11 @@
                    <td>
                         @Html.DisplayFor(modelItem => item.Valor)
                    </td>
-                <td></td>
-                  
-                    <td>
-                    <a asp-controller="Notas" asp-route-id="@item.NotaId" asp-action="ExcluirItemNota" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
-                    </td>
 
+                 @*    <td>
+                    <a asp-controller="Notas" asp-route-id="@item.NotaId" asp-action="ExcluirItemNota" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                    </td> *@
+                <td></td>
                 </tr>
             }
             <tr>

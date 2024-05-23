@@ -280,10 +280,7 @@ namespace kaufer_comex.Controllers
                 }
 
                 var notaEmbarque = _context.EmbarqueRodoviarios.FirstOrDefault(e => e.ProcessoId == dados.Id);
-                if (notaEmbarque != null) 
-                {
-                    ViewData["EmbarqueId"] = notaEmbarque.Id;
-                }
+                
 
                 var view = new DetalhesProcessoView
                 {
@@ -313,16 +310,22 @@ namespace kaufer_comex.Controllers
                     EmbarquesRodoviarios = _context.EmbarqueRodoviarios.Where(d => d.ProcessoId == dados.Id).ToList(),
                     DCES = _context.DCEs.Where(d => d.ProcessoId == dados.Id).ToList(),
                     ValorProcessos = _context.ValorProcessos.Where(v => v.ProcessoId == dados.Id).ToList(),
-                    Notas = _context.Notas.Where(n => n.EmbarqueRodoviarioId == notaEmbarque.Id).ToList()
+                    Notas = new List<Nota>()
 
                 };
+
+                if (notaEmbarque != null)
+                {
+                    ViewData["EmbarqueId"] = notaEmbarque.Id;
+                    view.Notas = _context.Notas.Where(n => n.EmbarqueRodoviarioId == notaEmbarque.Id).ToList();
+                }
 
                 return View(view);
 
             }
-            catch
+            catch(Exception ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message}. Por favor, tente novamente.";
                 return View();
             }
         }
