@@ -36,8 +36,8 @@ namespace kaufer_comex.Controllers
             }
         }
 
-      
-       //GET: Notas/Create
+
+        //GET: Notas/Create
         public IActionResult Create()
         {
             try
@@ -170,6 +170,9 @@ namespace kaufer_comex.Controllers
                             Descricao = item.DescricaoProduto,
                             Preco = item.Preco,
                             NomeUsuario = User.Identity.Name,
+                            PesoLiquido = item.PesoLiquido,
+                            PesoBruto = item.PesoBruto,
+                            Item = item,
 
                         };
 
@@ -286,23 +289,93 @@ namespace kaufer_comex.Controllers
 
 
         //Excluir item da nota já criada
-        //public async Task<IActionResult> ExcluirItemNota(int? id)
+        public async Task<IActionResult> ExcluirItemNota(int? id)
+        {
+
+            var dados = await _context.NotaItens
+                  .Where(d => d.NotaId == id)
+                  .Include(d => d.Item)
+                  .FirstOrDefaultAsync(p => p.ItemId == id);
+
+            if (dados == null)
+                return NotFound();
+
+
+            _context.NotaItens.Remove(dados);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Edit");
+        }
+
+        // GET: ADD ITEM NOTA EDIT
+        public IActionResult AdicionaItemNota()
+        {
+            try
+            {
+
+                ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
+                return PartialView();
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
+
+        // POST: ADD ITEM
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> AdicionaItemNota(AdicionaItemView view)
         //{
+        //    try
+        //    {
 
-        //    var dados = await _context.NotaItens
-        //      .Include(p => p.Nota)
-        //      .FirstOrDefaultAsync(p => p.ItemId == id);
+        //        if (ModelState.IsValid)
+        //        {
+        //            var novoItem = _context.NotaItemTemps.Where(i => i.ItemId == view.ItemId).FirstOrDefault();
+        //            if (novoItem == null)
+        //            {
 
-        //    if (dados == null)
-        //        return NotFound();
+        //                var item = _context.Itens.Find(view.ItemId);
 
-        //    var itemNota = _context.NotaItens.Where(i => i.NotaId == dados.NotaId).FirstOrDefault();
-        //    _context.NotaItens.Remove(itemNota);
-        //    await _context.SaveChangesAsync();
+        //                novoItem = new Models.NotaItemTemp
+        //                {
+        //                    ItemId = item.Id,
+        //                    Quantidade = view.Quantidade,
+        //                    Descricao = item.DescricaoProduto,
+        //                    Preco = item.Preco,
+        //                    NomeUsuario = User.Identity.Name,
+        //                    PesoLiquido = item.PesoLiquido,
+        //                    PesoBruto = item.PesoBruto,
+        //                    Item = item,
 
+        //                };
 
-        //    return RedirectToAction("Edit", "Notas");
+        //                _context.NotaItemTemps.Add(novoItem);
+        //            }
+
+        //            else
+        //            {
+        //                novoItem.Quantidade += view.Quantidade;
+        //                _context.Entry(novoItem).State = EntityState.Modified;
+        //            }
+
+        //            await _context.SaveChangesAsync();
+        //            return RedirectToAction("Edit");
+
+        //        }
+
+        //        ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
+        //        return PartialView();
+        //    }
+        //    catch
+        //    {
+        //        TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+        //        return View();
+        //    }
         //}
+
 
         //GET: Notas/Details/5
         public async Task<IActionResult> Details(int? id)
