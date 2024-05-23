@@ -48,8 +48,15 @@ namespace kaufer_comex.Controllers
                 .Where(d => d.ProcessoId == id)
                 .ToListAsync();
 
-            //Procurar um nome com aquele id dentro da tabela de despesa e fornecedor
-            foreach (var dce in dados)
+			if (dados == null)
+			{
+				return NotFound();
+			}
+
+			ViewData["ProcessoId"] = id;
+
+			//Procurar um nome com aquele id dentro da tabela de despesa e fornecedor
+			foreach (var dce in dados)
 			{
 				dce.CadastroDespesaNome = await GetDespesaNome(dce.CadastroDespesaId);
 				dce.FornecedorServicoNome = await GetFornecedorNome(dce.FornecedorServicoId);

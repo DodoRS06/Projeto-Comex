@@ -2,6 +2,7 @@
 
 @{
 	ViewData["Title"] = "DCE";
+	int processoId = ViewData["ProcessoId"] != null ? (int)ViewData["ProcessoId"] : 0;
 }
 
 @section Estilos {
@@ -20,7 +21,14 @@
 </div>
 <div class="d-flex flex-row-reverse bd-highlight">
 	<p>
-		<a asp-action="Create" asp-route-id="@ViewContext.RouteData.Values["id"]" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #F08433; color: #FFF">Adicionar Despesas</a>
+		@if (Model.Any(d => d.ProcessoId == processoId))
+		{
+			<a asp-action="Create" asp-route-id="@processoId" class="btn d-flex flex-row-reverse bd-highlight" style="background-color: #F08433; color: #FFF">Editar despesas</a>
+		}
+		else
+		{
+			<a asp-action="Create" asp-route-id="@processoId" class="btn d-flex flex-row-reverse bd-highlight" style="background-color: #F08433; color: #FFF">Adicionar despesas</a>
+		}
 	</p>
 </div>
 <table id="myTable" class="table">
@@ -45,20 +53,6 @@
 		@foreach (var item in Model)
 		{
 			<tr>
-				@* <td>
-					@foreach (var despesa in item.CadastroDespesas)
-					{
-						@despesa.NomeDespesa
-						<br />
-					}
-				</td>
-				<td>
-					@foreach (var fornecedor in item.FornecedorServicos)
-					{
-						@fornecedor.Nome
-						<br />
-					}
-				</td> *@
 				<td>
 					@Html.DisplayFor(modelItem => item.CadastroDespesaNome)
 				</td>
