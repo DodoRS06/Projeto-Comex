@@ -170,6 +170,9 @@ namespace kaufer_comex.Controllers
                             Descricao = item.DescricaoProduto,
                             Preco = item.Preco,
                             NomeUsuario = User.Identity.Name,
+                            PesoLiquido = item.PesoLiquido,
+                            PesoBruto = item.PesoBruto,
+                            Item = item,
 
                         };
 
