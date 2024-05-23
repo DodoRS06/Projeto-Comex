@@ -75,7 +75,9 @@
                     <input asp-for="ValorTotalNota" class="form-control" readonly />
                     <span asp-validation-for="ValorTotalNota" class="text-danger"></span>
                 </div>
-
+                <div class="form-group col-md-4">
+                    <a onclick="AdicionaItemNota" asp-action="AdicionaItemNota" class="btn btn-outline-secondary dialog-window" style=" margin-top: 23px">Adicionar Item</a>
+                </div>
             </div>
 
         </div>
@@ -118,7 +120,7 @@
                 <span asp-validation-for="QuantidadeTotal" class="text-danger"></span>
             </div>
 
-
+</div>
            @* <input asp-for="ValorTotal" class="form-control" /> *@
 
 		<div class="form-group " align="center">
@@ -175,12 +177,10 @@
                         @Html.DisplayFor(modelItem => item.Valor)
                    </td>
                 <td></td>
-                    @* <td>
-                    <a asp-controller="Notas" asp-action="EditarItem"  asp-route-id="@item.ItemId" asp-route-notaId="@item.NotaId" class="btn dialog-window" onclick="EditarItem"><img src="~/Images/editar.png" id="Details" style="height:20px; "></a>
-                    </td>
+                  
                     <td>
-                    <a asp-controller="Notas" asp-action="ExcluirItemNota" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
-                    </td> *@
+                    <a asp-controller="Notas" asp-route-id="@item.NotaId" asp-action="ExcluirItemNota" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                    </td>
 
                 </tr>
             }
@@ -200,7 +200,7 @@
     </table>
 
 
-<div class="modal fade" id="EditarItem" tabindex="-1" aria-labelledby="EditarItemLabel" aria-hidden="true">
+<div class="modal fade" id="AdicionaItemNota" tabindex="-1" aria-labelledby="AdicionaItemNotaLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -211,6 +211,7 @@
         </div>
     </div>
 </div>
+
 
 @section Scripts {
 	@{
@@ -228,23 +229,24 @@
             });
         });
 
-
         $(document).ready(function () {
             $("body").on("click", "a.dialog-window", function (e) {
                 e.preventDefault();
                 var $link = $(this);
                 var title = $link.text();
-                $('#EditarItemLabel').html(title);
+                $('#AdicionaItemNotaLabel').html(title);
                 var url = $(this).attr('href');
                 if (url.indexOf('#') == 0) {
-                    $('#EditarItem').modal('show');
+                    $('#AdicionaItemNota').modal('show');
                 } else {
                     $.get(url, function (data) {
-                        $('#EditarItem .modal-body').html(data);
-                        $('#EditarItem').modal('show');
+                        $('#AdicionaItemNota .modal-body').html(data);
+                        $('#AdicionaItemNota').modal('show');
                     }).success(function () { $('input:text:visible:first').focus(); });
                 }
             });
         });
+
+      
     </script>
 }
