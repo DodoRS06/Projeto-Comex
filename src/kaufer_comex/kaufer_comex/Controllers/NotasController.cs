@@ -18,11 +18,18 @@ namespace kaufer_comex.Controllers
         }
 
         //GET: Notas/Index
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
             try
             {
+
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
                 var dados = await _context.Notas
+                    .Where(d => d.EmbarqueRodoviarioId == id)
                     .Include(p => p.Veiculo)
                     .Include(p => p.EmbarqueRodoviario)
                     .ToListAsync();
@@ -38,10 +45,17 @@ namespace kaufer_comex.Controllers
 
 
         //GET: Notas/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
             try
             {
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                ViewData["EmbarqueId"] = id.Value;
+
                 var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
 
                 ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
@@ -72,6 +86,8 @@ namespace kaufer_comex.Controllers
         {
             try
             {
+                int embarqueId = Convert.ToInt32(Request.Form["EmbarqueId"]);
+
                 var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
                 if (ModelState.IsValid)
                 {
@@ -89,7 +105,7 @@ namespace kaufer_comex.Controllers
                         PesoLiq = view.PesoLiq,
                         TaxaCambial = view.TaxaCambial,
                         CertificadoQualidade = view.CertificadoQualidade,
-                        EmbarqueRodoviarioId = view.EmbarqueRodoviarioId,
+                        EmbarqueRodoviarioId = embarqueId,
                         QuantidadeTotal = view.QuantidadeTotal,
                         ValorTotalNota = view.ValorTotalNota,
                     };
@@ -323,58 +339,7 @@ namespace kaufer_comex.Controllers
             }
         }
 
-        // POST: ADD ITEM
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> AdicionaItemNota(AdicionaItemView view)
-        //{
-        //    try
-        //    {
-
-        //        if (ModelState.IsValid)
-        //        {
-        //            var novoItem = _context.NotaItemTemps.Where(i => i.ItemId == view.ItemId).FirstOrDefault();
-        //            if (novoItem == null)
-        //            {
-
-        //                var item = _context.Itens.Find(view.ItemId);
-
-        //                novoItem = new Models.NotaItemTemp
-        //                {
-        //                    ItemId = item.Id,
-        //                    Quantidade = view.Quantidade,
-        //                    Descricao = item.DescricaoProduto,
-        //                    Preco = item.Preco,
-        //                    NomeUsuario = User.Identity.Name,
-        //                    PesoLiquido = item.PesoLiquido,
-        //                    PesoBruto = item.PesoBruto,
-        //                    Item = item,
-
-        //                };
-
-        //                _context.NotaItemTemps.Add(novoItem);
-        //            }
-
-        //            else
-        //            {
-        //                novoItem.Quantidade += view.Quantidade;
-        //                _context.Entry(novoItem).State = EntityState.Modified;
-        //            }
-
-        //            await _context.SaveChangesAsync();
-        //            return RedirectToAction("Edit");
-
-        //        }
-
-        //        ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
-        //        return PartialView();
-        //    }
-        //    catch
-        //    {
-        //        TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-        //        return View();
-        //    }
-        //}
+        
 
 
         //GET: Notas/Details/5

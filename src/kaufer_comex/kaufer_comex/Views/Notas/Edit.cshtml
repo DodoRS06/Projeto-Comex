@@ -19,6 +19,7 @@
 	<hr />
 	<form asp-action="Edit">
 		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="EmbarqueRodoviarioId" />
         <div class="row">
             <div class="form-group col-md-4">
                 <label asp-for="NumeroNf" class="control-label"></label>
@@ -75,9 +76,6 @@
                     <input asp-for="ValorTotalNota" class="form-control" readonly />
                     <span asp-validation-for="ValorTotalNota" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-4">
-                    <a onclick="AdicionaItemNota" asp-action="AdicionaItemNota" class="btn btn-outline-secondary dialog-window" style=" margin-top: 23px">Adicionar Item</a>
-                </div>
             </div>
 
         </div>
@@ -101,13 +99,6 @@
                 <span asp-validation-for="CertificadoQualidade" class="text-danger"></span>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="EmbarqueRodoviarioId" class="control-label"></label>
-                <select asp-for="EmbarqueRodoviarioId" class="form-control" asp-items="ViewBag.EmbarqueRodoviarioId">
-                    <option value="">Selecione o embarque</option>
-                </select>
-                <span asp-validation-for="EmbarqueRodoviarioId" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-4">
                 <label asp-for="VeiculoId" class="control-label"></label>
                 <select asp-for="VeiculoId" class="form-control" asp-items="ViewBag.VeiculoId">
                     <option value="">Selecione o motorista</option>
@@ -118,6 +109,9 @@
                 <label asp-for="QuantidadeTotal" class="control-label"></label>
                 <input asp-for="QuantidadeTotal" class="form-control" readonly />
                 <span asp-validation-for="QuantidadeTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                    <a onclick="AdicionaItemNota" asp-action="AdicionaItemNota" class="btn btn-outline-secondary dialog-window" style=" margin-top: 23px">Adicionar Item</a>
             </div>
 
 </div>

@@ -17,6 +17,7 @@
     <hr />
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <a asp-controller="EmbarqueRodoviarios" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Embarque</a>
+    <a asp-controller="Notas" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Nota Fiscal</a>
     <a asp-controller="ValoresProcessos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Valores</a>
     <a asp-controller="Documentos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Documento</a>
     <a asp-controller="Despachos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Despacho</a>
@@ -376,6 +377,126 @@
             </div>
         }
 
+    }
+    @if (Model.Notas.Count > 0)
+    {
+        @foreach (var item in Model.Notas)
+        {
+            <div class="card mb-3">
+                <div class="card-header"> Nota Fiscal:</div>
+                <dl class="card-body row">
+                    <div class="col-md-4">
+                        <dt>
+                            Número NF:
+                        </dt>
+                        <dd>
+                            @item.NumeroNf
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Data de emissão:
+                        </dt>
+                        <dd>
+                            @item.Emissao
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Base Nota
+                        </dt>
+                        <dd>
+                            @item.BaseNota
+                        </dd>
+                    </div>
+                     <div class="col-md-4">
+                        <dt>
+                            Valor FOB
+                        </dt>
+                        <dd>
+                            @item.ValorFob
+                        </dd>
+                    </div>
+                     <div class="col-md-4">
+                        <dt>
+                            Valor Frete
+                        </dt>
+                        <dd>
+                            @item.ValorFrete
+                        </dd>
+                    </div>
+                      <div class="col-md-4">
+                        <dt>
+                            Valor Seguro
+                        </dt>
+                        <dd>
+                            @item.ValorSeguro
+                        </dd>
+                    </div>            
+                   <div class="col-md-4">
+                        <dt>
+                            Valor CIF
+                        </dt>
+                        <dd>
+                            @item.ValorCif
+                        </dd>
+                    </div>   
+                     <div class="col-md-4">
+                        <dt>
+                            Peso Líquido:
+                        </dt>
+                        <dd>
+                            @item.PesoLiq
+                        </dd>
+                    </div>   
+                     <div class="col-md-4">
+                        <dt>
+                            Peso Bruto
+                        </dt>
+                        <dd>
+                            @item.PesoBruto
+                        </dd>
+                    </div>   
+                     <div class="col-md-4">
+                        <dt>
+                            Taxa Cambial
+                        </dt>
+                        <dd>
+                            @item.TaxaCambial
+                        </dd>
+                    </div>   
+                     <div class="col-md-4">
+                        <dt>
+                            Certificado de Qualidade
+                        </dt>
+                        <dd>
+                            @item.CertificadoQualidade
+                        </dd>
+                    </div> 
+                     <div class="col-md-4">
+                        <dt>
+                            Veículo
+                        </dt>
+                        <dd>
+                            @item.Veiculo
+                        </dd>
+                    </div>  
+                  
+                     <div class="col-md-4">
+                        <dt>
+                            Valor Total
+                        </dt>
+                        <dd>
+                            @item.ValorTotalNota
+                        </dd>
+                    </div>   
+                </dl>
+                  <hr />
+            </div>
+        }
+
+    }else{
+        <div></div>
     }
 
     @if (Model.ValorProcessos.Count > 0)

@@ -279,6 +279,12 @@ namespace kaufer_comex.Controllers
                     ViewData["fornecedor"] = GetNomeFornecedor(fornecedor.FornecedorServicoId);
                 }
 
+                var notaEmbarque = _context.EmbarqueRodoviarios.FirstOrDefault(e => e.ProcessoId == dados.Id);
+                if (notaEmbarque != null) 
+                {
+                    ViewData["EmbarqueId"] = notaEmbarque.Id;
+                }
+
                 var view = new DetalhesProcessoView
                 {
                     Id = dados.Id,
@@ -306,7 +312,8 @@ namespace kaufer_comex.Controllers
                     Documentos = _context.Documentos.Where(d => d.ProcessoId == dados.Id).ToList(),
                     EmbarquesRodoviarios = _context.EmbarqueRodoviarios.Where(d => d.ProcessoId == dados.Id).ToList(),
                     DCES = _context.DCEs.Where(d => d.ProcessoId == dados.Id).ToList(),
-                    ValorProcessos = _context.ValorProcessos.Where(v => v.ProcessoId == dados.Id).ToList()
+                    ValorProcessos = _context.ValorProcessos.Where(v => v.ProcessoId == dados.Id).ToList(),
+                    Notas = _context.Notas.Where(n => n.EmbarqueRodoviarioId == notaEmbarque.Id).ToList()
 
                 };
 

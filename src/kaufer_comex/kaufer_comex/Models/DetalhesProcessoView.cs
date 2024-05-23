@@ -121,6 +121,7 @@ namespace kaufer_comex.Models
 
         public List<ValorProcesso> ValorProcessos { get; set; }
 
+        public List<Nota> Notas { get; set; }
 
     }
 }
