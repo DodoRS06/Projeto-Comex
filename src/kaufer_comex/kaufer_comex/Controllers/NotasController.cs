@@ -99,7 +99,7 @@ namespace kaufer_comex.Controllers
                         TaxaCambial = view.TaxaCambial,
                         CertificadoQualidade = view.CertificadoQualidade,
                         EmbarqueRodoviarioId = view.EmbarqueRodoviarioId,
-                        QuantidadeTotal = view.QuantidadeTotal,
+                        QuantidadeTotal = view.QuantidadeTotalNota,
                         ValorTotalNota = view.ValorTotalNota,
                     };
                     _context.Notas.Add(novaNota);

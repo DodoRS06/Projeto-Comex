@@ -85,6 +85,9 @@ namespace kaufer_comex.Models
         [Display(Name = "Quantidade Total (*)")]
         public double QuantidadeTotal { get { return NotaItemTemps == null ? 0 : NotaItemTemps.Sum(d => d.Quantidade); } }
 
+        [Display(Name = "Quantidade Total (*)")]
+        public double QuantidadeTotalNota { get; set; }
+
         [Display(Name = "Valor Total (*)")]
         [Column(TypeName = "decimal(18,2)")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]

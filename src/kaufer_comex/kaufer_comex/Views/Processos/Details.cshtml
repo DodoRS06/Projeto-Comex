@@ -199,7 +199,12 @@
         @foreach (var item in Model.Despachos)
         {
             <div class="card mb-3">
-                <div class="card-header"> Despacho: </div>
+                <div class="card-header d-flex justify-content-between">
+                    <span class="mt-1">Despacho: </span>
+                    <div class="justify-content-sm-end d-flex m-0">
+                        <a asp-action="Edit" asp-controller="Despachos" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
+                    </div>
+                </div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
@@ -214,7 +219,7 @@
                             Data DUE:
                         </dt>
                         <dd>
-                            @item.DataDue
+                            @item.DataDue.ToShortDateString()
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -222,7 +227,7 @@
                             Data Exportação:
                         </dt>
                         <dd>
-                            @item.DataExportacao
+                            @item.DataExportacao.ToShortDateString()
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -238,7 +243,7 @@
                             Data de Conhecimento:
                         </dt>
                         <dd>
-                            @item.DataConhecimento
+                            @item.DataConhecimento.ToShortDateString()
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -246,7 +251,7 @@
                             Data da Averbação:
                         </dt>
                         <dd>
-                            @item.DataAverbacao
+                            @item.DataAverbacao.ToShortDateString()
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -276,7 +281,12 @@
         @foreach (var item in Model.Documentos)
         {
             <div class="card mb-3">
-                <div class="card-header"> Documento:</div>
+                <div class="card-header d-flex justify-content-between" >
+                    <span class="mt-1">Documento: </span>
+                    <div class="justify-content-sm-end d-flex m-0">
+                        <a asp-action="Edit" asp-controller="Documentos" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
+                    </div>
+                </div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
@@ -299,7 +309,7 @@
                             Data de Envio Origem:
                         </dt>
                         <dd>
-                            @item.DataEnvioOrigem
+                            @item.DataEnvioOrigem.ToShortDateString()
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -307,7 +317,7 @@
                             Data envio de Seguro:
                         </dt>
                         <dd>
-                            @item.DataEnvioSeguro
+                            @item.DataEnvioSeguro.ToShortDateString()
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -329,7 +339,12 @@
         @foreach (var item in Model.EmbarquesRodoviarios)
         {
             <div class="card mb-3">
-                <div class="card-header"> Embarque Rodoviário: @item.Id</div>
+                <div class="card-header d-flex justify-content-between">
+                    <span class="mt-1">Embarque Rodoviário: </span>
+                    <div class="justify-content-sm-end d-flex m-0">
+                        <a asp-action="Edit" asp-controller="EmbarqueRodoviarios" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
+                    </div>
+                </div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
@@ -344,7 +359,7 @@
                             Data de embarque:
                         </dt>
                         <dd>
-                            @item.DataEmbarque
+                            @item.DataEmbarque.ToShortDateString()
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -360,7 +375,7 @@
                             Data de chegada no destino:
                         </dt>
                         <dd>
-                            @item.ChegadaDestino
+                            @item.ChegadaDestino.ToShortDateString()
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -383,7 +398,12 @@
         @foreach (var item in Model.Notas)
         {
             <div class="card mb-3">
-                <div class="card-header"> Nota Fiscal:</div>
+                <div class="card-header d-flex justify-content-between">
+                    <span class="mt-1">Nota Fiscal: </span>
+                    <div class="justify-content-sm-end d-flex m-0">
+                        <a asp-action="Edit" asp-controller="Notas" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
+                    </div>
+                </div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
@@ -398,7 +418,7 @@
                             Data de emissão:
                         </dt>
                         <dd>
-                            @item.Emissao
+                            @item.Emissao.ToShortDateString()
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -406,7 +426,7 @@
                             Base Nota
                         </dt>
                         <dd>
-                            @item.BaseNota
+                            @item.BaseNota.ToShortDateString()
                         </dd>
                     </div>
                      <div class="col-md-4">
@@ -510,7 +530,12 @@
         @foreach (var item in Model.ValorProcessos)
         {
             <div class="card mb-3">
-                <div class="card-header"> Valores de Processo:</div>
+                <div class="card-header d-flex justify-content-between">
+                    <span class="mt-1">Valor de Processo: </span>
+                    <div class="justify-content-sm-end d-flex m-0">
+                        <a asp-action="Edit" asp-controller="ValoresProcessos"  asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
+                    </div>
+                </div>
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
