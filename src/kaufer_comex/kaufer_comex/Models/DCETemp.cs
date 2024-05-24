@@ -12,7 +12,7 @@ namespace kaufer_comex.Models
 		public string CadastroDespesaNome { get; set; }
 		public int FornecedorServicoId { get; set; }
 		public string FornecedorServicoNome { get; set; }
-		public int Valor { get; set; }
+		public float Valor { get; set; }
 		public string Observacao { get; set; }
 		public int ProcessoId { get; set; }
 	}

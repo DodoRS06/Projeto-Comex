@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace kaufer_comex.Controllers
 {
@@ -76,7 +77,7 @@ namespace kaufer_comex.Controllers
 
             ViewData["ProcessoId"] = id.Value;
 
-			// Lista temporária para armazenar os dados
+			//Lista temporária para armazenar os dados
 			var DCETemp = new List<DCE>();
 
 			var dados = await _context.DCEs
@@ -94,7 +95,7 @@ namespace kaufer_comex.Controllers
 			ViewBag.DCEsTemp = DCETemp;
 
             // Disparar evento personalizado para notificar a view que os dados estão disponíveis (teste)
-            Response.Headers.Add("X-Dados-Disponiveis", "true");
+            //Response.Headers.Add("X-Dados-Disponiveis", "true");
 
             Dropdowns();
 
@@ -107,10 +108,10 @@ namespace kaufer_comex.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Recupera o ProcessoId do formulário
+                //Recupera o ProcessoId do formulário
                 int processoId = Convert.ToInt32(Request.Form["ProcessoId"]);
 
-                // Atribui o ProcessoId ao objeto DCE
+                //Atribui o ProcessoId ao objeto DCE
                 dce.ProcessoId = processoId;
 
                 _context.DCEs.Add(dce);
@@ -124,61 +125,75 @@ namespace kaufer_comex.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddDespesaTemp([FromBody] DCETemp dceTemp)
+        public JsonResult GetDespesaEFornecedorNomes([FromBody] DCE novoItem)
         {
-            if (ModelState.IsValid)
+            var despesa = _context.CadastroDespesas.FirstOrDefault(d => d.Id == novoItem.CadastroDespesaId);
+            var fornecedor = _context.FornecedorServicos.FirstOrDefault(f => f.Id == novoItem.FornecedorServicoId);
+
+            return Json(new
             {
-                // Recuperar os nomes de CadastroDespesa e FornecedorServico
-                dceTemp.CadastroDespesaNome = await GetDespesaNome(dceTemp.CadastroDespesaId);
-                dceTemp.FornecedorServicoNome = await GetFornecedorNome(dceTemp.FornecedorServicoId);
-
-                _context.DCEsTemp.Add(dceTemp);
-                await _context.SaveChangesAsync();
-
-                return Json(new { success = true, despesa = dceTemp });
-            }
-            return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
+                despesaNome = despesa?.NomeDespesa,
+                fornecedorNome = fornecedor?.Nome
+            });
         }
 
         [HttpPost]
-        public async Task<IActionResult> ExcluirDespesaTemp(int id)
+        public async Task<IActionResult> ExcluirDespesaTemp([FromBody] JsonElement data)
         {
-            var dceTemp = await _context.DCEsTemp.FindAsync(id);
-            if (dceTemp == null)
+            try
             {
-                return Json(new { success = false, errors = new[] { "Item não encontrado" } });
-            }
-
-            _context.DCEsTemp.Remove(dceTemp);
-            await _context.SaveChangesAsync();
-
-            return Json(new { success = true });
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> CadastrarTodosOsItens()
-        {
-            var dcesTemp = await _context.DCEsTemp.ToListAsync();
-
-            foreach (var temp in dcesTemp)
-            {
-                var dce = new DCE
+                //Validação do dado recebido
+                if (!data.TryGetProperty("id", out JsonElement idElement) || idElement.ValueKind != JsonValueKind.Number)
                 {
-                    CadastroDespesaId = temp.CadastroDespesaId,
-                    FornecedorServicoId = temp.FornecedorServicoId,
-                    Valor = temp.Valor,
-                    Observacao = temp.Observacao,
-                    ProcessoId = temp.ProcessoId
-                };
+                    //Console.WriteLine("Dados recebidos estão nulos ou inválidos");
+                    return Json(new { success = false, errors = new[] { "Dados inválidos" } });
+                }
 
-                _context.DCEs.Add(dce);
+                //Recupera o ID
+                int id = idElement.GetInt32();
+                //Console.WriteLine($"ID recebido: {id}");
+
+                // Recupera o item no banco de dados
+                var dceTemp = await _context.DCEs.FindAsync(id);
+                if (dceTemp == null)
+                {
+                    //Console.WriteLine("Item não encontrado no banco de dados");
+                    return Json(new { success = false, errors = new[] { "Item não encontrado" } });
+                }
+
+                //Remove o item
+                _context.DCEs.Remove(dceTemp);
+                await _context.SaveChangesAsync();
+                //Console.WriteLine("Item excluído com sucesso");
+
+                return Json(new { success = true });
             }
+            catch (Exception ex)
+            {
+                //Console.WriteLine($"Erro ao excluir o item: {ex.Message}");
+                return Json(new { success = false, errors = new[] { "Erro ao excluir o item.", ex.Message } });
+            }
+        }
 
-            // Remover itens temporários após a transferência
-            _context.DCEsTemp.RemoveRange(dcesTemp);
-            await _context.SaveChangesAsync();
-
-            return Json(new { success = true });
+        [HttpPost]
+        public async Task<IActionResult> CadastrarListaItens([FromBody] List<DCE> itensLista)
+        {
+            try
+            {
+                if (itensLista != null && itensLista.Any())
+                {
+                    foreach (var item in itensLista)
+                    {
+                        _context.DCEs.Add(item);
+                    }
+                    await _context.SaveChangesAsync();
+                }
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro ao cadastrar itens: {ex.Message}");
+            }
         }
 
         [HttpPost]
@@ -189,21 +204,16 @@ namespace kaufer_comex.Controllers
                 if (id == null)
                     return NotFound();
 
-                // Encontrar todos os itens relacionados ao ProcessoId
                 var itensParaExcluir = await _context.DCEs.Where(d => d.ProcessoId == id).ToListAsync();
 
-                // Remover os itens do contexto
                 _context.DCEs.RemoveRange(itensParaExcluir);
 
-                // Salvar as mudanças no banco de dados
                 await _context.SaveChangesAsync();
 
-                // Retornar uma resposta de sucesso
                 return Ok();
             }
             catch (Exception ex)
             {
-                // Retornar um código de erro com uma mensagem de erro
                 return StatusCode(500, $"Erro ao excluir itens: {ex.Message}");
             }
         }

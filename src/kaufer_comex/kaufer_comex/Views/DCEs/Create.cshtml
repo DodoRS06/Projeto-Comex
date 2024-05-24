@@ -58,7 +58,17 @@
         <div class="col-md-12">
             <h5>Lista de despesas a serem cadastradas</h5>
             <table class="table">
+                <thead>
+                    <tr>
+                        <th>Despesa</th>
+                        <th>Fornecedor</th>
+                        <th>Valor</th>
+                        <th>Observacao</th>
+                        <th></th>
+                    </tr>
+                </thead>
                 <tbody id="itensBody">
+                    <!-- Lista que vai carregar despesas existentes -->
                     @foreach (var item in ViewBag.DCEsTemp)
                     {
                         <tr data-id="@item.Id">
@@ -72,6 +82,9 @@
                             </td>
                         </tr>
                     }
+                </tbody>
+                <tbody id="itensBody2">
+                    <!-- Lista que vai carregar despesas adicionadas -->
                 </tbody>
             </table>
         </div>
@@ -87,10 +100,12 @@
 
 @section Scripts {
      <script>
+         var listaItens = [];
+
         $(document).ready(function () {
             // Função para adicionar despesa na lista e na tabela DCETemp
             $('#addDespesaBtn').click(function () {
-                var despesaData = {
+                var novoItem = {
                     CadastroDespesaId: $('#CadastroDespesaId').val(),
                     FornecedorServicoId: $('#FornecedorServicoId').val(),
                     Valor: $('#Valor').val(),
@@ -98,40 +113,46 @@
                     ProcessoId: $('#ProcessoId').val()
                 };
 
+                // Buscar nome da despesa e do fornecedor
                 $.ajax({
-                    url: '@Url.Action("AddDespesaTemp")',
-                    type: 'POST',
-                    data: JSON.stringify(despesaData),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (response) {
-                        if (response.success) {
-                            var despesa = response.despesa;
-                            var newRow = `<tr data-id="${despesa.id}">
-                                <td>${despesa.CadastroDespesaNome}</td>
-                                <td>${despesa.FornecedorServicoNome}</td>
-                                <td>${despesa.Valor}</td>
-                                <td>${despesa.Observacao}</td>
-                                <td><button type="button" class="btn btn-danger btn-excluir-item">Excluir</button></td>
-                            </tr>`;
-                            $('#itensBody').append(newRow);
+                    url: '/DCEs/GetDespesaEFornecedorNomes',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(novoItem), // Enviar o objeto novoItem (criado em cima) JSON na solicitação
+                    success: function (result) {
+                        novoItem.CadastroDespesaNome = result.despesaNome;
+                        novoItem.FornecedorServicoNome = result.fornecedorNome;
 
-                            // Limpar os campos de entrada após adicionar a despesa
+                        listaItens.push(novoItem);
+                        // Limpa os campos depois de adicionar item na lista
                             $('#CadastroDespesaId').val('');
                             $('#FornecedorServicoId').val('');
                             $('#Valor').val('');
                             $('#Observacao').val('');
+                        // Atualizar a lsita
+                        atualizarLista();
 
-                        } else {
-                            // Lidar com erros de validação
-                            console.log(response.errors);
-                        }
                     },
                     error: function (xhr, status, error) {
-                        console.error(error);
+                        console.error(xhr.responseText);
                     }
                 });
             });
+
+            // Função para atualizar a lista de itens
+            function atualizarLista() {
+                var tbody = $('#itensBody2');
+                tbody.empty();
+                listaItens.forEach(function (item, index) {
+                    var tr = $('<tr></tr>');
+                    tr.append('<td>' + item.CadastroDespesaNome + '</td>');
+                    tr.append('<td>' + item.FornecedorServicoNome + '</td>');
+                    tr.append('<td>' + item.Valor + '</td>');
+                    tr.append('<td>' + item.Observacao + '</td>');
+                    tr.append('<td><button type="button" class="btn btn-danger btn-excluir-item2" data-index="' + index + '">Excluir</button></td>');
+                    tbody.append(tr);
+                });
+            }
 
             // Evento de clique para excluir item
             $(document).on('click', '.btn-excluir-item', function () {
@@ -139,7 +160,7 @@
                 var id = row.data('id');
 
                 $.ajax({
-                    url: '@Url.Action("ExcluirDespesaTemp")',
+                    url: '@Url.Action("ExcluirDespesaTemp", "DCEs")',
                     type: 'POST',
                     data: JSON.stringify({ id: id }),
                     contentType: "application/json; charset=utf-8",
@@ -159,120 +180,6 @@
 
             // Função para cadastrar todos os itens e salvar em DCE
             $('#cadastrarItensBtn').click(function () {
-                $.ajax({
-                    url: '@Url.Action("CadastrarTodosOsItens")',
-                    type: 'POST',
-                    success: function (response) {
-                        if (response.success) {
-                            // Redirecionar para Index
-                            var processoId = $('#ProcessoId').val();
-                            window.location.href = '/DCEs/Index/' + processoId;
-                        } else {
-                            // Log de erro
-                            console.log(response.errors);
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(error);
-                    }
-                });
-            });
-        });
-    </script>
-    }
-
-        @*  // Recuperar e exibir os itens existentes da lista ao carregar a página
-        $(document).ready(function () {
-            var itensExistentes = $('#itensBody').children();
-            if (itensExistentes && itensExistentes.length > 0) {
-                listaItens = [];
-
-                // Iterar sobre os itens existentes na tabela e adicionar na lista
-                itensExistentes.each(function (index) {
-                    var item = $(this);
-                    var despesaNome = item.find('td:eq(0)').text();
-                    var fornecedorNome = item.find('td:eq(1)').text();
-                    var valor = item.find('td:eq(2)').text();
-                    var observacao = item.find('td:eq(3)').text();
-
-                    listaItens.push({
-                        CadastroDespesaNome: despesaNome,
-                        FornecedorServicoNome: fornecedorNome,
-                        Valor: valor,
-                        Observacao: observacao
-                    });
-                });
-
-                atualizarLista();
-            } else {
-                console.log("Nenhum item existente encontrado na tabela.");
-            }
-        });
-
-        $(document).ready(function () {
-            // Array para armazenar os itens da lista
-            var listaItens = [];
-
-            // Função para adicionar item a lista
-            $('#addDespesaBtn').click(function () {
-                var novoItem = {
-                    CadastroDespesaId: $('#CadastroDespesaId').val(),
-                    FornecedorServicoId: $('#FornecedorServicoId').val(),
-                    Valor: $('#Valor').val(),
-                    Observacao: $('#Observacao').val(),
-                    ProcessoId: $('#ProcessoId').val()
-                };
-
-                // Buscar nome da despesa e do fornecedor
-                $.ajax({
-                    url: '/DCEs/GetDespesaAndFornecedorNames',
-                    method: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(novoItem), // Enviar o objeto novoItem (criado em cima) JSON na solicitação
-                    success: function (result) {
-                        novoItem.CadastroDespesaNome = result.despesaNome;
-                        novoItem.FornecedorServicoNome = result.fornecedorNome;
-
-                        // Verificar se já existem itens na lista
-                        if (listaItens && listaItens.length > 0) {
-                            // Adicionar novo item à lista existente
-                            listaItens.push(novoItem);
-                        } else {
-                            // Criar uma nova lista com o novo item
-                            listaItens = [novoItem];
-                        }
-
-                        // Limpa os campos depois de adicionar item na lista
-                        $('#CadastroDespesaId').val('');
-                        $('#FornecedorServicoId').val('');
-                        $('#Valor').val('');
-                        $('#Observacao').val('');
-                        // Atualizar a lista
-                        atualizarLista();
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(xhr.responseText);
-                    }
-                });
-            });
-
-            // Função para atualizar a lista de itens
-            function atualizarLista() {
-                var tbody = $('#itensBody');
-                tbody.empty();
-                listaItens.forEach(function (item, index) {
-                    var tr = $('<tr></tr>');
-                    tr.append('<td>' + item.CadastroDespesaNome + '</td>');
-                    tr.append('<td>' + item.FornecedorServicoNome + '</td>');
-                    tr.append('<td>' + item.Valor + '</td>');
-                    tr.append('<td>' + item.Observacao + '</td>');
-                    tr.append('<td><button type="button" class="btn btn-danger btn-excluir-item" data-index="' + index + '">Excluir</button></td>');
-                    tbody.append(tr);
-                });
-            }
-
-            // Função para cadastrar todos os itens da lista
-            $('#cadastrarItensBtn').click(function () {
                 // Enviar a lista de itens ao servidor
                 $.ajax({
                     url: '/DCEs/CadastrarListaItens',
@@ -280,6 +187,8 @@
                     contentType: 'application/json',
                     data: JSON.stringify(listaItens),
                     success: function () {
+                        // Remover todos os itens da lista
+                        listaItens = [];
                         // Redirecionar após cadastrar os itens
                         var processoId = $('#ProcessoId').val();
                         window.location.href = '/DCEs/Index/' + processoId;
@@ -291,25 +200,11 @@
             });
 
             //Função para excluir um item da lista
-            $(document).on('click', '.btn-excluir-item', function () {
+            $(document).on('click', '.btn-excluir-item2', function () {
                 var index = $(this).data('index');
                 listaItens.splice(index, 1); // Remove o item do array
                 atualizarLista(); // Atualiza a tabela após a exclusão
             });
-
-            // Evento personalizado para atualizar os dados quando estiverem disponíveis
-            $(document).on('dadosDisponiveis', function (event, dados) {
-                listaItens = dados;
-                atualizarLista();
-            });
-
-            // Escutar o evento personalizado para dados disponíveis
-            $(document).ajaxComplete(function (event, xhr, settings) {
-                if (xhr.getResponseHeader('X-Dados-Disponiveis') === 'true') {
-                    var itensExistentes = @Html.Raw(Json.Serialize(ViewBag.DCEs));
-                    $(document).trigger('dadosDisponiveis', [itensExistentes]);
-                }
-            });
-        }); *@
-
-
+        });
+    </script>
+    }
