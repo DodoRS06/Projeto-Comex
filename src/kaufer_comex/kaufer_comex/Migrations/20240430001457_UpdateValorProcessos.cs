@@ -27,7 +27,7 @@ namespace kaufer_comex.Migrations
                 column: "ProcessoId",
                 principalTable: "Processo",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.NoAction);
+                onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

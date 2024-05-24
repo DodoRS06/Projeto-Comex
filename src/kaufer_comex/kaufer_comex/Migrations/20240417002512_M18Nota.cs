@@ -43,7 +43,7 @@ namespace kaufer_comex.Migrations
                         column: x => x.VeiculoId,
                         principalTable: "Veiculo",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
