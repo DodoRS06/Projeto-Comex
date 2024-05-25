@@ -54,8 +54,6 @@ namespace kaufer_comex.Controllers
                     new Claim(ClaimTypes.Role,dados.Perfil.ToString())
                 };
 
-
-
                 var usuarioIdentity = new ClaimsIdentity(claims, "login");
 
                 ClaimsPrincipal principal = new ClaimsPrincipal(usuarioIdentity);
@@ -90,13 +88,28 @@ namespace kaufer_comex.Controllers
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
-            var userId = User.FindFirstValue(claimType:ClaimTypes.NameIdentifier);
+            if (User.IsInRole("Admin"))
+            {
+                // Consulta todos os usuários (incluindo administradores) no banco de dados
+                var usuarios = await _context.Usuarios.ToListAsync();
+                return View(usuarios);
+            }
+            else
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (!string.IsNullOrEmpty(userId))
+                {
+                    // Consulta apenas os dados do usuário autenticado
+                    var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Id == int.Parse(userId));
+                    if (usuario != null)
+                    {
+                        return View(new List<Usuario> { usuario });
+                    }
+                }
+            }
 
-            var usuario = await _context.Usuarios
-                .Where(u => u.Id == int.Parse(userId))
-                .ToListAsync(); 
-
-              return View(usuario);
+            // Se não encontrar dados para exibir, retorna uma view vazia ou uma mensagem de erro
+            return View(new List<Usuario>());
         }
 
         // GET: Usuarios/Details/5
