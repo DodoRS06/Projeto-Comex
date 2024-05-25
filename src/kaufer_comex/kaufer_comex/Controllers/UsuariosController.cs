@@ -132,6 +132,39 @@ namespace kaufer_comex.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (string.IsNullOrEmpty(usuario.Email))
+                {
+                    ModelState.AddModelError("Email", "O e-mail é obrigatório.");
+                }
+
+                if (string.IsNullOrEmpty(usuario.CPF))
+                {
+                    ModelState.AddModelError("CPF", "O CPF é obrigatório.");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return View(usuario);
+                }
+                bool emailExiste = _context.Usuarios.Any(u => u.Email == usuario.Email);
+                bool cpfExiste = _context.Usuarios.Any(u => u.CPF == usuario.CPF);
+
+                if (emailExiste || cpfExiste)
+                {
+                    if (emailExiste)
+                    {
+                        ModelState.AddModelError("Email", "Já existe um usuário com este e-mail.");
+                    }
+
+                    if (cpfExiste)
+                    {
+                        ModelState.AddModelError("CPF", "Já existe um usuário com este CPF.");
+                    }
+                    return View(usuario);
+                }
+
+
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
