@@ -396,7 +396,7 @@ namespace kaufer_comex.Controllers
                 _context.Notas.Remove(dados);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Notas", new { id = dados.EmbarqueRodoviarioId });
             }
             catch
             {
