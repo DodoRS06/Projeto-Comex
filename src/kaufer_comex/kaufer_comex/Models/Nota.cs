@@ -82,10 +82,12 @@ namespace kaufer_comex.Models
         [ForeignKey("VeiculoId")]
         public Veiculo Veiculo { get; set; }
 
-		public double QuantidadeTotal { get; set; }
+        [Display(Name = "Quantidade total")]
+        public double QuantidadeTotal { get; set; }
 
 		[Column(TypeName = "decimal(18,2)")]
-		[DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        [Display(Name = "Valor total")]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
 		public decimal ValorTotalNota { get; set; }
 
 		public virtual List<NotaItem> NotaItem { get; set; }
