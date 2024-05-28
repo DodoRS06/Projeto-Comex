@@ -70,7 +70,17 @@
 		let table = new DataTable('#myTable',
 			{
 				language: {
-					url: '//cdn.datatables.net/plug-ins/2.0.7/i18n/pt-BR.json',
+					emptyTable: 'Nenhum registro encontrado',
+					info: 'Mostrando de _START_ até _END_ de _TOTAL_ registros',
+					infoEmpty: 'Mostrando 0 até 0 de 0 registro(s)',
+					infoFiltered: '(Filtrados de _MAX_ registros)',
+					zeroRecords: 'Nenhum registro encontrado',
+					search: 'Pesquisar',
+					buttons: {
+						pageLength: {
+							_: 'Mostrar %d registros'
+						},
+					},
 				},
 				buttons: [{
 					extend: 'excelHtml5',
