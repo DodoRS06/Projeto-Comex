@@ -205,7 +205,7 @@ namespace kaufer_comex.Controllers
                     }
 
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Create");
+                    return RedirectToAction("Create", new { id = view.EmbarqueRodoviarioId });
 
                 }
 

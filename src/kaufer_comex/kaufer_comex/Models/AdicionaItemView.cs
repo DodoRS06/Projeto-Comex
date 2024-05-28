@@ -15,5 +15,7 @@ namespace kaufer_comex.Models
         [Range(0, int.MaxValue, ErrorMessage = "Valores maiores que 0")]
 
         public int Quantidade { get; set; }
-    }
+
+		public int EmbarqueRodoviarioId { get; set; }
+	}
 }
