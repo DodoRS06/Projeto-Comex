@@ -5,432 +5,435 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = kaufer_comex
 build_property.RootNamespace = kaufer_comex
-build_property.ProjectDir = C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\
+build_property.ProjectDir = C:\repositório atual\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex
+build_property.MSBuildProjectDirectory = C:\repositório atual\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbnRlRGVDYXJnYXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbnRlRGVDYXJnYXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbnRlRGVDYXJnYXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbnRlRGVDYXJnYXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/AgenteDeCargas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbnRlRGVDYXJnYXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/CadastroDespesas/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/CadastroDespesas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9EZXNwZXNhc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/CadastroDespesas/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/CadastroDespesas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9EZXNwZXNhc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/CadastroDespesas/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/CadastroDespesas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9EZXNwZXNhc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/CadastroDespesas/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/CadastroDespesas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9EZXNwZXNhc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/CadastroDespesas/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/CadastroDespesas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9EZXNwZXNhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/DCEs/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/DCEs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRENFc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/DCEs/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/DCEs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRENFc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/DCEs/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/DCEs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRENFc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/DCEs/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/DCEs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRENFc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/DCEs/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/DCEs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRENFc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachantes/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachantes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFjaGFudGVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachantes/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachantes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFjaGFudGVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachantes/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachantes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFjaGFudGVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachantes/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachantes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFjaGFudGVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachantes/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachantes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFjaGFudGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachos/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFjaG9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachos/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFjaG9zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachos/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFjaG9zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachos/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFjaG9zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachos/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Despachos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFjaG9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Destinos/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Destinos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGlub3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Destinos/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Destinos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGlub3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Destinos/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Destinos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGlub3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Destinos/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Destinos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGlub3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Destinos/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Destinos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGlub3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Documentos/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Documentos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRvc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Documentos/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Documentos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRvc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Documentos/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Documentos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRvc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Documentos/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Documentos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRvc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Documentos/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Documentos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/EmbarqueRodoviarios/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/EmbarqueRodoviarios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1iYXJxdWVSb2Rvdmlhcmlvc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/EmbarqueRodoviarios/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/EmbarqueRodoviarios/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1iYXJxdWVSb2Rvdmlhcmlvc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/EmbarqueRodoviarios/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/EmbarqueRodoviarios/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1iYXJxdWVSb2Rvdmlhcmlvc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/EmbarqueRodoviarios/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/EmbarqueRodoviarios/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1iYXJxdWVSb2Rvdmlhcmlvc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/EmbarqueRodoviarios/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/EmbarqueRodoviarios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1iYXJxdWVSb2Rvdmlhcmlvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ExpImps/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ExpImps/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwSW1wc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ExpImps/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ExpImps/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwSW1wc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ExpImps/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ExpImps/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwSW1wc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ExpImps/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ExpImps/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwSW1wc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ExpImps/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ExpImps/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwSW1wc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/FornecedorServicos/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/FornecedorServicos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybmVjZWRvclNlcnZpY29zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/FornecedorServicos/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/FornecedorServicos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybmVjZWRvclNlcnZpY29zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/FornecedorServicos/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/FornecedorServicos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybmVjZWRvclNlcnZpY29zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/FornecedorServicos/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/FornecedorServicos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybmVjZWRvclNlcnZpY29zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/FornecedorServicos/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/FornecedorServicos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybmVjZWRvclNlcnZpY29zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Fronteiras/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Fronteiras/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRlaXJhc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Fronteiras/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Fronteiras/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRlaXJhc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Fronteiras/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Fronteiras/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRlaXJhc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Fronteiras/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Fronteiras/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRlaXJhc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Fronteiras/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Fronteiras/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRlaXJhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Home/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Home/Privacy.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Itens/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Itens/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Itens/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Itens/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Itens/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Itens/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Itens/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Itens/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Itens/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Itens/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Notas/AdicionaItem.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Notas/AdicionaItem.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90YXNcQWRpY2lvbmFJdGVtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Notas/AdicionaItemNota.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Notas/AdicionaItemNota.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90YXNcQWRpY2lvbmFJdGVtTm90YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Notas/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Notas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90YXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Notas/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Notas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90YXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Notas/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Notas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90YXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Notas/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Notas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90YXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Notas/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Notas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90YXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Processos/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Processos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvY2Vzc29zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Processos/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Processos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvY2Vzc29zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Processos/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Processos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvY2Vzc29zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Processos/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Processos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvY2Vzc29zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Processos/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Processos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvY2Vzc29zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Shared/Error.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Status/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Status/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Status/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Status/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Status/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Status/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Status/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Status/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Status/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Status/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Usuarios/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Usuarios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Usuarios/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Usuarios/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Usuarios/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Usuarios/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Usuarios/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Usuarios/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Usuarios/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Usuarios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Usuarios/Login.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Usuarios/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ValoresProcessos/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ValoresProcessos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFsb3Jlc1Byb2Nlc3Nvc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ValoresProcessos/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ValoresProcessos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFsb3Jlc1Byb2Nlc3Nvc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ValoresProcessos/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ValoresProcessos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFsb3Jlc1Byb2Nlc3Nvc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ValoresProcessos/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ValoresProcessos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFsb3Jlc1Byb2Nlc3Nvc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ValoresProcessos/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/ValoresProcessos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFsb3Jlc1Byb2Nlc3Nvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Veiculos/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Veiculos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVpY3Vsb3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Veiculos/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Veiculos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVpY3Vsb3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Veiculos/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Veiculos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVpY3Vsb3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Veiculos/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Veiculos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVpY3Vsb3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Veiculos/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Veiculos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVpY3Vsb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Vendedores/Create.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Vendedores/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVuZGVkb3Jlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Vendedores/Delete.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Vendedores/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVuZGVkb3Jlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Vendedores/Details.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Vendedores/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVuZGVkb3Jlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Vendedores/Edit.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Vendedores/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVuZGVkb3Jlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Vendedores/Index.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Vendedores/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVuZGVkb3Jlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/_ViewImports.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/_ViewStart.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/noguti oliveira/Documents/MOBILE/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Shared/_Layout.cshtml]
+[C:/repositório atual/pmv-ads-2024-1-e5-proj-empext-t5-comex/src/kaufer_comex/kaufer_comex/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-d6apnif7pj
