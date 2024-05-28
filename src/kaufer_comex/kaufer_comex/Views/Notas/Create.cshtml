@@ -19,17 +19,22 @@
     <form asp-action="Create">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3 d-grid mx-auto">
+                <label  class="control-label"></label>
+                <a onclick="AdicionaItem" asp-action="AdicionaItem" class="btn btn-outline-secondary dialog-window" style="height: 40px; margin-top:21px">Adicionar Item</a>
+            </div>
+            <input type="hidden" id="EmbarqueRodoviarioId" name="EmbarqueRodoviarioId" value="@ViewData["EmbarqueRodoviarioId"]" />
+            <div class="form-group col-md-3">
                 <label asp-for="NumeroNf" class="control-label"></label>
                 <input asp-for="NumeroNf" class="form-control" />
                 <span asp-validation-for="NumeroNf" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label asp-for="Emissao" class="control-label"></label>
                 <input asp-for="Emissao" class="form-control" />
                 <span asp-validation-for="Emissao" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label asp-for="BaseNota" class="control-label"></label>
                 <input asp-for="BaseNota" class="form-control" />
                 <span asp-validation-for="BaseNota" class="text-danger"></span>
@@ -106,25 +111,16 @@
             </div>           
             <div class="form-group col-md-4">
                 <label asp-for="QuantidadeTotalNota" class="control-label"></label>
-                <input asp-for="QuantidadeTotalNota" class="form-control" readonly />
+                <input asp-for="QuantidadeTotalNota" class="form-control"  />
                 <span asp-validation-for="QuantidadeTotalNota" class="text-danger"></span>
             </div>
             <input asp-for="ValorTotal" class="form-control" />
-            <div class="form-group col-md-4">
-                <label asp-for="EmbarqueRodoviarioId" class="control-label"></label>
-                <select asp-for="EmbarqueRodoviarioId" class="form-control" asp-items="ViewBag.EmbarqueRodoviario">
-                    <option value="">Selecione o embarque</option>
-                </select>
-                <span asp-validation-for="EmbarqueRodoviarioId" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-4">
-                <a onclick="AdicionaItem" asp-action="AdicionaItem" class="btn btn-outline-secondary dialog-window" style=" margin-top: 23px">Adicionar Item</a>
-            </div>
+         
         </div>
         <div class="form-group " align="center">
             <br />
             <input type="submit" value="Cadastrar" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px" />
-            <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+            <a asp-action="Index" asp-route-id="@ViewContext.RouteData.Values["id"]"  class="btn btn-dark" style="width: 100px">Voltar</a>
         </div>
     </form>
 </div>
@@ -224,6 +220,15 @@ else
         @{
             await Html.RenderPartialAsync("_ValidationScriptsPartial");
         }
+    <script>
+        window.onload = function () {
+            var firstInput = document.querySelector("input");
+            if (firstInput) {
+                firstInput.focus();
+            }
+        };
+    </script>
+
         <script>
             $(document).ready(function () {
                 $('#ValorFob, #ValorFrete, #ValorSeguro').on('input', function () {

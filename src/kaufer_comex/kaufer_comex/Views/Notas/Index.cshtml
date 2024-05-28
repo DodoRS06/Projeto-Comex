@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Notas";
+    int embarqueId = ViewData["EmbarqueRodoviarioId"] != null ? (int)ViewData["EmbarqueRodoviarioId"] : 0;
 }
 
 @section Estilos {
@@ -21,7 +22,7 @@
     </div>
     <div class="d-flex flex-row-reverse bd-highlight">
         <p>
-            <a asp-action="Create" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #fd7e14; color: #FFF">Adicionar Nota</a>
+            <a asp-action="Create" asp-route-id="@embarqueId" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #fd7e14; color: #FFF">Adicionar Nota</a>
         </p>
     </div>
     <table id="myTable" class="table">
