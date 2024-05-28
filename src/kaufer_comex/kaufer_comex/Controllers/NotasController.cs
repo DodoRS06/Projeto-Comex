@@ -34,6 +34,8 @@ namespace kaufer_comex.Controllers
                     .Include(p => p.EmbarqueRodoviario)
                     .ToListAsync();
 
+                ViewData["EmbarqueRodoviarioId"] = id;
+
                 return View(dados);
             }
             catch
@@ -45,15 +47,23 @@ namespace kaufer_comex.Controllers
 
 
         //GET: Notas/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
             try
             {
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                ViewData["EmbarqueRodoviarioId"] = id.Value;
+
+
                 var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
 
                 ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
                 ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
-                ViewData["EmbarqueRodoviario"] = new SelectList(_context.EmbarqueRodoviarios, "Id", "Transportadora");
+               
 
                 var view = new NovaNotaView
                 {
@@ -79,7 +89,7 @@ namespace kaufer_comex.Controllers
         {
             try
             {
-               
+                int embarqueId = Convert.ToInt32(Request.Form["EmbarqueRodoviarioId"]);
                 var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
 
                 if (ModelState.IsValid)
@@ -98,7 +108,7 @@ namespace kaufer_comex.Controllers
                         PesoLiq = view.PesoLiq,
                         TaxaCambial = view.TaxaCambial,
                         CertificadoQualidade = view.CertificadoQualidade,
-                        EmbarqueRodoviarioId = view.EmbarqueRodoviarioId,
+                        EmbarqueRodoviarioId = embarqueId,
                         QuantidadeTotal = view.QuantidadeTotalNota,
                         ValorTotalNota = view.ValorTotalNota,
                     };
@@ -127,7 +137,7 @@ namespace kaufer_comex.Controllers
 
                 ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
                 ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
-                ViewData["EmbarqueRodoviario"] = new SelectList(_context.EmbarqueRodoviarios, "Id", "Transportadora");
+                
                 var notaItemTemps = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
 
                 return View(view);
@@ -276,12 +286,18 @@ namespace kaufer_comex.Controllers
                 if (id != nota.Id)
                     return NotFound();
 
+                var dados = await _context.Notas
+                   .Include(p => p.Veiculo)
+                   .Include(p => p.EmbarqueRodoviario)
+                   .Include(p => p.NotaItem)
+                   .FirstOrDefaultAsync(p => p.Id == id);
+
                 if (ModelState.IsValid)
                 {
                     _context.Notas.Update(nota);
                     await _context.SaveChangesAsync();
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Notas", new { id = dados.EmbarqueRodoviarioId });
 
                 }
 
