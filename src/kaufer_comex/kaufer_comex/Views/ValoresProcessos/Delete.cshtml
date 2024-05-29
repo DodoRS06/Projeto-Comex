@@ -58,6 +58,6 @@
 		<form asp-action="Delete">
 			<input type="hidden" asp-for="Id" />
 			<input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
-			<a asp-action="Index" asp-route-id="@Model.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
+			<a asp-action="Details" asp-controller="Processos" asp-route-id="@Model.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
 		</form>
 	</div>

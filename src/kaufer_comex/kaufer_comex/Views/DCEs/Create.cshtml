@@ -94,7 +94,7 @@
         <br />
         <!-- Botão para cadastrar todos os itens -->
         <button type="button" id="cadastrarItensBtn" class="btn" style="background-color: #F08433; color: #FFF; width: 200px">Salvar as despesas</button>
-        <a asp-action="Index" asp-route-id="@ViewContext.RouteData.Values["id"]" class="btn btn-dark" style="width: 100px">Voltar</a>
+        <a asp-action="Details" asp-controller="Processos" asp-route-id="@ViewContext.RouteData.Values["id"]" class="btn btn-dark" style="width: 100px">Voltar</a>
     </div>
 </div>
 

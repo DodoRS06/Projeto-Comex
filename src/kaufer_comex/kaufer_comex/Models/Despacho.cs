@@ -13,47 +13,47 @@ namespace kaufer_comex.Models
         [Display(Name = "Número DUE (*)")]
         public string NumeroDue { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar a data DUE.")]
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         [Display(Name = "Data DUE (*)")]
         public DateTime DataDue { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar a data da exportação.")]
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         [Display(Name = "Data de Exportação (*)")]
         public DateTime DataExportacao { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar conhecimento de embarque.")]
+
         [Display(Name = "Conhecimento de Embarque (*)")]
         public string ConhecimentoEmbarque { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar a data de conhecimento.")]
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         [Display(Name = "Data de Conhecimento (*)")]
         public DateTime DataConhecimento { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar o tipo.")]
+
         [Display(Name = "Tipo (*)")]
         public Tipo Tipo { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar a data da averbação.")]
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         [Display(Name = "Data da Averbação (*)")]
         public DateTime DataAverbacao { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar o código do País.")]
+
         [Display(Name = "Código do País (*)")]
         public int CodPais { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar a parametrização.")]
+
         [Display(Name = "Parametrização (*)")]
         public Parametrizacao Parametrizacao { get; set; }
 
-        
+
         public int ProcessoId { get; set; }
 
         [ForeignKey("ProcessoId")]

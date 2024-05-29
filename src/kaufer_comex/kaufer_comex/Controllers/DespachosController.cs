@@ -142,7 +142,7 @@ namespace kaufer_comex.Controllers
                     }
                     _context.Despachos.Update(despacho);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Index", new { id = despacho.ProcessoId });
+                    return RedirectToAction("Details", "Processos", new { id = despacho.ProcessoId });
                 }
 
                 ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
@@ -220,7 +220,7 @@ namespace kaufer_comex.Controllers
 
                 _context.Despachos.Remove(dados);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", new { id = dados.ProcessoId });
+                return RedirectToAction("Details", "Processos", new { id = dados.ProcessoId });
             }
             catch 
             {

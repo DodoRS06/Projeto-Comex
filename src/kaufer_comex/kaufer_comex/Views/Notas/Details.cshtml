@@ -5,91 +5,131 @@
 }
 
 <br />
-<h3> Nota</h3>
+<h3> Detalhes da Nota : @Html.DisplayFor(model => model.NumeroNf)</h3>
 <hr />
 
 <div>
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NumeroNf)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NumeroNf)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Emissao)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Emissao)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.BaseNota)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.BaseNota)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorFob)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ValorFob)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorFrete)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ValorFrete)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorSeguro)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ValorSeguro)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorCif)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ValorCif)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PesoLiq)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PesoLiq)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PesoBruto)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PesoBruto)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TaxaCambial)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TaxaCambial)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CertificadoQualidade)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CertificadoQualidade)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EmbarqueRodoviario)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EmbarqueRodoviario.Transportadora)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Veiculo)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Veiculo.Motorista)
-        </dd>
-    </dl>
-</div>
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between">
+            <span class="mt-1">Nota Fiscal: </span>
+        </div>
+        <dl class="card-body row">
+            <div class="col-md-4">
+                <dt>
+                    Número NF:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.NumeroNf)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Data de emissão:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Emissao)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Base Nota
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.BaseNota)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Valor FOB
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ValorFob)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Valor Frete
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ValorFrete)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Valor Seguro
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ValorSeguro)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Valor CIF
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ValorCif)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Peso Líquido:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PesoLiq)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Peso Bruto
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PesoBruto)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Taxa Cambial
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TaxaCambial)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Certificado de Qualidade
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CertificadoQualidade)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Veículo
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Veiculo.Motorista)
+                </dd>
+            </div>
+
+            <div class="col-md-4">
+                <dt>
+                    Valor Total
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ValorTotalNota)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Embarque Rodoviário:
+                </dt>
+                <dd>
+                    @ViewBag.EmbarqueId
+                </dd>
+            </div>
+        </dl>
+    </div>
+    </div>
 <h3>Itens da Nota</h3>
 <table class="table">
     <thead>
@@ -110,7 +150,7 @@
         }
     </tbody>
 </table>
-<div>
+<div class="form-group" align="center">
     <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px">Editar</a> |
-    <a asp-action="Index" asp-route-id="@ViewContext.RouteData.Values["id"]" class="btn btn-dark" style="width: 100px">Voltar</a>
+    <a asp-action="Details" asp-controller="Processos" asp-route-id="@ViewBag.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>

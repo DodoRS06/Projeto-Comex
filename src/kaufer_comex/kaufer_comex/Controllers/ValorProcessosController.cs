@@ -91,7 +91,7 @@ namespace kaufer_comex.Controllers
 				}
 				_context.ValorProcessos.Update(valorprocesso);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Processos", new { id = valorprocesso.ProcessoId });
             }
 
 		
@@ -143,7 +143,7 @@ namespace kaufer_comex.Controllers
 
             _context.ValorProcessos.Remove(dados);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index", new { id = dados.ProcessoId });
+            return RedirectToAction("Details", "Processos", new { id = dados.ProcessoId });
 
         }
     }

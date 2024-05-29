@@ -13,18 +13,18 @@
 
 <div>
     <br />
-    <h4>Detalhes do Processo</h4>
+    <h4>Detalhes do Processo: @Html.DisplayFor(model => model.CodProcessoExportacao)</h4>
     <hr />
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <a asp-controller="EmbarqueRodoviarios" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Embarque</a>
+    <a asp-controller="EmbarqueRodoviarios" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Embarque</a>
         @if (Model.EmbarquesRodoviarios.Count > 0) 
         {
-            <a asp-controller="Notas" asp-action="Index" asp-route-id="@ViewBag.EmbarqueId" class="btn btn-outline-dark mb-2" style="width: 110px">Nota Fiscal</a>
+            <a asp-controller="Notas" asp-action="Create" asp-route-id="@ViewBag.EmbarqueId" class="btn btn-outline-dark mb-2" style="width: 110px">Nota Fiscal</a>
         }
-    <a asp-controller="ValoresProcessos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Valores</a>
-    <a asp-controller="Documentos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Documento</a>
-    <a asp-controller="Despachos" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Despacho</a>
-    <a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px"> DCE</a>
+    <a asp-controller="ValoresProcessos" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Valores</a>
+    <a asp-controller="Documentos" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Documento</a>
+    <a asp-controller="Despachos" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Despacho</a>
+    <a asp-controller="DCEs" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px"> DCE</a>
     </div>
     <div class="card mb-3">
         <div class="card-header  d-flex justify-content-between">
@@ -206,6 +206,7 @@
                     <span class="mt-1">Despacho: </span>
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="Despachos" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
+                        <a asp-action="Details" asp-controller="Despachos" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
                     </div>
                 </div>
                 <dl class="card-body row">
@@ -288,6 +289,7 @@
                     <span class="mt-1">Documento: </span>
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="Documentos" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
+                        <a asp-action="Details" asp-controller="Documentos" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
                     </div>
                 </div>
                 <dl class="card-body row">
@@ -343,9 +345,10 @@
         {
             <div class="card mb-3">
                 <div class="card-header d-flex justify-content-between">
-                    <span class="mt-1">Embarque Rodoviário: </span>
+                    <span class="mt-1">Embarque: </span>
                     <div class="justify-content-sm-end d-flex m-0">
-                        <a asp-action="Edit" asp-controller="EmbarqueRodoviarios" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
+                        <a asp-action="Edit" asp-controller="EmbarqueRodoviarios" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> 
+                        <a asp-action="Details" asp-controller="EmbarqueRodoviarios" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> 
                     </div>
                 </div>
                 <dl class="card-body row">
@@ -404,7 +407,8 @@
                 <div class="card-header d-flex justify-content-between">
                     <span class="mt-1">Nota Fiscal: </span>
                     <div class="justify-content-sm-end d-flex m-0">
-                        <a asp-action="Edit" asp-controller="Notas" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
+                        <a asp-action="Edit" asp-controller="Notas" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> 
+                        <a asp-action="Details" asp-controller="Notas" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> 
                     </div>
                 </div>
                 <dl class="card-body row">
@@ -537,6 +541,7 @@
                     <span class="mt-1">Valor de Processo: </span>
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="ValoresProcessos"  asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
+                        <a asp-action="Details" asp-controller="ValoresProcessos" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> 
                     </div>
                 </div>
                 <dl class="card-body row">

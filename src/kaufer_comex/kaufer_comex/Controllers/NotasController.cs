@@ -47,7 +47,7 @@ namespace kaufer_comex.Controllers
 
 
         //GET: Notas/Create
-        public IActionResult Create(int? id)
+        public  IActionResult Create(int? id)
         {
             try
             {
@@ -60,7 +60,10 @@ namespace kaufer_comex.Controllers
 
 
                 var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
+                var embarque =  _context.EmbarqueRodoviarios.FirstOrDefault(e => e.Id == id);
+                var processoEmbarque =  _context.Processos.FirstOrDefault(e => e.Id == embarque.ProcessoId);
 
+                ViewData["ProcessoId"] = processoEmbarque.Id;
                 ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
                 ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
                
@@ -132,7 +135,7 @@ namespace kaufer_comex.Controllers
                         await _context.SaveChangesAsync();
 
                     }
-                    return RedirectToAction("Index", "Notas", new { id = novaNota.EmbarqueRodoviarioId });
+                    return RedirectToAction("Details", "Processos", new { id = novaNota.EmbarqueRodoviarioId });
                 }
 
                 ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
@@ -219,8 +222,8 @@ namespace kaufer_comex.Controllers
             }
         }
 
-        // Excluir Item
-        public async Task<IActionResult> ExcluirItem(int? id)
+        // Excluir Item antes de cadastrar nota
+        public async Task<IActionResult> ExcluirItem(int? id, NovaNotaView view)
         {
             try
             {
@@ -238,7 +241,7 @@ namespace kaufer_comex.Controllers
                 _context.NotaItemTemps.Remove(item);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("Create");
+                return RedirectToAction("Create", new { id = view.EmbarqueRodoviarioId });
             }
             catch
             {
@@ -322,7 +325,11 @@ namespace kaufer_comex.Controllers
 
                 if (dados == null)
                     return NotFound();
+                var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
 
+                var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
+
+                ViewData["ProcessoId"] = processoEmbarque.Id;
                 ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
 
                 return View(dados);
@@ -350,12 +357,16 @@ namespace kaufer_comex.Controllers
                    .Include(p => p.NotaItem)
                    .FirstOrDefaultAsync(p => p.Id == id);
 
+                var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
+
+                var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
+
                 if (ModelState.IsValid)
                 {
                     _context.Notas.Update(nota);
                     await _context.SaveChangesAsync();
 
-                    return RedirectToAction("Index", "Notas", new { id = dados.EmbarqueRodoviarioId });
+                    return RedirectToAction("Details", "Processos", new { id = processoEmbarque.Id });
 
                 }
 
@@ -422,6 +433,12 @@ namespace kaufer_comex.Controllers
                 if (dados == null)
                     return NotFound();
 
+                var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
+
+                var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
+
+                ViewData["ProcessoId"] = processoEmbarque.Id;
+
                 return View(dados);
             }
             catch
@@ -448,6 +465,12 @@ namespace kaufer_comex.Controllers
                 if (dados == null)
                     return NotFound();
 
+                var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
+
+                var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
+
+                ViewData["ProcessoId"] = processoEmbarque.Id;
+
                 return View(dados);
             }
             catch
@@ -468,9 +491,14 @@ namespace kaufer_comex.Controllers
                     return NotFound();
 
                 var dados = await _context.Notas
-                    .Include(p => p.Veiculo)
-                    .Include(p => p.NotaItem)
+                    .Include(n => n.Veiculo)
+                    .Include(n => n.NotaItem)
+                    .Include(n => n.EmbarqueRodoviario)
                     .FirstOrDefaultAsync(p => p.Id == id);
+
+                var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
+
+                var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
 
                 if (dados == null)
                     return NotFound();
@@ -482,7 +510,7 @@ namespace kaufer_comex.Controllers
                 _context.Notas.Remove(dados);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("Index", "Notas", new { id = dados.EmbarqueRodoviarioId });
+                return RedirectToAction("Details", "Processos", new { id = processoEmbarque.Id });
             }
             catch
             {

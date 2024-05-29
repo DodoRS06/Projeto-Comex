@@ -116,7 +116,7 @@ namespace kaufer_comex.Controllers
 
                 _context.DCEs.Add(dce);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Processos", new { id = processoId});
             }
 
 			await Dropdowns(dce);
@@ -248,7 +248,7 @@ namespace kaufer_comex.Controllers
 
                 _context.DCEs.Update(dce);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", new { id = dce.ProcessoId });
+                return RedirectToAction("Details", "Processos", new { id = dce.ProcessoId });
             }
 
 			await Dropdowns(dce);
@@ -302,7 +302,7 @@ namespace kaufer_comex.Controllers
 
 			_context.DCEs.Remove(dados);
             await _context.SaveChangesAsync();
-			return RedirectToAction("Index", new { id = dados.ProcessoId });
+			return RedirectToAction("Details", "Processos", new { id = dados.ProcessoId });
 		}
     }
 }

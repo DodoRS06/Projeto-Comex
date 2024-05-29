@@ -103,7 +103,7 @@ namespace kaufer_comex.Controllers
 
                 _context.EmbarqueRodoviarios.Update(embarqueRodoviario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", new { id = embarqueRodoviario.ProcessoId });
+                return RedirectToAction("Details","Processos", new { id = embarqueRodoviario.ProcessoId });
             }
 
 
@@ -161,7 +161,7 @@ namespace kaufer_comex.Controllers
             _context.EmbarqueRodoviarios.Remove(dados);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("Index", new { id = dados.ProcessoId });
+            return RedirectToAction("Details", "Processos", new { id = dados.ProcessoId });
         }
     }
 }

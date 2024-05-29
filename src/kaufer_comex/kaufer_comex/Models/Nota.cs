@@ -16,57 +16,47 @@ namespace kaufer_comex.Models
         public int NumeroNf { get; set; }
 
         [Display(Name = "Emissão (*)")]
-        [Required(ErrorMessage = "Obrigatório")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         public DateTime Emissao { get; set; }
 
         [Display(Name = "Base Nota (*)")]
-        [Required(ErrorMessage = "Obrigatório")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         public DateTime BaseNota { get; set; }
 
         [Display(Name = "Valor Fob (*)")]
         [Column(TypeName = "decimal(18,2)")]
-        [Required(ErrorMessage = "Obrigatório")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorFob { get; set; }
 
         [Display(Name = "Valor Frete (*)")]
         [Column(TypeName = "decimal(18,2)")]
-        [Required(ErrorMessage = "Obrigatório")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorFrete { get; set; }
 
         [Display(Name = "Valor Seguro (*)")]
         [Column(TypeName = "decimal(18,2)")]
-        [Required(ErrorMessage = "Obrigatório")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorSeguro { get; set; }
 
         [Display(Name = "Valor Cif (*)")]
         [Column(TypeName = "decimal(18,2)")]
-        [Required(ErrorMessage = "Obrigatório")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorCif { get; set; }
 
         [Display(Name = "Peso Liq (*)")]
-        [Required(ErrorMessage = "Obrigatório")]
         public float PesoLiq { get; set; }
 
         [Display(Name = "Peso Bruto (*)")]
-        [Required(ErrorMessage = "Obrigatório")]
         public float PesoBruto { get; set; }
 
         [Display(Name = "Taxa Cambial (*)")]
         [Column(TypeName = "decimal(18,2)")]
-        [Required(ErrorMessage = "Obrigatório")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal TaxaCambial { get; set; }
 
         [Display(Name = "Certificado Qualidade (*)")]
-        [Required(ErrorMessage = "Obrigatório")]
         public string CertificadoQualidade { get; set; }
 
 
