@@ -8,46 +8,55 @@
 	<br />
 	<h3>Detalhes do Documento</h3>
 	<hr />
-	<dl class="row">
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.CertificadoOrigem)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.CertificadoOrigem)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.CertificadoSeguro)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.CertificadoSeguro)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.DataEnvioOrigem)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.DataEnvioOrigem)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.DataEnvioSeguro)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.DataEnvioSeguro)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.TrackinCourier)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.TrackinCourier)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.ProcessoId)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Processo.CodProcessoExportacao)
-		</dd>
-	</dl>
-</div>
-<div>
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between">
+            <span class="mt-1">Documento: </span>
+        </div>
+        <dl class="card-body row">
+            <div class="col-md-4">
+                <dt>
+                    Certificado de Origem:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CertificadoOrigem)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Certificado Seguro:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CertificadoSeguro)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Data de Envio Origem:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DataEnvioOrigem)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Data envio de Seguro:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DataEnvioSeguro)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Tracking Courier:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TrackinCourier)
+                </dd>
+            </div>
+
+        </dl>
+    </div>
+    <div class="form-group " align="center">
 	<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px">Editar</a> |
 	<a asp-action="Details" asp-controller="Processos" asp-route-id="@Model.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>

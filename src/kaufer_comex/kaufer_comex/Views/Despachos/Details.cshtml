@@ -15,70 +15,80 @@
 	}
 	<h3>Detalhes do Despacho: @Html.DisplayFor(model => model.Id)</h3>
 	<hr />
-	<dl class="row">
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.NumeroDue)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.NumeroDue)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.DataDue)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.DataDue)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.DataExportacao)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.DataExportacao)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.ConhecimentoEmbarque)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.ConhecimentoEmbarque)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.DataConhecimento)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.DataConhecimento)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Tipo)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Tipo)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.DataAverbacao)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.DataAverbacao)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.CodPais)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.CodPais)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Parametrizacao)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Parametrizacao)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Processo)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Processo.CodProcessoExportacao)
-		</dd>
-	</dl>
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between">
+            <span class="mt-1">Despacho: </span>
+        </div>
+        <dl class="card-body row">
+            <div class="col-md-4">
+                <dt>
+                    Número DUE:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.NumeroDue)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Data DUE:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DataDue)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Data Exportação:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DataExportacao)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Conhecimento Embarque:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DataExportacao)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Data de Conhecimento:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DataConhecimento)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Data da Averbação:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DataAverbacao)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Código do país:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CodPais)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Parametrização:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Parametrizacao)
+                </dd>
+            </div>
+
+        </dl>
+    </div>
 </div>
-<div>
+<div class="form-group " align="center">
 	<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px">Editar</a> |
 	<a asp-action="Details" asp-controller="Processos" asp-route-id="@Model.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>

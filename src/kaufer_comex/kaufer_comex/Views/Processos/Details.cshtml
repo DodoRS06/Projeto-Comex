@@ -602,12 +602,16 @@
 
     @if (Model.DCES.Count > 0)
     {
+        @foreach (var item in Model.DCES)
+        {
             <div class="card mb-3">
-                <div class="card-header d-flex justify-content-between">
-                    <span class="mt-1">DCE:</span> <div class="justify-content-sm-end d-flex">  <a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-outline-dark" >Editar DCE</a> </div>
+              <div class="card-header d-flex justify-content-between">
+                <span class="mt-1">DCE:</span> 
+                <div class="justify-content-sm-end d-flex"> 
+                <a asp-controller="DCEs" asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> 
+                @* <a asp-controller="DCEs" asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px;"></a> *@
                 </div>
-            @foreach (var item in Model.DCES)
-            {
+              </div>       
                 <dl class="card-body row">
                     <div class="col-md-4">
                         <dt>
@@ -643,10 +647,8 @@
                     </div>
                 </dl>
                 <hr />
-                }
             </div>
-        
-
+                }
     }
 </div>
 

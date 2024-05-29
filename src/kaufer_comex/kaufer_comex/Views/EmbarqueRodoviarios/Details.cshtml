@@ -8,46 +8,56 @@
 	<br />
 	<h3>Detalhes do Embarque</h3>
 	<hr />
-	<dl class="row">
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Transportadora)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Transportadora)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.DataEmbarque)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.DataEmbarque)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.TransitTime)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.TransitTime)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.ChegadaDestino)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.ChegadaDestino)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.AgenteDeCargaId)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.AgenteDeCarga.NomeAgenteCarga)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.ProcessoId)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Processo.CodProcessoExportacao)
-		</dd>
-	</dl>
-</div>
-<div>
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between">
+            <span class="mt-1">Embarque: </span>
+        </div>
+        <dl class="card-body row">
+            <div class="col-md-4">
+                <dt>
+                    Transportadora:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Transportadora)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Data de embarque:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DataEmbarque)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Transit time:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TransitTime)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Data de chegada no destino:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ChegadaDestino)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Agente de Carga:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.AgenteDeCarga.NomeAgenteCarga)
+                </dd>
+            </div>
+
+
+        </dl>
+    </div>
+<div class="form-group " align="center">
 	<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px">Editar</a> |
 	<a asp-action="Details" asp-controller="Processos" asp-route-id="@Model.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>
