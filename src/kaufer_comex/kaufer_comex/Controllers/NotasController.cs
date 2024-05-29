@@ -215,12 +215,11 @@ namespace kaufer_comex.Controllers
                 ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
                 return PartialView();
             }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-            }
-        }
+			catch (Exception ex)
+			{
+				return StatusCode(500, $"Erro ao cadastrar itens: {ex.Message}");
+			}
+		}
 
         // Excluir Item antes de cadastrar nota
         public async Task<IActionResult> ExcluirItem(int? id, NovaNotaView view)
@@ -243,12 +242,11 @@ namespace kaufer_comex.Controllers
 
                 return RedirectToAction("Create", new { id = view.EmbarqueRodoviarioId });
             }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-            }
-        }
+			catch (Exception ex)
+			{
+				return StatusCode(500, $"Erro ao excluir itens: {ex.Message}");
+			}
+		}
 
 		// GET: Notas/EditItem/5
 		public async Task<IActionResult> EditItem(int id)
@@ -331,6 +329,7 @@ namespace kaufer_comex.Controllers
             }
         }
 
+        //POST: Adicionar item na nota já criada
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AdicionaItemNota(NotaItem view)
@@ -340,16 +339,34 @@ namespace kaufer_comex.Controllers
                 return BadRequest(ModelState);
             }
 
-            var novaNotaItem = new NotaItem
-            {
-                NotaId = view.NotaId,
-                ItemId = view.ItemId,
-                Quantidade = view.Quantidade,
-                Valor = view.Valor,
-            };
+            var item = view.ItemId;
 
-            _context.NotaItens.Add(novaNotaItem);
-            await _context.SaveChangesAsync();
+            var itemExistente = await _context.NotaItens
+						.FirstOrDefaultAsync(ni => ni.ItemId == view.ItemId && ni.NotaId == view.NotaId);
+
+			if (itemExistente == null)
+            {
+				var novoItem = await _context.Itens.FirstOrDefaultAsync(p => p.Id == item);
+				if (novoItem != null && view != null)
+                {
+                    decimal itemValor = novoItem.Preco * Convert.ToDecimal(view.Quantidade);
+
+                    var novaNotaItem = new NotaItem
+                    {
+                        NotaId = view.NotaId,
+                        ItemId = view.ItemId,
+                        Quantidade = view.Quantidade,
+                        Valor = itemValor,
+                    };
+                    _context.NotaItens.Add(novaNotaItem);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            else
+            {
+				TempData["MensagemErro"] = $"Item já cadastrado.";
+				return View();
+			}
 
             return RedirectToAction("Edit", "Notas",new { id = view.NotaId  });
         }
