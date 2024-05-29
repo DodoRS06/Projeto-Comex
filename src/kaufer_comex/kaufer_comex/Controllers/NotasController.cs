@@ -247,6 +247,64 @@ namespace kaufer_comex.Controllers
             }
         }
 
+		// GET: Notas/EditItem/5
+		public async Task<IActionResult> EditItem(int id)
+		{
+			var item = await _context.NotaItens
+				.Include(ni => ni.Item)
+				.FirstOrDefaultAsync(ni => ni.ItemId == id);
+
+			if (item == null)
+			{
+				return NotFound();
+			}
+
+			ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto", item.ItemId);
+			return PartialView(item);
+		}
+
+        // POST: ADD ITEM
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditItem(NotaItem view)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    // Buscando item na tabela NtoasItens
+                    var existingItem = await _context.NotaItens
+                        .FirstOrDefaultAsync(ni => ni.ItemId == view.ItemId && ni.NotaId == view.NotaId);
+
+                    if (existingItem == null)
+                    {
+                        return NotFound();
+                    }
+
+                    var item = await _context.Itens.FirstOrDefaultAsync(i => i.Id == view.ItemId);
+
+                    // Atualiza os campos da view Edit (Total e etc)
+                    existingItem.Quantidade = view.Quantidade;
+                    decimal quantidadeDecimal = (decimal)view.Quantidade;
+                    existingItem.Valor = quantidadeDecimal * item.Preco;
+
+                    _context.Entry(existingItem).State = EntityState.Modified;
+
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction("Edit", new { id = view.NotaId });
+                }
+
+                ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto", view.ItemId);
+                return PartialView(view);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = "Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
+
         //GET: Notas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -314,24 +372,36 @@ namespace kaufer_comex.Controllers
 
 
         //Excluir item da nota já criada
-        //public async Task<IActionResult> ExcluirItemNota(int? id)
-        //{
+        public async Task<IActionResult> ExcluirItemNota(int id)
+        {
+            try
+            {
+                //Console.WriteLine($"ID do item recebido para exclusão: {id}");
 
-        //    var dados = await _context.NotaItens
-        //          .Where(d => d.NotaId == id)
-        //          .Include(d => d.Item)
-        //          .FirstOrDefaultAsync(p => p.ItemId == id);
+                var notaItem = await _context.NotaItens.FindAsync(id);
 
-        //    if (dados == null)
-        //        return NotFound();
+                //Console.WriteLine($"ID do item encontrado no banco de dados: {notaItem?.ItemId}");
+
+                if (notaItem == null)
+                {
+                    return NotFound();
+                }
+
+                _context.NotaItens.Remove(notaItem);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction("Edit", new { id = notaItem.NotaId });
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine($"Ocorreu um erro ao excluir o item: {ex.Message}");
+
+                TempData["MensagemErro"] = $"Ocorreu um erro ao excluir o item. {ex}";
+                return RedirectToAction("Edit", new { id });
+            }
+        }
 
 
-        //    _context.NotaItens.Remove(dados);
-        //    await _context.SaveChangesAsync();
-
-        //    return RedirectToAction("Edit");
-        //}
-      
 
 
         //GET: Notas/Details/5

@@ -4,7 +4,6 @@
     ViewData["Title"] = "Edit";
 }
 
-
 <div class="container">
     @if (TempData["MensagemErro"] != null)
     {
@@ -12,26 +11,30 @@
             @TempData["MensagemErro"]
         </div>
     }
-	<br />
-	<div class="form-group " align="center">
-		<h4>Editar Nota</h4>
-	</div>
-	<hr />
-	<form asp-action="Edit">
-		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <br />
+    <div class="form-group " align="center">
+        <h4>Editar Nota</h4>
+    </div>
+    <hr />
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="EmbarqueRodoviarioId" />
         <div class="row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3 d-grid mx-auto">
+                <label class="control-label"></label>
+               @*  <a onclick="AdicionaItem" asp-action="AdicionaItem" class="btn btn-outline-secondary dialog-window" style="height: 40px; margin-top:21px">Adicionar Item</a> *@
+            </div>
+            <div class="form-group col-md-3">
                 <label asp-for="NumeroNf" class="control-label"></label>
                 <input asp-for="NumeroNf" class="form-control" />
                 <span asp-validation-for="NumeroNf" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label asp-for="Emissao" class="control-label"></label>
                 <input asp-for="Emissao" class="form-control" />
                 <span asp-validation-for="Emissao" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label asp-for="BaseNota" class="control-label"></label>
                 <input asp-for="BaseNota" class="form-control" />
                 <span asp-validation-for="BaseNota" class="text-danger"></span>
@@ -41,7 +44,6 @@
         <div class="card">
             <div class="card-header">Valor Total da Nota</div>
             <div class="card-body row">
-
                 <div class="form-group col-md-4">
                     <label asp-for="ValorFob" class="control-label"></label>
                     <input asp-for="ValorFob" class="form-control" />
@@ -52,8 +54,6 @@
                     <input asp-for="ValorFrete" class="form-control" />
                     <span asp-validation-for="ValorFrete" class="text-danger"></span>
                 </div>
-
-
                 <div class="form-group col-md-4">
                     <label asp-for="ValorSeguro" class="control-label"></label>
                     <input asp-for="ValorSeguro" class="form-control" />
@@ -64,8 +64,6 @@
                     <input asp-for="ValorCif" class="form-control" readonly />
                     <span asp-validation-for="ValorCif" class="text-danger"></span>
                 </div>
-
-
                 <div class="form-group col-md-4">
                     <label asp-for="TaxaCambial" class="control-label"></label>
                     <input asp-for="TaxaCambial" class="form-control" />
@@ -77,11 +75,8 @@
                     <span asp-validation-for="ValorTotalNota" class="text-danger"></span>
                 </div>
             </div>
-
         </div>
-
         <br />
-
         <div class="row">
             <div class="form-group col-md-4">
                 <label asp-for="PesoLiq" class="control-label"></label>
@@ -110,19 +105,16 @@
                 <input asp-for="QuantidadeTotal" class="form-control" readonly />
                 <span asp-validation-for="QuantidadeTotal" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-4">
-                 <a asp-action="AdicionaItemNota" class="btn btn-outline-secondary dialog-window" style="margin-top: 23px">Adicionar Item</a> *@
-            </div>
-
-</div>
-           @* <input asp-for="ValorTotal" class="form-control" /> *@
-
-		<div class="form-group " align="center">
-			<br />
-			<input type="submit" value="Editar" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px" />
-			<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-		</div>
-	</form>
+            @* <div class="form-group col-md-4">
+                 <a asp-action="AdicionaItemNota" class="btn btn-outline-secondary dialog-window" style="margin-top: 23px">Adicionar Item</a>
+            </div> *@
+        </div>
+        <div class="form-group " align="center">
+            <br />
+            <input type="submit" value="Editar" class="btn" style="background-color: #fd7e14; color: #FFF; width: 100px" />
+            <a asp-action="Index" asp-route-id="@Model.EmbarqueRodoviarioId" class="btn btn-dark" style="width: 100px">Voltar</a>
+        </div>
+    </form>
 </div>
 
 <div class="form-group" style="margin-top: 20px">
@@ -130,69 +122,38 @@
     <h5>Itens da Nota</h5>
 </div>
 <table id="myTable" class="table">
-        <thead>
+    <thead>
+        <tr>
+            <th>Código do item</th>
+            <th>Nome do item</th>
+            <th>Valor</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.NotaItem)
+        {
             <tr>
-                <th>
-                    Código do item
-                </th>
-                <th>
-                    Nome do item
-                </th>
-                <th>
-                    Valor
-                </th>
-                <th>
-                    Quantidade
-                </th>
-                <th>
-                    Total
-                </th>
-
-                <th></th>
-                <th></th>
+                <td>@Html.DisplayFor(modelItem => item.ItemId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Item.DescricaoProduto)</td>
+                <td>@Html.DisplayFor(modelItem => item.Item.Preco)</td>
+                <td>@Html.DisplayFor(modelItem => item.Quantidade)</td>
+                <td>@Html.DisplayFor(modelItem => item.Valor)</td>
+                <td><a href="javascript:void(0);" data-url="@Url.Action("EditItem", new { id = item.ItemId })" class="btn btn-primary btn-sm open-modal">Editar</a></td>
+                <td><a href="javascript:void(0);" data-url="@Url.Action("ExcluirItemNota", new { id = item.ItemId })" class="btn btn-danger btn-sm delete-item">Excluir</a></td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.NotaItem)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ItemId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Item.DescricaoProduto)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Item.Preco)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Quantidade)
-                    </td>
-                   <td>
-                        @Html.DisplayFor(modelItem => item.Valor)
-                   </td>
-
-                 @*    <td>
-                    <a asp-controller="Notas" asp-route-id="@item.NotaId" asp-action="ExcluirItemNota" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
-                    </td> *@
-                <td></td>
-                </tr>
-            }
-            <tr>
-                <td colspan="3">
-                    <strong>Total:</strong>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Model.QuantidadeTotal)
-                </td>
-                  <td>
-                 @*   @Html.DisplayFor(modelItem => Model.ValorTotal)
-                </td>  *@
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-
+        }
+        <tr>
+            <td colspan="3"><strong>Total:</strong></td>
+            <td>@Html.DisplayFor(modelItem => Model.QuantidadeTotal)</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
 
 <div class="modal fade" id="AdicionaItemNota" tabindex="-1" aria-labelledby="AdicionaItemNotaLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -206,11 +167,24 @@
     </div>
 </div>
 
+<div class="modal fade" id="editItemModal" tabindex="-1" aria-labelledby="editItemModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editItemModalLabel">Editar Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts {
-	@{
-		await Html.RenderPartialAsync("_ValidationScriptsPartial");
-	}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
     <script>
         $(document).ready(function () {
             $('#ValorFob, #ValorFrete, #ValorSeguro').on('input', function () {
@@ -221,9 +195,7 @@
                 var valorCif = valorFob + valorFrete + valorSeguro;
                 $('#ValorCif').val(valorCif.toFixed(2));
             });
-        });
 
-        $(document).ready(function () {
             $("body").on("click", "a.dialog-window", function (e) {
                 e.preventDefault();
                 var $link = $(this);
@@ -239,8 +211,31 @@
                     }).success(function () { $('input:text:visible:first').focus(); });
                 }
             });
-        });
 
-      
+            $("body").on("click", "a.delete-item", function (e) {
+                e.preventDefault();
+                var url = $(this).data('url');
+
+                if (confirm('Tem certeza de que deseja excluir este item?')) {
+                    $.post(url)
+                        .done(function (data) {
+                            console.log("Item excluído com sucesso"); // Adiciona este log para depuração
+                            window.location.reload(); // Recarrega a página após a exclusão do item
+                            alert('Item excluído com sucesso');
+                        })
+                        .fail(function (error) {
+                            console.error("Erro ao excluir o item:", error); // Adiciona este log para depuração
+                            alert('Ocorreu um erro ao excluir o item.');
+                        });
+                }
+            });
+
+            $('.open-modal').click(function () {
+                var url = $(this).data('url');
+                $('#modalContent').load(url, function () {
+                    $('#editItemModal').modal('show');
+                });
+            });
+        });
     </script>
 }
