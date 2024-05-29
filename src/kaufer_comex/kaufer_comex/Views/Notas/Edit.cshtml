@@ -20,21 +20,17 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="EmbarqueRodoviarioId" />
         <div class="row">
-            <div class="form-group col-md-3 d-grid mx-auto">
-                <label class="control-label"></label>
-               @*  <a onclick="AdicionaItem" asp-action="AdicionaItem" class="btn btn-outline-secondary dialog-window" style="height: 40px; margin-top:21px">Adicionar Item</a> *@
-            </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
                 <label asp-for="NumeroNf" class="control-label"></label>
                 <input asp-for="NumeroNf" class="form-control" />
                 <span asp-validation-for="NumeroNf" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
                 <label asp-for="Emissao" class="control-label"></label>
                 <input asp-for="Emissao" class="form-control" />
                 <span asp-validation-for="Emissao" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
                 <label asp-for="BaseNota" class="control-label"></label>
                 <input asp-for="BaseNota" class="form-control" />
                 <span asp-validation-for="BaseNota" class="text-danger"></span>
@@ -105,9 +101,9 @@
                 <input asp-for="QuantidadeTotal" class="form-control" readonly />
                 <span asp-validation-for="QuantidadeTotal" class="text-danger"></span>
             </div>
-            @* <div class="form-group col-md-4">
-                 <a asp-action="AdicionaItemNota" class="btn btn-outline-secondary dialog-window" style="margin-top: 23px">Adicionar Item</a>
-            </div> *@
+            <div class="form-group col-md-4">
+                <a onclick="AdicionaItemNota" asp-action="AdicionaItemNota" asp-route-id="@Model.Id" class="btn btn-outline-secondary dialog-window" style="margin-top: 23px">Adicionar Item</a>
+            </div> 
         </div>
         <div class="form-group " align="center">
             <br />

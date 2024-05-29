@@ -47,7 +47,7 @@ namespace kaufer_comex.Controllers
 
 
         //GET: Notas/Create
-        public  IActionResult Create(int? id)
+        public async Task<IActionResult> Create(int? id)
         {
             try
             {
@@ -59,9 +59,9 @@ namespace kaufer_comex.Controllers
                 ViewData["EmbarqueRodoviarioId"] = id.Value;
 
 
-                var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
-                var embarque =  _context.EmbarqueRodoviarios.FirstOrDefault(e => e.Id == id);
-                var processoEmbarque =  _context.Processos.FirstOrDefault(e => e.Id == embarque.ProcessoId);
+                var user = await _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefaultAsync();
+                var embarque = await  _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == id);
+                var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
 
                 ViewData["ProcessoId"] = processoEmbarque.Id;
                 ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
@@ -153,11 +153,11 @@ namespace kaufer_comex.Controllers
         }
 
         // GET: ADD ITEM
-        public IActionResult AdicionaItem()
+        public async Task<IActionResult> AdicionaItem()
         {
             try
             {
-                var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
+                var user = await _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefaultAsync();
                 ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
                 return PartialView();
             }
@@ -306,6 +306,52 @@ namespace kaufer_comex.Controllers
                 TempData["MensagemErro"] = "Ocorreu um erro inesperado. Por favor, tente novamente.";
                 return View();
             }
+        }
+
+        // GET: Adicionar item na nota já criada
+        public async Task<IActionResult> AdicionaItemNota(int? id)
+        {
+            try
+            {
+				if (id == null)
+				{
+					return NotFound();
+				}
+
+				ViewData["NotaId"] = id.Value;
+
+				var user = await _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefaultAsync();
+                ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
+                return PartialView();
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AdicionaItemNota(NotaItem view)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var novaNotaItem = new NotaItem
+            {
+                NotaId = view.NotaId,
+                ItemId = view.ItemId,
+                Quantidade = view.Quantidade,
+                Valor = view.Valor,
+            };
+
+            _context.NotaItens.Add(novaNotaItem);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Edit", "Notas",new { id = view.NotaId  });
         }
 
         //GET: Notas/Edit/5
@@ -473,10 +519,9 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch (Exception ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return StatusCode(500, $"Erro ao excluir nota: {ex.Message}");
             }
         }
 

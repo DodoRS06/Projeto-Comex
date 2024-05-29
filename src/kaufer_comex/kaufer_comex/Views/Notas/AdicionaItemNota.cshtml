@@ -1,4 +1,4 @@
-﻿@model kaufer_comex.Models.AdicionaItemView
+﻿@model kaufer_comex.Models.NotaItem
 
 @{
 	ViewData["Title"] = "Adicionar Item";
@@ -15,6 +15,7 @@
 
 			<form asp-action="AdicionaItemNota">
 				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<input type="hidden" asp-for="NotaId" value="@ViewBag.NotaId" />
 				<div class="form-group">
 					<label asp-for="ItemId" class="control-label"></label>
 					<select asp-for="ItemId" class="form-control" asp-items="ViewBag.ItemId">

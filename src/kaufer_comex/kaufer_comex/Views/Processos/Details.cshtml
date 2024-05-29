@@ -653,18 +653,5 @@
 </div>
 
 <div class="form-group " align="center">
-    @* <p>Valor de ViewBag.DCEExists: @ViewBag.DCEExists</p>
-
-    @{
-    bool dceExists = ViewBag.DCEExists ?? false;
-    if (!dceExists)
-    {
-    <a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn btn" style="width: 100px">Criar DCE</a> |
-    @* } else
-    {
-    <a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn btn" style="width: 100px">Editar DCE</a> |
-    }
-    } *@
- 
-    <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+    <a asp-action="Index" asp-controller="Processos" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>
