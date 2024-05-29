@@ -219,12 +219,12 @@
                 if (confirm('Tem certeza de que deseja excluir este item?')) {
                     $.post(url)
                         .done(function (data) {
-                            console.log("Item excluído com sucesso"); // Adiciona este log para depuração
-                            window.location.reload(); // Recarrega a página após a exclusão do item
+                            console.log("Item excluído com sucesso");
+                            window.location.reload(); 
                             alert('Item excluído com sucesso');
                         })
                         .fail(function (error) {
-                            console.error("Erro ao excluir o item:", error); // Adiciona este log para depuração
+                            console.error("Erro ao excluir o item:", error); 
                             alert('Ocorreu um erro ao excluir o item.');
                         });
                 }
