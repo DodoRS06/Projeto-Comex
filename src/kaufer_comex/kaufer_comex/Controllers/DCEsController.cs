@@ -256,22 +256,48 @@ namespace kaufer_comex.Controllers
             return View(dce);
         }
 
-   //     public async Task<IActionResult> Details(int? id)
-   //     {
-   //         if (id == null)
-   //             return NotFound();
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-   //         var dados = await _context.DCEs.FindAsync(id);
+            var dados = await _context.DCEs
+                .Where(d => d.ProcessoId == id)
+                .FirstOrDefaultAsync();
 
-   //         if (id == null)
-   //             return NotFound();
+            ViewData["ProcessoId"] = dados.ProcessoId;
 
-			//await Dropdowns(dados);
+            if (dados == null)
+            {
+                return NotFound();
+            }
 
-			//return View(dados);
-   //     }
+            var despesa = _context.DCEs.FirstOrDefault(e => e.ProcessoId == dados.ProcessoId);
+            if (despesa != null)
+            {
+                ViewData["despesa"] = GetNomeDespesa(despesa.CadastroDespesaId);
+            }
 
-		public async Task<IActionResult> Delete(int? id)
+            var fornecedor = _context.DCEs.FirstOrDefault(e => e.ProcessoId == dados.ProcessoId);
+            if (fornecedor != null)
+            {
+                ViewData["fornecedor"] = GetNomeFornecedor(fornecedor.FornecedorServicoId);
+            }
+
+            var view = new DCEView
+            {
+                DCEs = _context.DCEs.Where(d => d.ProcessoId == dados.ProcessoId).ToList()
+            };
+
+            return View(view);
+        }
+
+        private string GetNomeDespesa(int? id) => id != null ? _context.CadastroDespesas.FirstOrDefault(d => d.Id == id)?.NomeDespesa : string.Empty;
+        private string GetNomeFornecedor(int? id) => id != null ? _context.FornecedorServicos.FirstOrDefault(d => d.Id == id)?.Nome : string.Empty;
+
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
                 return NotFound();

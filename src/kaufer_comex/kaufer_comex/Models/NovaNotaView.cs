@@ -70,7 +70,7 @@ namespace kaufer_comex.Models
 		[DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
 		public decimal ValorTotalNota { get; set; }
 
-        [Required(ErrorMessage = "O campo é obrigatório")]
+        
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Data { get; set; }
