@@ -280,7 +280,10 @@ namespace kaufer_comex.Controllers
                 }
 
                 var notaEmbarque = _context.EmbarqueRodoviarios.FirstOrDefault(e => e.ProcessoId == dados.Id);
-                
+
+                var notaProcesso = _context.Notas.FirstOrDefault(n =>n.EmbarqueRodoviarioId == notaEmbarque.Id);
+
+                ViewData["motorista"] = GetNomeMotorista(notaProcesso.Id);
 
                 var view = new DetalhesProcessoView
                 {
@@ -339,7 +342,7 @@ namespace kaufer_comex.Controllers
         private string GetNomeAgenteDeCarga(int? id) => id != null ? _context.AgenteDeCargas.FirstOrDefault(d => d.Id == id)?.NomeAgenteCarga : string.Empty;
         private string GetNomeDespesa(int? id) => id != null ? _context.CadastroDespesas.FirstOrDefault(d => d.Id == id)?.NomeDespesa : string.Empty;
         private string GetNomeFornecedor(int? id) => id != null ? _context.FornecedorServicos.FirstOrDefault(d => d.Id == id)?.Nome : string.Empty;
-
+        private string GetNomeMotorista(int? id) => id != null ? _context.Veiculos.FirstOrDefault(d => d.Id == id)?.Motorista : string.Empty;
 
         // GET: Processos/Delete/5
         public async Task<IActionResult> Delete(int? id)

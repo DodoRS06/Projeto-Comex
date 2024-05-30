@@ -18,7 +18,10 @@ namespace kaufer_comex.Controllers
             try
             {
 
-                var dados = await _context.Destinos.ToListAsync();
+                var dados = await _context.Destinos
+                    .OrderBy(a => a.NomePais)
+                    .ToListAsync();
+
                 return View(dados);
             }
             catch
@@ -46,6 +49,14 @@ namespace kaufer_comex.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    var destinoExistente = await _context.Destinos
+                   .AnyAsync(a => a.NomePais == destino.NomePais);
+
+                    if (destinoExistente)
+                    {
+                        ModelState.AddModelError("NomePais", "Esse destino já está cadastrado.");
+                        return View(destino);
+                    }
                     _context.Destinos.Add(destino);
                     await _context.SaveChangesAsync();
                     return RedirectToAction("Index");
