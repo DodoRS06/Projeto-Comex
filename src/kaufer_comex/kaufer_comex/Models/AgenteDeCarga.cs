@@ -13,5 +13,18 @@ namespace kaufer_comex.Models
         [Display(Name = "Agente de Carga (*)")]
         [Required(ErrorMessage = "Obrigatório informar o Agente de Carga!")]
         public string NomeAgenteCarga { get; set; }
+
+        [Display(Name = "Nome de Contato(*)")]
+        [Required(ErrorMessage = "Obrigatório informar Proforma.")]
+        public string Contato { get; set; }
+
+        [Display(Name = "E-mail (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o email!")]
+        public string Email { get; set; }
+
+        [Display(Name = "Telefone (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o telefone!")]
+        public string Telefone { get; set; }
+
     }
 }

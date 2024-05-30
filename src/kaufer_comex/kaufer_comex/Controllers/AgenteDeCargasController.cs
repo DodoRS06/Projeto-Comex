@@ -45,7 +45,7 @@ namespace kaufer_comex.Controllers
             }
             return View(agenteDeCarga);
         }
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)

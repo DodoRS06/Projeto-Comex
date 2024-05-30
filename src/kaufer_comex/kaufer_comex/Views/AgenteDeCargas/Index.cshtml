@@ -30,6 +30,15 @@
 				<th>
 					@Html.DisplayNameFor(model => model.NomeAgenteCarga)
 				</th>
+					<th>
+						@Html.DisplayNameFor(model => model.Contato)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.Email)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.Telefone)
+					</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -39,6 +48,15 @@
 				<tr>
 					<td>
 						@Html.DisplayFor(modelItem => item.NomeAgenteCarga)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Contato)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Email)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Telefone)
 					</td>
 					<td>
 						<a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
