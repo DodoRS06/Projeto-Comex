@@ -15,7 +15,9 @@ namespace kaufer_comex.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.Vendedores.ToListAsync();
+            var dados = await _context.Vendedores
+                .OrderBy(b => b.NomeVendedor)
+                .ToListAsync();
 
             return View(dados);
         }
@@ -28,7 +30,18 @@ namespace kaufer_comex.Controllers
         public async Task<IActionResult> Create(Vendedor vendedor)
         {
             if (ModelState.IsValid)
-            {
+
+            {              
+               
+                    var vendedorExistente = await _context.Vendedores
+                        .AnyAsync(b => b.NomeVendedor == vendedor.NomeVendedor);
+
+                    if (vendedorExistente)
+                    {
+                        ModelState.AddModelError("Nome Vendedor", "Já existe um agente de carga com esse nome.");
+                        return View(vendedor);
+                    }
+                    
                 _context.Vendedores.Add(vendedor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
