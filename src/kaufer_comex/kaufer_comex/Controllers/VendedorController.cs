@@ -38,7 +38,7 @@ namespace kaufer_comex.Controllers
 
                     if (vendedorExistente)
                     {
-                        ModelState.AddModelError("Nome Vendedor", "Já existe um agente de carga com esse nome.");
+                        ModelState.AddModelError("NomeVendedor", "Já existe um vendedor com esse nome.");
                         return View(vendedor);
                     }
                     
