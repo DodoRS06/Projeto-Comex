@@ -13,7 +13,7 @@
 
 <div>
     <br />
-    <h4>Detalhes do Processo: </h4>
+    <h4>Detalhes do Processo: @Html.DisplayFor(model => model.CodProcessoExportacao)</h4>
     <hr />
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <a asp-controller="Veiculos" asp-action="Create" class="btn btn-outline-dark mb-2" style="width: 110px"> Veículo</a>
@@ -443,78 +443,6 @@
                     </div>
                     <div class="col-md-4">
                         <dt>
-                            Base Nota
-                        </dt>
-                        <dd>
-                            @item.BaseNota.ToShortDateString()
-                        </dd>
-                    </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Valor FOB
-                        </dt>
-                        <dd>
-                            @item.ValorFob
-                        </dd>
-                    </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Valor Frete
-                        </dt>
-                        <dd>
-                            @item.ValorFrete
-                        </dd>
-                    </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Valor Seguro
-                        </dt>
-                        <dd>
-                            @item.ValorSeguro
-                        </dd>
-                    </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Valor CIF
-                        </dt>
-                        <dd>
-                            @item.ValorCif
-                        </dd>
-                    </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Peso Líquido:
-                        </dt>
-                        <dd>
-                            @item.PesoLiq
-                        </dd>
-                    </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Peso Bruto
-                        </dt>
-                        <dd>
-                            @item.PesoBruto
-                        </dd>
-                    </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Taxa Cambial
-                        </dt>
-                        <dd>
-                            @item.TaxaCambial
-                        </dd>
-                    </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Certificado de Qualidade
-                        </dt>
-                        <dd>
-                            @item.CertificadoQualidade
-                        </dd>
-                    </div>
-                    <div class="col-md-4">
-                        <dt>
                             Veículo/Container
                         </dt>
                         <dd>
@@ -539,7 +467,6 @@
                         </dd>
                     </div>
                 </dl>
-                <hr />
             </div>
         }
 
