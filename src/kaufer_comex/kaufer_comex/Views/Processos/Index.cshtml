@@ -35,16 +35,14 @@
                 <th>
                     @Html.DisplayNameFor(model => model.CodProcessoExportacao)
                 </th>
+                <th></th>
                 <th>
                     @Html.DisplayNameFor(model => model.UsuarioId)
-                </th>
-                @*           <th>
-                @Html.DisplayNameFor(model => model.ExportadorId)
                 </th>
                 <th>
                 @Html.DisplayNameFor(model => model.ImportadorId)
                 </th>
-                <th>
+                @* <th>
                 @Html.DisplayNameFor(model => model.Modal)
                 </th>
                 <th>
@@ -103,16 +101,14 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.CodProcessoExportacao)
                     </td>
+                    <td></td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Usuario.NomeFuncionario)
                     </td>
-                    @*            <td>
-                @Html.DisplayFor(modelItem => item.ExportadorId)
-                </td>
                 <td>
-                @Html.DisplayFor(modelItem => item.ImportadorId)
+                @ViewBag.importador
                 </td>
-                <td>
+                @*<td>
                 @Html.DisplayFor(modelItem => item.Modal)
                 </td>
                 <td>

@@ -1,8 +1,10 @@
-﻿using kaufer_comex.Models;
+﻿using ClosedXML.Excel;
+using kaufer_comex.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace kaufer_comex.Controllers
 {
@@ -30,6 +32,14 @@ namespace kaufer_comex.Controllers
                     .Include(p => p.ExpImps)
                     .ThenInclude(p => p.ExpImp)
                     .ToListAsync();
+
+                foreach (var processo in dados)
+                {
+                   var importador = processo.ImportadorId;
+                   ViewData["importador"] = GetNomeImportador(importador);
+                }
+
+                
 
                 return View(dados);
             }
@@ -232,7 +242,7 @@ namespace kaufer_comex.Controllers
             }
         }
 
-     
+
         // GET: Processos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -265,7 +275,7 @@ namespace kaufer_comex.Controllers
                 {
                     ViewData["agenteDeCarga"] = GetNomeAgenteDeCarga(agenteDeCarga.AgenteDeCargaId);
                 }
-               
+
 
                 var despesa = _context.DCEs.FirstOrDefault(e => e.ProcessoId == dados.Id);
                 if (despesa != null)
@@ -281,7 +291,7 @@ namespace kaufer_comex.Controllers
 
                 var notaEmbarque = _context.EmbarqueRodoviarios.FirstOrDefault(e => e.ProcessoId == dados.Id);
 
-                var notaProcesso = _context.Notas.FirstOrDefault(n =>n.EmbarqueRodoviarioId == notaEmbarque.Id);
+                var notaProcesso = _context.Notas.FirstOrDefault(n => n.EmbarqueRodoviarioId == notaEmbarque.Id);
 
                 ViewData["motorista"] = GetNomeMotorista(notaProcesso.Id);
 
@@ -326,7 +336,7 @@ namespace kaufer_comex.Controllers
                 return View(view);
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message}. Por favor, tente novamente.";
                 return View();
@@ -377,7 +387,7 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message}. Por favor, tente novamente.";
                 return View();
@@ -434,8 +444,6 @@ namespace kaufer_comex.Controllers
             }
 
         }
-
-
 
     }
 }

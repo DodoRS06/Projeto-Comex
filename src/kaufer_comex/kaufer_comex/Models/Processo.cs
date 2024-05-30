@@ -11,7 +11,7 @@ namespace kaufer_comex.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "Código de processo de exportação (*)")]
+        [Display(Name = "Código  (*)")]
         [Required(ErrorMessage = "Obrigatório informar o código de exportação.")]
         public string CodProcessoExportacao { get; set; }
 
