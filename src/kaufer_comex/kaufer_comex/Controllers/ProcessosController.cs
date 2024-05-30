@@ -1,5 +1,4 @@
-﻿using ClosedXML.Excel;
-using kaufer_comex.Models;
+﻿using kaufer_comex.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -291,10 +290,12 @@ namespace kaufer_comex.Controllers
 
                 var notaEmbarque = _context.EmbarqueRodoviarios.FirstOrDefault(e => e.ProcessoId == dados.Id);
 
-                var notaProcesso = _context.Notas.FirstOrDefault(n => n.EmbarqueRodoviarioId == notaEmbarque.Id);
+                if (notaEmbarque != null)
+                {
+                    var notaProcesso = _context.Notas.FirstOrDefault(n => n.EmbarqueRodoviarioId == notaEmbarque.Id);
 
-                ViewData["motorista"] = GetNomeMotorista(notaProcesso.Id);
-
+                    ViewData["motorista"] = GetNomeMotorista(notaProcesso.Id);
+                }
                 var view = new DetalhesProcessoView
                 {
                     Id = dados.Id,
