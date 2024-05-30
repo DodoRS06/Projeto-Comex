@@ -269,33 +269,28 @@ namespace kaufer_comex.Controllers
                 ViewData["responsavel"] = GetNomeResponsavel(dados.UsuarioId);
                 ViewData["despachante"] = GetNomeDespachante(dados.DespachanteId);
 
-                var agenteDeCarga = _context.EmbarqueRodoviarios.FirstOrDefault(e => e.ProcessoId == dados.Id);
+                var agenteDeCarga = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.ProcessoId == dados.Id);
                 if (agenteDeCarga != null)
                 {
                     ViewData["agenteDeCarga"] = GetNomeAgenteDeCarga(agenteDeCarga.AgenteDeCargaId);
                 }
 
 
-                var despesa = _context.DCEs.FirstOrDefault(e => e.ProcessoId == dados.Id);
+                var despesa = await _context.DCEs.FirstOrDefaultAsync(e => e.ProcessoId == dados.Id);
                 if (despesa != null)
                 {
                     ViewData["despesa"] = GetNomeDespesa(despesa.CadastroDespesaId);
                 }
 
-                var fornecedor = _context.DCEs.FirstOrDefault(e => e.ProcessoId == dados.Id);
+                var fornecedor = await _context.DCEs.FirstOrDefaultAsync(e => e.ProcessoId == dados.Id);
                 if (fornecedor != null)
                 {
                     ViewData["fornecedor"] = GetNomeFornecedor(fornecedor.FornecedorServicoId);
                 }
 
-                var notaEmbarque = _context.EmbarqueRodoviarios.FirstOrDefault(e => e.ProcessoId == dados.Id);
+                var notaEmbarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.ProcessoId == dados.Id);
+               
 
-                if (notaEmbarque != null)
-                {
-                    var notaProcesso = _context.Notas.FirstOrDefault(n => n.EmbarqueRodoviarioId == notaEmbarque.Id);
-
-                    ViewData["motorista"] = GetNomeMotorista(notaProcesso.Id);
-                }
                 var view = new DetalhesProcessoView
                 {
                     Id = dados.Id,
@@ -332,6 +327,12 @@ namespace kaufer_comex.Controllers
                 {
                     ViewData["EmbarqueId"] = notaEmbarque.Id;
                     view.Notas = _context.Notas.Where(n => n.EmbarqueRodoviarioId == notaEmbarque.Id).ToList();
+
+                    foreach (var nota in view.Notas)
+                    {
+                        var motorista = nota.VeiculoId;
+                        ViewData["motorista"] = GetNomeImportador(motorista);
+                    }
                 }
 
                 return View(view);
