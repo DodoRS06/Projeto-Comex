@@ -153,10 +153,17 @@ namespace kaufer_comex.Controllers
         }
 
         // GET: ADD ITEM
-        public async Task<IActionResult> AdicionaItem()
+        public async Task<IActionResult> AdicionaItem(int? id)
         {
             try
             {
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                ViewData["EmbarqueRodoviarioId"] = id.Value;
+
                 var user = await _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefaultAsync();
                 ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
                 return PartialView();
@@ -175,7 +182,10 @@ namespace kaufer_comex.Controllers
         {
             try
             {
-                var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
+                int embarqueId = Convert.ToInt32(Request.Form["EmbarqueRodoviarioId"]);
+				ViewData["EmbarqueRodoviarioId"] = embarqueId;
+
+			   var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
 
                 if (ModelState.IsValid)
                 {
@@ -208,7 +218,7 @@ namespace kaufer_comex.Controllers
                     }
 
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Create", new { id = view.EmbarqueRodoviarioId });
+                    return RedirectToAction("Create", new { id = embarqueId });
 
                 }
 
@@ -222,7 +232,7 @@ namespace kaufer_comex.Controllers
 		}
 
         // Excluir Item antes de cadastrar nota
-        public async Task<IActionResult> ExcluirItem(int? id, NovaNotaView view)
+        public async Task<IActionResult> ExcluirItem(int? id)
         {
             try
             {
@@ -240,7 +250,10 @@ namespace kaufer_comex.Controllers
                 _context.NotaItemTemps.Remove(item);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("Create", new { id = view.EmbarqueRodoviarioId });
+				int embarqueId = Convert.ToInt32(Request.Form["EmbarqueRodoviarioId"]);
+				
+
+				return RedirectToAction("Create", new { id = embarqueId });
             }
 			catch (Exception ex)
 			{

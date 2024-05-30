@@ -15,6 +15,7 @@
 
 			<form asp-action="AdicionaItem">
 				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<input type="hidden" asp-for="EmbarqueRodoviarioId" value="@ViewData["EmbarqueRodoviarioId"]" />
 				<div class="form-group">
 					<label asp-for="ItemId" class="control-label"></label>
 					<select asp-for="ItemId" class="form-control" asp-items="ViewBag.ItemId">
@@ -29,7 +30,7 @@
 				<div class="form-group">
 					<div class="form-group " align="center">
 						<br />
-						<input type="submit" value="Salvar" class="btn" style=" background-color: #F08433; color: #FFF; width: 100px" />
+						<input type="submit" value="Salvar" asp-route-id="@ViewBag.EmbarqueRodoviarioId" class="btn" style=" background-color: #F08433; color: #FFF; width: 100px" />
 
 					</div>
 				</div>

@@ -21,9 +21,9 @@
         <div class="row">
             <div class="form-group col-md-3 d-grid mx-auto">
                 <label  class="control-label"></label>
-                <a onclick="AdicionaItem" asp-action="AdicionaItem" class="btn btn-outline-secondary dialog-window" style="height: 40px; margin-top:21px">Adicionar Item</a>
+                <a onclick="AdicionaItem" asp-action="AdicionaItem" asp-route-id="@ViewData["EmbarqueRodoviarioId"]" class="btn btn-outline-secondary dialog-window" style="height: 40px; margin-top:21px">Adicionar Item</a>
             </div>
-            <input type="hidden" id="EmbarqueRodoviarioId" name="EmbarqueRodoviarioId" value="@ViewData["EmbarqueRodoviarioId"]" />
+            <input type="hidden" asp-for="EmbarqueRodoviarioId" id="EmbarqueRodoviarioId" name="EmbarqueRodoviarioId" value="@ViewData["EmbarqueRodoviarioId"]" />
             <div class="form-group col-md-3">
                 <label asp-for="NumeroNf" class="control-label"></label>
                 <input asp-for="NumeroNf" class="form-control" />
@@ -182,7 +182,7 @@ else
                         @Html.DisplayFor(modelItem => item.Valor)
                     </td>
                     <td>
-                        <a asp-controller="Notas" asp-action="ExcluirItem" asp-route-id="@item.ItemId" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                        <a asp-controller="Notas" asp-action="ExcluirItem" asp-route-id="@item.ItemId" asp-route-embarqueId="@ViewBag.EmbarqueRodoviarioId" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
                     </td>
 
                 </tr>
