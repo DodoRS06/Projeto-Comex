@@ -135,7 +135,14 @@ namespace kaufer_comex.Controllers
                         await _context.SaveChangesAsync();
 
                     }
-                    return RedirectToAction("Details", "Processos", new { id = novaNota.EmbarqueRodoviarioId });
+                   
+                    var embarque = novaNota.EmbarqueRodoviarioId;
+                    var embarqueProcesso = await _context.EmbarqueRodoviarios.FindAsync(embarque);
+                    var processo = await _context.Processos.FirstOrDefaultAsync(p => p.Id == embarqueProcesso.ProcessoId);
+
+                   
+
+                    return RedirectToAction("Details", "Processos", new { id = processo.Id });
                 }
 
                 ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
