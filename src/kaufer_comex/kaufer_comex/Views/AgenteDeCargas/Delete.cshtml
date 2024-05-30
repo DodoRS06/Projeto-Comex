@@ -1,42 +1,42 @@
 ﻿@model kaufer_comex.Models.AgenteDeCarga
 
 @{
-	ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Delete";
 }
 
 <div>
-	<h4>Você tem certeza que deseja excluir o Agente de Carga? :  @Html.DisplayFor(model => model.NomeAgenteCarga) ?</h4>
-	<hr />
-	<dl class="row">
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.NomeAgenteCarga)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.NomeAgenteCarga)
-		</dd>
-				<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Contato)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Contato)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Email)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Email)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Telefone)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Telefone)
-		</dd>
-	</dl>
+    <h4>Você tem certeza que deseja excluir o Agente de Carga? :  @Html.DisplayFor(model => model.NomeAgenteCarga) ?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NomeAgenteCarga)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NomeAgenteCarga)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Contato)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Contato)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+    </dl>
 
-	<form asp-action="Delete">
-		<input type="hidden" asp-for="Id" />
-		<input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
-		<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-	</form>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
+        <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+    </form>
 </div>
