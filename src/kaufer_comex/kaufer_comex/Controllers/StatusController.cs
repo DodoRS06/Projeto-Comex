@@ -6,7 +6,7 @@ namespace kaufer_comex.Controllers
 {
     public class StatusController : Controller
     {
-        private readonly AppDbContext _context;
+		private AppDbContext _context;
         public StatusController(AppDbContext context) 
         {
             _context = context; 
@@ -48,7 +48,7 @@ namespace kaufer_comex.Controllers
             if (dados == null)
                 return NotFound();
    
-            return View();
+            return View(dados);
         }
 
         [HttpPost]
@@ -78,7 +78,7 @@ namespace kaufer_comex.Controllers
             if (dados == null)
                 return NotFound();  
 
-            return View();
+            return View(dados);
         }
 
         public async Task<IActionResult> Delete(int? id)
@@ -91,7 +91,7 @@ namespace kaufer_comex.Controllers
             if (dados == null)
                 return NotFound();
 
-            return View();
+            return View(dados);
         }
 
         [HttpPost, ActionName("Delete")]
@@ -108,7 +108,7 @@ namespace kaufer_comex.Controllers
             _context.Status.Remove(dados);
             await _context.SaveChangesAsync();
 
-            return View();
-        }
+			return RedirectToAction("Index");
+		}
     }
 }
