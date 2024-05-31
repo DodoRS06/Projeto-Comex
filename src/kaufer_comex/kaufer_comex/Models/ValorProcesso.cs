@@ -52,5 +52,7 @@ namespace kaufer_comex.Models
         Real,
         Dólar,
         Euro,
+        Yuan,
+        Outras
     }
 }
