@@ -15,7 +15,9 @@ namespace kaufer_comex.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.ExpImps.ToListAsync();
+            var dados = await _context.ExpImps
+				.OrderBy(e => e.Nome)
+				.ToListAsync();
 
             return View(dados);
         }

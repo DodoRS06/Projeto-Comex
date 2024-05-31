@@ -13,7 +13,9 @@ namespace kaufer_comex.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.Fronteiras.ToListAsync();
+            var dados = await _context.Fronteiras
+				.OrderBy(f => f.NomeFronteira)
+				.ToListAsync();
             
             return View(dados);
         }
@@ -27,7 +29,15 @@ namespace kaufer_comex.Controllers
         {
             if(ModelState.IsValid) 
             {
-                _context.Fronteiras.Add(fronteira);
+				var fronteiraExistente = await _context.Fronteiras
+					.AnyAsync(f => f.NomeFronteira == fronteira.NomeFronteira);
+
+				if (fronteiraExistente)
+				{
+					ModelState.AddModelError("NomeFronteira", "Já existe uma fronteira com esse nome.");
+					return View(fronteira);
+				}
+				_context.Fronteiras.Add(fronteira);
                await  _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
