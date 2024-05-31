@@ -330,8 +330,9 @@ namespace kaufer_comex.Controllers
 
                     foreach (var nota in view.Notas)
                     {
-                        var motorista = nota.VeiculoId;
-                        ViewData["motorista"] = GetNomeImportador(motorista);
+                        var notaProcesso = _context.Notas.FirstOrDefault(n => n.EmbarqueRodoviarioId == notaEmbarque.Id);
+                        var veiculo = notaProcesso.VeiculoId;
+                        ViewData["motorista"] = GetNomeMotorista(veiculo);
                     }
                 }
 
