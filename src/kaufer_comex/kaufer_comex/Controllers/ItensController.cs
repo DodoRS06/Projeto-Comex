@@ -6,7 +6,7 @@ namespace kaufer_comex.Controllers
 {
     public class ItensController : Controller
     {
-        private AppDbContext _context;
+        private readonly AppDbContext _context;
 
         public ItensController(AppDbContext context)
         {
@@ -15,102 +15,171 @@ namespace kaufer_comex.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.Itens.ToListAsync();
+            try
+            {
+                var dados = await _context.Itens
+                        .OrderBy(a => a.DescricaoProduto)
+                            .ToListAsync();
 
-            return View(dados);
-        }
+                return View(dados);
+            }
+			catch
+			{
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+			}
+		}
 
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(Item item)
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> Create(Item item)
         {
-            if (ModelState.IsValid)
+            try
             {
+                if (ModelState.IsValid)
+                {
 
-                _context.Itens.Add(item);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                    var ItemExistente = await _context.Itens
+                      .AnyAsync(a => a.DescricaoProduto == item.DescricaoProduto);
+                   
 
+					if (ItemExistente)
+                    {
+                        ModelState.AddModelError("DescricaoProduto", "Esse Item já está cadastrado.");
+                        return View(item);
+                    }
+                    _context.Itens.Add(item);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+
+                }
+                return View(item);
             }
-
-            return View(item);
-        }
+			catch
+			{
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+			}
+		}
 
         public async Task<IActionResult> Edit(int? id)
         {
+            try
+            {
 
-            if (id == null)
-                return NotFound();
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Itens.FindAsync(id);
+                var dados = await _context.Itens.FindAsync(id);
 
-            if (dados == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);
-        }
+                return View(dados);
+            }
+			catch
+			{
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+			}
+		}
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, Item item)
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> Edit(int id, Item item)
         {
-            if (id != item.Id)
-                return NotFound();
-
-            if (ModelState.IsValid)
+            try
             {
-                _context.Itens.Update(item);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (id != item.Id)
+                    return NotFound();
 
+                if (ModelState.IsValid)
+                {
+                    _context.Itens.Update(item);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+
+                }
+
+                return View();
             }
-
-            return View();
-        }
+			catch
+			{
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+			}
+		}
 
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Itens.FindAsync(id);
+                var dados = await _context.Itens.FindAsync(id);
 
-            if (dados == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);
-        }
+                return View(dados);
+            }
+			catch
+			{
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+			}
+		}
 
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Itens.FindAsync(id);
+                var dados = await _context.Itens.FindAsync(id);
 
-            if (dados == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);
-        }
+                return View(dados);
+            }
+			catch
+			{
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+			}
+		}
 
         [HttpPost, ActionName("Delete")]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> DeleteConfirmed(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Itens.FindAsync(id);
+                var dados = await _context.Itens.FindAsync(id);
 
-            if (dados == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            _context.Itens.Remove(dados);
-            await _context.SaveChangesAsync();
+                _context.Itens.Remove(dados);
+                await _context.SaveChangesAsync();
 
-            return RedirectToAction("Index");
-        }
+                return RedirectToAction("Index");
+            }
+			catch
+			{
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+			}
+		}
     }
 }
