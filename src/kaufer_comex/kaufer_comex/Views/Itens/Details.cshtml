@@ -1,96 +1,122 @@
 ﻿@model kaufer_comex.Models.Item
 
 @{
-	ViewData["Title"] = "Details";
+	ViewData["Title"] = "Detalhes do Item";
 }
 
-<br />
-<h3> Item</h3>
-<hr />
-
-<div>
-	<dl class="row">
-		<dt class="col-sm-2">
+<div class="card mb-3">
+	<div class="card-header d-flex justify-content-between">
+		<span class="mt-1"><strong>ITEM</strong> </span>
+		<div class="justify-content-sm-end d-flex m-0">
+			<a asp-action="Edit" asp-controller="Itens" asp-route-id="@Model.Id" class="btn" style=" background-color: #F08433; color: #FFF; margin-right: 10px">Editar</a>
+			<a asp-action="Index" asp-controller="Itens" asp-route-id="@Model.Id" class="btn btn-outline-dark">Voltar</a>
+		</div>
+	</div>
+	<dl class=" card-body row">
+		<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.CodigoProduto)
 		</dt>
-		<dd class="col-sm-10">
+		<dd>
 			@Html.DisplayFor(model => model.CodigoProduto)
 		</dd>
-		<dt class="col-sm-2">
+		</div>
+		<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.DescricaoProduto)
 		</dt>
-		<dd class="col-sm-10">
+		<dd>
 			@Html.DisplayFor(model => model.DescricaoProduto)
 		</dd>
-		<dt class="col-sm-2">
+		</div>
+		<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.Familia)
 		</dt>
-		<dd class="col-sm-10">
+		<dd>
 			@Html.DisplayFor(model => model.Familia)
 		</dd>
-		<dt class="col-sm-2">
+		</div>
+		<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.Largura)
 		</dt>
-		<dd class="col-sm-10">
+		<dd>
 			@Html.DisplayFor(model => model.Largura)
 		</dd>
-		<dt class="col-sm-2">
+		</div>
+		<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.Comprimento)
 		</dt>
-		<dd class="col-sm-10">
+		<dd>
 			@Html.DisplayFor(model => model.Comprimento)
 		</dd>
-		<dt class="col-sm-2">
+		</div>
+		<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.Espessura)
 		</dt>
 		<dd class="col-sm-10">
 			@Html.DisplayFor(model => model.Espessura)
 		</dd>
-		<dt class="col-sm-2">
+		</div>
+		<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.AreaM2)
 		</dt>
-		<dd class="col-sm-10">
+		<dd>
 			@Html.DisplayFor(model => model.AreaM2)
 		</dd>
-		<dt class="col-sm-2">
+		</div>
+			<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.DiametroAltura)
 		</dt>
-		<dd class="col-sm-10">
+		<dd>
 			@Html.DisplayFor(model => model.DiametroAltura)
 		</dd>
-		<dt class="col-sm-2">
+		</div>
+		<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.DiametroComprimento)
 		</dt>
-		<dd class="col-sm-10">
+		<dd>
 			@Html.DisplayFor(model => model.DiametroComprimento)
 		</dd>
-		<dt class="col-sm-2">
+		</div>
+		<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.LarguraAparente)
 		</dt>
-		<dd class="col-sm-10">
+		<dd>
 			@Html.DisplayFor(model => model.LarguraAparente)
 		</dd>
-		<dt class="col-sm-2">
+		</div>
+		<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.VolumeM2)
 		</dt>
-		<dd class="col-sm-10">
+		<dd>
 			@Html.DisplayFor(model => model.VolumeM2)
 		</dd>
-		<dt class="col-sm-2">
+		</div>
+		<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.PesoLiquido)
 		</dt>
-		<dd class="col-sm-10">
+		<dd>
 			@Html.DisplayFor(model => model.PesoLiquido)
 		</dd>
-		<dt class="col-sm-2">
+		</div>
+		<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.PesoBruto)
 		</dt>
-		<dd class="col-sm-10">
+		<dd>
 			@Html.DisplayFor(model => model.PesoBruto)
 		</dd>
+		</div>
 	</dl>
 </div>
-<div>
-	<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px">Editar</a> |
-	<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-</div>
+
