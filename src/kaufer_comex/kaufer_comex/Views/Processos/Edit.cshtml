@@ -153,4 +153,12 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        window.onload = function () {
+            var firstInput = document.querySelector("input");
+            if (firstInput) {
+                firstInput.focus();
+            }
+        };
+    </script>
 }

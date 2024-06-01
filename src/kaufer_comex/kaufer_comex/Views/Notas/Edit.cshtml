@@ -103,7 +103,7 @@
             </div>
             <div class="form-group col-md-4">
                 <a onclick="AdicionaItemNota" asp-action="AdicionaItemNota" asp-route-id="@Model.Id" class="btn btn-outline-secondary dialog-window" style="margin-top: 23px">Adicionar Item</a>
-            </div> 
+            </div>
         </div>
         <div class="form-group " align="center">
             <br />
@@ -181,6 +181,16 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
+    <script>
+        window.onload = function () {
+            var firstInput = document.querySelector("input");
+            if (firstInput) {
+                firstInput.focus();
+            }
+        };
+    </script>
+
     <script>
         $(document).ready(function () {
             $('#ValorFob, #ValorFrete, #ValorSeguro').on('input', function () {
@@ -216,11 +226,11 @@
                     $.post(url)
                         .done(function (data) {
                             console.log("Item excluído com sucesso");
-                            window.location.reload(); 
+                            window.location.reload();
                             alert('Item excluído com sucesso');
                         })
                         .fail(function (error) {
-                            console.error("Erro ao excluir o item:", error); 
+                            console.error("Erro ao excluir o item:", error);
                             alert('Ocorreu um erro ao excluir o item.');
                         });
                 }

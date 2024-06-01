@@ -20,7 +20,7 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="row">
             <div class="form-group col-md-3 d-grid mx-auto">
-                <label  class="control-label"></label>
+                <label class="control-label"></label>
                 <a onclick="AdicionaItem" asp-action="AdicionaItem" asp-route-id="@ViewData["EmbarqueRodoviarioId"]" class="btn btn-outline-secondary dialog-window" style="height: 40px; margin-top:21px">Adicionar Item</a>
             </div>
             <input type="hidden" asp-for="EmbarqueRodoviarioId" id="EmbarqueRodoviarioId" name="EmbarqueRodoviarioId" value="@ViewData["EmbarqueRodoviarioId"]" />
@@ -39,54 +39,54 @@
                 <input asp-for="BaseNota" class="form-control" />
                 <span asp-validation-for="BaseNota" class="text-danger"></span>
             </div>
-            </div>
-                <br />
-         <div class="card">
-             <div class="card-header">Valor Total da Nota</div>
-             <div class="card-body row">
-                 
-                        <div class="form-group col-md-4">
-                            <label asp-for="ValorFob" class="control-label"></label>
-                            <input asp-for="ValorFob" class="form-control" />
-                            <span asp-validation-for="ValorFob" class="text-danger"></span>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label asp-for="ValorFrete" class="control-label"></label>
-                            <input asp-for="ValorFrete" class="form-control" />
-                            <span asp-validation-for="ValorFrete" class="text-danger"></span>
-                        </div>
-                        
-                        
-                        <div class="form-group col-md-4">
-                            <label asp-for="ValorSeguro" class="control-label"></label>
-                            <input asp-for="ValorSeguro" class="form-control" />
-                            <span asp-validation-for="ValorSeguro" class="text-danger"></span>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label asp-for="ValorCif" class="control-label"></label>
+        </div>
+        <br />
+        <div class="card">
+            <div class="card-header">Valor Total da Nota</div>
+            <div class="card-body row">
+
+                <div class="form-group col-md-4">
+                    <label asp-for="ValorFob" class="control-label"></label>
+                    <input asp-for="ValorFob" class="form-control" />
+                    <span asp-validation-for="ValorFob" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="ValorFrete" class="control-label"></label>
+                    <input asp-for="ValorFrete" class="form-control" />
+                    <span asp-validation-for="ValorFrete" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group col-md-4">
+                    <label asp-for="ValorSeguro" class="control-label"></label>
+                    <input asp-for="ValorSeguro" class="form-control" />
+                    <span asp-validation-for="ValorSeguro" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="ValorCif" class="control-label"></label>
                     <input asp-for="ValorCif" class="form-control" readonly />
-                            <span asp-validation-for="ValorCif" class="text-danger"></span>
-                        </div>
-                        
-                        
-                        <div class="form-group col-md-4">
-                            <label asp-for="TaxaCambial" class="control-label"></label>
-                            <input asp-for="TaxaCambial" class="form-control" />
-                            <span asp-validation-for="TaxaCambial" class="text-danger"></span>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label asp-for="ValorTotalNota" class="control-label"></label>
-                            <input asp-for="ValorTotalNota" class="form-control" readonly />
-                            <span asp-validation-for="ValorTotalNota" class="text-danger"></span>
-                        </div>
-                 
-             </div>
+                    <span asp-validation-for="ValorCif" class="text-danger"></span>
+                </div>
 
-         </div>
 
-         <br />
+                <div class="form-group col-md-4">
+                    <label asp-for="TaxaCambial" class="control-label"></label>
+                    <input asp-for="TaxaCambial" class="form-control" />
+                    <span asp-validation-for="TaxaCambial" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="ValorTotalNota" class="control-label"></label>
+                    <input asp-for="ValorTotalNota" class="form-control" readonly />
+                    <span asp-validation-for="ValorTotalNota" class="text-danger"></span>
+                </div>
 
-         <div class="row">
+            </div>
+
+        </div>
+
+        <br />
+
+        <div class="row">
             <div class="form-group col-md-4">
                 <label asp-for="PesoLiq" class="control-label"></label>
                 <input asp-for="PesoLiq" class="form-control" />
@@ -108,19 +108,19 @@
                     <option value="">Selecione o motorista</option>
                 </select>
                 <span asp-validation-for="VeiculoId" class="text-danger"></span>
-            </div>           
+            </div>
             <div class="form-group col-md-4">
                 <label asp-for="QuantidadeTotalNota" class="control-label"></label>
-                <input asp-for="QuantidadeTotalNota" class="form-control"  />
+                <input asp-for="QuantidadeTotalNota" class="form-control" />
                 <span asp-validation-for="QuantidadeTotalNota" class="text-danger"></span>
             </div>
             <input asp-for="ValorTotal" class="form-control" />
-         
+
         </div>
         <div class="form-group " align="center">
             <br />
             <input type="submit" value="Cadastrar" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px" />
-            <a asp-action="Details" asp-controller="Processos" asp-route-id="@ViewBag.ProcessoId"  class="btn btn-dark" style="width: 100px">Voltar</a>
+            <a asp-action="Details" asp-controller="Processos" asp-route-id="@ViewBag.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
         </div>
     </form>
 </div>
@@ -188,7 +188,7 @@ else
                 </tr>
             }
             <tr>
-                <td colspan="3" >
+                <td colspan="3">
                     <strong>Total:</strong>
                 </td>
                 <td>
@@ -202,7 +202,7 @@ else
         </tbody>
     </table>
 }
- 
+
 
 <div class="modal fade" id="AdicionaItem" tabindex="-1" aria-labelledby="AdicionaItemLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -213,13 +213,13 @@ else
             <div class="modal-body">
             </div>
         </div>
-   </div>
+    </div>
 </div>
 
-    @section Scripts {
-        @{
-            await Html.RenderPartialAsync("_ValidationScriptsPartial");
-        }
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
     <script>
         window.onload = function () {
             var firstInput = document.querySelector("input");
@@ -229,17 +229,17 @@ else
         };
     </script>
 
-        <script>
-            $(document).ready(function () {
-                $('#ValorFob, #ValorFrete, #ValorSeguro').on('input', function () {
-                    var valorFob = parseFloat($('#ValorFob').val()) || 0;
-                    var valorFrete = parseFloat($('#ValorFrete').val()) || 0;
-                    var valorSeguro = parseFloat($('#ValorSeguro').val()) || 0;
+    <script>
+        $(document).ready(function () {
+            $('#ValorFob, #ValorFrete, #ValorSeguro').on('input', function () {
+                var valorFob = parseFloat($('#ValorFob').val()) || 0;
+                var valorFrete = parseFloat($('#ValorFrete').val()) || 0;
+                var valorSeguro = parseFloat($('#ValorSeguro').val()) || 0;
 
-                    var valorCif = valorFob + valorFrete + valorSeguro;
-                    $('#ValorCif').val(valorCif.toFixed());
-                });
+                var valorCif = valorFob + valorFrete + valorSeguro;
+                $('#ValorCif').val(valorCif.toFixed());
             });
+        });
 
         $(document).ready(function () {
             $('#ValorCif, #TaxaCambial, #ValorTotal').on('input', function () {
@@ -255,23 +255,23 @@ else
         $('#ValorTotal').hide();
 
 
-            $(document).ready(function () {
-                $("body").on("click", "a.dialog-window", function (e) {
-                    e.preventDefault();
-                    var $link = $(this);
-                    var title = $link.text();
-                    $('#AdicionaItemLabel').html(title); 
-                    var url = $(this).attr('href');
-                    if (url.indexOf('#') == 0) {
+        $(document).ready(function () {
+            $("body").on("click", "a.dialog-window", function (e) {
+                e.preventDefault();
+                var $link = $(this);
+                var title = $link.text();
+                $('#AdicionaItemLabel').html(title);
+                var url = $(this).attr('href');
+                if (url.indexOf('#') == 0) {
+                    $('#AdicionaItem').modal('show');
+                } else {
+                    $.get(url, function (data) {
+                        $('#AdicionaItem .modal-body').html(data);
                         $('#AdicionaItem').modal('show');
-                    } else {
-                        $.get(url, function (data) {
-                            $('#AdicionaItem .modal-body').html(data); 
-                            $('#AdicionaItem').modal('show');
-                        }).success(function () { $('input:text:visible:first').focus(); });
-                    }
-                });
+                    }).success(function () { $('input:text:visible:first').focus(); });
+                }
             });
+        });
 
-        </script>
-    }
+    </script>
+}
