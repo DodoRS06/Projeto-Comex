@@ -471,26 +471,25 @@ namespace kaufer_comex.Controllers
 
 
         //Excluir item da nota já criada
-        public async Task<IActionResult> ExcluirItemNota(int id, Nota view)
+        public async Task<IActionResult> ExcluirItemNota(int id)
         {
             try
             {
-                //Buscar todas com o id de item passado no parâmetro
-                var todasNotaItens = await _context.NotaItens.Where(n => n.ItemId == id).ToListAsync();
+                //Console.WriteLine($"ID do item recebido para exclusão: {id}");
 
-                foreach (var notaItem in todasNotaItens)
+                var notaItem = await _context.NotaItens.FindAsync(id);
+
+                //Console.WriteLine($"ID do item encontrado no banco de dados: {notaItem?.ItemId}");
+
+                if (notaItem == null)
                 {
-                    var notaItemRelacionado = await _context.NotaItens.FirstOrDefaultAsync(n => n.ItemId == id && n.NotaId == notaItem.NotaId);
-                    if (notaItemRelacionado == null)
-                    {
-                        return NotFound();
-                    }
-                    _context.NotaItens.Remove(notaItem);
-
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
 
-                return RedirectToAction("Edit", new { id = view.Id });
+                _context.NotaItens.Remove(notaItem);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction("Edit", new { id = notaItem.NotaId });
             }
             catch (Exception ex)
             {
