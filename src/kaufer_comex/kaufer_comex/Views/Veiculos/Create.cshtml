@@ -1,10 +1,16 @@
 ﻿@model kaufer_comex.Models.Veiculo
 
 @{
-	ViewData["Title"] = "Create";
+	ViewData["Title"] = "Adicionar Veículo";
 }
 
 <div class="container">
+	@if (TempData["MensagemErro"] != null)
+	{
+		<div class="alert alert-danger" role="alert" align="center">
+			@TempData["MensagemErro"]
+		</div>
+	}
 	<br />
 	<div class="form-group " align="center">
 		<h4>Cadastrar Veículo</h4>
@@ -38,4 +44,14 @@
 	@{
 		await Html.RenderPartialAsync("_ValidationScriptsPartial");
 	}
+
+	<script>
+		window.onload = function () {
+			var firstInput = document.querySelector("input");
+			if (firstInput) {
+				firstInput.focus();
+			}
+		};
+	</script>
+
 	}

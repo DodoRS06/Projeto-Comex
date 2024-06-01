@@ -7,7 +7,7 @@ namespace kaufer_comex.Controllers
 {
     public class VeiculosController : Controller
     {
-        private AppDbContext _context;
+        private readonly AppDbContext _context;
 
         public VeiculosController(AppDbContext context)
         {
@@ -16,9 +16,19 @@ namespace kaufer_comex.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.Veiculos.ToListAsync();
+            try
+            {
+                var dados = await _context.Veiculos
+                        .OrderBy(a => a.Motorista)
+                            .ToListAsync();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         public IActionResult Create()
@@ -26,92 +36,150 @@ namespace kaufer_comex.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Veiculo veiculo)
         {
-            if (ModelState.IsValid)
+            try
             {
+                if (ModelState.IsValid)
+                {
 
-                _context.Veiculos.Add(veiculo);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                    var VeiculoExistente = await _context.Veiculos
+                  .AnyAsync(a => a.Motorista == veiculo.Motorista);
 
+                    if (VeiculoExistente)
+                    {
+                        ModelState.AddModelError("Motorista", "Esse Motorista já está cadastrado.");
+                        return View(veiculo);
+                    }
+                    _context.Veiculos.Add(veiculo);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+
+                }
+
+                return View(veiculo);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
             }
 
-            return View(veiculo);
         }
 
-        public async Task<IActionResult> Edit(int? id) 
+        public async Task<IActionResult> Edit(int? id)
         {
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            if (id == null)
-                return NotFound();
+                var dados = await _context.Veiculos.FindAsync(id);
 
-            var dados = await  _context.Veiculos.FindAsync(id);
+                if (dados == null)
+                    return NotFound();
 
-            if (dados == null)
-                return NotFound();
-
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit( int id, Veiculo veiculo) 
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Veiculo veiculo)
         {
-            if(id != veiculo.Id)
-                return NotFound();
-
-            if (ModelState.IsValid)
+            try
             {
-                _context.Veiculos.Update(veiculo);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (id != veiculo.Id)
+                    return NotFound();
 
+                if (ModelState.IsValid)
+                {
+                    _context.Veiculos.Update(veiculo);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+
+                }
+
+                return View();
             }
-
-            return View(); 
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
-        public async Task<IActionResult> Details(int? id) 
+        public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados =  await _context.Veiculos.FindAsync(id);
+                var dados = await _context.Veiculos.FindAsync(id);
 
-            if (dados == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);  
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Veiculos.FindAsync(id);
+                var dados = await _context.Veiculos.FindAsync(id);
 
-            if (dados == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id)
-        {
-            if (id == null)
-                return NotFound();
+        { try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Veiculos.FindAsync(id);
+                var dados = await _context.Veiculos.FindAsync(id);
 
-            if (dados == null)
-                return NotFound();
+                if (dados == null)
+                    return NotFound();
 
-            _context.Veiculos.Remove(dados);
-            await _context.SaveChangesAsync();  
+                _context.Veiculos.Remove(dados);
+                await _context.SaveChangesAsync();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
     }
 }
