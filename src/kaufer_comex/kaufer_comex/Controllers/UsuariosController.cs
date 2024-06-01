@@ -88,10 +88,13 @@ namespace kaufer_comex.Controllers
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
+  
             if (User.IsInRole("Admin"))
             {
-                // Consulta todos os usuários (incluindo administradores) no banco de dados
-                var usuarios = await _context.Usuarios.ToListAsync();
+                // todos os usuarios 
+                var usuarios = await _context.Usuarios
+                .OrderBy(d => d.NomeFuncionario)
+               .ToListAsync();
                 return View(usuarios);
             }
             else
@@ -99,7 +102,7 @@ namespace kaufer_comex.Controllers
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 if (!string.IsNullOrEmpty(userId))
                 {
-                    // Consulta apenas os dados do usuário autenticado
+                    // somente usuário autenticado - User 
                     var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Id == int.Parse(userId));
                     if (usuario != null)
                     {
@@ -108,7 +111,6 @@ namespace kaufer_comex.Controllers
                 }
             }
 
-            // Se não encontrar dados para exibir, retorna uma view vazia ou uma mensagem de erro
             return View(new List<Usuario>());
         }
 
