@@ -1,8 +1,9 @@
 ﻿@model kaufer_comex.Models.ValorProcesso
 
 @{
-	ViewData["Title"] = "Details";
+    ViewData["Title"] = "Details";
 }
+
 <br />
 <h3>Valor Total do Processo: @Html.DisplayFor(model => model.ValorTotalCif)</h3>
 <hr />
@@ -12,57 +13,32 @@
     </div>
     <dl class="card-body row">
         <div class="col-md-4">
-            <dt>
-                Moeda:
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Moeda)
-            </dd>
+            <dt>Moeda:</dt>
+            <dd>@Html.DisplayFor(model => model.Moeda)</dd>
         </div>
         <div class="col-md-4">
-            <dt>
-                Valor EXW:
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.ValorExw)
-            </dd>
+            <dt>Valor EXW:</dt>
+            <dd>@Html.DisplayFor(model => model.ValorExw)</dd>
         </div>
         <div class="col-md-4">
-            <dt>
-                Valor FOB:
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.ValorFobFca)
-            </dd>
+            <dt>Valor FOB:</dt>
+            <dd>@Html.DisplayFor(model => model.ValorFobFca)</dd>
         </div>
         <div class="col-md-4">
-            <dt>
-                Valor do frete:
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.FreteInternacional)
-            </dd>
+            <dt>Valor do frete:</dt>
+            <dd>@Html.DisplayFor(model => model.FreteInternacional)</dd>
         </div>
         <div class="col-md-4">
-            <dt>
-                Seguro Internacional:
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.SeguroInternaciona)
-            </dd>
+            <dt>Seguro Internacional:</dt>
+            <dd>@Html.DisplayFor(model => model.SeguroInternaciona)</dd>
         </div>
         <div class="col-md-4">
-            <dt>
-                Valor Total Cif:
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.ValorTotalCif)
-            </dd>
+            <dt>Valor Total Cif:</dt>
+            <dd>@Html.DisplayFor(model => model.ValorTotalCif)</dd>
         </div>
-
     </dl>
 </div>
-<div class="form-group " align="center">
-	<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px">Editar</a> |
-	<a asp-action="Details" asp-controller="Processos" asp-route-id="@Model.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
+<div class="form-group" align="center">
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn" style="background-color: #fd7e14; color: #FFF; width: 100px">Editar</a> |
+    <a asp-action="Details" asp-controller="Processos" asp-route-id="@Model.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>

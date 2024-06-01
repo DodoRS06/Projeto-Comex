@@ -42,5 +42,7 @@ namespace kaufer_comex.Models
 
         public virtual Item Item { get; set; }
 
+        public int EmbarqueId { get; set; }
+
     }
 }
