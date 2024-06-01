@@ -1,10 +1,16 @@
 ﻿@model kaufer_comex.Models.Status
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Deletar Status";
 }
 
 <div>
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert" align="center">
+            @TempData["MensagemErro"]
+        </div>
+    }
     <h4>Você tem certeza que deseja excluir o Status? </h4>
     <hr />
     <dl class="row">

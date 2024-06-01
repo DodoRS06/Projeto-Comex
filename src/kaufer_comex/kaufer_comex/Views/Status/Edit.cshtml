@@ -1,10 +1,16 @@
 ﻿@model kaufer_comex.Models.Status
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Status";
 }
 
 <div class="container">
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert" align="center">
+            @TempData["MensagemErro"]
+        </div>
+    }
     <br />
     <div class="form-group " align="center">
         <h4>Editar Status</h4>

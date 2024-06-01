@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\views\\itens\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\views\\itens\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\views\\notas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\views\\notas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\views\\status\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\views\\status\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\views\\status\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\views\\status\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\views\\status\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\views\\status\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\views\\status\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\views\\status\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\views\\status\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\views\\status\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,32 +59,84 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Status\\Details.cshtml",
-              "RelativeDocumentMoniker": "kaufer_comex\\Views\\Status\\Details.cshtml",
-              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Status\\Details.cshtml",
-              "RelativeToolTip": "kaufer_comex\\Views\\Status\\Details.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAKAAAA",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Notas\\Create.cshtml",
+              "RelativeDocumentMoniker": "kaufer_comex\\Views\\Notas\\Create.cshtml",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Notas\\Create.cshtml",
+              "RelativeToolTip": "kaufer_comex\\Views\\Notas\\Create.cshtml",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAAAHUAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-01T20:11:27.308Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Itens\\Details.cshtml",
-              "RelativeDocumentMoniker": "kaufer_comex\\Views\\Itens\\Details.cshtml",
-              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Itens\\Details.cshtml",
-              "RelativeToolTip": "kaufer_comex\\Views\\Itens\\Details.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-01T12:05:03.506Z",
+              "WhenOpened": "2024-06-01T21:53:31.905Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Status\\Create.cshtml",
+              "RelativeDocumentMoniker": "kaufer_comex\\Views\\Status\\Create.cshtml",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Status\\Create.cshtml",
+              "RelativeToolTip": "kaufer_comex\\Views\\Status\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-01T21:48:22.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Status\\Details.cshtml",
+              "RelativeDocumentMoniker": "kaufer_comex\\Views\\Status\\Details.cshtml",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Status\\Details.cshtml",
+              "RelativeToolTip": "kaufer_comex\\Views\\Status\\Details.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-01T21:48:06.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Status\\Edit.cshtml",
+              "RelativeDocumentMoniker": "kaufer_comex\\Views\\Status\\Edit.cshtml",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Status\\Edit.cshtml",
+              "RelativeToolTip": "kaufer_comex\\Views\\Status\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-01T21:47:55.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Status\\Index.cshtml",
+              "RelativeDocumentMoniker": "kaufer_comex\\Views\\Status\\Index.cshtml",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Status\\Index.cshtml",
+              "RelativeToolTip": "kaufer_comex\\Views\\Status\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-01T21:47:50.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Status\\Delete.cshtml",
+              "RelativeDocumentMoniker": "kaufer_comex\\Views\\Status\\Delete.cshtml",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Status\\Delete.cshtml",
+              "RelativeToolTip": "kaufer_comex\\Views\\Status\\Delete.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-01T21:45:51.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\appsettings.json",
               "RelativeDocumentMoniker": "kaufer_comex\\appsettings.json",
@@ -76,7 +144,8 @@
               "RelativeToolTip": "kaufer_comex\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAACFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-28T00:28:35.634Z"
+              "WhenOpened": "2024-05-28T00:28:35.634Z",
+              "EditorCaption": ""
             }
           ]
         },

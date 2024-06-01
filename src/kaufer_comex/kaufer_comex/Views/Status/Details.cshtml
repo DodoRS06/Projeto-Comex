@@ -1,9 +1,16 @@
 ﻿@model kaufer_comex.Models.Status
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes Status";
 }
 
+<div>
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert" align="center">
+            @TempData["MensagemErro"]
+        </div>
+    }
 <div class="card mb-3">
     <div class="card-header d-flex justify-content-between">
         <span class="mt-1"><strong>STATUS</strong> </span>
@@ -20,4 +27,5 @@
             @Html.DisplayFor(model => model.StatusAtual)
         </dd>
     </dl>
+</div>
 </div>

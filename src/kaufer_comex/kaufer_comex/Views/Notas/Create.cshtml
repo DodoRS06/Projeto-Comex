@@ -64,7 +64,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label asp-for="ValorCif" class="control-label"></label>
-                    <input asp-for="ValorCif" class="form-control" readonly />
+                    <input asp-for="ValorCif" class="form-control"/>
                     <span asp-validation-for="ValorCif" class="text-danger"></span>
                 </div>
 
@@ -76,7 +76,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label asp-for="ValorTotalNota" class="control-label"></label>
-                    <input asp-for="ValorTotalNota" class="form-control" readonly />
+                    <input asp-for="ValorTotalNota" class="form-control"/>
                     <span asp-validation-for="ValorTotalNota" class="text-danger"></span>
                 </div>
 
@@ -114,8 +114,7 @@
                 <input asp-for="QuantidadeTotalNota" class="form-control" />
                 <span asp-validation-for="QuantidadeTotalNota" class="text-danger"></span>
             </div>
-            <input asp-for="ValorTotal" class="form-control" />
-
+           
         </div>
         <div class="form-group " align="center">
             <br />
@@ -230,30 +229,6 @@ else
     </script>
 
     <script>
-        $(document).ready(function () {
-            $('#ValorFob, #ValorFrete, #ValorSeguro').on('input', function () {
-                var valorFob = parseFloat($('#ValorFob').val()) || 0;
-                var valorFrete = parseFloat($('#ValorFrete').val()) || 0;
-                var valorSeguro = parseFloat($('#ValorSeguro').val()) || 0;
-
-                var valorCif = valorFob + valorFrete + valorSeguro;
-                $('#ValorCif').val(valorCif.toFixed());
-            });
-        });
-
-        $(document).ready(function () {
-            $('#ValorCif, #TaxaCambial, #ValorTotal').on('input', function () {
-                var valorCif = parseFloat($('#ValorCif').val()) || 0;
-                var taxaCambial = parseFloat($('#TaxaCambial').val()) || 0;
-                var valorTotal = parseFloat($('#ValorTotal').val()) || 0;
-
-                var valorTotalNota = valorCif + taxaCambial + valorTotal;
-                $('#ValorTotalNota').val(valorTotalNota.toFixed());
-            });
-        });
-
-        $('#ValorTotal').hide();
-
 
         $(document).ready(function () {
             $("body").on("click", "a.dialog-window", function (e) {

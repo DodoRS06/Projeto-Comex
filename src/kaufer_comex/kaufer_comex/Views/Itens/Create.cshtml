@@ -125,12 +125,12 @@
 	<script>
 		$(document).ready(function () {
 			$('#Largura, #Comprimento').on('input', function () {
-				var largura = parseFloat($('#Largura').val()) || ;
-				var comprimento = parseFloat($('#Comprimento').val()) || ;
+				var largura = parseFloat($('#Largura').val()) || 0;
+				var comprimento = parseFloat($('#Comprimento').val()) || 0;
 				
 
 
-				var areaM2 = largura * comprimento ;
+				var areaM2 = largura * comprimento;
 				$('#AreaM2').val(areaM2.toFixed());
 			});
 		});
