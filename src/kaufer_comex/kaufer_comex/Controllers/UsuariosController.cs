@@ -139,15 +139,12 @@ namespace kaufer_comex.Controllers
         }
 
         // POST: Usuarios/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NomeFuncionario,Email,Senha,CPF,Perfil")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("Id,NomeFuncionario,Email,CPF,Perfil")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-
                 if (string.IsNullOrEmpty(usuario.Email))
                 {
                     ModelState.AddModelError("Email", "O e-mail é obrigatório.");
@@ -162,6 +159,7 @@ namespace kaufer_comex.Controllers
                 {
                     return View(usuario);
                 }
+
                 bool emailExiste = _context.Usuarios.Any(u => u.Email == usuario.Email);
                 bool cpfExiste = _context.Usuarios.Any(u => u.CPF == usuario.CPF);
 
@@ -179,13 +177,46 @@ namespace kaufer_comex.Controllers
                     return View(usuario);
                 }
 
+                //Gerar senha provisória
+                string senhaProvisoria = GerarSenhaProvisoria();
+                usuario.Senha = BCrypt.Net.BCrypt.HashPassword(senhaProvisoria);
 
-                usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                //Enviar e-mail após o cadastro
+                var emailService = new EmailService();
+                string assunto = "Bem-vindo ao nosso sistema";
+                string corpo = $"Olá {usuario.NomeFuncionario}, seja bem-vindo ao nosso sistema!<br/><br/>" +
+                               $"Sua senha provisória para o primeiro acesso é: <strong>{senhaProvisoria}</strong><br/><br/>" +
+                               $"Por favor, altere sua senha após o primeiro login.";
+
+                try
+                {
+                    emailService.SendEmail(usuario.Email, assunto, corpo);
+                    Console.WriteLine("Solicitação de envio de e-mail foi feita.");
+                    TempData["SuccessMessage"] = "Mensagem enviada para o e-mail cadastrado com sucesso! Por favor, verifique o e-mail para realizar o primeiro acesso.";
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erro ao tentar enviar o e-mail: " + ex.Message);
+                    ModelState.AddModelError("Email", "Por favor, digite um e-mail válido.");
+                }
+
+                if (ModelState.IsValid)
+                {
+                    return RedirectToAction("Login");
+                }
             }
             return View(usuario);
+        }
+
+        //senha provisória
+        private string GerarSenhaProvisoria()
+        {
+            const string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            var random = new Random();
+            return new string(Enumerable.Repeat(caracteres, 8).Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
         // GET: Usuarios/Edit/5
