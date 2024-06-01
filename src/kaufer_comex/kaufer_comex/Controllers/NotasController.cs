@@ -60,19 +60,25 @@ namespace kaufer_comex.Controllers
 
 
                 var user = await _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefaultAsync();
+                if (user == null) { return NotFound(); }
+
                 var embarque = await  _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == id);
+                if (embarque == null) { return NotFound(); }
+
                 var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
+                if (processoEmbarque == null) { return NotFound(); }
 
                 ViewData["ProcessoId"] = processoEmbarque.Id;
                 ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
                 ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
-               
+
+                var itens = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
 
                 var view = new NovaNotaView
                 {
                     Emissao = DateTime.Now,
                     BaseNota = DateTime.Now,
-                    NotaItemTemps = _context.NotaItemTemps.ToList(),
+                    NotaItemTemps = itens,
                     NotaItens = _context.NotaItens.ToList(),
 
                 };
@@ -212,6 +218,7 @@ namespace kaufer_comex.Controllers
                             PesoLiquido = item.PesoLiquido,
                             PesoBruto = item.PesoBruto,
                             Item = item,
+                            EmbarqueId = embarqueId,
 
                         };
 
@@ -257,10 +264,8 @@ namespace kaufer_comex.Controllers
                 _context.NotaItemTemps.Remove(item);
                 await _context.SaveChangesAsync();
 
-				int embarqueId = Convert.ToInt32(Request.Form["EmbarqueRodoviarioId"]);
-				
 
-				return RedirectToAction("Create", new { id = embarqueId });
+                return RedirectToAction("Create", new { id = item.EmbarqueId });
             }
 			catch (Exception ex)
 			{
@@ -293,7 +298,7 @@ namespace kaufer_comex.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    // Buscando item na tabela NtoasItens
+                    // Buscando item na tabela NotaItens
                     var existingItem = await _context.NotaItens
                         .FirstOrDefaultAsync(ni => ni.ItemId == view.ItemId && ni.NotaId == view.NotaId);
 
