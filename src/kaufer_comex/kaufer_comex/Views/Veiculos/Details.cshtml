@@ -24,8 +24,8 @@
         </div>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px">Editar</a> |
-    <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+<div class="form-group " align="center">
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px">Editar</a> |
+    <a asp-action="Details" asp-controller="Processos" asp-route-id="@Model.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>
 

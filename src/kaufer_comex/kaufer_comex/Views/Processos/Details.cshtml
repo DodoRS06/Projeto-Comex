@@ -15,8 +15,8 @@
     <br />
     <h4>Detalhes do Processo: @Html.DisplayFor(model => model.CodProcessoExportacao)</h4>
     <hr />
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a asp-controller="Veiculos" asp-action="Create" class="btn btn-outline-dark mb-2" style="width: 110px"> Veículo</a>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">       
+        <a asp-controller="Veiculos" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Veículos</a>
         @if (Model.EmbarquesRodoviarios.Count <= 0)
         {
             <a asp-controller="EmbarqueRodoviarios" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Embarque</a>
@@ -210,6 +210,46 @@
             </div>
         </dl>
     </div>
+
+    @if (Model.Veiculos.Count > 0)
+    {
+        @foreach (var item in Model.Veiculos)
+        {
+            <div class="card mb-3">
+                <div class="card-header d-flex justify-content-between">
+                    <span class="mt-1">Veículo: </span>
+                    <div class="justify-content-sm-end d-flex m-0">
+                        <a asp-action="Edit" asp-controller="Veiculos" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
+                        <a asp-action="Details" asp-controller="Veiculos" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
+                    </div>
+                </div>
+                <dl class="card-body row">
+                    <div class="col-md-4">
+                        <dt>
+                            Placa:
+                        </dt>
+                        <dd>
+                            @item.Placa
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            Motorista:
+                        </dt>
+                        <dd>
+                            @item.Motorista
+                        </dd>
+                    </div>                                    
+                </dl>
+            </div>
+        }
+
+    }
+
+
+
+
+
     @if (Model.Despachos.Count > 0)
     {
         @foreach (var item in Model.Despachos)

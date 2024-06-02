@@ -14,64 +14,64 @@ namespace kaufer_comex.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            try
-            {
+           
                 var dados = await _context.Veiculos
                         .OrderBy(a => a.Motorista)
-                            .ToListAsync();
+						.Where(v => v.ProcessoId == id)
+							.ToListAsync();
 
                 return View(dados);
-            }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-            }
+            
+        
         }
 
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
-            return View();
-        }
+			if (id == null)
+			{
+				return NotFound();
+			}
+
+			ViewData["ProcessoId"] = id.Value;
+			return View();
+		}
+
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        
         public async Task<IActionResult> Create(Veiculo veiculo)
         {
-            try
+
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
+				int processoId = Convert.ToInt32(Request.Form["ProcessoId"]);
 
-                    var VeiculoExistente = await _context.Veiculos
-                  .AnyAsync(a => a.Motorista == veiculo.Motorista);
 
-                    if (VeiculoExistente)
-                    {
-                        ModelState.AddModelError("Motorista", "Esse Motorista já está cadastrado.");
-                        return View(veiculo);
-                    }
-                    _context.Veiculos.Add(veiculo);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction("Index");
+				Veiculo novoVeiculo = new Veiculo
+				{
+					ProcessoId = processoId,
+					Placa = veiculo.Placa,
+                    Motorista= veiculo.Motorista,
+                   
 
-                }
-
-                return View(veiculo);
-            }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+				};
+				_context.Veiculos.Add(novoVeiculo);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Details", "Processos", new { id = novoVeiculo.ProcessoId });
             }
 
+			return View(veiculo);
+
+
+                       
         }
 
         public async Task<IActionResult> Edit(int? id)
         {
-            try
-            {
+            
+            
                 if (id == null)
                     return NotFound();
 
@@ -81,45 +81,38 @@ namespace kaufer_comex.Controllers
                     return NotFound();
 
                 return View(dados);
-            }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-            }
+                      
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+      
         public async Task<IActionResult> Edit(int id, Veiculo veiculo)
         {
-            try
-            {
-                if (id != veiculo.Id)
-                    return NotFound();
 
-                if (ModelState.IsValid)
-                {
-                    _context.Veiculos.Update(veiculo);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction("Index");
 
-                }
+			if (id != veiculo.Id)
+				return NotFound();
 
-                return View();
-            }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-            }
-        }
+			if (ModelState.IsValid)
+			{
+				if (Request.Form.ContainsKey("ProcessoId"))
+				{
+					veiculo.ProcessoId = Convert.ToInt32(Request.Form["ProcessoId"]);
+				}
+				_context.Veiculos.Update(veiculo);
+				await _context.SaveChangesAsync();
+				return RedirectToAction("Details", "Processos", new { id = veiculo.ProcessoId });
+			}
+
+
+
+			return View();
+
+		}
 
         public async Task<IActionResult> Details(int? id)
         {
-            try
-            {
-                if (id == null)
+              if (id == null)
                     return NotFound();
 
                 var dados = await _context.Veiculos.FindAsync(id);
@@ -127,41 +120,29 @@ namespace kaufer_comex.Controllers
                 if (dados == null)
                     return NotFound();
 
-                return View(dados);
-            }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-            }
+                return View(dados);           
         }
 
         public async Task<IActionResult> Delete(int? id)
         {
-            try
-            {
+            
                 if (id == null)
                     return NotFound();
 
-                var dados = await _context.Veiculos.FindAsync(id);
+                var dados = await _context.Veiculos
+                .Include(d => d.Processo)
+				.FirstOrDefaultAsync(d => d.Id == id); ;
 
-                if (dados == null)
+			if (dados == null)
                     return NotFound();
 
                 return View(dados);
-            }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-            }
+                       
         }
 
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        [HttpPost, ActionName("Delete")]       
         public async Task<IActionResult> DeleteConfirmed(int? id)
-        { try
-            {
+        { 
                 if (id == null)
                     return NotFound();
 
@@ -172,14 +153,8 @@ namespace kaufer_comex.Controllers
 
                 _context.Veiculos.Remove(dados);
                 await _context.SaveChangesAsync();
+			return RedirectToAction("Details", "Processos", new { id = dados.ProcessoId });
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-            }
-        }
+		}
     }
 }

@@ -112,5 +112,7 @@ namespace kaufer_comex.Models
 
         public List<Nota> Notas { get; set; }
 
+        public List<Veiculo> Veiculos { get; set; }
+
     }
 }

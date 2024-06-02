@@ -319,7 +319,9 @@ namespace kaufer_comex.Controllers
                     EmbarquesRodoviarios = _context.EmbarqueRodoviarios.Where(d => d.ProcessoId == dados.Id).ToList(),
                     DCES = _context.DCEs.Where(d => d.ProcessoId == dados.Id).ToList(),
                     ValorProcessos = _context.ValorProcessos.Where(v => v.ProcessoId == dados.Id).ToList(),
-                    Notas = new List<Nota>()
+					Veiculos = _context.Veiculos.Where(v => v.ProcessoId == dados.Id).ToList(),
+					Notas = new List<Nota>(),
+                    
 
                 };
 

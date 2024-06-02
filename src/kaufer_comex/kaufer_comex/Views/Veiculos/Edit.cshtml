@@ -14,6 +14,8 @@
     <form asp-action="Edit">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="row">
+            <input type="hidden" asp-for="ProcessoId" />
+            <input type="hidden" asp-for="Id" />
             <div class="form-group col-md">
                 <label asp-for="Placa" class="control-label"></label>
                 <input asp-for="Placa" class="form-control" />
@@ -27,8 +29,8 @@
         </div>
         <div class="form-group " align="center">
             <br />
-            <input type="submit" value="Editar" class="btn " style=" background-color: #fd7e14; color: #FFF; width: 100px" />
-            <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+            <input type="submit" value="Editar" asp-route-ProcessoId="@Model.ProcessoId" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />
+            <a asp-action="Details" asp-controller="Processos" asp-route-id="@Model.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
         </div>
     </form>
 </div>
