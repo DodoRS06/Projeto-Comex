@@ -6,6 +6,12 @@
 
 
 <div>
+	@if (TempData["MensagemErro"] != null)
+	{
+		<div class="alert alert-danger" role="alert" align="center">
+			@TempData["MensagemErro"]
+		</div>
+	}
 	<br />
 	<h3>Detalhes da Fonteira</h3>
 	<hr />

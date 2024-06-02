@@ -15,11 +15,19 @@ namespace kaufer_comex.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.Despachantes
-                 .OrderBy(a => a.NomeDespachante)
-                 .ToListAsync();
+            try
+            {
+                var dados = await _context.Despachantes
+                     .OrderBy(a => a.NomeDespachante)
+                     .ToListAsync();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
+                return View();
+            }
         }
         public IActionResult Create()
         {
@@ -29,50 +37,73 @@ namespace kaufer_comex.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Despachante despachante)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var agenteExistente = await _context.Despachantes
-                    .AnyAsync(a => a.NomeDespachante == despachante.NomeDespachante);
-
-                if (agenteExistente)
+                if (ModelState.IsValid)
                 {
-                    ModelState.AddModelError("NomeDespachante", "Já existe um despachante com esse nome.");
-                    return View(despachante);
+                    var agenteExistente = await _context.Despachantes
+                        .AnyAsync(a => a.NomeDespachante == despachante.NomeDespachante);
+
+                    if (agenteExistente)
+                    {
+                        TempData["MensagemErro"] = $"Esse despachante já está cadastrado .";
+                        return View(despachante);
+                    }
+
+                    _context.Despachantes.Add(despachante);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
                 }
-                
-                _context.Despachantes.Add(despachante);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return View(despachante);
             }
-            return View(despachante);
+            catch {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
     
 
     public async Task<IActionResult> Edit(int? id)
     {
-        if (id == null)
-            return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-        var dados = await _context.Despachantes.FindAsync(id);
-        if (dados == null)
-            return NotFound();
+                var dados = await _context.Despachantes.FindAsync(id);
+                if (dados == null)
+                    return NotFound();
 
-        return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
 
     }
     [HttpPost]
     public async Task<IActionResult> Edit(int id, Despachante despachante)
     {
-        if (id != despachante.Id)
-            return NotFound();
+            try
+            {
+                if (id != despachante.Id)
+                    return NotFound();
 
-        if (ModelState.IsValid)
-        {
-            _context.Despachantes.Update(despachante);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }
-        return View();
+                if (ModelState.IsValid)
+                {
+                    _context.Despachantes.Update(despachante);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return View();
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
     }
 
     public async Task<IActionResult> Details(int? id)
@@ -105,18 +136,25 @@ namespace kaufer_comex.Controllers
     [HttpPost, ActionName("Delete")]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        if (id == null)
-            return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-        var dados = await _context.Despachantes.FindAsync(id);
+                var dados = await _context.Despachantes.FindAsync(id);
 
-        if (id == null)
-            return NotFound();
+                if (id == null)
+                    return NotFound();
 
-        _context.Despachantes.Remove(dados);
-        await _context.SaveChangesAsync();
-        return RedirectToAction("Index");
-
+                _context.Despachantes.Remove(dados);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Despachante está vinculado a um processo. Não pode ser excluído.";
+                return View();
+            }
     }
 }
 }

@@ -15,11 +15,19 @@ namespace kaufer_comex.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.AgenteDeCargas
-                .OrderBy(a => a.NomeAgenteCarga)
-                .ToListAsync();
+            try
+            {
+                var dados = await _context.AgenteDeCargas
+                    .OrderBy(a => a.NomeAgenteCarga)
+                    .ToListAsync();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
+                return View();
+            }
         }
         public IActionResult Create()
         {
@@ -28,62 +36,91 @@ namespace kaufer_comex.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(AgenteDeCarga agenteDeCarga)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var agenteExistente = await _context.AgenteDeCargas
-                    .AnyAsync(a => a.NomeAgenteCarga == agenteDeCarga.NomeAgenteCarga);
+                if (ModelState.IsValid)
+                {
+                    var agenteExistente = await _context.AgenteDeCargas
+                        .AnyAsync(a => a.NomeAgenteCarga == agenteDeCarga.NomeAgenteCarga);
 
-                if (agenteExistente)
-                { 
-                    ModelState.AddModelError("NomeAgenteCarga", "Já existe um agente de carga com esse nome.");
-                    return View(agenteDeCarga);
+                    if (agenteExistente)
+                    {
+                        TempData["MensagemErro"] = $"Já existe esse agente cadastrado";
+                        return View(agenteDeCarga);
+                    }
+
+                    _context.AgenteDeCargas.Add(agenteDeCarga);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
                 }
-
-                _context.AgenteDeCargas.Add(agenteDeCarga);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return View(agenteDeCarga);
             }
-            return View(agenteDeCarga);
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.AgenteDeCargas.FindAsync(id);
-            if (dados == null)
-                return NotFound();
+                var dados = await _context.AgenteDeCargas.FindAsync(id);
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);
-
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
         [HttpPost]
         public async Task<IActionResult> Edit(int id, AgenteDeCarga agenteDeCarga)
         {
-            if (id != agenteDeCarga.Id)
-                return NotFound();
-
-            if (ModelState.IsValid)
+            try
             {
-                _context.AgenteDeCargas.Update(agenteDeCarga);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (id != agenteDeCarga.Id)
+                    return NotFound();
+
+                if (ModelState.IsValid)
+                {
+                    _context.AgenteDeCargas.Update(agenteDeCarga);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return View();
             }
-            return View();
+            catch {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.AgenteDeCargas.FindAsync(id);
+                var dados = await _context.AgenteDeCargas.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (id == null)
+                    return NotFound();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                return NotFound();  
+            }
         }
 
 
@@ -103,17 +140,24 @@ namespace kaufer_comex.Controllers
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.AgenteDeCargas.FindAsync(id);
+                var dados = await _context.AgenteDeCargas.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (id == null)
+                    return NotFound();
 
-            _context.AgenteDeCargas.Remove(dados);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+                _context.AgenteDeCargas.Remove(dados);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            catch {
+                TempData["MensagemErro"] = $"Este agente está vinculado a um embarque. Não pode ser excluído";
+                return View();
+            }
 
         }
     }

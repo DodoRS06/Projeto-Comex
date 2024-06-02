@@ -26,7 +26,7 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
                 return View();
             }
 
@@ -54,7 +54,7 @@ namespace kaufer_comex.Controllers
 
                     if (destinoExistente)
                     {
-                        ModelState.AddModelError("NomePais", "Esse destino já está cadastrado.");
+                        TempData["MensagemErro"] = $"Esse destino já está cadastrado .";
                         return View(destino);
                     }
                     _context.Destinos.Add(destino);
@@ -178,7 +178,7 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                TempData["MensagemErro"] = $"Destino está vinculado a um processo. Não pode ser excluído";
                 return View();
             }
         }
