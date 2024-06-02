@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GD2XieK1nHnYP5EOCZNWnJNo3u+reEygJSIk9VqLe5Y=",
+  "Hash": "HmVKeVFunPpIrrjaaNP0eiLS60SM135bDuf5aNJWxts=",
   "Source": "kaufer_comex",
   "BasePath": "_content/kaufer_comex",
   "Mode": "Default",
@@ -153,6 +153,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\editar.png"
     },
     {
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\excel.png",
+      "SourceId": "kaufer_comex",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "BasePath": "_content/kaufer_comex",
+      "RelativePath": "Images/excel.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\excel.png"
+    },
+    {
       "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\excluir.png",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
@@ -202,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Logo2.png"
+    },
+    {
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\voltar.png",
+      "SourceId": "kaufer_comex",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "BasePath": "_content/kaufer_comex",
+      "RelativePath": "Images/voltar.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\voltar.png"
     },
     {
       "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\js\\site.js",

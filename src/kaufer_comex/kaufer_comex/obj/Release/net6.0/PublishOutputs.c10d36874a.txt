@@ -297,7 +297,11 @@ C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\kaufer_comex.runtimeconfig.json
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\kaufer_comex.pdb
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\BCrypt.Net-Next.dll
+C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\ClosedXML.dll
+C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\DocumentFormat.OpenXml.dll
+C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\ExcelNumberFormat.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
+C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\Irony.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\MessagePack.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\MessagePack.Annotations.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
@@ -351,6 +355,7 @@ C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\NuGet.ProjectModel.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\NuGet.Protocol.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\NuGet.Versioning.dll
+C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\SixLabors.Fonts.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\System.Composition.AttributedModel.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\System.Composition.Convention.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\System.Composition.Hosting.dll
@@ -360,11 +365,13 @@ C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\System.Diagnostics.DiagnosticSource.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\System.Drawing.Common.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\System.IO.Packaging.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\System.Reflection.MetadataLoadContext.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\System.Runtime.Caching.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\System.Security.Permissions.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\System.Windows.Extensions.dll
+C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\XLParser.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\af\Humanizer.resources.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\ar\Humanizer.resources.dll
 C:\Users\noguti oliveira\Documents\MOBILE\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\obj\Release\net6.0\PubTmp\Out\az\Humanizer.resources.dll

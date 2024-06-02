@@ -33,6 +33,14 @@
             padding-top: 10px;
             padding-bottom: 10px;
         }
+
+        footer {
+            clear: both; /* Limpa os elementos flutuantes */
+            margin-top: 20px; /* Espaço acima do footer para separá-lo do conteúdo */
+            position: relative; /* Posição relativa para garantir que fique no lugar certo */
+            bottom: 0; /* Fica na parte inferior da página */
+            width: 100%; /* Largura total */
+        }
     </style>
 
     @await RenderSectionAsync("Estilos", required: false)
