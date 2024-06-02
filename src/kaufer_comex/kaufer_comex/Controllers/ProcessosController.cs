@@ -1,4 +1,6 @@
-﻿using kaufer_comex.Models;
+﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Spreadsheet;
+using kaufer_comex.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -450,6 +452,62 @@ namespace kaufer_comex.Controllers
             }
 
         }
+     
+        [HttpGet]
+        public async Task<FileResult> ExportFornecedorServicoExcel()
+        {
+            var processo = await _context.Processos.ToListAsync();
 
+            var embarque = await _context.EmbarqueRodoviarios.ToListAsync();
+
+            var fileName = "Processo.xlsx";
+
+
+            return GenerateExcel( fileName, processo ,embarque);
+        }
+
+        private FileResult GenerateExcel( string fileName, IEnumerable<Processo> processo ,  IEnumerable <EmbarqueRodoviario> embarque )
+        {
+            DataTable dataTable = new DataTable("Processo");
+            dataTable.Columns.AddRange(new DataColumn[]
+            {
+        new DataColumn("Id"),
+        new DataColumn("Código do Processo"),
+        new DataColumn("Proforma")
+            });
+
+            foreach (var Processo in processo)
+            {
+                dataTable.Rows.Add( Processo.Id, Processo.CodProcessoExportacao, Processo.Proforma);
+            }
+
+
+            DataTable dataTables = new DataTable("Embarque");
+            dataTables.Columns.AddRange(new DataColumn[]
+            {
+        new DataColumn("Id"),
+        new DataColumn("Agente de Carga"),
+        new DataColumn("Transportadora")
+            });
+
+            foreach (var EmbarqueRodoviario in embarque)
+            {
+                dataTable.Rows.Add(EmbarqueRodoviario.Id, EmbarqueRodoviario.AgenteDeCarga, EmbarqueRodoviario.Transportadora);
+            }
+
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dataTable,"Processo");
+                wb.Worksheets.Add(dataTables, "Embarque");
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+
+                    return File(stream.ToArray(),
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" , fileName);
+           
+                }
+            }
+        }
     }
 }
