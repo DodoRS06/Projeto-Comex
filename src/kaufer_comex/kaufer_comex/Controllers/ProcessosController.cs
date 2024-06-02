@@ -36,11 +36,11 @@ namespace kaufer_comex.Controllers
 
                 foreach (var processo in dados)
                 {
-                   var importador = processo.ImportadorId;
-                   ViewData["importador"] = GetNomeImportador(importador);
+                    var importador = processo.ImportadorId;
+                    ViewData["importador"] = GetNomeImportador(importador);
                 }
 
-                
+
 
                 return View(dados);
             }
@@ -291,7 +291,7 @@ namespace kaufer_comex.Controllers
                 }
 
                 var notaEmbarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.ProcessoId == dados.Id);
-               
+
 
                 var view = new DetalhesProcessoView
                 {
@@ -321,9 +321,9 @@ namespace kaufer_comex.Controllers
                     EmbarquesRodoviarios = _context.EmbarqueRodoviarios.Where(d => d.ProcessoId == dados.Id).ToList(),
                     DCES = _context.DCEs.Where(d => d.ProcessoId == dados.Id).ToList(),
                     ValorProcessos = _context.ValorProcessos.Where(v => v.ProcessoId == dados.Id).ToList(),
-					Veiculos = _context.Veiculos.Where(v => v.ProcessoId == dados.Id).ToList(),
-					Notas = new List<Nota>(),
-                    
+                    Veiculos = _context.Veiculos.Where(v => v.ProcessoId == dados.Id).ToList(),
+                    Notas = new List<Nota>(),
+
 
                 };
 
@@ -414,7 +414,7 @@ namespace kaufer_comex.Controllers
                 var dados = await _context.Processos
                     .Include(p => p.Despachante)
                     .Include(p => p.Vendedor)
-                    .Include(p =>p.Usuario)
+                    .Include(p => p.Usuario)
                     .Include(p => p.Destino)
                     .Include(p => p.Fronteira)
                     .Include(p => p.Status)
@@ -452,60 +452,90 @@ namespace kaufer_comex.Controllers
             }
 
         }
-     
-        [HttpGet]
-        public async Task<FileResult> ExportFornecedorServicoExcel()
-        {
-            var processo = await _context.Processos.ToListAsync();
 
-            var embarque = await _context.EmbarqueRodoviarios.ToListAsync();
+        [HttpGet]
+        public async Task<FileResult> ExportProcessosExcel()
+        {
+            var processos = await _context.Processos
+                     .Include(p => p.Despachante)
+                     .Include(p => p.Vendedor)
+                     .Include(p => p.Destino)
+                     .Include(p => p.Fronteira)
+                     .Include(p => p.Status)
+                     .Include(p => p.Usuario)
+                     .Include(p => p.ExpImps)
+                     .ThenInclude(p => p.ExpImp)
+             .ToListAsync();
+
+
+            // var embarque = await _context.EmbarqueRodoviarios.ToListAsync();
 
             var fileName = "Processo.xlsx";
 
 
-            return GenerateExcel( fileName, processo ,embarque);
+            return GenerateExcel(fileName, processos);
         }
 
-        private FileResult GenerateExcel( string fileName, IEnumerable<Processo> processo ,  IEnumerable <EmbarqueRodoviario> embarque )
+        private FileResult GenerateExcel(string fileName, IEnumerable<Processo> processos)
         {
-            DataTable dataTable = new DataTable("Processo");
+            DataTable dataTable = new DataTable("Processos");
             dataTable.Columns.AddRange(new DataColumn[]
             {
-        new DataColumn("Id"),
-        new DataColumn("Código do Processo"),
-        new DataColumn("Proforma")
+                 new DataColumn("Id"),
+                 new DataColumn("CodProcessoExportacao"),
+                 new DataColumn("Exportador"),
+                 new DataColumn("Importador"),
+                 new DataColumn("Usuário Responsável"),
+                 new DataColumn("Modal"),
+                 new DataColumn("Incoterm"),
+                 new DataColumn("Destino"),
+                 new DataColumn("Fronteira"),
+                 new DataColumn("Despachante"),
+                 new DataColumn("Vendedor"),
+                 new DataColumn("Status"),
+                 new DataColumn("Proforma"),
+                 new DataColumn("DataInicioProcesso"),
+                 new DataColumn("PrevisaoProducao"),
+                 new DataColumn("PrevisaoPagamento"),
+                 new DataColumn("PrevisaoColeta"),
+                 new DataColumn("Previsão Cruze"),
+                 new DataColumn("Previsão de entrega"),
+                 new DataColumn("Observacoes"),
+                 new DataColumn("PedidosRelacionados"),
             });
 
-            foreach (var Processo in processo)
+            foreach (var Processo in processos)
             {
-                dataTable.Rows.Add( Processo.Id, Processo.CodProcessoExportacao, Processo.Proforma);
+                dataTable.Rows.Add(Processo.Id, Processo.CodProcessoExportacao, GetNomeExportador(Processo.ExportadorId), GetNomeImportador(Processo.ImportadorId), Processo.Usuario.NomeFuncionario,
+                    Processo.Modal, Processo.Incoterm, Processo.Destino.NomePais, Processo.Fronteira.NomeFronteira, Processo.Despachante.NomeDespachante, Processo.Vendedor.NomeVendedor, Processo.Status.StatusAtual,
+                    Processo.Proforma, Processo.DataInicioProcesso, Processo.PrevisaoProducao, Processo.PrevisaoPagamento, Processo.PrevisaoColeta, Processo.PrevisaoCruze,
+                    Processo.PrevisaoEntrega, Processo.Observacoes, Processo.PedidosRelacionados);
             }
 
+            //DataTable dataTables = new DataTable("Embarque");
+            //dataTables.Columns.AddRange(new DataColumn[]
+            //{
+            //    new DataColumn("Id"),
+            //    new DataColumn("Agente de Carga"),
+            //    new DataColumn("Transportadora")
+            //});
 
-            DataTable dataTables = new DataTable("Embarque");
-            dataTables.Columns.AddRange(new DataColumn[]
-            {
-        new DataColumn("Id"),
-        new DataColumn("Agente de Carga"),
-        new DataColumn("Transportadora")
-            });
-
-            foreach (var EmbarqueRodoviario in embarque)
-            {
-                dataTable.Rows.Add(EmbarqueRodoviario.Id, EmbarqueRodoviario.AgenteDeCarga, EmbarqueRodoviario.Transportadora);
-            }
+            //foreach (var EmbarqueRodoviario in embarque)
+            //{
+            //    dataTable.Rows.Add(EmbarqueRodoviario.Id, EmbarqueRodoviario.AgenteDeCarga, EmbarqueRodoviario.Transportadora);
+            //}
 
             using (XLWorkbook wb = new XLWorkbook())
             {
-                wb.Worksheets.Add(dataTable,"Processo");
-                wb.Worksheets.Add(dataTables, "Embarque");
+                wb.Worksheets.Add(dataTable, "Processo");
+               // wb.Worksheets.Add(dataTables, "Embarque");
                 using (MemoryStream stream = new MemoryStream())
                 {
                     wb.SaveAs(stream);
 
                     return File(stream.ToArray(),
-                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" , fileName);
-           
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+
                 }
             }
         }

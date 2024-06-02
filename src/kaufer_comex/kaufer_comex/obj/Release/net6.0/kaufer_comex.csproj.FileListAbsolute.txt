@@ -4337,3 +4337,10 @@ C:\repositório atual\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\ka
 C:\repositório atual\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\bin\Release\net6.0\SixLabors.Fonts.dll
 C:\repositório atual\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\bin\Release\net6.0\System.IO.Packaging.dll
 C:\repositório atual\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\bin\Release\net6.0\XLParser.dll
+C:\GitHub\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\bin\Release\net6.0\ClosedXML.dll
+C:\GitHub\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\bin\Release\net6.0\DocumentFormat.OpenXml.dll
+C:\GitHub\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\bin\Release\net6.0\ExcelNumberFormat.dll
+C:\GitHub\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\bin\Release\net6.0\Irony.dll
+C:\GitHub\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\bin\Release\net6.0\SixLabors.Fonts.dll
+C:\GitHub\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\bin\Release\net6.0\System.IO.Packaging.dll
+C:\GitHub\pmv-ads-2024-1-e5-proj-empext-t5-comex\src\kaufer_comex\kaufer_comex\bin\Release\net6.0\XLParser.dll
