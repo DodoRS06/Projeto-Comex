@@ -17,13 +17,11 @@
 
 
 <div class="container">
-    <div class="form-group " align="center">
-        <h2>Notas Cadastradas</h2>
-    </div>
-    <div class="d-flex flex-row-reverse bd-highlight">
-        <p>
-            <a asp-action="Create" asp-route-id="@embarqueId" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #fd7e14; color: #FFF">Adicionar Nota</a>
-        </p>
+    <div class="row">
+        <a asp-action="Index" asp-controller="Processos" class="btn" style="width: 100px"><img src="~/Images/voltar.png" style="height:20px; width:20px"></a>
+        <div align="center">
+            <h4>Lista de Notas:</h4>
+        </div>
     </div>
     <table id="myTable" class="table">
         <thead>
@@ -96,7 +94,7 @@
                 @Html.DisplayFor(modelItem => item.Veiculo.Motorista)
                 </td> *@
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> | 
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
                         <a asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> |
                         <a asp-action="Delete" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
                     </td>

@@ -53,10 +53,20 @@
                        @*  <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li> *@
-                       
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Processos" asp-action="Index">Processos</a>
-                        </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Processos
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="EmbarqueRodoviarios" asp-action="Index">Embarque</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Veiculos" asp-action="Index">Veículo</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Notas" asp-action="Index">Notas</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Despachos" asp-action="Index">Despachos</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="ValoresProcessos" asp-action="Index">Valores</a></li>
+                                   @*  <li><a class="dropdown-item" asp-area="" asp-controller="DCEs" asp-action="Index">DCE</a></li> *@
+                                </ul>
+                            </li>
                    @*      <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Despachos" asp-action="Index">Despachos</a>
                         </li> *@                      

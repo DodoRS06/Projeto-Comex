@@ -14,15 +14,9 @@ namespace kaufer_comex.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(int? id)
+        public async Task<IActionResult> Index()
         {
-			if (id == null)
-			{
-				return NotFound();
-			}
-
 			var dados = await _context.ValorProcessos
-                .Where(v => v.ProcessoId == id)
                 .ToListAsync();
 
             return View(dados);

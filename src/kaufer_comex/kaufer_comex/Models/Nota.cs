@@ -16,6 +16,7 @@ namespace kaufer_comex.Models
         public int NumeroNf { get; set; }
 
         [Display(Name = "Emissão (*)")]
+        [Required(ErrorMessage = "Obrigatório")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         public DateTime Emissao { get; set; }

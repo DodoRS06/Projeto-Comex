@@ -1,151 +1,150 @@
 ﻿@model IEnumerable<kaufer_comex.Models.Despacho>
 
 @{
-	ViewData["Title"] = "Lista de Despachos";
+    ViewData["Title"] = "Lista de Despachos";
 }
 
 @section Estilos {
-	<style>
-		.btn-exportar-excel {
-			background-color: #198754 !important;
-			color: white !important;
-		}
-	</style>
+    <style>
+        .btn-exportar-excel {
+            background-color: #198754 !important;
+            color: white !important;
+        }
+    </style>
 
 }
 
 @if (TempData["MensagemErro"] != null)
 {
-	<div class="alert alert-danger" role="alert" align="center">
-		@TempData["MensagemErro"]
-	</div>
+    <div class="alert alert-danger" role="alert" align="center">
+        @TempData["MensagemErro"]
+    </div>
 }
 
-<div class="form-group " align="center">
-	<h2>Lista de Despachos</h2>
+<div class="row">
+    <a asp-action="Index" asp-controller="Processos" class="btn" style="width: 100px"><img src="~/Images/voltar.png" style="height:20px; width:20px"></a>
+    <div align="center">
+        <h4>Lista de Despachos:</h4>
+    </div>
 </div>
-<div class="d-flex flex-row-reverse bd-highlight">
-	<p>
-		<a asp-action="Create" asp-route-id="@ViewContext.RouteData.Values["id"]" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #F08433; color: #FFF">Adicionar Despacho</a>
-	</p>
-</div>
+
 <table id="myTable" class="table">
-	<thead>
-		<tr>
-			<th>
-				@Html.DisplayNameFor(model => model.NumeroDue)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.DataDue)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.DataExportacao)
-			</th>
-			@*             <th>
-			@Html.DisplayNameFor(model => model.ConhecimentoEmbarque)
-			</th>
-			<th>
-			@Html.DisplayNameFor(model => model.DataConhecimento)
-			</th>
-			<th>
-			@Html.DisplayNameFor(model => model.Tipo)
-			</th>
-			<th>
-			@Html.DisplayNameFor(model => model.DataAverbacao)
-			</th>
-			<th>
-			@Html.DisplayNameFor(model => model.CodPais)
-			</th>
-			<th>
-			@Html.DisplayNameFor(model => model.Parametrizacao)
-			</th> *@
-			<th>
-				@Html.DisplayNameFor(model => model.Processo)
-			</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var item in Model)
-		{
-			<tr>
-				<td>
-					@Html.DisplayFor(modelItem => item.NumeroDue)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.DataDue)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.DataExportacao)
-				</td>
-				@*            <td>
-			@Html.DisplayFor(modelItem => item.ConhecimentoEmbarque)
-			</td>
-			<td>
-			@Html.DisplayFor(modelItem => item.DataConhecimento)
-			</td>
-			<td>
-			@Html.DisplayFor(modelItem => item.Tipo)
-			</td>
-			<td>
-			@Html.DisplayFor(modelItem => item.DataAverbacao)
-			</td>
-			<td>
-			@Html.DisplayFor(modelItem => item.CodPais)
-			</td>
-			<td>
-			@Html.DisplayFor(modelItem => item.Parametrizacao)
-			</td> *@
-				<td>
-					@Html.DisplayFor(modelItem => item.Processo.CodProcessoExportacao)
-				</td>
-				<td>
-					<a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
-					<a asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> |
-					@if (User.IsInRole("Admin"))
-					{
-						<a asp-action="Delete" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
-					}
-				</td>
-			</tr>
-		}
-	</tbody>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataExportacao)
+            </th>
+            @*             <th>
+            @Html.DisplayNameFor(model => model.ConhecimentoEmbarque)
+            </th>
+            <th>
+            @Html.DisplayNameFor(model => model.DataConhecimento)
+            </th>
+            <th>
+            @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+            @Html.DisplayNameFor(model => model.DataAverbacao)
+            </th>
+            <th>
+            @Html.DisplayNameFor(model => model.CodPais)
+            </th>
+            <th>
+            @Html.DisplayNameFor(model => model.Parametrizacao)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.Processo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroDue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataDue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataExportacao)
+                </td>
+                @*            <td>
+            @Html.DisplayFor(modelItem => item.ConhecimentoEmbarque)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.DataConhecimento)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.DataAverbacao)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.CodPais)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.Parametrizacao)
+            </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Processo.CodProcessoExportacao)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> |
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
 
 @section Scripts {
-	<script>
-		let table = new DataTable('#myTable',
-			{
-				language: {
-					emptyTable: 'Nenhum registro encontrado',
-					info: 'Mostrando de _START_ até _END_ de _TOTAL_ registros',
-					infoEmpty: 'Mostrando 0 até 0 de 0 registro(s)',
-					infoFiltered: '(Filtrados de _MAX_ registros)',
-					zeroRecords: 'Nenhum registro encontrado',
-					search: 'Pesquisar',
-					buttons: {
-						pageLength: {
-							_: 'Mostrar %d registros'
-						},
-					},
-				},
-				buttons: [{
-					extend: 'excelHtml5',
-					text: '<i class="fa-solid fa-file-excel"></i>',
-					filename: 'Despachos-Kaufer',
-					title: '',
-					exportOptions: {
-						columns: [0, 1, 2, 3]
-					},
-					className: 'btn-exportar-excel',
-				},
-					'pageLength'
-				],
-				layout: {
-					topStart: 'buttons'
-				},
-				ordering: false
-			});
-	</script>
+    <script>
+        let table = new DataTable('#myTable',
+            {
+                language: {
+                    emptyTable: 'Nenhum registro encontrado',
+                    info: 'Mostrando de _START_ até _END_ de _TOTAL_ registros',
+                    infoEmpty: 'Mostrando 0 até 0 de 0 registro(s)',
+                    infoFiltered: '(Filtrados de _MAX_ registros)',
+                    zeroRecords: 'Nenhum registro encontrado',
+                    search: 'Pesquisar',
+                    buttons: {
+                        pageLength: {
+                            _: 'Mostrar %d registros'
+                        },
+                    },
+                },
+                buttons: [{
+                    extend: 'excelHtml5',
+                    text: '<i class="fa-solid fa-file-excel"></i>',
+                    filename: 'Despachos-Kaufer',
+                    title: '',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    },
+                    className: 'btn-exportar-excel',
+                },
+                    'pageLength'
+                ],
+                layout: {
+                    topStart: 'buttons'
+                },
+                ordering: false
+            });
+    </script>
 
 }

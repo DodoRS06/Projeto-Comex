@@ -14,12 +14,11 @@ namespace kaufer_comex.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(int? id)
+        public async Task<IActionResult> Index()
         {
            
                 var dados = await _context.Veiculos
                         .OrderBy(a => a.Motorista)
-						.Where(v => v.ProcessoId == id)
 							.ToListAsync();
 
                 return View(dados);

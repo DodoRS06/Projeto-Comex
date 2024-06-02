@@ -18,23 +18,16 @@ namespace kaufer_comex.Controllers
         }
 
         //GET: Notas/Index
-        public async Task<IActionResult> Index(int? id)
+        public async Task<IActionResult> Index()
         {
             try
             {
 
-                if (id == null)
-                {
-                    return NotFound();
-                }
-
                 var dados = await _context.Notas
-                    .Where(d => d.EmbarqueRodoviarioId == id)
                     .Include(p => p.Veiculo)
                     .Include(p => p.EmbarqueRodoviario)
                     .ToListAsync();
 
-                ViewData["EmbarqueRodoviarioId"] = id;
 
                 return View(dados);
             }
@@ -62,7 +55,7 @@ namespace kaufer_comex.Controllers
                 var user = await _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefaultAsync();
                 if (user == null) { return NotFound(); }
 
-                var embarque = await  _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == id);
+                var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == id);
                 if (embarque == null) { return NotFound(); }
 
                 var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
@@ -103,6 +96,15 @@ namespace kaufer_comex.Controllers
 
                 if (ModelState.IsValid)
                 {
+                    var notaExistente = await _context.Notas
+                        .AnyAsync(a => a.NumeroNf == view.NumeroNf);
+
+                    if (notaExistente)
+                    {
+                        ModelState.AddModelError("NumeroNf", "Esse número de nota já está cadastrado.");
+                        return View(view);
+                    }
+
                     var novaNota = new Nota
                     {
                         NumeroNf = view.NumeroNf,
@@ -141,19 +143,19 @@ namespace kaufer_comex.Controllers
                         await _context.SaveChangesAsync();
 
                     }
-                   
+
                     var embarque = novaNota.EmbarqueRodoviarioId;
                     var embarqueProcesso = await _context.EmbarqueRodoviarios.FindAsync(embarque);
                     var processo = await _context.Processos.FirstOrDefaultAsync(p => p.Id == embarqueProcesso.ProcessoId);
 
-                   
+
 
                     return RedirectToAction("Details", "Processos", new { id = processo.Id });
                 }
 
                 ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
                 ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
-                
+
                 var notaItemTemps = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
 
                 return View(view);
@@ -196,9 +198,9 @@ namespace kaufer_comex.Controllers
             try
             {
                 int embarqueId = Convert.ToInt32(Request.Form["EmbarqueRodoviarioId"]);
-				ViewData["EmbarqueRodoviarioId"] = embarqueId;
+                ViewData["EmbarqueRodoviarioId"] = embarqueId;
 
-			   var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
+                var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
 
                 if (ModelState.IsValid)
                 {
@@ -239,11 +241,11 @@ namespace kaufer_comex.Controllers
                 ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
                 return PartialView();
             }
-			catch (Exception ex)
-			{
-				return StatusCode(500, $"Erro ao cadastrar itens: {ex.Message}");
-			}
-		}
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro ao cadastrar itens: {ex.Message}");
+            }
+        }
 
         // Excluir Item antes de cadastrar nota
         public async Task<IActionResult> ExcluirItem(int? id)
@@ -267,27 +269,27 @@ namespace kaufer_comex.Controllers
 
                 return RedirectToAction("Create", new { id = item.EmbarqueId });
             }
-			catch (Exception ex)
-			{
-				return StatusCode(500, $"Erro ao excluir itens: {ex.Message}");
-			}
-		}
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro ao excluir itens: {ex.Message}");
+            }
+        }
 
-		// GET: Notas/EditItem/5
-		public async Task<IActionResult> EditItem(int id)
-		{
-			var item = await _context.NotaItens
-				.Include(ni => ni.Item)
-				.FirstOrDefaultAsync(ni => ni.ItemId == id);
+        // GET: Notas/EditItem/5
+        public async Task<IActionResult> EditItem(int id)
+        {
+            var item = await _context.NotaItens
+                .Include(ni => ni.Item)
+                .FirstOrDefaultAsync(ni => ni.ItemId == id);
 
-			if (item == null)
-			{
-				return NotFound();
-			}
+            if (item == null)
+            {
+                return NotFound();
+            }
 
-			ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto", item.ItemId);
-			return PartialView(item);
-		}
+            ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto", item.ItemId);
+            return PartialView(item);
+        }
 
         // POST: ADD ITEM
         [HttpPost]
@@ -336,14 +338,14 @@ namespace kaufer_comex.Controllers
         {
             try
             {
-				if (id == null)
-				{
-					return NotFound();
-				}
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-				ViewData["NotaId"] = id.Value;
+                ViewData["NotaId"] = id.Value;
 
-				var user = await _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefaultAsync();
+                var user = await _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefaultAsync();
                 ViewData["ItemId"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
                 return PartialView();
             }
@@ -367,12 +369,12 @@ namespace kaufer_comex.Controllers
             var item = view.ItemId;
 
             var itemExistente = await _context.NotaItens
-						.FirstOrDefaultAsync(ni => ni.ItemId == view.ItemId && ni.NotaId == view.NotaId);
+                        .FirstOrDefaultAsync(ni => ni.ItemId == view.ItemId && ni.NotaId == view.NotaId);
 
-			if (itemExistente == null)
+            if (itemExistente == null)
             {
-				var novoItem = await _context.Itens.FirstOrDefaultAsync(p => p.Id == item);
-				if (novoItem != null && view != null)
+                var novoItem = await _context.Itens.FirstOrDefaultAsync(p => p.Id == item);
+                if (novoItem != null && view != null)
                 {
                     decimal itemValor = novoItem.Preco * Convert.ToDecimal(view.Quantidade);
 
@@ -389,11 +391,11 @@ namespace kaufer_comex.Controllers
             }
             else
             {
-				TempData["MensagemErro"] = $"Item já cadastrado.";
-				return View();
-			}
+                TempData["MensagemErro"] = $"Item já cadastrado.";
+                return View();
+            }
 
-            return RedirectToAction("Edit", "Notas",new { id = view.NotaId  });
+            return RedirectToAction("Edit", "Notas", new { id = view.NotaId });
         }
 
         //GET: Notas/Edit/5

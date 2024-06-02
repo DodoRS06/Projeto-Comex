@@ -15,18 +15,13 @@ namespace kaufer_comex.Controllers
         }
 
         // GET : Despachos
-        public async Task<IActionResult> Index(int? id)
+        public async Task<IActionResult> Index()
         {
             try
             {
-                if (id == null)
-                {
-                    return NotFound();
-                }
-
+           
                 var dados = await _context.Despachos
-                    .Where(d => d.ProcessoId == id)
-                    .ToListAsync();
+                     .ToListAsync();
 
                 return View(dados);
             }

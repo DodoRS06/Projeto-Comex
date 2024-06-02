@@ -1,125 +1,124 @@
 ﻿@model IEnumerable<kaufer_comex.Models.ValorProcesso>
 
 @{
-	ViewData["Title"] = "Index";
+    ViewData["Title"] = "Index";
 }
 
 @section Estilos {
-	<style>
-		.btn-exportar-excel {
-			background-color: #198754 !important;
-			color: white !important;
-		}
-	</style>
+    <style>
+        .btn-exportar-excel {
+            background-color: #198754 !important;
+            color: white !important;
+        }
+    </style>
 
 }
 
 <div class="container">
-	<div class="form-group " align="center">
-		<h2>Valores do Processo</h2>
-	</div>
-	<div class="d-flex flex-row-reverse bd-highlight">
-		<p>
-			<a asp-action="Create" asp-route-id="@ViewContext.RouteData.Values["id"]" class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #fd7e14; color: #FFF">Adicionar Valor de Processo</a>
-		</p>
-	</div>
-	<table id="myTable" class="table">
-		<thead>
-			<tr>
-				<th>
-					@Html.DisplayNameFor(model => model.Id)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.ValorExw)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.ValorFobFca)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.FreteInternacional)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.SeguroInternaciona)
-				</th> 
-				<th>
-					@Html.DisplayNameFor(model => model.ValorTotalCif)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.Moeda)
-				</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var item in Model)
-			{
-				<tr>
-					<td>
-						@Html.DisplayFor(modelItem => item.Id)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.ValorExw)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.ValorFobFca)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.FreteInternacional)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.SeguroInternaciona)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.ValorTotalCif)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Moeda)
-					</td>
-					<td>
-						<a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
-						<a asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> |
-						<a asp-action="Delete" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
-					</td>
-				</tr>
-			}
-		</tbody>
-	</table>
+    <div class="row">
+        <a asp-action="Index" asp-controller="Processos" class="btn" style="width: 100px"><img src="~/Images/voltar.png" style="height:20px; width:20px"></a>
+        <div align="center">
+            <h4>Lista de Valores:</h4>
+        </div>
+    </div>
+    </div>
+    <table id="myTable" class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ValorExw)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ValorFobFca)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FreteInternacional)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SeguroInternaciona)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ValorTotalCif)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Moeda)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ValorExw)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ValorFobFca)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FreteInternacional)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SeguroInternaciona)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ValorTotalCif)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Moeda)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 
 @section Scripts {
-	<script>
-		let table = new DataTable('#myTable',
-			{
-				language: {
-					emptyTable: 'Nenhum registro encontrado',
-					info: 'Mostrando de _START_ até _END_ de _TOTAL_ registros',
-					infoEmpty: 'Mostrando 0 até 0 de 0 registro(s)',
-					infoFiltered: '(Filtrados de _MAX_ registros)',
-					zeroRecords: 'Nenhum registro encontrado',
-					search: 'Pesquisar',
-					buttons: {
-						pageLength: {
-							_: 'Mostrar %d registros'
-						},
-					},
-				},
-				buttons: [{
-					extend: 'excelHtml5',
-					text: '<i class="fa-solid fa-file-excel"></i>',
-					filename: 'Valores Processos-Kaufer',
-					title: '',
-					exportOptions: {
-						columns: [0, 1, 2, 3, 4, 5, 6]
-					},
-					className: 'btn-exportar-excel',
-				},
-					'pageLength'
-				],
-				layout: {
-					topStart: 'buttons'
-				},
-				ordering: false
-			});
-	</script>
+    <script>
+        let table = new DataTable('#myTable',
+            {
+                language: {
+                    emptyTable: 'Nenhum registro encontrado',
+                    info: 'Mostrando de _START_ até _END_ de _TOTAL_ registros',
+                    infoEmpty: 'Mostrando 0 até 0 de 0 registro(s)',
+                    infoFiltered: '(Filtrados de _MAX_ registros)',
+                    zeroRecords: 'Nenhum registro encontrado',
+                    search: 'Pesquisar',
+                    buttons: {
+                        pageLength: {
+                            _: 'Mostrar %d registros'
+                        },
+                    },
+                },
+                buttons: [{
+                    extend: 'excelHtml5',
+                    text: '<i class="fa-solid fa-file-excel"></i>',
+                    filename: 'Valores Processos-Kaufer',
+                    title: '',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6]
+                    },
+                    className: 'btn-exportar-excel',
+                },
+                    'pageLength'
+                ],
+                layout: {
+                    topStart: 'buttons'
+                },
+                ordering: false
+            });
+    </script>
 
 }
