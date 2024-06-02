@@ -425,6 +425,26 @@ namespace kaufer_comex.Controllers
                 if (dados == null)
                     return NotFound();
 
+                var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.ProcessoId == dados.Id);
+                if (embarque != null)
+                {
+                    var notas = await _context.Notas.Where(n => n.EmbarqueRodoviarioId == embarque.Id).ToListAsync();
+                    foreach (var nota in notas)
+                    {
+                        _context.Notas.Remove(nota);
+                        await _context.SaveChangesAsync();
+
+                        var notaItem = await _context.NotaItens.Where(ni => ni.NotaId == nota.Id).ToListAsync();
+
+                        foreach (var item in notaItem)
+                        {
+                            _context.NotaItens.Remove(item);
+                            await _context.SaveChangesAsync();
+                        }
+                    }
+
+                }
+
                 var exportador_ = await _context.ProcessosExpImp
                             .FirstOrDefaultAsync(e => e.ProcessoId == id && e.ExpImp.TipoExpImp == TipoExpImp.Exportador);
 
@@ -528,7 +548,7 @@ namespace kaufer_comex.Controllers
             using (XLWorkbook wb = new XLWorkbook())
             {
                 wb.Worksheets.Add(dataTable, "Processo");
-               // wb.Worksheets.Add(dataTables, "Embarque");
+                // wb.Worksheets.Add(dataTables, "Embarque");
                 using (MemoryStream stream = new MemoryStream())
                 {
                     wb.SaveAs(stream);
