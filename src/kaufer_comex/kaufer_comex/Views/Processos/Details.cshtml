@@ -15,7 +15,7 @@
     <br />
     <h4>Detalhes do Processo: @Html.DisplayFor(model => model.CodProcessoExportacao)</h4>
     <hr />
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">       
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <a asp-controller="Veiculos" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-outline-dark mb-2" style="width: 110px">Veículos</a>
         @if (Model.EmbarquesRodoviarios.Count <= 0)
         {
@@ -221,6 +221,10 @@
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="Veiculos" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
                         <a asp-action="Details" asp-controller="Veiculos" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Delete" asp-controller="Veiculos"  asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                        }
                     </div>
                 </div>
                 <dl class="card-body row">
@@ -239,16 +243,12 @@
                         <dd>
                             @item.Motorista
                         </dd>
-                    </div>                                    
+                    </div>
                 </dl>
             </div>
         }
 
     }
-
-
-
-
 
     @if (Model.Despachos.Count > 0)
     {
@@ -260,6 +260,10 @@
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="Despachos" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
                         <a asp-action="Details" asp-controller="Despachos" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Delete" asp-controller="Despachos" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                        }
                     </div>
                 </div>
                 <dl class="card-body row">
@@ -343,6 +347,10 @@
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="Documentos" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
                         <a asp-action="Details" asp-controller="Documentos" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Delete" asp-controller="Documentos" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                        }
                     </div>
                 </div>
                 <dl class="card-body row">
@@ -402,6 +410,10 @@
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="EmbarqueRodoviarios" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
                         <a asp-action="Details" asp-controller="EmbarqueRodoviarios" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Delete" asp-controller="EmbarqueRodoviarios"  asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                        }
                     </div>
                 </div>
                 <dl class="card-body row">
@@ -462,6 +474,10 @@
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="Notas" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
                         <a asp-action="Details" asp-controller="Notas" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Delete" asp-controller="Notas"  asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                        }
                     </div>
                 </div>
                 <dl class="card-body row">
@@ -514,6 +530,10 @@
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="ValoresProcessos" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
                         <a asp-action="Details" asp-controller="ValoresProcessos" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Delete" asp-controller="ValoresProcessos" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                        }
                     </div>
                 </div>
                 <dl class="card-body row">
@@ -582,6 +602,10 @@
                     <div class="justify-content-sm-end d-flex">
                         <a asp-controller="DCEs" asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
                         <a asp-controller="DCEs" asp-action="Details" asp-route-id="@item.ProcessoId" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px;"></a>
+                        @*  @if (User.IsInRole("Admin"))
+                {
+                <a asp-action="Delete" asp-controller="DCEs" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                } *@
                     </div>
                 </div>
                 <dl class="card-body row">

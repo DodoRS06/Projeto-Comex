@@ -54,7 +54,7 @@ namespace kaufer_comex.Controllers
 
                     if (destinoExistente)
                     {
-                        TempData["MensagemErro"] = $"Esse destino já está cadastrado .";
+                        ModelState.AddModelError("NomePais", "Esse destino já está cadastrado.");
                         return View(destino);
                     }
                     _context.Destinos.Add(destino);

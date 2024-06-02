@@ -412,6 +412,7 @@ namespace kaufer_comex.Controllers
                 var dados = await _context.Processos
                     .Include(p => p.Despachante)
                     .Include(p => p.Vendedor)
+                    .Include(p =>p.Usuario)
                     .Include(p => p.Destino)
                     .Include(p => p.Fronteira)
                     .Include(p => p.Status)

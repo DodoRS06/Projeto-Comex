@@ -14,133 +14,179 @@
 <div>
     <h4>Você tem certeza que deseja excluir o processo:  @Html.DisplayFor(model => model.CodProcessoExportacao) ?</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CodProcessoExportacao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CodProcessoExportacao)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.UsuarioId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Usuario.NomeFuncionario)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ExportadorId)
-        </dt>
-        <dd class = "col-sm-10">
-           @ViewBag.exportador
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImportadorId)
-        </dt>
-        <dd class = "col-sm-10">
-            @ViewBag.importador
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Modal)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Modal)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Incoterm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Incoterm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Destino)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Destino.NomePais)
-        </dd>
+    <div class="card mb-3">
+        <div class="card-header  d-flex justify-content-between">
+            <span class="mt-1"><strong>Processo:</strong></span>
+            <div class="justify-content-sm-end d-flex m-0">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
+                    <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+                </form>
+            </div>
+        </div>
+        <dl class="card-body row">
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CodProcessoExportacao)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CodProcessoExportacao)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Usuario)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Usuario.NomeFuncionario)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Modal)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Modal)
+                </dd>
+            </div>
 
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fronteira)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fronteira.NomeFronteira)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Despachante)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Despachante.NomeDespachante)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Vendedor)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Vendedor.NomeVendedor)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Status.StatusAtual)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Proforma)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Proforma)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataInicioProcesso)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataInicioProcesso)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrevisaoProducao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrevisaoProducao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrevisaoPagamento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrevisaoPagamento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrevisaoColeta)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrevisaoColeta)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrevisaoCruze)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrevisaoCruze)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrevisaoEntrega)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrevisaoEntrega)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Observacoes)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Observacoes)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PedidosRelacionados)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PedidosRelacionados)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
-        <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-    </form>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ImportadorId)
+                </dt>
+                <dd>
+                    @ViewBag.importador
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ExportadorId)
+                </dt>
+                <dd>
+                    @ViewBag.exportador
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Incoterm)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Incoterm)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Destino)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Destino.NomePais)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Fronteira)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Fronteira.NomeFronteira)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Despachante)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Despachante.NomeDespachante)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Vendedor)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Vendedor.NomeVendedor)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Status.StatusAtual)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Proforma)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Proforma)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DataInicioProcesso)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DataInicioProcesso)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.PrevisaoProducao)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PrevisaoProducao)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.PrevisaoPagamento)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PrevisaoPagamento)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.PrevisaoColeta)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PrevisaoColeta)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.PrevisaoCruze)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PrevisaoCruze)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.PrevisaoEntrega)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PrevisaoEntrega)
+                </dd>
+            </div>
+            <div class="col-md-10">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Observacoes)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Observacoes)
+                </dd>
+            </div>
+            <div class="col-md-10">
+                <dt>
+                    @Html.DisplayNameFor(model => model.PedidosRelacionados)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PedidosRelacionados)
+                </dd>
+            </div>
+        </dl>
+    </div>
 </div>
