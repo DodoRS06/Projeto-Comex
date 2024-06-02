@@ -445,21 +445,31 @@ namespace kaufer_comex.Controllers
 
                 }
 
+                var valores = await _context.ValorProcessos.FirstOrDefaultAsync(p => p.ProcessoId == dados.Id);
+                if (valores != null)
+                {
+                    _context.ValorProcessos.Remove(valores);
+                    await _context.SaveChangesAsync();
+                }
+
                 var exportador_ = await _context.ProcessosExpImp
                             .FirstOrDefaultAsync(e => e.ProcessoId == id && e.ExpImp.TipoExpImp == TipoExpImp.Exportador);
 
-                if (exportador_ == null) return NotFound();
-
-                _context.ProcessosExpImp.Remove(exportador_);
-                await _context.SaveChangesAsync();
+                if (exportador_ != null)
+                {
+                    _context.ProcessosExpImp.Remove(exportador_);
+                    await _context.SaveChangesAsync();
+                }
 
                 var importador_ = await _context.ProcessosExpImp
                             .FirstOrDefaultAsync(i => i.ProcessoId == id && i.ExpImp.TipoExpImp == TipoExpImp.Importador);
 
-                if (importador_ == null) return NotFound();
+                if (importador_ != null)
+                {
+                    _context.ProcessosExpImp.Remove(importador_);
+                    await _context.SaveChangesAsync();
 
-                _context.ProcessosExpImp.Remove(importador_);
-                await _context.SaveChangesAsync();
+                }
 
                 _context.Processos.Remove(dados);
                 await _context.SaveChangesAsync();
