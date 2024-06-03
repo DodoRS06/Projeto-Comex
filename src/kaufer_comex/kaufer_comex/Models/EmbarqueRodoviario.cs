@@ -10,7 +10,7 @@ namespace kaufer_comex.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "Trasportadora: (*)")]
+        [Display(Name = "Transportadora: (*)")]
         [Required(ErrorMessage = "Obrigatório informar a transportadora")]
         public string Transportadora { get; set; }
 
