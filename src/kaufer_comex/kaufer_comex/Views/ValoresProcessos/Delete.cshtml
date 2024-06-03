@@ -4,6 +4,12 @@
 	ViewData["Title"] = "Delete";
 }
 <div>
+	@if (TempData["MensagemErro"] != null)
+	{
+		<div class="alert alert-danger" role="alert" align="center">
+			@TempData["MensagemErro"]
+		</div>
+	}
 	<h4>Você tem certeza que deseja excluir os valores desse processo? :  @Html.DisplayFor(model => model.ValorTotalCif) ?</h4>
 	<hr />
 

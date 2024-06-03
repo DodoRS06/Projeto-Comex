@@ -15,103 +15,166 @@ namespace kaufer_comex.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.ExpImps
-				.OrderBy(e => e.Nome)
-				.ToListAsync();
+            try
+            {
+                var dados = await _context.ExpImps
+                    .OrderBy(e => e.Nome)
+                    .ToListAsync();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+				TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
+				return View();
+			}
         }
         public IActionResult Create()
         {
-            return View();
-        }
+            try
+            {
+                return View();
+            }
+            catch
+            {
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+
+			}
+		}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ExpImp expimp)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.ExpImps.Add(expimp);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    _context.ExpImps.Add(expimp);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return View(expimp);
             }
-            return View(expimp);
-        }
+            catch {
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+
+			}
+		}
 
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.ExpImps.FindAsync(id);
-            if (dados == null)
-                return NotFound();
+                var dados = await _context.ExpImps.FindAsync(id);
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
 
-        }
+			}
+
+		}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, ExpImp expimp)
         {
-            if (id != expimp.Id)
-                return NotFound();
-
-            if (ModelState.IsValid)
+            try
             {
-                _context.ExpImps.Update(expimp);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (id != expimp.Id)
+                    return NotFound();
+
+                if (ModelState.IsValid)
+                {
+                    _context.ExpImps.Update(expimp);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return View();
             }
-            return View();
+            catch
+            {
+                return NotFound();
+            }
         }
 
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.ExpImps.FindAsync(id);
+                var dados = await _context.ExpImps.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (id == null)
+                    return NotFound();
 
-            return View(dados);
-        }
+                return View(dados);
+            }
+            catch
+            {
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+
+			}
+		}
 
 
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.ExpImps.FindAsync(id);
+                var dados = await _context.ExpImps.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (id == null)
+                    return NotFound();
 
-            return View(dados);
-        }
+                return View(dados);
+            }
+            catch {
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+			}
+		}
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.ExpImps.FindAsync(id);
+                var dados = await _context.ExpImps.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (id == null)
+                    return NotFound();
 
-            _context.ExpImps.Remove(dados);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+                _context.ExpImps.Remove(dados);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
 
-        }
-
-
+			}
+		}
     }
 }

@@ -6,6 +6,12 @@
 
 
 <div>
+	@if (TempData["MensagemErro"] != null)
+	{
+		<div class="alert alert-danger" role="alert" align="center">
+			@TempData["MensagemErro"]
+		</div>
+	}
 	<h4>Você tem certeza que deseja excluir o @Html.DisplayFor(model => model.TipoExpImp):  @Html.DisplayFor(model => model.Id) ?</h4>
 	<hr />
 	<dl class="row">

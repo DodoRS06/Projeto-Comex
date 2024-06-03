@@ -3,6 +3,12 @@
 @{
     ViewData["Title"] = "Details";
 }
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert" align="center">
+        @TempData["MensagemErro"]
+    </div>
+}
 
 <br />
 <h3>Valor Total do Processo: @Html.DisplayFor(model => model.ValorTotalCif)</h3>

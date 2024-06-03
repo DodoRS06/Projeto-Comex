@@ -5,6 +5,12 @@
 }
 
 <br />
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert" align="center">
+        @TempData["MensagemErro"]
+    </div>
+}
 <h3> Motorista do Veículo: @Html.DisplayFor(model => model.Motorista)</h3>
 <hr />
 

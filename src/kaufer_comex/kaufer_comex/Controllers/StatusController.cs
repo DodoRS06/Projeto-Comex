@@ -173,7 +173,7 @@ namespace kaufer_comex.Controllers
             }
 			catch
 			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				TempData["MensagemErro"] = $"Esse status está vinculado a um processo. Não pode ser excluído.";
 				return View();
 			}
 		}

@@ -15,11 +15,19 @@ namespace kaufer_comex.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.Vendedores
-                .OrderBy(b => b.NomeVendedor)
-                .ToListAsync();
+            try
+            {
+                var dados = await _context.Vendedores
+                    .OrderBy(b => b.NomeVendedor)
+                    .ToListAsync();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+				TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
+				return View();
+			}
         }
         public IActionResult Create()
         {
@@ -28,96 +36,140 @@ namespace kaufer_comex.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Create(Vendedor vendedor)
-        {
-            if (ModelState.IsValid)
+        { try
+            {
+                if (ModelState.IsValid)
 
-            {              
-               
+                {
+
                     var vendedorExistente = await _context.Vendedores
                         .AnyAsync(b => b.NomeVendedor == vendedor.NomeVendedor);
 
                     if (vendedorExistente)
                     {
-                        ModelState.AddModelError("NomeVendedor", "Já existe um vendedor com esse nome.");
-                        return View(vendedor);
+						TempData["MensagemErro"] = $"Já existe vendedor com esse nome.";
+						return View(vendedor);
                     }
-                    
-                _context.Vendedores.Add(vendedor);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+
+                    _context.Vendedores.Add(vendedor);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return View(vendedor);
             }
-            return View(vendedor);
+            catch
+            {
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+			}
         }
 
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Vendedores.FindAsync(id);
-            if (dados == null)
-                return NotFound();
+                var dados = await _context.Vendedores.FindAsync(id);
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+
+			}
 
         }
         [HttpPost]
         public async Task<IActionResult> Edit(int id, Vendedor vendedor)
         {
-            if (id != vendedor.Id)
-                return NotFound();
-
-            if (ModelState.IsValid)
+            try
             {
-                _context.Vendedores.Update(vendedor);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (id != vendedor.Id)
+                    return NotFound();
+
+                if (ModelState.IsValid)
+                {
+                    _context.Vendedores.Update(vendedor);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return View();
             }
-            return View();
+            catch
+            {
+                return NotFound();
+            }
         }
 
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Vendedores.FindAsync(id);
+                var dados = await _context.Vendedores.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (id == null)
+                    return NotFound();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch{
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+			}
         }
 
 
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Vendedores.FindAsync(id);
+                var dados = await _context.Vendedores.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (id == null)
+                    return NotFound();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+				return View();
+			}
         }
 
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.Vendedores.FindAsync(id);
+                var dados = await _context.Vendedores.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (id == null)
+                    return NotFound();
 
-            _context.Vendedores.Remove(dados);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
-
+                _context.Vendedores.Remove(dados);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            catch { }
+            TempData["MensagemErro"] = $"Esse vendedor está vinculado a um processo. Não pode ser excluído";
+            return View();
         }
+		}
     }
-}
+

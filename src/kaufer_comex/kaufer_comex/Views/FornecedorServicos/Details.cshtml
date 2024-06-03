@@ -3,7 +3,12 @@
 @{
 	ViewData["Title"] = "Detalhes";
 }
-
+@if (TempData["MensagemErro"] != null)
+{
+	<div class="alert alert-danger" role="alert" align="center">
+		@TempData["MensagemErro"]
+	</div>
+}
 
 <div>
 	<h3>Detalhes do fornecedor de serviços: @Html.DisplayFor(model => model.Id)</h3>

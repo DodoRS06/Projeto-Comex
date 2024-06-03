@@ -16,9 +16,17 @@ namespace kaufer_comex.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var dados = await _context.CadastroDespesas.ToListAsync();
+            try
+            {
+                var dados = await _context.CadastroDespesas.ToListAsync();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente.";
+                return View();
+            }
         }
         public IActionResult Create()
         {
@@ -29,85 +37,130 @@ namespace kaufer_comex.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CadastroDespesa cadastrodespesa)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.CadastroDespesas.Add(cadastrodespesa);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    _context.CadastroDespesas.Add(cadastrodespesa);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return View(cadastrodespesa);
             }
-            return View(cadastrodespesa);
+            catch {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.CadastroDespesas.FindAsync(id);
-            if (dados == null)
-                return NotFound();
+                var dados = await _context.CadastroDespesas.FindAsync(id);
+                if (dados == null)
+                    return NotFound();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
 
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, CadastroDespesa cadastrodespesa)
         {
-            if (id != cadastrodespesa.Id)
-                return NotFound();
-
-            if (ModelState.IsValid)
+            try
             {
-                _context.CadastroDespesas.Update(cadastrodespesa);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (id != cadastrodespesa.Id)
+                    return NotFound();
+
+                if (ModelState.IsValid)
+                {
+                    _context.CadastroDespesas.Update(cadastrodespesa);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return View();
             }
-            return View();
+            catch
+            {
+                return NotFound();
+            }
         }
 
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.CadastroDespesas.FindAsync(id);
+                var dados = await _context.CadastroDespesas.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (id == null)
+                    return NotFound();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
 
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.CadastroDespesas.FindAsync(id);
+                var dados = await _context.CadastroDespesas.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (id == null)
+                    return NotFound();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return NotFound();
 
-            var dados = await _context.CadastroDespesas.FindAsync(id);
+                var dados = await _context.CadastroDespesas.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (id == null)
+                    return NotFound();
 
-            _context.CadastroDespesas.Remove(dados);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+                _context.CadastroDespesas.Remove(dados);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            catch {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
 
         }
     }
