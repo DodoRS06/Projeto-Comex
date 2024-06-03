@@ -16,7 +16,7 @@
     <div class="d-flex justify-content-between">
         <h4>Detalhes do Processo: @Html.DisplayFor(model => model.CodProcessoExportacao)</h4>
         <div class="d-flex flex-row-reverse bd-highlight">
-            <a asp-action="Index" asp-controller="Processos" class="btn" style="width: 100px"><img src="~/Images/voltar.png"style="height:20px; width:20px"></a>
+            <a asp-action="Index" asp-controller="Processos" class="btn" style="width: 100px"><img src="~/Images/voltar.png" style="height:20px; width:20px"></a>
         </div>
     </div>
     <hr />
@@ -607,10 +607,10 @@
                     <div class="justify-content-sm-end d-flex">
                         <a asp-controller="DCEs" asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
                         <a asp-controller="DCEs" asp-action="Details" asp-route-id="@item.ProcessoId" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px;"></a>
-                        @*  @if (User.IsInRole("Admin"))
-                {
-                <a asp-action="Delete" asp-controller="DCEs" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
-                } *@
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Delete" asp-controller="DCEs" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
+                        }
                     </div>
                 </div>
                 <dl class="card-body row">

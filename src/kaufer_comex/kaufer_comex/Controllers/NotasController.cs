@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Net;
+using System.Text.Json;
 
 namespace kaufer_comex.Controllers
 {
@@ -471,39 +472,31 @@ namespace kaufer_comex.Controllers
             }
         }
 
-
         //Excluir item da nota já criada
-        public async Task<IActionResult> ExcluirItemNota(int id)
+        [HttpPost]
+        public async Task<IActionResult> ExcluirItemNota([FromBody] ExcluirItemNotaModel model)
         {
             try
             {
-                //Console.WriteLine($"ID do item recebido para exclusão: {id}");
-
-                var notaItem = await _context.NotaItens.FindAsync(id);
-
-                //Console.WriteLine($"ID do item encontrado no banco de dados: {notaItem?.ItemId}");
+                var notaItem = await _context.NotaItens
+                    .FirstOrDefaultAsync(e => e.ItemId == model.IdItem && e.NotaId == model.IdNota);
 
                 if (notaItem == null)
                 {
-                    return NotFound();
+                    return Json(new { success = false, errors = new[] { "Item não encontrado" } });
                 }
 
                 _context.NotaItens.Remove(notaItem);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("Edit", new { id = notaItem.NotaId });
+                return Json(new { success = true });
             }
             catch (Exception ex)
             {
-                //Console.WriteLine($"Ocorreu um erro ao excluir o item: {ex.Message}");
-
-                TempData["MensagemErro"] = $"Ocorreu um erro ao excluir o item. {ex}";
-                return RedirectToAction("Edit", new { id });
+                TempData["MensagemErro"] = $"Ocorreu um erro ao excluir o item. {ex.Message}";
+                return Json(new { success = false, errors = new[] { ex.Message } });
             }
         }
-
-
-
 
         //GET: Notas/Details/5
         public async Task<IActionResult> Details(int? id)

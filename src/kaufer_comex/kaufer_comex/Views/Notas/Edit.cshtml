@@ -132,14 +132,14 @@
     <tbody>
         @foreach (var item in Model.NotaItem)
         {
-            <tr>
+            <tr data-item-id="@item.ItemId" data-nota-id="@item.NotaId">
                 <td>@Html.DisplayFor(modelItem => item.ItemId)</td>
                 <td>@Html.DisplayFor(modelItem => item.Item.DescricaoProduto)</td>
                 <td>@Html.DisplayFor(modelItem => item.Item.Preco)</td>
                 <td>@Html.DisplayFor(modelItem => item.Quantidade)</td>
                 <td>@Html.DisplayFor(modelItem => item.Valor)</td>
                 <td><a href="javascript:void(0);" data-url="@Url.Action("EditItem", new { id = item.ItemId })" class="btn btn-primary btn-sm open-modal">Editar</a></td>
-                <td><a href="javascript:void(0);" data-url="@Url.Action("ExcluirItemNota", new { id = item.ItemId })" class="btn btn-danger btn-sm delete-item">Excluir</a></td>
+                <td><button type="button" class="btn btn-danger btn-excluir-item">Excluir</button></td>
             </tr>
         }
         <tr>
@@ -218,21 +218,32 @@
                 }
             });
 
-            $("body").on("click", "a.delete-item", function (e) {
-                e.preventDefault();
-                var url = $(this).data('url');
+            $(document).on('click', '.btn-excluir-item', function () {
+                var row = $(this).closest('tr');
+                var itemId = row.data('item-id');
+                var notaId = row.data('nota-id');
+
+                console.log("Dados a serem enviados:", { itemId: itemId, notaId: notaId });
 
                 if (confirm('Tem certeza de que deseja excluir este item?')) {
-                    $.post(url)
-                        .done(function (data) {
-                            console.log("Item excluído com sucesso");
-                            window.location.reload();
-                            alert('Item excluído com sucesso');
-                        })
-                        .fail(function (error) {
-                            console.error("Erro ao excluir o item:", error);
-                            alert('Ocorreu um erro ao excluir o item.');
-                        });
+                    $.ajax({
+                        url: '@Url.Action("ExcluirItemNota", "Notas")',
+                        type: 'POST',
+                        data: JSON.stringify({ idNota: notaId, idItem: itemId }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            if (response.success) {
+                                row.remove();
+                            } else {
+                                alert(response.errors.join(", "));
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            alert("Erro ao excluir o item.");
+                            console.error(error);
+                        }
+                    });
                 }
             });
 
