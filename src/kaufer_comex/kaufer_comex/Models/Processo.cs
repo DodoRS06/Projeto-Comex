@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Net.NetworkInformation;
+using System.Reflection.Metadata;
 
 namespace kaufer_comex.Models
 {
@@ -104,6 +105,15 @@ namespace kaufer_comex.Models
         [Display(Name = "Pedidos Relacionados (*)")]
         public string PedidosRelacionados { get; set; }
 
+        public virtual EmbarqueRodoviario EmbarqueRodoviario { get; set; }
+
+        public virtual Despacho Despacho { get; set; }
+
+        public virtual Documento Documento { get; set; }
+
+        public virtual ValorProcesso ValorProcesso { get; set; }
+
+        public virtual ICollection<Veiculo> Veiculos { get; set; }
 
         public virtual ICollection<DCE> DCES { get; set; }
 
