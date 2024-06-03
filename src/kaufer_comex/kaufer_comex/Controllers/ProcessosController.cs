@@ -34,13 +34,20 @@ namespace kaufer_comex.Controllers
                     .ThenInclude(p => p.ExpImp)
                     .ToListAsync();
 
+                var importadores = new Dictionary<int, string>();
+
                 foreach (var processo in dados)
                 {
-                    var importador = processo.ImportadorId;
-                    ViewData["importador"] = GetNomeImportador(importador);
+                    var importador = await _context.ExpImps
+                        .FirstOrDefaultAsync(i => i.Id == processo.ImportadorId);
+
+                    if (importador != null)
+                    {
+                        importadores[processo.Id] = GetNomeImportador(importador.Id);
+                    }
                 }
 
-
+                ViewData["Importadores"] = importadores;
 
                 return View(dados);
             }
