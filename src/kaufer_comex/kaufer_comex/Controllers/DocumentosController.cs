@@ -12,15 +12,10 @@ namespace kaufer_comex.Controllers
         {
             _context = context;
         }
-		public async Task<IActionResult> Index(int? id)
+		public async Task<IActionResult> Index()
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var dados = await _context.Documentos
-                .Where(d => d.ProcessoId == id)
+                .Include(d => d.Processo)
                 .ToListAsync();
 
             return View(dados);

@@ -36,7 +36,7 @@ namespace kaufer_comex.Models
         [Required(ErrorMessage = "Obrigatório informar certificado tracking")]
         public string TrackinCourier { get; set; }
 
-        
+        [Display(Name = "Processo:")]
         public int ProcessoId { get; set; }
         [ForeignKey("ProcessoId")]
         public Processo Processo { get; set; }

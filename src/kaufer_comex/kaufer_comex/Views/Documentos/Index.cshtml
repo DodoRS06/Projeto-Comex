@@ -15,12 +15,11 @@
 }
 
 <div class="form-group " align="center">
-	<h2>Lista de documentos</h2>
-	</div>	
-	<div class="d-flex flex-row-reverse bd-highlight">
-		<p>
-		<a asp-action="Create" asp-route-id="@ViewContext.RouteData.Values["id"]"  class="btn d-flex flex-row-reverse bd-highlight " style=" background-color: #F08433; color: #FFF">Adicionar Documento</a>
-		</p>
+	<div class="row">
+		<a asp-action="Index" asp-controller="Processos" class="btn" style="width: 100px"><img src="~/Images/voltar.png" style="height:20px; width:20px"></a>
+		<div align="center">
+			<h4>Lista de Documentos:</h4>
+		</div>
 	</div>
 <table id="myTable" class="table">
 		<thead>
