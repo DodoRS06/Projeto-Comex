@@ -13,11 +13,12 @@
 			@TempData["MensagemErro"]
 		</div>
 	}
-	<h3>Detalhes do Despacho: @Html.DisplayFor(model => model.Id)</h3>
-	<hr />
+    <div>
+        <h3>Processo: @Html.DisplayFor(model => model.Processo.CodProcessoExportacao)</h3>
+    </div>
     <div class="card mb-3">
         <div class="card-header d-flex justify-content-between">
-            <span class="mt-1">Despacho: </span>
+            <span class="mt-1"><strong>Despacho:</strong> </span>
         </div>
         <dl class="card-body row">
             <div class="col-md-4">
