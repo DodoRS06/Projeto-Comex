@@ -21,6 +21,7 @@ namespace kaufer_comex.Controllers
             {
            
                 var dados = await _context.Despachos
+                     .OrderByDescending(p => p.Id)
                      .ToListAsync();
 
                 return View(dados);
@@ -62,7 +63,15 @@ namespace kaufer_comex.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    
+                    var despachoExistente = await _context.Despachos
+                  .AnyAsync(a => a.NumeroDue == despacho.NumeroDue);
+
+                    if (despachoExistente)
+                    {
+                        ModelState.AddModelError("NumeroDue", "Esse número DUE já está cadastrado.");
+                        return View(despacho);
+                    }
+
                     int processoId = Convert.ToInt32(Request.Form["ProcessoId"]);
 
 					Despacho novoDespacho = new Despacho

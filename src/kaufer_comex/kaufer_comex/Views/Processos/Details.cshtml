@@ -597,59 +597,6 @@
 
     }
 
-    @if (Model.DCES.Count > 0)
-    {
-        @foreach (var item in Model.DCES)
-        {
-            <div class="card mb-3">
-                <div class="card-header d-flex justify-content-between">
-                    <span class="mt-1">DCE:</span>
-                    <div class="justify-content-sm-end d-flex">
-                        <a asp-controller="DCEs" asp-action="Edit" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
-                        <a asp-controller="DCEs" asp-action="Details" asp-route-id="@item.ProcessoId" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px;"></a>
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <a asp-action="Delete" asp-controller="DCEs" asp-route-id="@item.Id" class="btn"><img src="~/Images/excluir.png" id="Details" style="height:20px; "></a>
-                        }
-                    </div>
-                </div>
-                <dl class="card-body row">
-                    <div class="col-md-4">
-                        <dt>
-                            Despesa:
-                        </dt>
-                        <dd>
-                            @ViewBag.despesa
-                        </dd>
-                    </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Fornecedor:
-                        </dt>
-                        <dd>
-                            @ViewBag.fornecedor
-                        </dd>
-                    </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Valor:
-                        </dt>
-                        <dd>
-                            @item.Valor
-                        </dd>
-                    </div>
-                    <div class="col-md-4">
-                        <dt>
-                            Observação:
-                        </dt>
-                        <dd>
-                            @item.Observacao
-                        </dd>
-                    </div>
-                </dl>
-            </div>
-        }
-    }
 </div>
 
 

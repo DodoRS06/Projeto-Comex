@@ -32,6 +32,7 @@ namespace kaufer_comex.Controllers
                     .Include(p => p.Usuario)
                     .Include(p => p.ExpImps)
                     .ThenInclude(p => p.ExpImp)
+                    .OrderByDescending(p => p.Id)
                     .ToListAsync();
 
                 var importadores = new Dictionary<int, string>();
@@ -82,6 +83,15 @@ namespace kaufer_comex.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    var processoExistente = await _context.Processos
+                       .AnyAsync(a => a.CodProcessoExportacao == processo.CodProcessoExportacao);
+
+                    if (processoExistente)
+                    {
+                        ModelState.AddModelError("CodProcessoExportacao", "Esse número de processo já está cadastrado.");
+                        return View(processo);
+                    }
+
                     _context.Processos.Add(processo);
                     await _context.SaveChangesAsync();
 
