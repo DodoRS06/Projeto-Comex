@@ -30,7 +30,7 @@ namespace kaufer_comex.Models
         [NotMapped]
         public string FornecedorServicoNome { get; set; }
 
-        //[Display(Name = "Observação")]
+        //[Display(Name = "Valor Total:")]
         //public float ValorTotal { get; set; }
 
         public ICollection<CadastroDespesaDCE> CadastroDespesas { get; set; }
