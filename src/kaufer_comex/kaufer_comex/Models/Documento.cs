@@ -25,20 +25,29 @@ namespace kaufer_comex.Models
 
         public DateTime DataEnvioOrigem { get; set; }
 
-        [Display(Name = "Envio do Certificado do seguro: (*)")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        [Required(ErrorMessage = "Obrigatório informar a data")]
-
-        public DateTime DataEnvioSeguro { get; set; }
-
         [Display(Name = "Tracking: (*)")]
         [Required(ErrorMessage = "Obrigatório informar certificado tracking")]
         public string TrackinCourier { get; set; }
+
+
+        [Display(Name = "Courier (*)")]
+        public Courier Courier { get; set; }
 
         [Display(Name = "Processo:")]
         public int ProcessoId { get; set; }
         [ForeignKey("ProcessoId")]
         public Processo Processo { get; set; }
     }
+}
+
+public enum Courier
+{
+    [Display(Name = "DHL")]
+    DHL,
+    [Display(Name = "UPS")]
+    UPS,
+    [Display(Name = "Fedex")]
+    Fedex,
+    [Display(Name = "Correios")]
+    Correios
 }

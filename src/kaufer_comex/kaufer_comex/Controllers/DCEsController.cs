@@ -16,26 +16,26 @@ namespace kaufer_comex.Controllers
             _context = context;
         }
 
-		private async Task Dropdowns(DCE dce = null)
-		{
+        private async Task Dropdowns(DCE dce = null)
+        {
 
-			ViewData["CadastroDespesaId"] = new SelectList(_context.CadastroDespesas, "Id", "NomeDespesa", dce?.CadastroDespesaId);
-			ViewData["FornecedorServicoId"] = new SelectList(_context.FornecedorServicos, "Id", "Nome", dce?.FornecedorServicoId);
-		}
+            ViewData["CadastroDespesaId"] = new SelectList(_context.CadastroDespesas, "Id", "NomeDespesa", dce?.CadastroDespesaId);
+            ViewData["FornecedorServicoId"] = new SelectList(_context.FornecedorServicos, "Id", "Nome", dce?.FornecedorServicoId);
+        }
 
         //Recuperar nome das despesas a partir do ID (adicionei variável temporária na model)
-		private async Task<string> GetDespesaNome(int id)
-		{
-			var despesa = await _context.CadastroDespesas.FindAsync(id);
-			return despesa != null ? despesa.NomeDespesa : "Despesa não encontrada";
-		}
+        private async Task<string> GetDespesaNome(int id)
+        {
+            var despesa = await _context.CadastroDespesas.FindAsync(id);
+            return despesa != null ? despesa.NomeDespesa : "Despesa não encontrada";
+        }
 
         //Recuperar nome dos fornecedores a partir do ID (adicionei variável temporária na model)
         private async Task<string> GetFornecedorNome(int id)
-		{
-			var fornecedor = await _context.FornecedorServicos.FindAsync(id);
-			return fornecedor != null ? fornecedor.Nome : "Fornecedor não encontrado";
-		}
+        {
+            var fornecedor = await _context.FornecedorServicos.FindAsync(id);
+            return fornecedor != null ? fornecedor.Nome : "Fornecedor não encontrado";
+        }
 
         public async Task<IActionResult> Index(int? id)
         {
@@ -49,23 +49,23 @@ namespace kaufer_comex.Controllers
                 .Where(d => d.ProcessoId == id)
                 .ToListAsync();
 
-			if (dados == null)
-			{
-				return NotFound();
-			}
+            if (dados == null)
+            {
+                return NotFound();
+            }
 
-			ViewData["ProcessoId"] = id;
+            ViewData["ProcessoId"] = id;
 
-			//Procurar um nome com aquele id dentro da tabela de despesa e fornecedor
-			foreach (var dce in dados)
-			{
-				dce.CadastroDespesaNome = await GetDespesaNome(dce.CadastroDespesaId);
-				dce.FornecedorServicoNome = await GetFornecedorNome(dce.FornecedorServicoId);
-			}
+            //Procurar um nome com aquele id dentro da tabela de despesa e fornecedor
+            foreach (var dce in dados)
+            {
+                dce.CadastroDespesaNome = await GetDespesaNome(dce.CadastroDespesaId);
+                dce.FornecedorServicoNome = await GetFornecedorNome(dce.FornecedorServicoId);
+            }
 
-			await Dropdowns();
+            await Dropdowns();
 
-			return View(dados);
+            return View(dados);
         }
 
         public async Task<IActionResult> Create(int? id)
@@ -77,10 +77,10 @@ namespace kaufer_comex.Controllers
 
             ViewData["ProcessoId"] = id.Value;
 
-			//Lista temporária para armazenar os dados
-			var DCETemp = new List<DCE>();
+            //Lista temporária para armazenar os dados
+            var DCETemp = new List<DCE>();
 
-			var dados = await _context.DCEs
+            var dados = await _context.DCEs
                 .Where(d => d.ProcessoId == id)
                 .ToListAsync();
 
@@ -89,17 +89,17 @@ namespace kaufer_comex.Controllers
             {
                 dce.CadastroDespesaNome = await GetDespesaNome(dce.CadastroDespesaId);
                 dce.FornecedorServicoNome = await GetFornecedorNome(dce.FornecedorServicoId);
-				DCETemp.Add(dce);
-			}
+                DCETemp.Add(dce);
+            }
 
-			ViewBag.DCEsTemp = DCETemp;
+            ViewBag.DCEsTemp = DCETemp;
 
             // Disparar evento personalizado para notificar a view que os dados estão disponíveis (teste)
             //Response.Headers.Add("X-Dados-Disponiveis", "true");
 
             Dropdowns();
 
-			return View();
+            return View();
         }
 
         [HttpPost]
@@ -116,12 +116,12 @@ namespace kaufer_comex.Controllers
 
                 _context.DCEs.Add(dce);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Details", "Processos", new { id = processoId});
+                return RedirectToAction("Details", "Processos", new { id = processoId });
             }
 
-			await Dropdowns(dce);
+            await Dropdowns(dce);
 
-			return View(dce);
+            return View(dce);
         }
 
         [HttpPost]
@@ -229,7 +229,7 @@ namespace kaufer_comex.Controllers
 
             await Dropdowns(dados);
 
-			return View(dados);
+            return View(dados);
 
         }
         [HttpPost]
@@ -251,7 +251,7 @@ namespace kaufer_comex.Controllers
                 return RedirectToAction("Details", "Processos", new { id = dce.ProcessoId });
             }
 
-			await Dropdowns(dce);
+            await Dropdowns(dce);
 
             return View(dce);
         }
@@ -307,9 +307,9 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-			await Dropdowns(dados);
+            await Dropdowns(dados);
 
-			return View(dados);
+            return View(dados);
         }
 
         [HttpPost, ActionName("Delete")]
@@ -324,11 +324,11 @@ namespace kaufer_comex.Controllers
             if (id == null)
                 return NotFound();
 
-			await Dropdowns(dados);
+            await Dropdowns(dados);
 
-			_context.DCEs.Remove(dados);
+            _context.DCEs.Remove(dados);
             await _context.SaveChangesAsync();
-			return RedirectToAction("Details", "Processos", new { id = dados.ProcessoId });
-		}
+            return RedirectToAction("Details", "Processos", new { id = dados.ProcessoId });
+        }
     }
 }

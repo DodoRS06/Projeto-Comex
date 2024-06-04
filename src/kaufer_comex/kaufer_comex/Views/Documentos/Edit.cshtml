@@ -34,14 +34,16 @@
 			<span asp-validation-for="DataEnvioOrigem" class="text-danger"></span>
 		</div>
 		<div class="form-group col-md-4">
-			<label asp-for="DataEnvioSeguro" class="control-label"></label>
-			<input asp-for="DataEnvioSeguro" class="form-control" />
-			<span asp-validation-for="DataEnvioSeguro" class="text-danger"></span>
-		</div>
-		<div class="form-group col-md-4">
 			<label asp-for="TrackinCourier" class="control-label"></label>
 			<input asp-for="TrackinCourier" class="form-control" />
 			<span asp-validation-for="TrackinCourier" class="text-danger"></span>
+		</div>
+		<div class="form-group col-md-4">
+			<label asp-for="Courier" class="control-label"></label>
+			<select asp-for="Courier" class="form-control" asp-items="Html.GetEnumSelectList<Courier>()">
+				<option value="">Selecione o Courier:</option>
+			</select>
+			<span asp-validation-for="Courier" class="text-danger"></span>
 		</div>
 		<div class="form-group " align="center">
 			<br />

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using kaufer_comex.Models;
 
@@ -11,9 +12,10 @@ using kaufer_comex.Models;
 namespace kaufer_comex.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240603234211_UpdateM15EmbarqueRodoviario")]
+    partial class UpdateM15EmbarqueRodoviario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -256,10 +258,10 @@ namespace kaufer_comex.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Courier")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("DataEnvioOrigem")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataEnvioSeguro")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("ProcessoId")

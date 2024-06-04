@@ -30,6 +30,27 @@ namespace kaufer_comex.Models
         [Required(ErrorMessage = "Obrigatório informar a data de chegada")]
         public DateTime ChegadaDestino { get; set; }
 
+        [Display(Name = "Booking: (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o booking")]
+        public string Booking { get; set; }
+
+        [Display(Name = "Deadline Draft: (*)")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+        [Required(ErrorMessage = "Obrigatório informar o Deadline Draft")]
+        public DateTime DeadlineDraft { get; set; }
+
+        [Display(Name = "Deadline VGM: (*)")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+        [Required(ErrorMessage = "Obrigatório informar o Deadline VGM")]
+        public DateTime DeadlineVgm { get; set; }
+
+        [Display(Name = "Deadline Carga: (*)")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+        [Required(ErrorMessage = "Obrigatório informar o Deadline Carga")]
+        public DateTime DeadlineCarga { get; set; }
 
         [Display(Name = "Agente de Carga: (*)")]
         [Required(ErrorMessage = "Obrigatório informar o agente.")]
@@ -38,7 +59,8 @@ namespace kaufer_comex.Models
         [ForeignKey("AgenteDeCargaId")]
         public AgenteDeCarga AgenteDeCarga { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar o código.")]
+		[Display(Name = "Processo: (*)")]
+		[Required(ErrorMessage = "Obrigatório informar o código.")]
         public int ProcessoId { get; set; }
         [ForeignKey("ProcessoId")]
         public Processo Processo { get; set; }

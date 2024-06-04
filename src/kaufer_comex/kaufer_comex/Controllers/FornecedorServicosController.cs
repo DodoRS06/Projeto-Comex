@@ -110,10 +110,11 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch {
+            catch
+            {
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
                 return View();
-            }    
+            }
         }
 
 

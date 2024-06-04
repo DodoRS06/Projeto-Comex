@@ -7,7 +7,7 @@ namespace kaufer_comex.Controllers
     public class FronteirasController : Controller
     {
         private readonly AppDbContext _context;
-        public FronteirasController(AppDbContext context) 
+        public FronteirasController(AppDbContext context)
         {
             _context = context;
         }
@@ -23,11 +23,11 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
-				return View();
-			}
+                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
+                return View();
+            }
         }
-        public IActionResult Create() 
+        public IActionResult Create()
         {
             return View();
         }
@@ -45,8 +45,8 @@ namespace kaufer_comex.Controllers
 
                     if (fronteiraExistente)
                     {
-						TempData["MensagemErro"] = $"Essa fronteira já está cadastrada.";
-						return View(fronteira);
+                        TempData["MensagemErro"] = $"Essa fronteira já está cadastrada.";
+                        return View(fronteira);
                     }
                     _context.Fronteiras.Add(fronteira);
                     await _context.SaveChangesAsync();
@@ -56,12 +56,12 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
-        public async Task<IActionResult> Edit(int? id) 
+        public async Task<IActionResult> Edit(int? id)
         {
             try
             {
@@ -72,13 +72,14 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch {
-				TempData["MensagemErro"] = $"Esse destino já está cadastrado .";
+            catch
+            {
+                TempData["MensagemErro"] = $"Esse destino já está cadastrado .";
                 return View();
-			}
+            }
         }
         [HttpPost]
-        public async  Task<IActionResult> Edit(int id, Fronteira fronteira)
+        public async Task<IActionResult> Edit(int id, Fronteira fronteira)
         {
             try
             {
@@ -102,9 +103,9 @@ namespace kaufer_comex.Controllers
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
-            
+
                 return NotFound();
-            var dados = await  _context.Fronteiras.FindAsync(id);
+            var dados = await _context.Fronteiras.FindAsync(id);
 
             if (dados == null)
 
@@ -146,10 +147,11 @@ namespace kaufer_comex.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch {
-				TempData["MensagemErro"] = $"Essa fronteira está vinculada a um processo. Não pode ser excluída";
+            catch
+            {
+                TempData["MensagemErro"] = $"Essa fronteira está vinculada a um processo. Não pode ser excluída";
                 return View();
-			}
+            }
         }
     }
 }

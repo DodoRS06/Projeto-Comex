@@ -24,7 +24,7 @@ namespace kaufer_comex.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-           
+
             migrationBuilder.DropTable(
                 name: "Vendedores");
         }

@@ -5,7 +5,7 @@ namespace kaufer_comex.Models
 {
     public class DCEView
     {
-      
+
         public int Id { get; set; }
 
         [Display(Name = "Despesa (*)")]

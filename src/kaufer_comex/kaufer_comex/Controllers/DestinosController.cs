@@ -131,7 +131,8 @@ namespace kaufer_comex.Controllers
                     return NotFound();
 
                 return View(dados);
-            }catch { return NotFound(); }
+            }
+            catch { return NotFound(); }
         }
 
         //GET: Destinos/Delete/5

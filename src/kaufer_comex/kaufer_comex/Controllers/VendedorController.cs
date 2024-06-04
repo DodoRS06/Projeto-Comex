@@ -25,9 +25,9 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
-				return View();
-			}
+                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
+                return View();
+            }
         }
         public IActionResult Create()
         {
@@ -36,7 +36,8 @@ namespace kaufer_comex.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Create(Vendedor vendedor)
-        { try
+        {
+            try
             {
                 if (ModelState.IsValid)
 
@@ -47,8 +48,8 @@ namespace kaufer_comex.Controllers
 
                     if (vendedorExistente)
                     {
-						TempData["MensagemErro"] = $"Já existe vendedor com esse nome.";
-						return View(vendedor);
+                        TempData["MensagemErro"] = $"Já existe vendedor com esse nome.";
+                        return View(vendedor);
                     }
 
                     _context.Vendedores.Add(vendedor);
@@ -59,9 +60,9 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -79,10 +80,10 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
 
-			}
+            }
 
         }
         [HttpPost]
@@ -121,10 +122,11 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
 
@@ -144,9 +146,9 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         [HttpPost, ActionName("Delete")]
@@ -170,6 +172,6 @@ namespace kaufer_comex.Controllers
             TempData["MensagemErro"] = $"Esse vendedor está vinculado a um processo. Não pode ser excluído";
             return View();
         }
-		}
     }
+}
 

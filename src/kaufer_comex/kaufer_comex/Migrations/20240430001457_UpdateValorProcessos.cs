@@ -8,7 +8,7 @@ namespace kaufer_comex.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-           
+
             migrationBuilder.AddColumn<int>(
                 name: "ProcessoId",
                 table: "ValorProcessos",
@@ -44,7 +44,7 @@ namespace kaufer_comex.Migrations
                 name: "ProcessoId",
                 table: "ValorProcessos");
 
-          
+
         }
     }
 }

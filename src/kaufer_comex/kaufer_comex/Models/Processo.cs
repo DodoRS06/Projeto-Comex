@@ -119,7 +119,7 @@ namespace kaufer_comex.Models
 
         public virtual ICollection<ProcessoExpImp> ExpImps { get; set; }
 
-        
+
 
     }
 

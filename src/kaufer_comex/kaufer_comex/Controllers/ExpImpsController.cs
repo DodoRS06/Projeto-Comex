@@ -25,9 +25,9 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
-				return View();
-			}
+                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
+                return View();
+            }
         }
         public IActionResult Create()
         {
@@ -37,11 +37,11 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
 
-			}
-		}
+            }
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -57,12 +57,13 @@ namespace kaufer_comex.Controllers
                 }
                 return View(expimp);
             }
-            catch {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
 
-			}
-		}
+            }
+        }
 
         public async Task<IActionResult> Edit(int? id)
         {
@@ -79,12 +80,12 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
 
-			}
+            }
 
-		}
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, ExpImp expimp)
@@ -124,11 +125,11 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
 
-			}
-		}
+            }
+        }
 
 
         public async Task<IActionResult> Delete(int? id)
@@ -145,11 +146,12 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -171,10 +173,10 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
 
-			}
-		}
+            }
+        }
     }
 }

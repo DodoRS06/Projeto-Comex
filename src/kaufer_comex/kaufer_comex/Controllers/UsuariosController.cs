@@ -21,7 +21,7 @@ namespace kaufer_comex.Controllers
             _context = context;
         }
 
-        
+
         public IActionResult Login()
         {
             return View();
@@ -30,8 +30,8 @@ namespace kaufer_comex.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Usuario usuario)
         {
-            
-            
+
+
             var dados = await _context.Usuarios
                 .FirstOrDefaultAsync(u => u.Email == usuario.Email);
 
@@ -88,7 +88,7 @@ namespace kaufer_comex.Controllers
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
-  
+
             if (User.IsInRole("Admin"))
             {
                 // todos os usuarios 
@@ -303,14 +303,14 @@ namespace kaufer_comex.Controllers
             {
                 _context.Usuarios.Remove(usuario);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool UsuarioExists(int id)
         {
-          return _context.Usuarios.Any(e => e.Id == id);
+            return _context.Usuarios.Any(e => e.Id == id);
         }
     }
 }

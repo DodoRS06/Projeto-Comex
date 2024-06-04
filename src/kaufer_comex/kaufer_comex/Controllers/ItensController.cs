@@ -23,20 +23,20 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-			catch
-			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
 
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Create(Item item)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Item item)
         {
             try
             {
@@ -45,9 +45,9 @@ namespace kaufer_comex.Controllers
 
                     var ItemExistente = await _context.Itens
                       .AnyAsync(a => a.DescricaoProduto == item.DescricaoProduto);
-                   
 
-					if (ItemExistente)
+
+                    if (ItemExistente)
                     {
                         ModelState.AddModelError("DescricaoProduto", "Esse Item já está cadastrado.");
                         return View(item);
@@ -59,12 +59,12 @@ namespace kaufer_comex.Controllers
                 }
                 return View(item);
             }
-			catch
-			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
 
         public async Task<IActionResult> Edit(int? id)
         {
@@ -81,16 +81,16 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-			catch
-			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
 
         [HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Edit(int id, Item item)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Item item)
         {
             try
             {
@@ -107,12 +107,12 @@ namespace kaufer_comex.Controllers
 
                 return View();
             }
-			catch
-			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
 
         public async Task<IActionResult> Details(int? id)
         {
@@ -128,12 +128,12 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-			catch
-			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
 
         public async Task<IActionResult> Delete(int? id)
         {
@@ -149,16 +149,16 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-			catch
-			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
 
         [HttpPost, ActionName("Delete")]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> DeleteConfirmed(int? id)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int? id)
         {
             try
             {
@@ -175,11 +175,11 @@ namespace kaufer_comex.Controllers
 
                 return RedirectToAction("Index");
             }
-			catch
-			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
     }
 }
