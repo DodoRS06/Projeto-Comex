@@ -44,6 +44,26 @@
 					<option value="">Selecione o agente</option>
 				</select>
 			</div>
+			<div class="form-group col-md-4">
+				<label asp-for="Booking" class="control-label"></label>
+				<input asp-for="Booking" class="form-control" />
+				<span asp-validation-for="Booking" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-4">
+				<label asp-for="DeadlineVgm" class="control-label"></label>
+				<input asp-for="DeadlineVgm" class="form-control" />
+				<span asp-validation-for="DeadlineVgm" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-4">
+				<label asp-for="DeadlineCarga" class="control-label"></label>
+				<input asp-for="DeadlineCarga" class="form-control" />
+				<span asp-validation-for="DeadlineCarga" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-4">
+				<label asp-for="DeadlineDraft" class="control-label"></label>
+				<input asp-for="DeadlineDraft" class="form-control" />
+				<span asp-validation-for="DeadlineDraft" class="text-danger"></span>
+			</div>
 			<div class="form-group " align="center">
 				<br />
 				<input type="submit" value="Cadastrar" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px" />

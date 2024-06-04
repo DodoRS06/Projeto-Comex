@@ -97,7 +97,8 @@ namespace kaufer_comex.Controllers
                 }
                 return View();
             }
-            catch {
+            catch
+            {
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
                 return View();
             }
@@ -119,7 +120,7 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-                return NotFound();  
+                return NotFound();
             }
         }
 
@@ -154,7 +155,8 @@ namespace kaufer_comex.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            catch {
+            catch
+            {
                 TempData["MensagemErro"] = $"Este agente está vinculado a um embarque. Não pode ser excluído";
                 return View();
             }

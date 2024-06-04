@@ -17,14 +17,14 @@ namespace kaufer_comex.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-           
+
 
             migrationBuilder.RenameColumn(
                 name: "Espessura",
                 table: "Itens",
                 newName: "Expressura");
 
- 
+
         }
     }
 }

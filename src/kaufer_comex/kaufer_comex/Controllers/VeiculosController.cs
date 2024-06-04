@@ -26,10 +26,10 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
-				return View();
-			}
-        
+                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
+                return View();
+            }
+
         }
 
         public IActionResult Create(int? id)
@@ -46,14 +46,14 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
 
 
         [HttpPost]
-        
+
         public async Task<IActionResult> Create(Veiculo veiculo)
         {
             try
@@ -80,9 +80,9 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -101,14 +101,14 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-                      
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+
         }
 
         [HttpPost]
-      
+
         public async Task<IActionResult> Edit(int id, Veiculo veiculo)
         {
             try
@@ -134,7 +134,7 @@ namespace kaufer_comex.Controllers
                 return NotFound();
             }
 
-		}
+        }
 
         public async Task<IActionResult> Details(int? id)
         {
@@ -152,9 +152,9 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
         }
 
         public async Task<IActionResult> Delete(int? id)
@@ -175,13 +175,13 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-                       
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+
         }
 
-        [HttpPost, ActionName("Delete")]       
+        [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int? id)
         {
             try
@@ -198,11 +198,12 @@ namespace kaufer_comex.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Details", "Processos", new { id = dados.ProcessoId });
             }
-            catch {
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
 
-		}
+        }
     }
 }

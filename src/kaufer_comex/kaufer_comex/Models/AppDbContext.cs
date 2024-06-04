@@ -20,9 +20,9 @@ namespace kaufer_comex.Models
 
         public DbSet<DCE> DCEs { get; set; }
 
-		public DbSet<DCETemp> DCEsTemp { get; set; }
+        public DbSet<DCETemp> DCEsTemp { get; set; }
 
-		public DbSet<ValorProcesso> ValorProcessos { get; set; }
+        public DbSet<ValorProcesso> ValorProcessos { get; set; }
 
         public DbSet<FornecedorServico> FornecedorServicos { get; set; }
 
@@ -54,11 +54,11 @@ namespace kaufer_comex.Models
 
         public DbSet<ProcessoExpImp> ProcessosExpImp { get; set; }
 
-		public DbSet<FornecedorServicoDCE> FornecedorServicoDCEs { get; set; }
+        public DbSet<FornecedorServicoDCE> FornecedorServicoDCEs { get; set; }
 
-		public DbSet<CadastroDespesaDCE> CadastroDespesaDCEs { get; set; }
+        public DbSet<CadastroDespesaDCE> CadastroDespesaDCEs { get; set; }
 
-       
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -75,8 +75,8 @@ namespace kaufer_comex.Models
                  .HasOne(p => p.ExpImp).WithMany(p => p.ProcessoExpImps)
                  .HasForeignKey(p => p.ExpImpId);
 
-           modelBuilder.Entity<NotaItem>()
-                 .HasKey(pe => new { pe.NotaId, pe.ItemId });
+            modelBuilder.Entity<NotaItem>()
+                  .HasKey(pe => new { pe.NotaId, pe.ItemId });
 
             modelBuilder.Entity<NotaItem>()
                  .HasOne(p => p.Nota)
@@ -88,33 +88,33 @@ namespace kaufer_comex.Models
                  .WithMany(pe => pe.NotaItem)
                  .HasForeignKey(e => e.ItemId);
 
-			modelBuilder.Entity<FornecedorServicoDCE>()
-				 .HasKey(p => new { p.FornecedorServicoId, p.DCEId });
+            modelBuilder.Entity<FornecedorServicoDCE>()
+                 .HasKey(p => new { p.FornecedorServicoId, p.DCEId });
 
-			modelBuilder.Entity<FornecedorServicoDCE>()
-				.HasOne(p => p.FornecedorServico).WithMany(p => p.FornecedorServicoDCEs)
-				.HasForeignKey(p => p.FornecedorServicoId);
+            modelBuilder.Entity<FornecedorServicoDCE>()
+                .HasOne(p => p.FornecedorServico).WithMany(p => p.FornecedorServicoDCEs)
+                .HasForeignKey(p => p.FornecedorServicoId);
 
-			modelBuilder.Entity<FornecedorServicoDCE>()
-				.HasOne(p => p.DCE).WithMany(p => p.FornecedorServicos)
-				.HasForeignKey(p => p.DCEId);
+            modelBuilder.Entity<FornecedorServicoDCE>()
+                .HasOne(p => p.DCE).WithMany(p => p.FornecedorServicos)
+                .HasForeignKey(p => p.DCEId);
 
-			modelBuilder.Entity<CadastroDespesaDCE>()
-				 .HasKey(p => new { p.CadastroDespesaId, p.DCEId });
+            modelBuilder.Entity<CadastroDespesaDCE>()
+                 .HasKey(p => new { p.CadastroDespesaId, p.DCEId });
 
-			modelBuilder.Entity<CadastroDespesaDCE>()
-				.HasOne(p => p.CadastroDespesa).WithMany(p => p.CadastroDespesaDCEs)
-				.HasForeignKey(p => p.CadastroDespesaId);
+            modelBuilder.Entity<CadastroDespesaDCE>()
+                .HasOne(p => p.CadastroDespesa).WithMany(p => p.CadastroDespesaDCEs)
+                .HasForeignKey(p => p.CadastroDespesaId);
 
-			modelBuilder.Entity<CadastroDespesaDCE>()
-				.HasOne(p => p.DCE).WithMany(p => p.CadastroDespesas)
-				.HasForeignKey(p => p.DCEId);
+            modelBuilder.Entity<CadastroDespesaDCE>()
+                .HasOne(p => p.DCE).WithMany(p => p.CadastroDespesas)
+                .HasForeignKey(p => p.DCEId);
 
             modelBuilder.Entity<DCE>()
                 .HasOne(d => d.Processo)
                 .WithMany(p => p.DCES)
                 .HasForeignKey(d => d.ProcessoId);
-		}
+        }
 
     }
 }

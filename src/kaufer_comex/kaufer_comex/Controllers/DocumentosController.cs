@@ -12,7 +12,7 @@ namespace kaufer_comex.Controllers
         {
             _context = context;
         }
-		public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             try
             {
@@ -62,8 +62,8 @@ namespace kaufer_comex.Controllers
                         CertificadoOrigem = documento.CertificadoOrigem,
                         CertificadoSeguro = documento.CertificadoSeguro,
                         DataEnvioOrigem = documento.DataEnvioOrigem,
-                        DataEnvioSeguro = documento.DataEnvioSeguro,
                         TrackinCourier = documento.TrackinCourier,
+                        Courier = documento.Courier
 
                     };
 
@@ -105,8 +105,8 @@ namespace kaufer_comex.Controllers
             }
         }
         [HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Edit(int id, Documento documento)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Documento documento)
         {
             try
             {
@@ -149,7 +149,8 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch {
+            catch
+            {
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
                 return View();
             }
@@ -179,8 +180,8 @@ namespace kaufer_comex.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
-		[ValidateAntiForgeryToken]
-		public async Task<ActionResult> DeleteConfirmed(int? id)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(int? id)
         {
             try
             {

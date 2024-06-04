@@ -16,6 +16,6 @@ namespace kaufer_comex.Models
 
         public int Quantidade { get; set; }
 
-		public int EmbarqueRodoviarioId { get; set; }
-	}
+        public int EmbarqueRodoviarioId { get; set; }
+    }
 }

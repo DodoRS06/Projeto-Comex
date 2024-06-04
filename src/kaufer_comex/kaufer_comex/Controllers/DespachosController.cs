@@ -19,7 +19,7 @@ namespace kaufer_comex.Controllers
         {
             try
             {
-           
+
                 var dados = await _context.Despachos
                      .OrderByDescending(p => p.Id)
                      .ToListAsync();
@@ -44,7 +44,7 @@ namespace kaufer_comex.Controllers
                 }
 
                 ViewData["ProcessoId"] = id.Value;
-               
+
                 return View();
             }
             catch
@@ -64,7 +64,7 @@ namespace kaufer_comex.Controllers
                 if (ModelState.IsValid)
                 {
                     var despachoExistente = await _context.Despachos
-                  .AnyAsync(a => a.NumeroDue == despacho.NumeroDue);
+                        .AnyAsync(a => a.NumeroDue == despacho.NumeroDue);
 
                     if (despachoExistente)
                     {
@@ -74,9 +74,9 @@ namespace kaufer_comex.Controllers
 
                     int processoId = Convert.ToInt32(Request.Form["ProcessoId"]);
 
-					Despacho novoDespacho = new Despacho
-					{
-						ProcessoId = processoId,
+                    Despacho novoDespacho = new Despacho
+                    {
+                        ProcessoId = processoId,
                         NumeroDue = despacho.NumeroDue,
                         DataDue = despacho.DataDue,
                         DataAverbacao = despacho.DataAverbacao,
@@ -86,15 +86,15 @@ namespace kaufer_comex.Controllers
                         CodPais = despacho.CodPais,
                         Tipo = despacho.Tipo,
                         Parametrizacao = despacho.Parametrizacao,
-						
-					};
 
-					_context.Despachos.Add(novoDespacho);
+                    };
+
+                    _context.Despachos.Add(novoDespacho);
                     await _context.SaveChangesAsync();
                     return RedirectToAction("Details", "Processos", new { id = novoDespacho.ProcessoId });
                 }
 
-                
+
                 return View(despacho);
             }
             catch
@@ -152,7 +152,7 @@ namespace kaufer_comex.Controllers
                 ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
                 return View();
             }
-            catch 
+            catch
             {
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
                 return View(despacho);
@@ -200,7 +200,7 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch 
+            catch
             {
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
                 return View();
@@ -226,7 +226,7 @@ namespace kaufer_comex.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Details", "Processos", new { id = dados.ProcessoId });
             }
-            catch 
+            catch
             {
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
                 return View();

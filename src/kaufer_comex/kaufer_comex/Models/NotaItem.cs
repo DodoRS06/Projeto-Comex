@@ -16,12 +16,12 @@ namespace kaufer_comex.Models
 
         public Nota Nota { get; set; }
 
-        public double Quantidade {  get; set; }
+        public double Quantidade { get; set; }
 
-		[Column(TypeName = "decimal(18,2)")]
-        public decimal Valor {  get; set; }
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal Valor { get; set; }
 
-        
+
     }
 }
 

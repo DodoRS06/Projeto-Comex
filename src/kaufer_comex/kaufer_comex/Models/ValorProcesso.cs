@@ -36,13 +36,13 @@ namespace kaufer_comex.Models
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
         public decimal ValorTotalCif { get; set; }
 
-		
-		public int ProcessoId { get; set; }
 
-		[ForeignKey("ProcessoId")]
-		public Processo Processo { get; set; }
+        public int ProcessoId { get; set; }
 
-		public Moeda Moeda { get; set; }
+        [ForeignKey("ProcessoId")]
+        public Processo Processo { get; set; }
+
+        public Moeda Moeda { get; set; }
 
 
     }

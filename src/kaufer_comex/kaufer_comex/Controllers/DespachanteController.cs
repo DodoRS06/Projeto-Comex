@@ -56,15 +56,16 @@ namespace kaufer_comex.Controllers
                 }
                 return View(despachante);
             }
-            catch {
+            catch
+            {
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
                 return View();
             }
         }
-    
 
-    public async Task<IActionResult> Edit(int? id)
-    {
+
+        public async Task<IActionResult> Edit(int? id)
+        {
             try
             {
                 if (id == null)
@@ -82,10 +83,10 @@ namespace kaufer_comex.Controllers
                 return View();
             }
 
-    }
-    [HttpPost]
-    public async Task<IActionResult> Edit(int id, Despachante despachante)
-    {
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, Despachante despachante)
+        {
             try
             {
                 if (id != despachante.Id)
@@ -104,38 +105,38 @@ namespace kaufer_comex.Controllers
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
                 return View();
             }
-    }
+        }
 
-    public async Task<IActionResult> Details(int? id)
-    {
-        if (id == null)
-            return NotFound();
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+                return NotFound();
 
-        var dados = await _context.Despachantes.FindAsync(id);
+            var dados = await _context.Despachantes.FindAsync(id);
 
-        if (id == null)
-            return NotFound();
+            if (id == null)
+                return NotFound();
 
-        return View(dados);
-    }
+            return View(dados);
+        }
 
 
-    public async Task<IActionResult> Delete(int? id)
-    {
-        if (id == null)
-            return NotFound();
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+                return NotFound();
 
-        var dados = await _context.Despachantes.FindAsync(id);
+            var dados = await _context.Despachantes.FindAsync(id);
 
-        if (id == null)
-            return NotFound();
+            if (id == null)
+                return NotFound();
 
-        return View(dados);
-    }
+            return View(dados);
+        }
 
-    [HttpPost, ActionName("Delete")]
-    public async Task<IActionResult> DeleteConfirmed(int? id)
-    {
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int? id)
+        {
             try
             {
                 if (id == null)
@@ -155,6 +156,6 @@ namespace kaufer_comex.Controllers
                 TempData["MensagemErro"] = $"Despachante está vinculado a um processo. Não pode ser excluído.";
                 return View();
             }
+        }
     }
-}
 }

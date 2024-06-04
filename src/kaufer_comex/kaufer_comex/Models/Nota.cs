@@ -76,16 +76,16 @@ namespace kaufer_comex.Models
         [Display(Name = "Quantidade total")]
         public double QuantidadeTotal { get; set; }
 
-		[Column(TypeName = "decimal(18,2)")]
+        [Column(TypeName = "decimal(18,2)")]
         [Display(Name = "Valor total")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
-		public decimal ValorTotalNota { get; set; }
+        public decimal ValorTotalNota { get; set; }
 
-		public virtual List<NotaItem> NotaItem { get; set; }
+        public virtual List<NotaItem> NotaItem { get; set; }
 
         [NotMapped]
         public List<NotaItemTemp> NotaItemTemps { get; set; }
-	}
+    }
 }
 
 

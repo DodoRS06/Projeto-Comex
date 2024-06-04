@@ -6,12 +6,12 @@ namespace kaufer_comex.Controllers
 {
     public class StatusController : Controller
     {
-		private readonly AppDbContext _context;
-        public StatusController(AppDbContext context) 
+        private readonly AppDbContext _context;
+        public StatusController(AppDbContext context)
         {
-            _context = context; 
-        }  
-        public async Task<IActionResult> Index() 
+            _context = context;
+        }
+        public async Task<IActionResult> Index()
         {
             try
             {
@@ -21,49 +21,49 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-			catch
-			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
 
-        public IActionResult Create() 
-        { 
-            return View();  
+        public IActionResult Create()
+        {
+            return View();
         }
 
         [HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Create(Status Status)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Status Status)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-					var StatusExistente = await _context.Status
-				  .AnyAsync(a => a.StatusAtual == Status.StatusAtual);
+                    var StatusExistente = await _context.Status
+                  .AnyAsync(a => a.StatusAtual == Status.StatusAtual);
 
-					if (StatusExistente)
-					{
-						ModelState.AddModelError("StatusAtual", "Esse Status já está cadastrado.");
-						return View(Status);
-					}
-					_context.Status.Add(Status);
-					await _context.SaveChangesAsync();
-					return RedirectToAction("Index");
+                    if (StatusExistente)
+                    {
+                        ModelState.AddModelError("StatusAtual", "Esse Status já está cadastrado.");
+                        return View(Status);
+                    }
+                    _context.Status.Add(Status);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
 
-				}
+                }
                 return View(Status);
             }
-			catch
-			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
 
-        public async Task<IActionResult> Edit(int? id) 
+        public async Task<IActionResult> Edit(int? id)
         {
             try
             {
@@ -77,16 +77,16 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-			catch
-			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
 
         [HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Edit(int id,Status Status)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Status Status)
         {
             try
             {
@@ -103,12 +103,12 @@ namespace kaufer_comex.Controllers
 
                 return View();
             }
-			catch
-			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
 
         public async Task<IActionResult> Details(int? id)
         {
@@ -124,12 +124,12 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-			catch
-			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
 
         public async Task<IActionResult> Delete(int? id)
         {
@@ -145,16 +145,16 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-			catch
-			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View();
+            }
+        }
 
         [HttpPost, ActionName("Delete")]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> DeleteConfirmed(int? id)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int? id)
         {
             try
             {
@@ -171,11 +171,11 @@ namespace kaufer_comex.Controllers
 
                 return RedirectToAction("Index");
             }
-			catch
-			{
-				TempData["MensagemErro"] = $"Esse status está vinculado a um processo. Não pode ser excluído.";
-				return View();
-			}
-		}
+            catch
+            {
+                TempData["MensagemErro"] = $"Esse status está vinculado a um processo. Não pode ser excluído.";
+                return View();
+            }
+        }
     }
 }

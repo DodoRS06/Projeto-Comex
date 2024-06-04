@@ -16,13 +16,13 @@ namespace kaufer_comex.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Placa = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Motorista = table.Column<string>(type: "nvarchar(max)", nullable: false),                   
+                    Motorista = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Veiculo", x => x.Id);                   
+                    table.PrimaryKey("PK_Veiculo", x => x.Id);
                 });
-            
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

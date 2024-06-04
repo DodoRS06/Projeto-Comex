@@ -20,14 +20,14 @@ namespace kaufer_comex.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-     
+
             migrationBuilder.DropColumn(
                 name: "NomeUsuario",
                 table: "NotaItemTemps");
 
-        
 
-         
+
+
         }
     }
 }
