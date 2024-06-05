@@ -578,15 +578,16 @@ namespace kaufer_comex.Controllers
                    new DataColumn("Data da Averbação"),
                    new DataColumn("Código do País"),
                    new DataColumn("Parametrização"),
-                   //Documento
+                   // Documento
                    new DataColumn("Documento"),
                    new DataColumn("Certificado de origem"),
                    new DataColumn("Certificado de Seguro"),
                    new DataColumn("Data Envio"),
                    new DataColumn("Tracking"),
                    new DataColumn("Courier"),
-                   new DataColumn("Moeda"),
+                   // Valor do Processo
                    new DataColumn("Valor Processo"),
+                   new DataColumn("Moeda"),
                    new DataColumn("Valor Fob/Fca"),
                    new DataColumn("Frete Internacional"),
                    new DataColumn("Seguro Internacional"),
@@ -665,8 +666,8 @@ namespace kaufer_comex.Controllers
                 row["Tracking"] = processo.Documento.TrackinCourier;
                 row["Courier"] = processo.Documento.Courier;
                 // Valor de Processo
-                row["Moeda"] = processo.ValorProcesso.Moeda;
                 row["Valor Processo"] = processo.ValorProcesso.Id;
+                row["Moeda"] = processo.ValorProcesso.Moeda;
                 row["Valor Fob/Fca"] = processo.ValorProcesso.ValorFobFca;
                 row["Frete Internacional"] = processo.ValorProcesso.FreteInternacional;
                 row["Seguro Internacional"] = processo.ValorProcesso.SeguroInternaciona;
