@@ -43,7 +43,7 @@
                     Valor FOB
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.ValorFob)
+                    @Model.ValorFob.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
                 </dd>
             </div>
             <div class="col-md-4">
@@ -51,7 +51,7 @@
                     Valor Frete
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.ValorFrete)
+                    @Model.ValorFrete.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
                 </dd>
             </div>
             <div class="col-md-4">
@@ -59,7 +59,7 @@
                     Valor Seguro
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.ValorSeguro)
+                    @Model.ValorSeguro.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
                 </dd>
             </div>
             <div class="col-md-4">
@@ -67,7 +67,7 @@
                     Valor CIF
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.ValorCif)
+                    @Model.ValorCif.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
                 </dd>
             </div>
             <div class="col-md-4">
@@ -91,7 +91,7 @@
                     Taxa Cambial
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.TaxaCambial)
+                    @Model.TaxaCambial.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
                 </dd>
             </div>
             <div class="col-md-4">
@@ -116,7 +116,7 @@
                     Valor Total
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.ValorTotalNota)
+                    @Model.ValorTotalNota.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
                 </dd>
             </div>
             <div class="col-md-4">
@@ -145,7 +145,7 @@
             <tr>
                 <td>@item.Item.DescricaoProduto</td>
                 <td>@item.Quantidade</td>
-                <td>@item.Valor</td>
+                <td>@item.Valor.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))</td>
             </tr>
         }
     </tbody>

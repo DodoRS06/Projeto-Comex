@@ -65,6 +65,8 @@ namespace kaufer_comex.Models
         [ForeignKey("ProcessoId")]
         public Processo Processo { get; set; }
 
+        public virtual List<Nota> Notas { get; set; }
+
 
     }
 }

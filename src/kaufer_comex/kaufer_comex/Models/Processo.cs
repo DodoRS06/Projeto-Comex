@@ -25,42 +25,50 @@ namespace kaufer_comex.Models
         public int ImportadorId { get; set; }
 
         [Display(Name = "Modal (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o Modal.")]
         public Modal Modal { get; set; }
 
         [Display(Name = "Incoterm (*)")]
+        [Required(ErrorMessage = "Obrigatório informar Incoterm.")]
         public Incoterm Incoterm { get; set; }
 
         [Display(Name = "Destino (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o Destino.")]
         public int DestinoId { get; set; }
 
         [ForeignKey("DestinoId")]
         public Destino Destino { get; set; }
 
         [Display(Name = "Responsável (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o usuário responsável.")]
         public int UsuarioId { get; set; }
 
         [ForeignKey("UsuarioId")]
         public Usuario Usuario { get; set; }
 
         [Display(Name = "Fronteira (*)")]
+        [Required(ErrorMessage = "Obrigatório informar a Fronteira.")]
         public int FronteiraId { get; set; }
 
         [ForeignKey("FronteiraId")]
         public Fronteira Fronteira { get; set; }
 
         [Display(Name = "Despachante (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o despachante.")]
         public int DespachanteId { get; set; }
 
         [ForeignKey("DespachanteId")]
         public Despachante Despachante { get; set; }
 
         [Display(Name = "Vendedor (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o vendedor.")]
         public int VendedorId { get; set; }
 
         [ForeignKey("VendedorId")]
         public Vendedor Vendedor { get; set; }
 
         [Display(Name = "Status (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o Status.")]
         public int StatusId { get; set; }
 
         [ForeignKey("StatusId")]
@@ -72,31 +80,37 @@ namespace kaufer_comex.Models
         [Display(Name = "Data de Início do Processo (*)")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+        [Required(ErrorMessage = "Obrigatório informar a data.")]
         public DateTime DataInicioProcesso { get; set; }
 
         [Display(Name = "Previsão de produção (*)")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+        [Required(ErrorMessage = "Obrigatório informar a data.")]
         public DateTime PrevisaoProducao { get; set; }
 
         [Display(Name = "Previsão de pagamento (*)")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+        [Required(ErrorMessage = "Obrigatório informar a data.")]
         public DateTime PrevisaoPagamento { get; set; }
 
         [Display(Name = "Previsão Coleta (*)")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+        [Required(ErrorMessage = "Obrigatório informar a data.")]
         public DateTime PrevisaoColeta { get; set; }
 
         [Display(Name = "Previsão Cruze (*)")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+        [Required(ErrorMessage = "Obrigatório informar a data.")]
         public DateTime PrevisaoCruze { get; set; }
 
         [Display(Name = "Previsão de entrega (*)")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+        [Required(ErrorMessage = "Obrigatório informar a data.")]
         public DateTime PrevisaoEntrega { get; set; }
 
         [Display(Name = "Observações (*)")]
@@ -113,9 +127,9 @@ namespace kaufer_comex.Models
 
         public virtual ValorProcesso ValorProcesso { get; set; }
 
-        public virtual ICollection<Veiculo> Veiculos { get; set; }
+        public virtual List<Veiculo> Veiculos { get; set; }
 
-        public virtual ICollection<DCE> DCES { get; set; }
+        public virtual List<DCE> DCES { get; set; }
 
         public virtual ICollection<ProcessoExpImp> ExpImps { get; set; }
 
