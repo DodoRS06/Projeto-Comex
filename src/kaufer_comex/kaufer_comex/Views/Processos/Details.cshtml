@@ -508,7 +508,7 @@
                             Valor Total
                         </dt>
                         <dd>
-                            @item.ValorTotalNota.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
+                            @item.ValorTotalNota
                         </dd>
                     </div>
                 </dl>
@@ -547,7 +547,7 @@
                             Valor EXW:
                         </dt>
                         <dd>
-                            @item.ValorExw.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
+                            @item.ValorExw
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -555,7 +555,7 @@
                             Valor FOB:
                         </dt>
                         <dd>
-                            @item.ValorFobFca.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
+                            @item.ValorFobFca
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -563,7 +563,7 @@
                             Valor do frete:
                         </dt>
                         <dd>
-                            @item.FreteInternacional.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
+                            @item.FreteInternacional
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -571,7 +571,7 @@
                             Seguro Internacional:
                         </dt>
                         <dd>
-                            @item.SeguroInternaciona.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
+                            @item.SeguroInternaciona
                         </dd>
                     </div>
                     <div class="col-md-4">
@@ -579,7 +579,7 @@
                             Valor Total Cif:
                         </dt>
                         <dd>
-                            @item.ValorTotalCif.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
+                            @item.ValorTotalCif
                         </dd>
                     </div>
 
@@ -587,31 +587,6 @@
             </div>
         }
 
-    }
-
-    @if (Model.DCES.Count > 0)
-    {
-        <div class="card mb-3">
-            <div class="card-header d-flex justify-content-between">
-                <span class="mt-1">DCE: </span>
-                <div class="justify-content-sm-end d-flex m-0">
-                    <a asp-action="Edit" asp-controller="DCEs" asp-route-id="" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
-                </div>
-            </div>
-      @*       @foreach (var item in Model.DCES) { *@
-                <dl class="card-body row">
-                    <div class="col-md-4">
-                    <dt>
-                        Valor total :
-                    </dt>
-                    <dd>
-
-                    </dd>
-                </div>
-            </dl>
-   
-@*             } *@
-        </div>
     }
 
 </div>

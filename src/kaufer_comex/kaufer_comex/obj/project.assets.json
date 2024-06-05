@@ -11131,16 +11131,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\dodos\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\noguti oliveira\\.nuget\\packages\\": {}
->>>>>>> 4b590f7c473988aa69b85a3e8b1a7aed0af78a0c
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\dodos\\Source\\Repos\\comex\\src\\kaufer_comex\\kaufer_comex\\kaufer_comex.csproj",
       "projectName": "kaufer_comex",
       "projectPath": "C:\\Users\\dodos\\Source\\Repos\\comex\\src\\kaufer_comex\\kaufer_comex\\kaufer_comex.csproj",
@@ -11149,16 +11144,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dodos\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\kaufer_comex.csproj",
-      "projectName": "kaufer_comex",
-      "projectPath": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\kaufer_comex.csproj",
-      "packagesPath": "C:\\Users\\noguti oliveira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\noguti oliveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 4b590f7c473988aa69b85a3e8b1a7aed0af78a0c
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11238,7 +11223,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

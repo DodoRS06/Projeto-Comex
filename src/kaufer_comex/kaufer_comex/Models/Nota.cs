@@ -22,45 +22,37 @@ namespace kaufer_comex.Models
         public DateTime Emissao { get; set; }
 
         [Display(Name = "Base Nota (*)")]
-        [Required(ErrorMessage = "Obrigatório informar a data.")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         public DateTime BaseNota { get; set; }
 
         [Display(Name = "Valor Fob (*)")]
-        [Required(ErrorMessage = "Obrigatório informar o valor Fob.")]
         [Column(TypeName = "decimal(18,2)")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorFob { get; set; }
 
         [Display(Name = "Valor Frete (*)")]
-        [Required(ErrorMessage = "Obrigatório informar o valor do frete.")]
         [Column(TypeName = "decimal(18,2)")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorFrete { get; set; }
 
         [Display(Name = "Valor Seguro (*)")]
-        [Required(ErrorMessage = "Obrigatório informar o valor do seguro.")]
         [Column(TypeName = "decimal(18,2)")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorSeguro { get; set; }
 
         [Display(Name = "Valor Cif (*)")]
-        [Required(ErrorMessage = "Obrigatório informar o valor Cif.")]
         [Column(TypeName = "decimal(18,2)")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal ValorCif { get; set; }
 
         [Display(Name = "Peso Liq (*)")]
-        [Required(ErrorMessage = "Obrigatório informar o peso líquido.")]
         public float PesoLiq { get; set; }
 
         [Display(Name = "Peso Bruto (*)")]
-        [Required(ErrorMessage = "Obrigatório informar o peso bruto.")]
         public float PesoBruto { get; set; }
 
         [Display(Name = "Taxa Cambial (*)")]
-        [Required(ErrorMessage = "Obrigatório informar a taxa cambial.")]
         [Column(TypeName = "decimal(18,2)")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal TaxaCambial { get; set; }
