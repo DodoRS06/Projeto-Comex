@@ -113,9 +113,9 @@ namespace kaufer_comex.Models
 
         public virtual ValorProcesso ValorProcesso { get; set; }
 
-        public virtual ICollection<Veiculo> Veiculos { get; set; }
+        public virtual List<Veiculo> Veiculos { get; set; }
 
-        public virtual ICollection<DCE> DCES { get; set; }
+        public virtual List<DCE> DCES { get; set; }
 
         public virtual ICollection<ProcessoExpImp> ExpImps { get; set; }
 

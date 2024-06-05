@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using System.Diagnostics;
 
 namespace kaufer_comex.Controllers
 {
@@ -515,134 +516,180 @@ namespace kaufer_comex.Controllers
                      .Include(p => p.EmbarqueRodoviario)
                      .Include(p => p.Despacho)
                      .Include(p => p.Documento)
-                     .Include(p => p.ValorProcesso) 
+                     .Include(p => p.ValorProcesso)
                      .Include(p => p.Veiculos)
+                     .Include(p => p.DCES)
              .ToListAsync();
-        
-
-           var veiculo = await _context.Veiculos.ToListAsync();
 
             var fileName = "Processo.xlsx";
 
 
-            return GenerateExcel(fileName, processos, veiculo);
+            return GenerateExcel(fileName, processos);
         }
 
-        private FileResult GenerateExcel(string fileName, IEnumerable<Processo> processos, IEnumerable<Veiculo> veiculo)
+        private FileResult GenerateExcel(string fileName, IEnumerable<Processo> processos)
         {
             DataTable dataTable = new DataTable("Processos");
-            dataTable.Columns.AddRange(new DataColumn[]
+
+            // Colunas fixas
+            var fixedColumns = new DataColumn[]
             {
-                 new DataColumn("Id"),
-                 new DataColumn("CodProcessoExportacao"),
-                 new DataColumn("Exportador"),
-                 new DataColumn("Importador"),
-                 new DataColumn("Usuário Responsável"),
-                 new DataColumn("Modal"),
-                 new DataColumn("Incoterm"),
-                 new DataColumn("Destino"),
-                 new DataColumn("Fronteira"),
-                 new DataColumn("Despachante"),
-                 new DataColumn("Vendedor"),
-                 new DataColumn("Status"),
-                 new DataColumn("Proforma"),
-                 new DataColumn("DataInicioProcesso"),
-                 new DataColumn("PrevisaoProducao"),
-                 new DataColumn("PrevisaoPagamento"),
-                 new DataColumn("PrevisaoColeta"),
-                 new DataColumn("Previsão Cruze"),
-                 new DataColumn("Previsão de entrega"),
-                 new DataColumn("Observacoes"),
-                 new DataColumn("PedidosRelacionados"),
-                 // Embarque Rodoviario 
-                 new DataColumn("Embarque Rodoviário"),
-                 new DataColumn("Transportadora"),
-                 new DataColumn("Data do Embarque"),
-                 new DataColumn("Transit Time"),
-                 new DataColumn("Chegada no Destino"),
-                 new DataColumn("Booking"),
-                 new DataColumn("Deadline Draft"),
-                 new DataColumn("Deadline VGM"),
-                 new DataColumn("Deadline Carga"),
-                 new DataColumn("Agente de Carga"),
-                 // Despacho
-                 new DataColumn("Despacho"),
-                 new DataColumn("Número DUE"),
-                 new DataColumn("Data DUE"),
-                 new DataColumn("Data de Exportação"),
-                 new DataColumn("Conhecimento de Embarque"),
-                 new DataColumn("Data de Conhecimento"),
-                 new DataColumn("Tipo"),
-                 new DataColumn("Data da Averbação"),
-                 new DataColumn("Código do País"),
-                 new DataColumn("Parametrização"),
-                 //Documento
-                 new DataColumn("Documento"),
-                  new DataColumn("Certificado de origem"),
-                 new DataColumn("Certificado do Seguro"),
-                 new DataColumn("Envio do Certificado"),
-                 new DataColumn("Tracking"),
-                 new DataColumn("Courier"),
-                 //Valor Processo
-                 new DataColumn("Valor Processo"),
-                 new DataColumn("Valor Fob/Fca"),
-                 new DataColumn("Frete Internacional"),
-                 new DataColumn("Seguro Internacional"),
-                 new DataColumn("Valor Total"),
-                 new DataColumn("Moeda"),
-                 //Veiculo 
-                 new DataColumn("Veiculo"),
-                 new DataColumn("Placa"),
-                 new DataColumn("Motorista"),
+                // Processo
+                   new DataColumn("Id"),
+                   new DataColumn("CodProcessoExportacao"),
+                   new DataColumn("Exportador"),
+                   new DataColumn("Importador"),
+                   new DataColumn("Usuário Responsável"),
+                   new DataColumn("Modal"),
+                   new DataColumn("Incoterm"),
+                   new DataColumn("Destino"),
+                   new DataColumn("Fronteira"),
+                   new DataColumn("Despachante"),
+                   new DataColumn("Vendedor"),
+                   new DataColumn("Status"),
+                   new DataColumn("Proforma"),
+                   new DataColumn("DataInicioProcesso"),
+                   new DataColumn("PrevisaoProducao"),
+                   new DataColumn("PrevisaoPagamento"),
+                   new DataColumn("PrevisaoColeta"),
+                   new DataColumn("Previsão Cruze"),
+                   new DataColumn("Previsão de entrega"),
+                   new DataColumn("Observacoes"),
+                   new DataColumn("PedidosRelacionados"),
+                   // Embarque
+                   new DataColumn("Embarque Rodoviário"),
+                   new DataColumn("Transportadora"),
+                   new DataColumn("Data do Embarque"),
+                   new DataColumn("Transit Time"),
+                   new DataColumn("Chegada no Destino"),
+                   new DataColumn("Booking"),
+                   new DataColumn("Deadline Draft"),
+                   new DataColumn("Deadline VGM"),
+                   new DataColumn("Deadline Carga"),
+                   new DataColumn("Agente de Carga"),
+                   // Despacho
+                   new DataColumn("Despacho"),
+                   new DataColumn("Número DUE"),
+                   new DataColumn("Data DUE"),
+                   new DataColumn("Data de Exportação"),
+                   new DataColumn("Conhecimento de Embarque"),
+                   new DataColumn("Data de Conhecimento"),
+                   new DataColumn("Tipo"),
+                   new DataColumn("Data da Averbação"),
+                   new DataColumn("Código do País"),
+                   new DataColumn("Parametrização"),
+                   //Documento
+                   new DataColumn("Documento"),
+                   new DataColumn("Certificado de origem"),
+                   new DataColumn("Certificado de Seguro"),
+                   new DataColumn("Data Envio"),
+                   new DataColumn("Tracking"),
+                   new DataColumn("Courier"),
+                   new DataColumn("Moeda"),
+                   new DataColumn("Valor Processo"),
+                   new DataColumn("Valor Fob/Fca"),
+                   new DataColumn("Frete Internacional"),
+                   new DataColumn("Seguro Internacional"),
+                   new DataColumn("Valor Total"),
 
+            };
 
-            });
+            dataTable.Columns.AddRange(fixedColumns);
 
-            foreach (var Processo in processos)
+            // Encontrar o número máximo de veículos em um processo
+            int maxVeiculos = processos.Max(p => p.Veiculos?.Count ?? 0);
+
+            // Adicionar colunas dinâmicas para os veículos
+            for (int i = 0; i < maxVeiculos; i++)
             {
-                dataTable.Rows.Add(Processo.Id, Processo.CodProcessoExportacao, GetNomeExportador(Processo.ExportadorId), GetNomeImportador(Processo.ImportadorId), Processo.Usuario.NomeFuncionario,
-                    Processo.Modal, Processo.Incoterm, Processo.Destino.NomePais, Processo.Fronteira.NomeFronteira, Processo.Despachante.NomeDespachante, Processo.Vendedor.NomeVendedor, Processo.Status.StatusAtual,
-                    Processo.Proforma, Processo.DataInicioProcesso, Processo.PrevisaoProducao, Processo.PrevisaoPagamento, Processo.PrevisaoColeta, Processo.PrevisaoCruze,
-                    Processo.PrevisaoEntrega, Processo.Observacoes, Processo.PedidosRelacionados,
-                    //Embarque Rodoviário
-                    Processo.EmbarqueRodoviario.Id, Processo.EmbarqueRodoviario.Transportadora, Processo.EmbarqueRodoviario.DataEmbarque,Processo.EmbarqueRodoviario.TransitTime,
-                    Processo.EmbarqueRodoviario.ChegadaDestino, Processo.EmbarqueRodoviario.Booking, Processo.EmbarqueRodoviario.DeadlineDraft, Processo.EmbarqueRodoviario.DeadlineVgm
-                    ,Processo.EmbarqueRodoviario.DeadlineCarga, Processo.EmbarqueRodoviario.AgenteDeCarga,
-                    //Despacho
-                    Processo.Despacho.Id, Processo.Despacho.NumeroDue,Processo.Despacho.DataDue, Processo.Despacho.DataExportacao,Processo.Despacho.ConhecimentoEmbarque,Processo.Despacho.DataAverbacao,
-                    Processo.Despacho.CodPais,Processo.Despacho.Parametrizacao,
-                    //Documento
-                    Processo.Documento.Id,Processo.Documento.CertificadoOrigem,Processo.Documento.CertificadoSeguro,Processo.Documento.DataEnvioOrigem,Processo.Documento.TrackinCourier,
-                    Processo.Documento.Courier,
-                    //Valor Processo
-                    Processo.ValorProcesso.Id,Processo.ValorProcesso.ValorFobFca, Processo.ValorProcesso.FreteInternacional, Processo.ValorProcesso.SeguroInternaciona, 
-                    Processo.ValorProcesso.ValorTotalCif, Processo.ValorProcesso.Moeda
-                    //Veiculo
-                    );
+                dataTable.Columns.Add(new DataColumn($"Veiculo_{i + 1}"));
+                dataTable.Columns.Add(new DataColumn($"Veiculo_{i + 1}_Placa"));
+                dataTable.Columns.Add(new DataColumn($"Veiculo_{i + 1}_Motorista"));
             }
 
-            foreach (var Veiculo in veiculo)
+            // Preencher as linhas da tabela
+            foreach (var processo in processos)
             {
-                dataTable.Rows.Add( Veiculo.Id, Veiculo.Placa, Veiculo.Motorista);
+                var row = dataTable.NewRow();
+
+                // Preencher colunas fixas
+                // Processo
+                row["Id"] = processo.Id;
+                row["CodProcessoExportacao"] = processo.CodProcessoExportacao;
+                row["Exportador"] = GetNomeExportador(processo.ExportadorId);
+                row["Importador"] = GetNomeImportador(processo.ImportadorId);
+                row["Usuário Responsável"] = processo.Usuario.NomeFuncionario;
+                row["Modal"] = processo.Modal;
+                row["Incoterm"] = processo.Incoterm;
+                row["Destino"] = processo.Destino.NomePais;
+                row["Fronteira"] = processo.Fronteira.NomeFronteira;
+                row["Despachante"] = processo.Despachante.NomeDespachante;
+                row["Vendedor"] = processo.Vendedor.NomeVendedor;
+                row["Status"] = processo.Status.StatusAtual;
+                row["Proforma"] = processo.Proforma;
+                row["DataInicioProcesso"] = processo.DataInicioProcesso;
+                row["PrevisaoProducao"] = processo.PrevisaoProducao;
+                row["PrevisaoPagamento"] = processo.PrevisaoPagamento;
+                row["PrevisaoColeta"] = processo.PrevisaoColeta;
+                row["Previsão Cruze"] = processo.PrevisaoCruze;
+                row["Previsão de entrega"] = processo.PrevisaoEntrega;
+                row["Observacoes"] = processo.Observacoes;
+                row["PedidosRelacionados"] = processo.PedidosRelacionados;
+                // Embarque
+                row["Embarque Rodoviário"] = processo.EmbarqueRodoviario.Id;
+                row["Transportadora"] = processo.EmbarqueRodoviario.Transportadora;
+                row["Data do Embarque"] = processo.EmbarqueRodoviario.DataEmbarque;
+                row["Transit Time"] = processo.EmbarqueRodoviario.TransitTime;
+                row["Chegada no Destino"] = processo.EmbarqueRodoviario.ChegadaDestino;
+                row["Booking"] = processo.EmbarqueRodoviario.Booking;
+                row["Deadline Draft"] = processo.EmbarqueRodoviario.DeadlineDraft;
+                row["Deadline VGM"] = processo.EmbarqueRodoviario.DeadlineVgm;
+                row["Deadline Carga"] = processo.EmbarqueRodoviario.DeadlineCarga;
+                row["Agente de Carga"] = GetNomeAgenteDeCarga(processo.EmbarqueRodoviario.AgenteDeCargaId);
+                // Despacho
+                row["Despacho"] = processo.Despacho.Id;
+                row["Número DUE"] = processo.Despacho.NumeroDue;
+                row["Data DUE"] = processo.Despacho.DataDue;
+                row["Data de Exportação"] = processo.Despacho.DataExportacao;
+                row["Conhecimento de Embarque"] = processo.Despacho.ConhecimentoEmbarque;
+                row["Data de Conhecimento"] = processo.Despacho.DataConhecimento;
+                row["Tipo"] = processo.Despacho.Tipo;
+                row["Data da Averbação"] = processo.Despacho.DataAverbacao;
+                row["Código do País"] = processo.Despacho.CodPais;
+                row["Parametrização"] = processo.Despacho.Parametrizacao;
+                // Documento
+                row["Documento"] = processo.Documento.Id;
+                row["Certificado de origem"] = processo.Documento.CertificadoOrigem;
+                row["Certificado de Seguro"] = processo.Documento.CertificadoSeguro;
+                row["Data Envio"] = processo.Documento.DataEnvioOrigem;
+                row["Tracking"] = processo.Documento.TrackinCourier;
+                row["Courier"] = processo.Documento.Courier;
+                // Valor de Processo
+                row["Moeda"] = processo.ValorProcesso.Moeda;
+                row["Valor Processo"] = processo.ValorProcesso.Id;
+                row["Valor Fob/Fca"] = processo.ValorProcesso.ValorFobFca;
+                row["Frete Internacional"] = processo.ValorProcesso.FreteInternacional;
+                row["Seguro Internacional"] = processo.ValorProcesso.SeguroInternaciona;
+                row["Valor Total"] = processo.ValorProcesso.ValorTotalCif;
+
+
+                // Preencher colunas dinâmicas para os veículos
+                if (processo.Veiculos != null)
+                {
+                    for (int i = 0; i < processo.Veiculos.Count; i++)
+                    {
+                        row[$"Veiculo_{i + 1}"] = processo.Veiculos[i].Id;
+                        row[$"Veiculo_{i + 1}_Placa"] = processo.Veiculos[i].Placa;
+                        row[$"Veiculo_{i + 1}_Motorista"] = processo.Veiculos[i].Motorista;
+                    }
+                }
+
+                dataTable.Rows.Add(row);
             }
-
-            //DataTable dataTables = new DataTable("Embarque");
-            //dataTables.Columns.AddRange(new DataColumn[]
-            //{
-            //    new DataColumn("Id"),
-            //    new DataColumn("Agente de Carga"),
-            //    new DataColumn("Transportadora")
-            //});
-
-            //foreach (var EmbarqueRodoviario in embarque)
-            //{
-            //    dataTable.Rows.Add(EmbarqueRodoviario.Id, EmbarqueRodoviario.AgenteDeCarga, EmbarqueRodoviario.Transportadora);
-            //}
-
             using (XLWorkbook wb = new XLWorkbook())
             {
                 wb.Worksheets.Add(dataTable, "Processo");
-                // wb.Worksheets.Add(dataTables, "Embarque");
+
                 using (MemoryStream stream = new MemoryStream())
                 {
                     wb.SaveAs(stream);
