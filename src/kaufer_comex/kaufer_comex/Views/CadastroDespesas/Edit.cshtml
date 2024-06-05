@@ -38,6 +38,14 @@
 
 
 @section Scripts {
+    <script>
+        window.onload = function () {
+            var firstInput = document.querySelector("input");
+            if (firstInput) {
+                firstInput.focus();
+            }
+        };
+    </script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
