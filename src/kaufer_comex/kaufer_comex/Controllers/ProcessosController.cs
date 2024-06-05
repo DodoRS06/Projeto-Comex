@@ -512,18 +512,23 @@ namespace kaufer_comex.Controllers
                      .Include(p => p.Usuario)
                      .Include(p => p.ExpImps)
                      .ThenInclude(p => p.ExpImp)
+                     .Include(p => p.EmbarqueRodoviario)
+                     .Include(p => p.Despacho)
+                     .Include(p => p.Documento)
+                     .Include(p => p.ValorProcesso) 
+                     .Include(p => p.Veiculos)
              .ToListAsync();
+        
 
-
-            // var embarque = await _context.EmbarqueRodoviarios.ToListAsync();
+           var veiculo = await _context.Veiculos.ToListAsync();
 
             var fileName = "Processo.xlsx";
 
 
-            return GenerateExcel(fileName, processos);
+            return GenerateExcel(fileName, processos, veiculo);
         }
 
-        private FileResult GenerateExcel(string fileName, IEnumerable<Processo> processos)
+        private FileResult GenerateExcel(string fileName, IEnumerable<Processo> processos, IEnumerable<Veiculo> veiculo)
         {
             DataTable dataTable = new DataTable("Processos");
             dataTable.Columns.AddRange(new DataColumn[]
@@ -549,6 +554,48 @@ namespace kaufer_comex.Controllers
                  new DataColumn("Previsão de entrega"),
                  new DataColumn("Observacoes"),
                  new DataColumn("PedidosRelacionados"),
+                 // Embarque Rodoviario 
+                 new DataColumn("Embarque Rodoviário"),
+                 new DataColumn("Transportadora"),
+                 new DataColumn("Data do Embarque"),
+                 new DataColumn("Transit Time"),
+                 new DataColumn("Chegada no Destino"),
+                 new DataColumn("Booking"),
+                 new DataColumn("Deadline Draft"),
+                 new DataColumn("Deadline VGM"),
+                 new DataColumn("Deadline Carga"),
+                 new DataColumn("Agente de Carga"),
+                 // Despacho
+                 new DataColumn("Despacho"),
+                 new DataColumn("Número DUE"),
+                 new DataColumn("Data DUE"),
+                 new DataColumn("Data de Exportação"),
+                 new DataColumn("Conhecimento de Embarque"),
+                 new DataColumn("Data de Conhecimento"),
+                 new DataColumn("Tipo"),
+                 new DataColumn("Data da Averbação"),
+                 new DataColumn("Código do País"),
+                 new DataColumn("Parametrização"),
+                 //Documento
+                 new DataColumn("Documento"),
+                  new DataColumn("Certificado de origem"),
+                 new DataColumn("Certificado do Seguro"),
+                 new DataColumn("Envio do Certificado"),
+                 new DataColumn("Tracking"),
+                 new DataColumn("Courier"),
+                 //Valor Processo
+                 new DataColumn("Valor Processo"),
+                 new DataColumn("Valor Fob/Fca"),
+                 new DataColumn("Frete Internacional"),
+                 new DataColumn("Seguro Internacional"),
+                 new DataColumn("Valor Total"),
+                 new DataColumn("Moeda"),
+                 //Veiculo 
+                 new DataColumn("Veiculo"),
+                 new DataColumn("Placa"),
+                 new DataColumn("Motorista"),
+
+
             });
 
             foreach (var Processo in processos)
@@ -556,7 +603,27 @@ namespace kaufer_comex.Controllers
                 dataTable.Rows.Add(Processo.Id, Processo.CodProcessoExportacao, GetNomeExportador(Processo.ExportadorId), GetNomeImportador(Processo.ImportadorId), Processo.Usuario.NomeFuncionario,
                     Processo.Modal, Processo.Incoterm, Processo.Destino.NomePais, Processo.Fronteira.NomeFronteira, Processo.Despachante.NomeDespachante, Processo.Vendedor.NomeVendedor, Processo.Status.StatusAtual,
                     Processo.Proforma, Processo.DataInicioProcesso, Processo.PrevisaoProducao, Processo.PrevisaoPagamento, Processo.PrevisaoColeta, Processo.PrevisaoCruze,
-                    Processo.PrevisaoEntrega, Processo.Observacoes, Processo.PedidosRelacionados);
+                    Processo.PrevisaoEntrega, Processo.Observacoes, Processo.PedidosRelacionados,
+                    //Embarque Rodoviário
+                    Processo.EmbarqueRodoviario.Id, Processo.EmbarqueRodoviario.Transportadora, Processo.EmbarqueRodoviario.DataEmbarque,Processo.EmbarqueRodoviario.TransitTime,
+                    Processo.EmbarqueRodoviario.ChegadaDestino, Processo.EmbarqueRodoviario.Booking, Processo.EmbarqueRodoviario.DeadlineDraft, Processo.EmbarqueRodoviario.DeadlineVgm
+                    ,Processo.EmbarqueRodoviario.DeadlineCarga, Processo.EmbarqueRodoviario.AgenteDeCarga,
+                    //Despacho
+                    Processo.Despacho.Id, Processo.Despacho.NumeroDue,Processo.Despacho.DataDue, Processo.Despacho.DataExportacao,Processo.Despacho.ConhecimentoEmbarque,Processo.Despacho.DataAverbacao,
+                    Processo.Despacho.CodPais,Processo.Despacho.Parametrizacao,
+                    //Documento
+                    Processo.Documento.Id,Processo.Documento.CertificadoOrigem,Processo.Documento.CertificadoSeguro,Processo.Documento.DataEnvioOrigem,Processo.Documento.TrackinCourier,
+                    Processo.Documento.Courier,
+                    //Valor Processo
+                    Processo.ValorProcesso.Id,Processo.ValorProcesso.ValorFobFca, Processo.ValorProcesso.FreteInternacional, Processo.ValorProcesso.SeguroInternaciona, 
+                    Processo.ValorProcesso.ValorTotalCif, Processo.ValorProcesso.Moeda
+                    //Veiculo
+                    );
+            }
+
+            foreach (var Veiculo in veiculo)
+            {
+                dataTable.Rows.Add( Veiculo.Id, Veiculo.Placa, Veiculo.Motorista);
             }
 
             //DataTable dataTables = new DataTable("Embarque");

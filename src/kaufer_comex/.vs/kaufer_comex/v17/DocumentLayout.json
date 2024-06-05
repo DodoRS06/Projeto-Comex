@@ -1,30 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\",
+  "WorkspaceRootPath": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\github\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\views\\processos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\views\\processos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\github\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\controllers\\processoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\controllers\\processoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\controllers\\processoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\github\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\models\\processo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\models\\processo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\github\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\views\\processos\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\views\\processos\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\github\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\models\\detalhesprocessoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\models\\detalhesprocessoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|c:\\github\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\controllers\\notascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21AAB310-0513-481A-803C-AB9F647010E1}|kaufer_comex\\kaufer_comex.csproj|solutionrelative:kaufer_comex\\controllers\\notascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +22,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -49,87 +41,42 @@
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Processos\\Index.cshtml",
-              "RelativeDocumentMoniker": "kaufer_comex\\Views\\Processos\\Index.cshtml",
-              "ToolTip": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Processos\\Index.cshtml",
-              "RelativeToolTip": "kaufer_comex\\Views\\Processos\\Index.cshtml",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB4AAACXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-02T20:18:02.958Z",
+              "DocumentIndex": 1,
+              "Title": "Processo.cs",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Models\\Processo.cs",
+              "RelativeDocumentMoniker": "kaufer_comex\\Models\\Processo.cs",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Models\\Processo.cs",
+              "RelativeToolTip": "kaufer_comex\\Models\\Processo.cs",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAswHUAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T23:47:39.79Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\appsettings.json",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\appsettings.json",
               "RelativeDocumentMoniker": "kaufer_comex\\appsettings.json",
-              "ToolTip": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\appsettings.json",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\appsettings.json",
               "RelativeToolTip": "kaufer_comex\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAACRAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAACFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-02T20:13:12.738Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-02T20:13:12.738Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Processos\\Details.cshtml",
-              "RelativeDocumentMoniker": "kaufer_comex\\Views\\Processos\\Details.cshtml",
-              "ToolTip": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Views\\Processos\\Details.cshtml",
-              "RelativeToolTip": "kaufer_comex\\Views\\Processos\\Details.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-02T19:45:43.868Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ProcessosController.cs",
-              "DocumentMoniker": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Controllers\\ProcessosController.cs",
+              "DocumentMoniker": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Controllers\\ProcessosController.cs",
               "RelativeDocumentMoniker": "kaufer_comex\\Controllers\\ProcessosController.cs",
-              "ToolTip": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Controllers\\ProcessosController.cs",
+              "ToolTip": "C:\\reposit\u00F3rio atual\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Controllers\\ProcessosController.cs",
               "RelativeToolTip": "kaufer_comex\\Controllers\\ProcessosController.cs",
-              "ViewState": "AQIAAMcBAAAAAAAAAAAowM0BAAAtAAAA",
+              "ViewState": "AQIAAAkCAAAAAAAAAAAqwHECAABQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-02T00:42:06.139Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "NotasController.cs",
-              "DocumentMoniker": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Controllers\\NotasController.cs",
-              "RelativeDocumentMoniker": "kaufer_comex\\Controllers\\NotasController.cs",
-              "ToolTip": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Controllers\\NotasController.cs",
-              "RelativeToolTip": "kaufer_comex\\Controllers\\NotasController.cs",
-              "ViewState": "AQIAADsAAAAAAAAAAAAgwIwAAAA6AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T12:56:00.687Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DetalhesProcessoView.cs",
-              "DocumentMoniker": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Models\\DetalhesProcessoView.cs",
-              "RelativeDocumentMoniker": "kaufer_comex\\Models\\DetalhesProcessoView.cs",
-              "ToolTip": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\Models\\DetalhesProcessoView.cs",
-              "RelativeToolTip": "kaufer_comex\\Models\\DetalhesProcessoView.cs",
-              "ViewState": "AQIAAGAAAAAAAAAAAAAIwHIAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T00:45:58.911Z"
             }
           ]
         },
@@ -157,15 +104,15 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
             }
           ]
         }
