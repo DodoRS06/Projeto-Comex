@@ -11131,24 +11131,34 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ccara\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+<<<<<<< HEAD
+    "C:\\Users\\dodos\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\noguti oliveira\\.nuget\\packages\\": {}
+>>>>>>> 4b590f7c473988aa69b85a3e8b1a7aed0af78a0c
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\kaufer_comex.csproj",
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\dodos\\Source\\Repos\\comex\\src\\kaufer_comex\\kaufer_comex\\kaufer_comex.csproj",
       "projectName": "kaufer_comex",
-      "projectPath": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\kaufer_comex.csproj",
-      "packagesPath": "C:\\Users\\ccara\\.nuget\\packages\\",
-      "outputPath": "C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\",
+      "projectPath": "C:\\Users\\dodos\\Source\\Repos\\comex\\src\\kaufer_comex\\kaufer_comex\\kaufer_comex.csproj",
+      "packagesPath": "C:\\Users\\dodos\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dodos\\Source\\Repos\\comex\\src\\kaufer_comex\\kaufer_comex\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ccara\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\dodos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\kaufer_comex.csproj",
+      "projectName": "kaufer_comex",
+      "projectPath": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\kaufer_comex.csproj",
+      "packagesPath": "C:\\Users\\noguti oliveira\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\noguti oliveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 4b590f7c473988aa69b85a3e8b1a7aed0af78a0c
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11156,7 +11166,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -11169,11 +11178,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -11234,16 +11238,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema ao ler o arquivo de cache C:\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
