@@ -70,22 +70,22 @@
                         @Html.DisplayFor(modelItem => item.Emissao)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ValorFob)
+                        @item.ValorFob.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ValorFrete)
+                        @item.ValorFrete.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ValorSeguro)
+                        @item.ValorSeguro.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ValorCif)
+                        @item.ValorCif.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.PesoBruto)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.TaxaCambial)
+                        @item.TaxaCambial.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))
                     </td>
                     @*               <td>
                 @Html.DisplayFor(modelItem => item.EmbarqueRodoviario.Transportadora)
