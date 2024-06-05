@@ -87,19 +87,6 @@
                     <!-- Lista que vai carregar despesas adicionadas -->
                 </tbody>
             </table>
-            <!-- Campo para Valor Total -->
-            <div class="form-group" align="center">
-                <label for="valorTotalDCEs">Valor Total das Despesas:</label>
-                <input type="text" id="valorTotalDCEs" name="valorTotalDCEs" class="form-control" readonly />
-            </div>
-            <!-- Teste com ViewBag -->
-            @* @if (ViewBag.ValorTotalDCEs != null)
-            {
-                <div class="form-group">
-                    <label>Valor total das despesas: </label>
-                    <span>@ViewBag.ValorTotalDCEs</span>
-                </div>
-            } *@
         </div>
     </div>
 
@@ -112,180 +99,8 @@
 </div>
 
 @section Scripts {
-    <script>
-            window.onload = function () {
-                var firstInput = document.querySelector("input");
-                if (firstInput) {
-                    firstInput.focus();
-                }
-                // atualizarValorTotal();
-            };
-    </script>
-
-    <script>
-
-        var listaItens = [];
-
-        $(document).ready(function () {
-
-            $('#addDespesaBtn').click(function () {
-                var novoItem = {
-                    CadastroDespesaId: $('#CadastroDespesaId').val(),
-                    FornecedorServicoId: $('#FornecedorServicoId').val(),
-                    Valor: $('#Valor').val(),
-                    Observacao: $('#Observacao').val(),
-                    ProcessoId: $('#ProcessoId').val()
-                };
-
-                // Buscar nome da despesa e do fornecedor
-                $.ajax({
-                    url: '/DCEs/GetDespesaEFornecedorNomes',
-                    method: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(novoItem), // Enviar o objeto novoItem (criado em cima) JSON na solicitação
-                    success: function (result) {
-                        novoItem.CadastroDespesaNome = result.despesaNome;
-                        novoItem.FornecedorServicoNome = result.fornecedorNome;
-
-                        listaItens.push(novoItem);
-                        // Limpa os campos depois de adicionar item na lista
-                        $('#CadastroDespesaId').val('');
-                        $('#FornecedorServicoId').val('');
-                        $('#Valor').val('');
-                        $('#Observacao').val('');
-                        // Atualizar a lsita
-                        atualizarLista();
-                        atualizarValorTotal();
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(xhr.responseText);
-                    }
-                });
-            });
-
-            // Função para atualizar a lista de itens
-            function atualizarLista() {
-                var tbody = $('#itensBody2');
-                tbody.empty();
-                listaItens.forEach(function (item, index) {
-                    var tr = $('<tr></tr>');
-                    tr.append('<td>' + item.CadastroDespesaNome + '</td>');
-                    tr.append('<td>' + item.FornecedorServicoNome + '</td>');
-                    tr.append('<td>' + item.Valor + '</td>');
-                    tr.append('<td>' + item.Observacao + '</td>');
-                    tr.append('<td><button type="button" class="btn btn-danger btn-excluir-item2" data-index="' + index + '">Excluir</button></td>');
-                    tbody.append(tr);
-                    console.log(listaItens);
-                });
-            }
-
-            function atualizarValorTotal() {
-                var total = 0;
-
-                // Soma dos valores de cada item em ViewBag.DCEsTemp
-                $.each(@Html.Raw(Json.Serialize(ViewBag.DCEsTemp)), function (index, item) {
-                    console.log("Valor da despesa " + index + ": " + item.Valor);
-                    // Verificar se o valor da despesa não é undefined e se é um número
-                    if (item && !isNaN(parseFloat(item.Valor))) {
-                        total += parseFloat(item.Valor);
-                    }
-                });
-
-                // Soma dos valores dos itens da ViewBag com a soma dos valores dos itens em listaItens
-                total += parseFloat(@ViewBag.ValorItens);
-
-                // Soma dos valores dos itens em listaItens
-                listaItens.forEach(function (item) {
-                    if (item && !isNaN(parseFloat(item.Valor))) {
-                        total += parseFloat(item.Valor);
-                    }
-                });
-
-                console.log("Total: " + total);
-
-                // Atualizar o valor total na tela
-                $('#valorTotalDCEs').val(total.toFixed(2));
-            }
-
-
-            // function atualizarValorTotal() {
-            //     var total = listaItens.reduce(function (acc, item) {
-            //         return acc + parseFloat(item.Valor);
-            //     }, 0);
-
-            //     $('#valorTotalDCEs').val(total.toFixed(2));
-            // }
-
-            // Evento de clique para excluir item
-            $(document).on('click', '.btn-excluir-item', function () {
-                var row = $(this).closest('tr');
-                var id = row.data('id');
-
-                $.ajax({
-                    url: '@Url.Action("ExcluirDespesaTemp", "DCEs")',
-                    type: 'POST',
-                    data: JSON.stringify({ id: id }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (response) {
-                        if (response.success) {
-                            row.remove();
-                            atualizarValorTotal();
-                        } else {
-                            console.log(response.errors);
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(error);
-                    }
-                });
-            });
-
-            $(document).on('click', '.btn-excluir-item2', function () {
-                var index = $(this).data('index');
-                listaItens.splice(index, 1);
-                atualizarLista();
-                atualizarValorTotal();
-            });
-
-            // Função para cadastrar todos os itens e salvar em DCE
-            $('#cadastrarItensBtn').click(function () {
-                // Enviar a lista de itens ao servidor
-                $.ajax({
-                    url: '/DCEs/CadastrarListaItens',
-                    type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(listaItens),
-                    success: function () {
-                        // Remover todos os itens da lista
-                        listaItens = [];
-                        // Redirecionar após cadastrar os itens
-                        var processoId = $('#ProcessoId').val();
-                        window.location.href = '/DCEs/Index/' + processoId;
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(xhr.responseText);
-                    }
-                });
-            });
-
-            // Inicializar a lista de itens com os itens existentes
-            // $('#itensBody tr').each(function () {
-            //     var item = {
-            //         CadastroDespesaNome: $(this).find('td:nth-child(1)').text(),
-            //         FornecedorServicoNome: $(this).find('td:nth-child(2)').text(),
-            //         Valor: parseFloat($(this).find('td:nth-child(3)').text()),
-            //         Observacao: $(this).find('td:nth-child(4)').text()
-            //     };
-            //     listaItens.push(item);
-            // });
-
-            atualizarValorTotal();
-        });
-    </script>
-
-    @* <script>
-        var listaItens = [];
+     <script>
+         var listaItens = [];
 
         $(document).ready(function () {
             // Função para adicionar despesa na lista e na tabela DCETemp
@@ -337,13 +152,6 @@
                     tr.append('<td><button type="button" class="btn btn-danger btn-excluir-item2" data-index="' + index + '">Excluir</button></td>');
                     tbody.append(tr);
                 });
-            }
-
-            function atualizarValorTotal() {
-                var total = listaItens.reduce(function (acc, item) {
-                    return acc + item.Valor;
-                }, 0);
-                $('#valorTotalDCEs').val(total.toFixed(2));
             }
 
             // Evento de clique para excluir item
@@ -398,5 +206,5 @@
                 atualizarLista(); // Atualiza a tabela após a exclusão
             });
         });
-    </script> *@
+    </script>
     }

@@ -68,22 +68,6 @@ namespace kaufer_comex.Controllers
             return View(dados);
         }
 
-        //public async Task<decimal> CalcularValorTotalDCEs(int processoId)
-        //{
-        //    // Soma dos valores em DCEs
-        //    var totalDCEs = await _context.DCEs
-        //        .Where(d => d.ProcessoId == processoId)
-        //        .SumAsync(d => (decimal)d.Valor);
-
-        //    // Soma dos valores em DCETemp
-        //    var totalDCETemp = await _context.DCEsTemp
-        //        .Where(d => d.ProcessoId == processoId)
-        //        .SumAsync(d => (decimal)d.Valor);
-
-        //    // Retorna a soma total dos valores de ambas as tabelas
-        //    return totalDCEs + totalDCETemp;
-        //}
-
         public async Task<IActionResult> Create(int? id)
         {
             if (id == null)
@@ -91,21 +75,9 @@ namespace kaufer_comex.Controllers
                 return NotFound();
             }
 
-            // Soma dos valores em DCEs
-            var totalDCEs = await _context.DCEs
-                .Where(d => d.ProcessoId == id.Value)
-                .SumAsync(d => (decimal)d.Valor);
-
-            // Soma dos valores em DCETemp
-            //var totalDCETemp = await _context.DCEsTemp
-            //    .Where(d => d.ProcessoId == id.Value)
-            //    .SumAsync(d => (decimal)d.Valor);
-
             ViewData["ProcessoId"] = id.Value;
 
-            // Calcula o valor total das DCEs
-            ViewData["ValorTotalDCEs"] = totalDCEs;
-
+            //Lista temporária para armazenar os dados
             var DCETemp = new List<DCE>();
 
             var dados = await _context.DCEs
@@ -120,20 +92,10 @@ namespace kaufer_comex.Controllers
                 DCETemp.Add(dce);
             }
 
-            // Soma os valores de cada item em DCETemp
-            decimal totalDCETemp = (decimal)DCETemp.Sum(d => d.Valor);
-            
             ViewBag.DCEsTemp = DCETemp;
-            ViewBag.ValorItens = totalDCETemp;
 
-
-            // Soma totalDCEs com totalDCETemp
-            decimal valorTotalDCEs = totalDCEs + totalDCETemp;
-
-            // Define o valor total das despesas na ViewBag
-            ViewBag.ValorTotalDCEs = valorTotalDCEs;
-            //ViewBag.ValorTotalDCETemp = totalDCETemp;
-
+            // Disparar evento personalizado para notificar a view que os dados estão disponíveis (teste)
+            //Response.Headers.Add("X-Dados-Disponiveis", "true");
 
             Dropdowns();
 
