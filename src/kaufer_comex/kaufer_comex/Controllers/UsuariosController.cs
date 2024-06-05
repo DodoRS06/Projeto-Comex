@@ -47,11 +47,11 @@ namespace kaufer_comex.Controllers
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name,dados.NomeFuncionario),
-                    new Claim(ClaimTypes.Name,dados.Email),
-                    new Claim(ClaimTypes.NameIdentifier,dados.Id.ToString()),
-                    new Claim(ClaimTypes.Name,dados.CPF.ToString()),
-                    new Claim(ClaimTypes.Role,dados.Perfil.ToString())
+                    new Claim(ClaimTypes.Name, dados.NomeFuncionario),
+                    new Claim(ClaimTypes.Email, dados.Email),
+                    new Claim(ClaimTypes.NameIdentifier, dados.Id.ToString()), 
+                    new Claim("CPF", dados.CPF.ToString()),
+                    new Claim(ClaimTypes.Role, dados.Perfil.ToString()) 
                 };
 
                 var usuarioIdentity = new ClaimsIdentity(claims, "login");
@@ -189,7 +189,7 @@ namespace kaufer_comex.Controllers
                 string assunto = "Bem-vindo ao nosso sistema";
                 string corpo = $"Olá {usuario.NomeFuncionario}, seja bem-vindo ao nosso sistema!<br/><br/>" +
                                $"Sua senha provisória para o primeiro acesso é: <strong>{senhaProvisoria}</strong><br/><br/>" +
-                               $"Por favor, altere sua senha após o primeiro login.";
+                               $"Por favor, recomendamos que altere sua senha após o primeiro login.";
 
                 try
                 {
