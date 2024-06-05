@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EHIBsHIodkqwWp66U+44gu/5DJ875GiWp5cChC1kxkg=",
+  "Hash": "Kp3vA0RtRW4wMzWz1nAAbDla0jxGObgMpGuxsPPiSTg=",
   "Source": "kaufer_comex",
   "BasePath": "_content/kaufer_comex",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "kaufer_comex\\wwwroot",
       "Source": "kaufer_comex",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\Release\\net6.0\\scopedcss\\bundle\\kaufer_comex.styles.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\Release\\net6.0\\scopedcss\\bundle\\kaufer_comex.styles.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\Release\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\Release\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "kaufer_comex.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\Release\\net6.0\\scopedcss\\bundle\\kaufer_comex.styles.css"
+      "OriginalItemSpec": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\Release\\net6.0\\scopedcss\\bundle\\kaufer_comex.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\kaufer_comex.bundle.scp.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\kaufer_comex.bundle.scp.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "kaufer_comex.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\kaufer_comex.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\kaufer_comex.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\css\\site.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\favicon.ico",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\detail.png",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\detail.png",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "Images/detail.png",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\detail.png"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\Details.png",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\Details.png",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "Images/Details.png",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\Details.png"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\Edit.png",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\Edit.png",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "Images/Edit.png",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\Edit.png"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\editar.png",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\editar.png",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "Images/editar.png",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\editar.png"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\excel.png",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\excel.png",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "Images/excel.png",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\excel.png"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\excluir.png",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\excluir.png",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "Images/excluir.png",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\excluir.png"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\Logo.png",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\Logo.png",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "Images/Logo.png",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\Logo.png"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\Logo2.png",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\Logo2.png",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "Images/Logo2.png",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\Logo2.png"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\voltar.png",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\Images\\voltar.png",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "Images/voltar.png",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\voltar.png"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\js\\site.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -408,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -425,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -442,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -459,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -476,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -493,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -510,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -527,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -544,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -561,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -578,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -595,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -612,10 +612,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -629,10 +629,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -646,10 +646,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -680,10 +680,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -697,10 +697,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -714,10 +714,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -731,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -748,10 +748,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -765,10 +765,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -782,10 +782,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -799,10 +799,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -816,10 +816,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -833,10 +833,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -850,10 +850,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -867,10 +867,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -884,10 +884,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -901,10 +901,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -918,10 +918,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -935,10 +935,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -952,10 +952,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -969,10 +969,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -986,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -1003,10 +1003,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -1020,10 +1020,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery.mask\\jquery.mask.min.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery.mask\\jquery.mask.min.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery.mask/jquery.mask.min.js",
       "AssetKind": "All",
@@ -1037,10 +1037,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery.mask\\jquery.mask.min.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -1054,10 +1054,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -1071,10 +1071,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -1088,10 +1088,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -1105,10 +1105,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\.gitignore",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\.gitignore",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/.gitignore",
       "AssetKind": "All",
@@ -1122,10 +1122,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\.gitignore"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\.jshintrc",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\.jshintrc",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/.jshintrc",
       "AssetKind": "All",
@@ -1139,10 +1139,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\.jshintrc"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\.ruby-version",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\.ruby-version",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/.ruby-version",
       "AssetKind": "All",
@@ -1156,10 +1156,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\.ruby-version"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\.travis.yml",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\.travis.yml",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/.travis.yml",
       "AssetKind": "All",
@@ -1173,10 +1173,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\.travis.yml"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\bower.json",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\bower.json",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/bower.json",
       "AssetKind": "All",
@@ -1190,10 +1190,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\bower.json"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\CHANGELOG.md",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\CHANGELOG.md",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/CHANGELOG.md",
       "AssetKind": "All",
@@ -1207,10 +1207,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\CHANGELOG.md"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\component.json",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\component.json",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/component.json",
       "AssetKind": "All",
@@ -1224,10 +1224,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\component.json"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\composer.json",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\composer.json",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/composer.json",
       "AssetKind": "All",
@@ -1241,10 +1241,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\composer.json"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\CONTRIBUTING.md",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\CONTRIBUTING.md",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/CONTRIBUTING.md",
       "AssetKind": "All",
@@ -1258,10 +1258,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\CONTRIBUTING.md"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\deploy.rb",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\deploy.rb",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/deploy.rb",
       "AssetKind": "All",
@@ -1275,10 +1275,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\deploy.rb"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\dist\\jquery.mask.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\dist\\jquery.mask.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/dist/jquery.mask.js",
       "AssetKind": "All",
@@ -1292,10 +1292,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\dist\\jquery.mask.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\dist\\jquery.mask.min.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\dist\\jquery.mask.min.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/dist/jquery.mask.min.js",
       "AssetKind": "All",
@@ -1309,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\dist\\jquery.mask.min.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\docker-compose.yml",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\docker-compose.yml",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/docker-compose.yml",
       "AssetKind": "All",
@@ -1326,10 +1326,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\docker-compose.yml"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\Dockerfile",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\Dockerfile",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/Dockerfile",
       "AssetKind": "All",
@@ -1343,10 +1343,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\Dockerfile"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\Gruntfile.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\Gruntfile.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/Gruntfile.js",
       "AssetKind": "All",
@@ -1360,10 +1360,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\Gruntfile.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\ISSUE_TEMPLATE.md",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\ISSUE_TEMPLATE.md",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/ISSUE_TEMPLATE.md",
       "AssetKind": "All",
@@ -1377,10 +1377,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\ISSUE_TEMPLATE.md"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\LICENSE",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\LICENSE",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/LICENSE",
       "AssetKind": "All",
@@ -1394,10 +1394,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\package.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\package.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/package.js",
       "AssetKind": "All",
@@ -1411,10 +1411,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\package.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\package.json",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\package.json",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/package.json",
       "AssetKind": "All",
@@ -1428,10 +1428,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\package.json"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\package-lock.json",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\package-lock.json",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/package-lock.json",
       "AssetKind": "All",
@@ -1445,10 +1445,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\package-lock.json"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\README.md",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\README.md",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/README.md",
       "AssetKind": "All",
@@ -1462,10 +1462,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\README.md"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\src\\jquery.mask.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\src\\jquery.mask.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/src/jquery.mask.js",
       "AssetKind": "All",
@@ -1479,10 +1479,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\src\\jquery.mask.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\jquery.mask.test.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\jquery.mask.test.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/jquery.mask.test.js",
       "AssetKind": "All",
@@ -1496,10 +1496,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\jquery.mask.test.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\qunit.css",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\qunit.css",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/qunit.css",
       "AssetKind": "All",
@@ -1513,10 +1513,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\qunit.css"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\qunit.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\qunit.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/qunit.js",
       "AssetKind": "All",
@@ -1530,10 +1530,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\qunit.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\sinon-1.10.3.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\sinon-1.10.3.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/sinon-1.10.3.js",
       "AssetKind": "All",
@@ -1547,10 +1547,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\sinon-1.10.3.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\sinon-qunit.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\sinon-qunit.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/sinon-qunit.js",
       "AssetKind": "All",
@@ -1564,10 +1564,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\sinon-qunit.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\sinon-qunit-1.0.0.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\sinon-qunit-1.0.0.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/sinon-qunit-1.0.0.js",
       "AssetKind": "All",
@@ -1581,10 +1581,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\sinon-qunit-1.0.0.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-1.11.1.html",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-1.11.1.html",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/test-for-jquery-1.11.1.html",
       "AssetKind": "All",
@@ -1598,10 +1598,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-1.11.1.html"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-1.7.2.html",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-1.7.2.html",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/test-for-jquery-1.7.2.html",
       "AssetKind": "All",
@@ -1615,10 +1615,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-1.7.2.html"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-1.8.3.html",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-1.8.3.html",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/test-for-jquery-1.8.3.html",
       "AssetKind": "All",
@@ -1632,10 +1632,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-1.8.3.html"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-1.9.1.html",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-1.9.1.html",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/test-for-jquery-1.9.1.html",
       "AssetKind": "All",
@@ -1649,10 +1649,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-1.9.1.html"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-2.1.1.html",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-2.1.1.html",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/test-for-jquery-2.1.1.html",
       "AssetKind": "All",
@@ -1666,10 +1666,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-2.1.1.html"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-3.0.0.html",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-3.0.0.html",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/test-for-jquery-3.0.0.html",
       "AssetKind": "All",
@@ -1683,10 +1683,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-jquery-3.0.0.html"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-zepto.html",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-zepto.html",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/test-for-zepto.html",
       "AssetKind": "All",
@@ -1700,10 +1700,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\test-for-zepto.html"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\zepto\\data.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\zepto\\data.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/zepto/data.js",
       "AssetKind": "All",
@@ -1717,10 +1717,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\zepto\\data.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\zepto\\event.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\zepto\\event.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/zepto/event.js",
       "AssetKind": "All",
@@ -1734,10 +1734,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\zepto\\event.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\zepto\\zepto.min.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-mask-plugin\\test\\zepto\\zepto.min.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-mask-plugin/test/zepto/zepto.min.js",
       "AssetKind": "All",
@@ -1751,10 +1751,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-mask-plugin\\test\\zepto\\zepto.min.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -1768,10 +1768,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -1785,10 +1785,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -1802,10 +1802,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -1819,10 +1819,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -1836,10 +1836,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -1853,10 +1853,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -1870,10 +1870,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "kaufer_comex",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\wwwroot\\",
       "BasePath": "_content/kaufer_comex",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
