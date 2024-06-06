@@ -9,6 +9,7 @@ using System.Data;
 
 namespace kaufer_comex.Controllers
 {
+    [Authorize]
     public class ProcessosController : Controller
     {
         private readonly AppDbContext _context;

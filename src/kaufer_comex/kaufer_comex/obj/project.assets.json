@@ -11131,35 +11131,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jeferson queiroz\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\noguti oliveira\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jeferson queiroz\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\kaufer_comex.csproj",
+      "projectUniqueName": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\kaufer_comex.csproj",
       "projectName": "kaufer_comex",
-      "projectPath": "C:\\Users\\jeferson queiroz\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\kaufer_comex.csproj",
-      "packagesPath": "C:\\Users\\jeferson queiroz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jeferson queiroz\\Documents\\GitHub\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\",
+      "projectPath": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\kaufer_comex.csproj",
+      "packagesPath": "C:\\Users\\noguti oliveira\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2024-1-e5-proj-empext-t5-comex\\src\\kaufer_comex\\kaufer_comex\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\jeferson queiroz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\noguti oliveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

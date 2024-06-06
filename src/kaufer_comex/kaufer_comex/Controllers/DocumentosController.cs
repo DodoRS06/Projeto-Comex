@@ -1,10 +1,12 @@
 ﻿using kaufer_comex.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace kaufer_comex.Controllers
 {
+    [Authorize]
     public class DocumentosController : Controller
     {
         private readonly AppDbContext _context;

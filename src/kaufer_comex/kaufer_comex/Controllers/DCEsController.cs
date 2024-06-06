@@ -1,4 +1,5 @@
 ﻿using kaufer_comex.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using System.Text.Json;
 
 namespace kaufer_comex.Controllers
 {
+    [Authorize]
     public class DCEsController : Controller
     {
 
