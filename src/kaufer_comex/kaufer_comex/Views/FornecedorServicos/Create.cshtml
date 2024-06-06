@@ -42,6 +42,15 @@
 
 
 @section Scripts {
+    <script>
+        window.onload = function () {
+            var firstInput = document.querySelector("input");
+            if (firstInput) {
+                firstInput.focus();
+            }
+            // atualizarValorTotal();
+        };
+    </script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
