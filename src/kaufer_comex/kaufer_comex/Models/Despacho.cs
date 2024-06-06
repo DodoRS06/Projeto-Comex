@@ -17,12 +17,14 @@ namespace kaufer_comex.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         [Display(Name = "Data DUE (*)")]
+        [Required(ErrorMessage = "Obrigatório informar a data DUE.")]
         public DateTime DataDue { get; set; }
 
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         [Display(Name = "Data de Exportação (*)")]
+        [Required(ErrorMessage = "Obrigatório informar a data de exportação.")]
         public DateTime DataExportacao { get; set; }
 
 
@@ -33,24 +35,29 @@ namespace kaufer_comex.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         [Display(Name = "Data de Conhecimento (*)")]
+        [Required(ErrorMessage = "Obrigatório informar a data de conhecimento.")]
         public DateTime DataConhecimento { get; set; }
 
 
         [Display(Name = "Tipo (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o tipo.")]
         public Tipo Tipo { get; set; }
 
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         [Display(Name = "Data da Averbação (*)")]
+        [Required(ErrorMessage = "Obrigatório informar a data de averbação.")]
         public DateTime DataAverbacao { get; set; }
 
 
         [Display(Name = "Código do País (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o código do país.")]
         public int CodPais { get; set; }
 
 
         [Display(Name = "Parametrização (*)")]
+        [Required(ErrorMessage = "Obrigatório informar a parametrização.")]
         public Parametrizacao Parametrizacao { get; set; }
 
 
