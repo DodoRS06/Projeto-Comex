@@ -20,8 +20,6 @@ namespace kaufer_comex.Models
 
         public DbSet<DCE> DCEs { get; set; }
 
-        public DbSet<DCETemp> DCEsTemp { get; set; }
-
         public DbSet<ValorProcesso> ValorProcessos { get; set; }
 
         public DbSet<FornecedorServico> FornecedorServicos { get; set; }
