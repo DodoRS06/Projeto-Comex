@@ -47,11 +47,10 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Email (*)")]
         [Required(ErrorMessage = "Obrigatório informar o email!")]
-
         public string Email { get; set; }
 
-        [Display(Name = "Cnpj (*)")]
-        [Required(ErrorMessage = "Obrigatório informar o CNPJ!")]
+        [Display(Name = "Número de Registro (*)")]
+        [Required(ErrorMessage = "Obrigatório informar o número de registro!")]
         public string Cnpj { get; set; }
 
         [Display(Name = "Contato (*)")]

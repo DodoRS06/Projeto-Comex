@@ -4,34 +4,43 @@
 	ViewData["Title"] = "Excluir";
 }
 
-
-<div>
 	@if (TempData["MensagemErro"] != null)
 	{
 		<div class="alert alert-danger" role="alert" align="center">
 			@TempData["MensagemErro"]
 		</div>
 	}
-	<h4>Você tem certeza que deseja excluir o fornecedor de serviços:  @Html.DisplayFor(model => model.Id) ?</h4>
+
+<div>
+	<h4>Você tem certeza que deseja excluir o fornecedor de serviços "@Html.DisplayFor(model => model.Nome)" ?</h4>
 	<hr />
-	<dl class="row">
-		<dt class="col-sm-2">
+	<div class="card mb-3">
+		<div class="card-header  d-flex justify-content-between">
+			<span class="mt-1"><strong>Fornecedor:</strong></span>
+			<div class="justify-content-sm-end d-flex m-0">
+				<form asp-action="Delete">
+					<input type="hidden" asp-for="Id" />
+					<input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
+					<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+				</form>
+			</div>
+		</div>
+		<dl class="card-body row">
+			<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.Nome)
 		</dt>
-		<dd class="col-sm-10">
+		<dd>
 			@Html.DisplayFor(model => model.Nome)
 		</dd>
-		<dt class="col-sm-2">
+		</div>
+			<div class="col-md-4">
+		<dt>
 			@Html.DisplayNameFor(model => model.TipoServico)
 		</dt>
-		<dd class="col-sm-10">
+		<dd>
 			@Html.DisplayFor(model => model.TipoServico)
 		</dd>
+		</div>
 	</dl>
-
-	<form asp-action="Delete">
-		<input type="hidden" asp-for="Id" />
-		<input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
-		<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-	</form>
 </div>

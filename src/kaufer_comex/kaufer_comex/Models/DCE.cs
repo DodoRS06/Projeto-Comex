@@ -21,7 +21,7 @@ namespace kaufer_comex.Models
         [Required(ErrorMessage = "Obrigatório informar o valor!")]
         public float Valor { get; set; }
 
-        [Display(Name = "Observação")]
+        [Display(Name = "Observações")]
         public string Observacao { get; set; }
 
         [NotMapped]
