@@ -517,6 +517,8 @@ namespace kaufer_comex.Controllers
                      .Include(p => p.Despacho)
                      .Include(p => p.ValorProcesso)
                      .Include(p => p.EmbarqueRodoviario)
+                     .ThenInclude(p =>p.Notas)                    
+                     .Include(p => p.DCES)
              .ToListAsync();
 
 
@@ -606,8 +608,44 @@ namespace kaufer_comex.Controllers
             dataTable.Columns.Add(new DataColumn($"Veiculo_{i + 1}_Motorista"));
         }
 
-        // Preencher as linhas da tabela
-        foreach (var processo in processos)
+            int maxNota = processos.Max(p => p.EmbarqueRodoviario.Notas?.Count ?? 0);
+
+            // Adicionar colunas dinâmicas para as Notas
+            for (int i = 0; i < maxNota; i++)
+            {
+                dataTable.Columns.Add(new DataColumn($"Nota_{i + 1}"));
+                dataTable.Columns.Add(new DataColumn($"Nota_{i + 1}_NumeroNf"));
+                dataTable.Columns.Add(new DataColumn($"Nota_{i + 1}_Emissao"));
+                dataTable.Columns.Add(new DataColumn($"Nota_{i + 1}_ValorFob"));
+                dataTable.Columns.Add(new DataColumn($"Nota_{i + 1}_ValorFrete"));
+                dataTable.Columns.Add(new DataColumn($"Nota_{i + 1}_ValorSeguro"));
+                dataTable.Columns.Add(new DataColumn($"Nota_{i + 1}_ValorCif"));
+                dataTable.Columns.Add(new DataColumn($"Nota_{i + 1}_PesoLiq"));
+                dataTable.Columns.Add(new DataColumn($"Nota_{i + 1}_PesoBruto"));
+                dataTable.Columns.Add(new DataColumn($"Nota_{i + 1}_TaxaCambial"));
+                dataTable.Columns.Add(new DataColumn($"Nota_{i + 1}_CertificadoQualidade"));
+                dataTable.Columns.Add(new DataColumn($"Nota_{i + 1}_Veiculo"));
+                
+
+            }
+
+            int maxDCE = processos.Max(p => p.DCES?.Count ?? 0);
+
+            // Adicionar colunas dinâmicas para as DCES
+            for (int i = 0; i < maxNota; i++)
+            {
+                dataTable.Columns.Add(new DataColumn($"DCE_{i + 1}"));
+                dataTable.Columns.Add(new DataColumn($"DCE_{i + 1}_CadastroDespesa"));
+                dataTable.Columns.Add(new DataColumn($"DCE_{i + 1}_FornecedorServico"));
+                dataTable.Columns.Add(new DataColumn($"DCE_{i + 1}_Valor"));
+                dataTable.Columns.Add(new DataColumn($"DCE_{i + 1}_Observacao"));
+                dataTable.Columns.Add(new DataColumn($"DCE_{i + 1}_CadastroDespesaNome"));
+                dataTable.Columns.Add(new DataColumn($"DCE_{i + 1}_FornecedorServicoNome"));
+               
+            }
+
+            // Preencher as linhas da tabela
+            foreach (var processo in processos)
         {
             var row = dataTable.NewRow();
 
@@ -683,7 +721,40 @@ namespace kaufer_comex.Controllers
                 }
             }
 
-            dataTable.Rows.Add(row);
+                if (processo.EmbarqueRodoviario.Notas != null)
+                {
+                    for (int i = 0; i < processo.EmbarqueRodoviario.Notas.Count; i++)
+                    {
+                        row[$"Nota_{i + 1}"] = processo.EmbarqueRodoviario.Notas[i].Id;
+                        row[$"Nota_{i + 1}_NumeroNf"] = processo.EmbarqueRodoviario.Notas[i].NumeroNf;
+                        row[$"Nota_{i + 1}_ValorFob"] = processo.EmbarqueRodoviario.Notas[i].ValorFob;
+                        row[$"Nota_{i + 1}_ValorFrete"] = processo.EmbarqueRodoviario.Notas[i].ValorFrete;
+                        row[$"Nota_{i + 1}_ValorSeguro"] = processo.EmbarqueRodoviario.Notas[i].ValorSeguro;
+                        row[$"Nota_{i + 1}_ValorCif"] = processo.EmbarqueRodoviario.Notas[i].ValorCif;
+                        row[$"Nota_{i + 1}_PesoLiq"] = processo.EmbarqueRodoviario.Notas[i].PesoLiq;
+                        row[$"Nota_{i + 1}_PesoBruto"] = processo.EmbarqueRodoviario.Notas[i].PesoBruto;
+                        row[$"Nota_{i + 1}_TaxaCambial"] = processo.EmbarqueRodoviario.Notas[i].TaxaCambial;
+                        row[$"Nota_{i + 1}_CertificadoQualidade"] = processo.EmbarqueRodoviario.Notas[i].CertificadoQualidade;
+                        row[$"Nota_{i + 1}_Veiculo"] = processo.EmbarqueRodoviario.Notas[i].Veiculo.Motorista;
+                       
+                    }
+                }
+
+                if (processo.DCES != null)
+                {
+                    for (int i = 0; i < processo.DCES.Count; i++)
+                    {
+                        row[$"DCE_{i + 1}"] = processo.DCES[i].Id;
+                        row[$"DCE_{i + 1}_CadastroDespesa"] = processo.DCES[i].CadastroDespesas;
+                        row[$"DCE_{i + 1}_FornecedorServico"] = processo.DCES[i].FornecedorServicos;
+                        row[$"DCE_{i + 1}_Valor"] = processo.DCES[i].Valor;
+                        row[$"DCE_{i + 1}_Observacao"] = processo.DCES[i].Observacao;
+                        row[$"DCE_{i + 1}_CadastroDespesaNome"] = processo.DCES[i].CadastroDespesaNome;
+                        row[$"DCE_{i + 1}_FornecedorServicoNome"] = processo.DCES[i].FornecedorServicoNome;
+                    }
+                }
+
+                dataTable.Rows.Add(row);
         }
         using (XLWorkbook wb = new XLWorkbook())
         {
