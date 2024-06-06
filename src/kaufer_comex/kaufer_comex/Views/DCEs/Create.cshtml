@@ -87,6 +87,15 @@
                     <!-- Lista que vai carregar despesas adicionadas -->
                 </tbody>
             </table>
+            <!-- Campo para Valor Total -->
+            <div class="form-row">
+                <div class="form-group col-md-6 d-flex align-items-center">
+                    <label for="valorTotalDCEs" class="mr-2" style="width: 200px;">Valor Total das Despesas: R$</label>
+                    <input type="text" id="valorTotalDCEs" name="valorTotalDCEs" class="form-control" style="width: 80px;" readonly />
+                </div>
+            </div>
+
+
         </div>
     </div>
 
@@ -99,6 +108,16 @@
 </div>
 
 @section Scripts {
+    <script>
+        window.onload = function () {
+            var firstInput = document.querySelector("input");
+            if (firstInput) {
+                firstInput.focus();
+            }
+            // atualizarValorTotal();
+        };
+    </script>
+
      <script>
          var listaItens = [];
 
@@ -131,7 +150,7 @@
                             $('#Observacao').val('');
                         // Atualizar a lsita
                         atualizarLista();
-
+                        atualizarValorTotal();
                     },
                     error: function (xhr, status, error) {
                         console.error(xhr.responseText);
@@ -154,29 +173,95 @@
                 });
             }
 
-            // Evento de clique para excluir item
-            $(document).on('click', '.btn-excluir-item', function () {
-                var row = $(this).closest('tr');
-                var id = row.data('id');
+            function atualizarValorTotal() {
+                var total = 0;
 
-                $.ajax({
-                    url: '@Url.Action("ExcluirDespesaTemp", "DCEs")',
-                    type: 'POST',
-                    data: JSON.stringify({ id: id }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (response) {
-                        if (response.success) {
-                            row.remove();
-                        } else {
-                            console.log(response.errors);
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(error);
+                // Soma dos valores de cada item em ViewBag.DCEsTemp
+                $.each(@Html.Raw(Json.Serialize(ViewBag.DCEsTemp)), function (index, item) {
+                    if (item && !isNaN(parseFloat(item.Valor))) {
+                        total += parseFloat(item.Valor);
                     }
                 });
-            });
+
+                // Soma dos valores dos itens da ViewBag com a soma dos valores dos itens em listaItens
+                total += parseFloat(@ViewBag.ValorItens);
+
+                // Soma dos valores dos itens em listaItens
+                listaItens.forEach(function (item) {
+                    if (!isNaN(parseFloat(item.Valor))) {
+                        total += parseFloat(item.Valor);
+                    }
+                });
+
+                console.log("Total antes da exclusão: " + total);
+
+                // Evento de clique para excluir item
+                $(document).on('click', '.btn-excluir-item', function () {
+                    var row = $(this).closest('tr');
+                    var id = row.data('id'); // Obtém o ID do item
+                    var valorExcluido = parseFloat(row.find('td:eq(2)').text()); // Obtém o valor do item excluído
+                    if (!isNaN(valorExcluido)) { 
+                        total -= valorExcluido; 
+                    }
+
+                    $.ajax({
+                        url: '@Url.Action("ExcluirDespesaTemp", "DCEs")',
+                        type: 'POST',
+                        data: JSON.stringify({ id: id }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            if (response.success) {
+                                row.remove();
+                                console.log("Total após a exclusão: " + total);
+                                $('#valorTotalDCEs').val(total.toFixed(2));
+                                var index = listaItens.findIndex(function (item) {
+                                    return item.Id === id;
+                                });
+                                if (index !== -1) {
+                                    listaItens.splice(index, 1);
+                                }
+                            } else {
+                                console.log(response.errors);
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error(error);
+                        }
+                    });
+                });
+
+                console.log("Total final: " + total);
+
+                // Atualizar o valor total na tela
+                $('#valorTotalDCEs').val(total.toFixed(2));
+            }
+
+
+            // Evento de clique para excluir item
+            // $(document).on('click', '.btn-excluir-item', function () {
+            //     var row = $(this).closest('tr');
+            //     var id = row.data('id');
+
+            //     $.ajax({
+            //         url: '@Url.Action("ExcluirDespesaTemp", "DCEs")',
+            //         type: 'POST',
+            //         data: JSON.stringify({ id: id }),
+            //         contentType: "application/json; charset=utf-8",
+            //         dataType: "json",
+            //         success: function (response) {
+            //             if (response.success) {
+            //                 row.remove();
+            //                 atualizarValorTotal();
+            //             } else {
+            //                 console.log(response.errors);
+            //             }
+            //         },
+            //         error: function (xhr, status, error) {
+            //             console.error(error);
+            //         }
+            //     });
+            // });
 
             // Função para cadastrar todos os itens e salvar em DCE
             $('#cadastrarItensBtn').click(function () {
@@ -204,7 +289,10 @@
                 var index = $(this).data('index');
                 listaItens.splice(index, 1); // Remove o item do array
                 atualizarLista(); // Atualiza a tabela após a exclusão
+                atualizarValorTotal();
             });
+
+            atualizarValorTotal();
         });
     </script>
     }

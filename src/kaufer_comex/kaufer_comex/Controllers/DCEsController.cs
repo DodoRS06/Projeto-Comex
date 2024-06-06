@@ -92,10 +92,10 @@ namespace kaufer_comex.Controllers
                 DCETemp.Add(dce);
             }
 
-            ViewBag.DCEsTemp = DCETemp;
+            decimal totalDCETemp = (decimal)DCETemp.Sum(d => d.Valor);
 
-            // Disparar evento personalizado para notificar a view que os dados estão disponíveis (teste)
-            //Response.Headers.Add("X-Dados-Disponiveis", "true");
+            ViewBag.DCEsTemp = DCETemp;
+            ViewBag.ValorItens = totalDCETemp;
 
             Dropdowns();
 
