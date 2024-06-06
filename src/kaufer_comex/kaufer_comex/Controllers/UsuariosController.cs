@@ -12,6 +12,7 @@ using System.Security.Claims;
 
 namespace kaufer_comex.Controllers
 {
+    [Authorize (Roles="Admin")]
     public class UsuariosController : Controller
     {
         private readonly AppDbContext _context;
@@ -21,12 +22,13 @@ namespace kaufer_comex.Controllers
             _context = context;
         }
 
-
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login(Usuario usuario)
         {
@@ -74,6 +76,7 @@ namespace kaufer_comex.Controllers
             ViewBag.Message = "Usuário e/ou Senha inválidos!";
             return View();
         }
+        [AllowAnonymous]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
