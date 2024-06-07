@@ -129,6 +129,16 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Objetivo do Teste 	| O usuário ao imputar os valores a soma deverá ser realizada automaticamente.|
 | Passos 	| - Acessar o Site<br> - Digitar os valores da exportação <br> - Clicar no botão 'Enviar cadastro' |  
 |Critério de Êxito | - A soma dos valores da exportação deve ser realizado.|
+**Caso de teste**   | **CT-25-Tela Embarque Rodoviário** |
+|Requisito Associado |  RF-015 - O sistema deve permitir ao usuário cadastrar , deletar e editar embarques rodoviários .
+| Objetivo do Teste 	|  O usuário deverá cadastrar os dados do embarque.|
+| Passos 	| -  Acessar o Site<br> - Fazer o login <br> - Acessar a opçao Embarque rodoviário <br> - Clicar no botão Adicionar embarque <br> -Inserir os dados e clicar no botão cadastrar<br> |  
+|Critério de Êxito | - O cadastro do embarque deve ser realizado .|
+**Caso de teste**   | **CT-26-Tela Itens** |
+|Requisito Associado |  RF-015 - O sistema deve permitir ao usuário cadastre ,edit e delete .
+| Objetivo do Teste 	|  O usuário deverá cadastrar os dados do item.|
+| Passos 	| -  Acessar o Site<br> - Fazer o login <br> - Acessar a opçao Item <br> - Clicar no botão Adicionar Item <br> -Inserir os dados e clicar no botão cadastrar<br> |  
+|Critério de Êxito | - O cadastro do Item deve ser realizado 
 
 
 
@@ -216,3 +226,13 @@ CT-22- Tela Cadastro de Processo
 CT-22- Tela Cadastro de Processo
 ![Evidencias](img/Tela%20Cadastro%20de%20valores%20teste%20de%20lógica.png)
 s
+
+CT-23- Tela Embarque Rodoviário
+![Evidencias](img/Jeferson%20Embarque.png)
+![Evidencias](img/Jeferson%20Rodoviário.png)
+![Evidencias](img/Embarque%20delete%20Jeferson.png)
+
+CT-23- Tela Itens
+![Evidencias](img/Jeferson%20Itens.png)
+![Evidencias](img/Jeferson%20Itens%202.png)
+![Evidencias](img/Itens%20Delete%20Jeferson.png)
