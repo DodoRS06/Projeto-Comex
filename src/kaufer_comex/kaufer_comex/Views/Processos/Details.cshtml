@@ -589,6 +589,25 @@
 
     }
 
+    @if (Model.DCES.Count > 0)
+    {
+
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                <span class="mt-1">DCE: </span>
+            </div>
+            <dl class="card-body row">
+                <div class="col-md-4">
+                    <dt>
+                        Valor total:
+                    </dt>
+                    <dd>
+                        @ViewBag.ValorTotal
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    }
 </div>
 
 

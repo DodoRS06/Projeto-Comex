@@ -289,6 +289,12 @@ namespace kaufer_comex.Controllers
                 ViewData["responsavel"] = GetNomeResponsavel(dados.UsuarioId);
                 ViewData["despachante"] = GetNomeDespachante(dados.DespachanteId);
 
+                var DCE = await _context.DCEs.Where(d => d.ProcessoId == dados.Id).ToListAsync();
+                if (DCE != null)
+                {
+                    ViewData["ValorTotal"] = await _context.DCEs.Where(d => d.ProcessoId == dados.Id).SumAsync(d => (decimal)d.Valor);
+                }
+
                 var agenteDeCarga = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.ProcessoId == dados.Id);
                 if (agenteDeCarga != null)
                 {
