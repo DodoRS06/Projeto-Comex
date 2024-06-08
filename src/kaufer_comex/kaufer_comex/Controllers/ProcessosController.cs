@@ -384,8 +384,7 @@ namespace kaufer_comex.Controllers
         private string GetNomeDespesa(int? id) => id != null ? _context.CadastroDespesas.FirstOrDefault(d => d.Id == id)?.NomeDespesa : string.Empty;
         private string GetNomeFornecedor(int? id) => id != null ? _context.FornecedorServicos.FirstOrDefault(d => d.Id == id)?.Nome : string.Empty;
         private string GetNomeMotorista(int? id) => id != null ? _context.Veiculos.FirstOrDefault(d => d.Id == id)?.Motorista : string.Empty;
-        private string GetNomeDespesa_(int? id) => id != null ? _context.CadastroDespesas.FirstOrDefault(d => d.Id == id)?.NomeDespesa : string.Empty;
-        private string GetNomeFornecedor_(int? id) => id != null ? _context.FornecedorServicos.FirstOrDefault(d => d.Id == id)?.Nome : string.Empty;
+     
 
         // GET: Processos/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -766,9 +765,9 @@ namespace kaufer_comex.Controllers
                     for (int i = 0; i < processo.DCES.Count; i++)
                     {
                         row[$"DCE_{i + 1}"] = processo.DCES[i].Id;
-                        row[$"DCE_{i + 1}_CadastroDespesaNome"] = GetNomeDespesa_(processo.DCES[i].CadastroDespesaId);
+                        row[$"DCE_{i + 1}_CadastroDespesaNome"] = GetNomeDespesa(processo.DCES[i].CadastroDespesaId);
                         row[$"DCE_{i + 1}_Valor"] = processo.DCES[i].Valor;
-                        row[$"DCE_{i + 1}_FornecedorServicoNome"] = GetNomeFornecedor_(processo.DCES[i].FornecedorServicoId);
+                        row[$"DCE_{i + 1}_FornecedorServicoNome"] = GetNomeFornecedor(processo.DCES[i].FornecedorServicoId);
                         row[$"DCE_{i + 1}_Observacao"] = processo.DCES[i].Observacao;
 
                     }
