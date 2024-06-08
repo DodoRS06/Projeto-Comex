@@ -11,27 +11,35 @@
         @TempData["MensagemErro"]
     </div>
 }
-<h3> Motorista do Veículo: @Html.DisplayFor(model => model.Motorista)</h3>
+<h3> Veículo referente ao Processo: @Html.DisplayFor(model => model.Processo.CodProcessoExportacao)</h3>
 <hr />
 
 
 <div class="card mb-3">
     <div class="card-header d-flex justify-content-between">
-        <span class="mt-1">Informações do Veículo</span>
+        <span class="mt-1"><strong>VEÍCULO</strong> </span>
+        <div class="justify-content-sm-end d-flex m-0">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px; margin-right: 10px">Editar</a>
+            <a asp-action="Details" asp-controller="Processos" asp-route-id="@Model.ProcessoId" class="btn btn-outline-dark" style="width: 100px">Voltar</a>
+        </div>
     </div>
-    <dl class="card-body row">     
+    <dl class="card-body row">
         <div class="col-md-4">
-            <dt>Placa do Veículo:</dt>
-            <dd>@Html.DisplayFor(model => model.Placa)</dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Placa)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Placa)
+            </dd>
         </div>
         <div class="col-md-4">
-            <dt>Motorista:</dt>
-            <dd>@Html.DisplayFor(model => model.Motorista)</dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Motorista)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Motorista)
+            </dd>
         </div>
     </dl>
-</div>
-<div class="form-group " align="center">
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px">Editar</a> |
-    <a asp-action="Details" asp-controller="Processos" asp-route-id="@Model.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
 </div>
 

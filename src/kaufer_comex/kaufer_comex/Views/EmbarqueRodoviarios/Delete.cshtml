@@ -1,7 +1,7 @@
 ﻿@model kaufer_comex.Models.EmbarqueRodoviario
 
 @{
-	ViewData["Title"] = "Excluir Embraque";
+	ViewData["Title"] = "Excluir Embarque";
 }
 
 <div>
@@ -14,72 +14,90 @@
 	<h4>Você tem certeza que deseja excluir o embarque?</h4>
 
 	<hr />
-	<dl class="row">
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Transportadora)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Transportadora)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.DataEmbarque)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.DataEmbarque)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.TransitTime)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.TransitTime)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.ChegadaDestino)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.ChegadaDestino)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.AgenteDeCargaId)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.AgenteDeCarga.NomeAgenteCarga)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Processo)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Processo.CodProcessoExportacao)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Booking)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Booking)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.DeadlineVgm)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.DeadlineVgm)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.DeadlineCarga)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.DeadlineCarga)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.DeadlineVgm)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.DeadlineDraft)
-		</dd>
-	</dl>
-
-	<form asp-action="Delete">
-		<input type="hidden" asp-for="Id" />
-		<input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
-		<a asp-action="Details" asp-controller="Processos" asp-route-id="@Model.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
-	</form>
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between">
+            <span class="mt-1"><strong>EMBARQUE RODOVIÁRIO </strong> </span>
+            <div class="justify-content-sm-end d-flex m-0">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
+                    <a asp-action="Details" asp-controller="Processos" asp-route-id="@Model.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
+                </form>
+            </div>
+        </div>
+        <dl class="card-body row">
+            <div class="col-md-4">
+                <dt>
+                    Transportadora:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Transportadora)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Data de embarque:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DataEmbarque)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Transit time:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TransitTime)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Data de chegada no destino:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ChegadaDestino)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Agente de Carga:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.AgenteDeCarga.NomeAgenteCarga)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Booking:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Booking)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Deadline VGM:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DeadlineVgm)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Deadline Carga:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DeadlineCarga)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    Deadline Draft:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DeadlineDraft)
+                </dd>
+            </div>
+        </dl>
+    </div>
 </div>

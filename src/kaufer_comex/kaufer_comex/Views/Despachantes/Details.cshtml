@@ -20,29 +20,38 @@
 		</div>
 	</div>
 	<dl class="card-body row">
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.NomeDespachante):
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.NomeDespachante)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Contato):
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Contato)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Email):
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Email)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Telefone):
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Telefone)
-		</dd>
+		<div class="col-md-4">
+			<dt>
+				@Html.DisplayNameFor(model => model.NomeDespachante)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.NomeDespachante)
+			</dd>
+		</div>
+		<div class="col-md-4">
+			<dt>
+				@Html.DisplayNameFor(model => model.Contato)
+			</dt>
+			<dd>
+				@Html.DisplayFor(model => model.Contato)
+			</dd>
+		</div>
+		<div class="col-md-4">
+			<dt>
+				@Html.DisplayNameFor(model => model.Email)
+			</dt>
+			<dd>
+				@Html.DisplayFor(model => model.Email)
+			</dd>
+		</div>
+		<div class="col-md-4">
+			<dt>
+				@Html.DisplayNameFor(model => model.Telefone)
+			</dt>
+			<dd>
+				@Html.DisplayFor(model => model.Telefone)
+			</dd>
+		</div>
 	</dl>
 </div>
+

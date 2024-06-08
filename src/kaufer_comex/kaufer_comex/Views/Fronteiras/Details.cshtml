@@ -1,33 +1,35 @@
 ﻿@model kaufer_comex.Models.Fronteira
 
 @{
-	ViewData["Title"] = "Detalhes Fronteira";
+    ViewData["Title"] = "Detalhes Fronteira";
 }
 
 
 <div>
-	@if (TempData["MensagemErro"] != null)
-	{
-		<div class="alert alert-danger" role="alert" align="center">
-			@TempData["MensagemErro"]
-		</div>
-	}
-	<br />
-	<div class="card mb-3">
-		<div class="card-header d-flex justify-content-between">
-			<span class="mt-1"><strong>FRONTEIRA </strong> </span>
-			<div class="justify-content-sm-end d-flex m-0">
-				<a asp-action="Edit" asp-controller="Fronteiras" asp-route-id="@Model.Id" class="btn" style=" background-color: #F08433; color: #FFF; margin-right: 10px">Editar</a>
-				<a asp-action="Index" asp-controller="Fronteiras" asp-route-id="@Model.Id" class="btn btn-outline-dark">Voltar</a>
-			</div>
-		</div>
-		<dl class="card-body row">
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.NomeFronteira)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.NomeFronteira)
-		</dd>
-	</dl>
-</div>
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert" align="center">
+            @TempData["MensagemErro"]
+        </div>
+    }
+    <br />
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between">
+            <span class="mt-1"><strong>FRONTEIRA </strong> </span>
+            <div class="justify-content-sm-end d-flex m-0">
+                <a asp-action="Edit" asp-controller="Fronteiras" asp-route-id="@Model.Id" class="btn" style=" background-color: #F08433; color: #FFF; margin-right: 10px">Editar</a>
+                <a asp-action="Index" asp-controller="Fronteiras" asp-route-id="@Model.Id" class="btn btn-outline-dark">Voltar</a>
+            </div>
+        </div>
+        <dl class="card-body row">
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.NomeFronteira)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.NomeFronteira)
+                </dd>
+            </div>
+        </dl>
+    </div>
 
