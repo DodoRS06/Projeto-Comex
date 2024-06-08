@@ -326,22 +326,21 @@ namespace kaufer_comex.Controllers
         // POST: Usuarios/ForgotPassword
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> ForgotPassword(string email)
+        public async Task<IActionResult> ForgotPassword(string email, string cpf)
         {
             if (string.IsNullOrEmpty(email))
             {
-                ModelState.AddModelError("Email", "O e-mail é obrigatório.");
+                ViewBag.ErrorMessage = "O e-mail é obrigatório.";
                 return View();
             }
 
-            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == email);
+            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == email && u.CPF == cpf);
             if (usuario == null)
             {
-                ModelState.AddModelError("Email", "E-mail não encontrado.");
+                ViewBag.ErrorMessage = "E-mail ou CPF não encontrados.";
                 return View();
             }
 
-        
             string novaSenha = GerarSenhaProvisoria();
             usuario.Senha = BCrypt.Net.BCrypt.HashPassword(novaSenha);
             _context.Update(usuario);
@@ -360,7 +359,7 @@ namespace kaufer_comex.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("Email", "Erro ao enviar e-mail: " + ex.Message);
+                ViewBag.ErrorMessage = "Erro ao enviar e-mail: " + ex.Message;
             }
 
             return View();
