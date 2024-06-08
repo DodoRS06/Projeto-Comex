@@ -121,38 +121,50 @@
 	</form>
 </div>
 
+
 @section Scripts {
 	@{
-		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
 	}
 
 	<script>
 		$(document).ready(function () {
+			$('.decimal-mask').mask('0,000', { reverse: true });
 			$('#Largura, #Comprimento').on('input', function () {
-				var largura = parseFloat($('#Largura').val()) || 0;
-				var comprimento = parseFloat($('#Comprimento').val()) || 0;
-
-
+				var largura = parseFloat($('#Largura').val().replace(',', '.')) || 0;
+				var comprimento = parseFloat($('#Comprimento').val().replace(',', '.')) || 0;
 
 				var areaM2 = largura * comprimento;
-				$('#AreaM2').val(areaM2.toFixed());
+				$('#AreaM2').val(areaM2.toFixed(3).replace('.', ','));
 			});
 		});
-	</script>
 
-	<script>
 		$(document).ready(function () {
-			$('#DiametroAltura , #DiametroComprimento , #LarguraAparente').on('input', function () {
-				var diametroAltura = parseFloat($('#DiametroAltura').val()) || 0;
-				var diametroComprimento = parseFloat($('#DiametroComprimento').val()) || 0;
-				var larguraAparente = parseFloat($('#LarguraAparente').val()) || 0;
+			$('.decimal-mask').mask('0,000', { reverse: true });
 
+			$('#Largura, #Comprimento').on('input', function () {
+				var largura = parseFloat($('#Largura').val().replace(',', '.')) || 0;
+				var comprimento = parseFloat($('#Comprimento').val().replace(',', '.')) || 0;
 
+				var areaM2 = largura * comprimento;
+				$('#AreaM2').val(areaM2.toFixed(3).replace('.', ','));
+			});
+
+			$('#DiametroAltura, #DiametroComprimento, #LarguraAparente').on('input', function () {
+				var diametroAltura = parseFloat($('#DiametroAltura').val().replace(',', '.')) || 0;
+				var diametroComprimento = parseFloat($('#DiametroComprimento').val().replace(',', '.')) || 0;
+				var larguraAparente = parseFloat($('#LarguraAparente').val().replace(',', '.')) || 0;
 
 				var volumeM2 = diametroAltura * diametroComprimento * larguraAparente;
-				$('#VolumeM2').val(volumeM2.toFixed());
+				$('#VolumeM2').val(volumeM2.toFixed(3).replace('.', ','));
 			});
 		});
-	</script>
 
-	}
+		window.onload = function () {
+			var firstInput = document.querySelector("input");
+			if (firstInput) {
+				firstInput.focus();
+			}
+		};
+	</script>
+}
