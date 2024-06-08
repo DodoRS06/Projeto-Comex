@@ -12,7 +12,7 @@ using System.Security.Claims;
 
 namespace kaufer_comex.Controllers
 {
-    [Authorize (Roles="Admin")]
+    
     public class UsuariosController : Controller
     {
         private readonly AppDbContext _context;
@@ -315,5 +315,56 @@ namespace kaufer_comex.Controllers
         {
             return _context.Usuarios.Any(e => e.Id == id);
         }
+
+        // GET: Usuarios/ForgotPassword
+        [AllowAnonymous]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        // POST: Usuarios/ForgotPassword
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+            {
+                ModelState.AddModelError("Email", "O e-mail é obrigatório.");
+                return View();
+            }
+
+            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == email);
+            if (usuario == null)
+            {
+                ModelState.AddModelError("Email", "E-mail não encontrado.");
+                return View();
+            }
+
+        
+            string novaSenha = GerarSenhaProvisoria();
+            usuario.Senha = BCrypt.Net.BCrypt.HashPassword(novaSenha);
+            _context.Update(usuario);
+            await _context.SaveChangesAsync();
+
+            var emailService = new EmailService();
+            string assunto = "Recuperação de Senha";
+            string corpo = $"Olá {usuario.NomeFuncionario},<br/><br/>" +
+                           $"Sua nova senha é: <strong>{novaSenha}</strong><br/><br/>" +
+                           $"Por favor, recomendamos que altere sua senha após o primeiro login.";
+
+            try
+            {
+                emailService.SendEmail(usuario.Email, assunto, corpo);
+                TempData["SuccessMessage"] = "A nova senha foi enviada para o seu e-mail.";
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("Email", "Erro ao enviar e-mail: " + ex.Message);
+            }
+
+            return View();
+        }
     }
+
 }
