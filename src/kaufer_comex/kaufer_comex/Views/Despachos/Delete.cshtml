@@ -13,11 +13,11 @@
 	</div>
 }
 
-	<h4>Você tem certeza que deseja excluir o despacho:  @Html.DisplayFor(model => model.Id) ?</h4>
+    <h4>Você tem certeza que deseja excluir o despacho referente ao Processo: @Html.DisplayFor(model => model.Processo.CodProcessoExportacao)?</h4>
 	<hr />
     <div class="card mb-3">
         <div class="card-header d-flex justify-content-between">
-            <span class="mt-1"><strong>Despacho:</strong> </span>
+            <span class="mt-1"><strong>DESPACHO</strong> </span>
             <div class="justify-content-sm-end d-flex m-0">
             <form asp-action="Delete">
                 <input type="hidden" asp-for="Id" />
@@ -94,4 +94,4 @@
 
         </dl>
     </div>
-
+</div>

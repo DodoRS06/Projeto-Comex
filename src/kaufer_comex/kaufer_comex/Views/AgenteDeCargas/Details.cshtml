@@ -1,50 +1,59 @@
 ﻿@model kaufer_comex.Models.AgenteDeCarga
 
 @{
-	ViewData["Title"] = "Details";
+    ViewData["Title"] = "Details";
 }
 
 <div>
-	@if (TempData["MensagemErro"] != null)
-	{
-		<div class="alert alert-danger" role="alert" align="center">
-			@TempData["MensagemErro"]
-		</div>
-	}
-	<br />
-	<div class="card mb-3">
-		<div class="card-header d-flex justify-content-between">
-			<span class="mt-1"><strong>AGENTE DE CARGA </strong> </span>
-			<div class="justify-content-sm-end d-flex m-0">
-				<a asp-action="Edit" asp-controller="AgenteDeCargas" asp-route-id="@Model.Id" class="btn" style=" background-color: #F08433; color: #FFF; margin-right: 10px">Editar</a>
-			<a asp-action="Index" asp-controller="AgenteDeCargas" asp-route-id="@Model.Id" class="btn btn-outline-dark">Voltar</a>
-			</div>
-		</div>
-		<dl class="card-body row">
-			<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.NomeAgenteCarga) :
-			</dt>
-			<dd class="col-sm-10">
-				@Html.DisplayFor(model => model.NomeAgenteCarga)
-			</dd>
-			<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Contato) :
-			</dt>
-			<dd class="col-sm-10">
-				@Html.DisplayFor(model => model.Contato)
-			</dd>
-			<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Email) :
-			</dt>
-			<dd class="col-sm-10">
-				@Html.DisplayFor(model => model.Email)
-			</dd>
-			<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Telefone) :
-			</dt>
-			<dd class="col-sm-10">
-				@Html.DisplayFor(model => model.Telefone)
-			</dd>
-		</dl>
-	</div>
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert" align="center">
+            @TempData["MensagemErro"]
+        </div>
+    }
+    <br />
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between">
+            <span class="mt-1"><strong>AGENTE DE CARGA </strong> </span>
+            <div class="justify-content-sm-end d-flex m-0">
+                <a asp-action="Edit" asp-controller="AgenteDeCargas" asp-route-id="@Model.Id" class="btn" style=" background-color: #F08433; color: #FFF; margin-right: 10px">Editar</a>
+                <a asp-action="Index" asp-controller="AgenteDeCargas" asp-route-id="@Model.Id" class="btn btn-outline-dark">Voltar</a>
+            </div>
+        </div>
+        <dl class="card-body row">
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.NomeAgenteCarga)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.NomeAgenteCarga)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Contato)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Contato)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Telefone)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Telefone)
+                </dd>
+            </div>
+        </dl>
+    </div>
 

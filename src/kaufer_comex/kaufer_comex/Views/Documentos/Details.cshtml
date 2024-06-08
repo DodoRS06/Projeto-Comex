@@ -1,7 +1,7 @@
 ﻿@model kaufer_comex.Models.Documento
 
 @{
-	ViewData["Title"] = "Detalhes do Documento";
+    ViewData["Title"] = "Detalhes do Documento";
 }
 @if (TempData["MensagemErro"] != null)
 {
@@ -10,51 +10,51 @@
     </div>
 }
 <div>
-<h3>Processo: @Html.DisplayFor(model => model.Processo.CodProcessoExportacao)</h3>
+    <h3>Processo: @Html.DisplayFor(model => model.Processo.CodProcessoExportacao)</h3>
 </div>
 
-	<br />
+<br />
 
-    <div class="card mb-3">
-        <div class="card-header d-flex justify-content-between">
-            <span class="mt-1"><strong>DOCUMENTOS </strong> </span>
-            <div class="justify-content-sm-end d-flex m-0">
-                <a asp-action="Edit" asp-controller="Documentos" asp-route-id="@Model.Id" class="btn" style=" background-color: #F08433; color: #FFF; margin-right: 10px">Editar</a>
-                <a asp-action="Index" asp-controller="Documentos" asp-route-id="@Model.Id" class="btn btn-outline-dark">Voltar</a>
-            </div>
+<div class="card mb-3">
+    <div class="card-header d-flex justify-content-between">
+        <span class="mt-1"><strong>DOCUMENTOS </strong> </span>
+        <div class="justify-content-sm-end d-flex m-0">
+            <a asp-action="Edit" asp-controller="Documentos" asp-route-id="@Model.Id" class="btn" style=" background-color: #F08433; color: #FFF; margin-right: 10px">Editar</a>
+            <a asp-action="Index" asp-controller="Documentos" asp-route-id="@Model.Id" class="btn btn-outline-dark">Voltar</a>
         </div>
-        <dl class="card-body row">
-            <div class="col-md-4">
-                <dt>
-                    Certificado de Origem:
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.CertificadoOrigem)
-                </dd>
-            </div>
-            <div class="col-md-4">
-                <dt>
-                    Certificado Seguro:
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.CertificadoSeguro)
-                </dd>
-            </div>
-            <div class="col-md-4">
-                <dt>
-                    Data de Envio Origem:
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.DataEnvioOrigem)
-                </dd>
-            </div>
-            <div class="col-md-4">
-                <dt>
-                    Tracking Courier:
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.TrackinCourier)
-                </dd>
+    </div>
+    <dl class="card-body row">
+        <div class="col-md-4">
+            <dt>
+                Certificado de Origem:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CertificadoOrigem)
+            </dd>
+        </div>
+        <div class="col-md-4">
+            <dt>
+                Certificado Seguro:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CertificadoSeguro)
+            </dd>
+        </div>
+        <div class="col-md-4">
+            <dt>
+                Data de Envio Origem:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DataEnvioOrigem)
+            </dd>
+        </div>
+        <div class="col-md-4">
+            <dt>
+                Tracking Courier:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TrackinCourier)
+            </dd>
             <div class="col-md-4">
                 <dt>
                     Courier:
@@ -63,7 +63,6 @@
                     @Html.DisplayFor(model => model.Courier)
                 </dd>
             </div>
+    </dl>
+</div>
 
-        </dl>
-    </div>
-    

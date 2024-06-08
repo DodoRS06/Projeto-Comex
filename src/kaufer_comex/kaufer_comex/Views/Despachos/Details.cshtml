@@ -13,11 +13,15 @@
 			@TempData["MensagemErro"]
 		</div>
 	}
-	<h3>Detalhes do Despacho: @Html.DisplayFor(model => model.Id)</h3>
+    <h3>Detalhes do Despacho referente ao Processo: @Html.DisplayFor(model => model.Processo.CodProcessoExportacao)</h3>
 	<hr />
     <div class="card mb-3">
         <div class="card-header d-flex justify-content-between">
-            <span class="mt-1">Despacho: </span>
+            <span class="mt-1"><strong>DESPACHO</strong> </span>
+            <div class="justify-content-sm-end d-flex m-0">
+                <a asp-action="Edit" asp-controller="Despachos" asp-route-id="@Model?.Id" class="btn" style=" background-color: #F08433; color: #FFF; margin-right: 10px">Editar</a>
+                <a asp-action="Details" asp-controller="Processos" asp-route-id="@Model.ProcessoId" class="btn btn-outline-dark">Voltar</a>
+            </div>
         </div>
         <dl class="card-body row">
             <div class="col-md-4">
@@ -88,7 +92,4 @@
         </dl>
     </div>
 </div>
-<div class="form-group " align="center">
-	<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn " style=" background-color: #F08433; color: #FFF; width: 100px">Editar</a> |
-	<a asp-action="Details" asp-controller="Processos" asp-route-id="@Model.ProcessoId" class="btn btn-dark" style="width: 100px">Voltar</a>
-</div>
+

@@ -1,102 +1,144 @@
 ﻿@model kaufer_comex.Models.Item
 
 @{
-	ViewData["Title"] = "Deletar Itens";
+    ViewData["Title"] = "Deletar Itens";
 }
 
 <div>
-	@if (TempData["MensagemErro"] != null)
-	{
-		<div class="alert alert-danger" role="alert" align="center">
-			@TempData["MensagemErro"]
-		</div>
-	}
-	<h4>Você tem certeza que deseja excluir o Item? </h4>
-	<hr />
-	<dl class="row">
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.CodigoProduto)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.CodigoProduto)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.DescricaoProduto)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.DescricaoProduto)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Familia)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Familia)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Largura)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Largura)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Comprimento)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Comprimento)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Espessura)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Espessura)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.AreaM2)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.AreaM2)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.DiametroAltura)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.DiametroAltura)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.DiametroComprimento)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.DiametroComprimento)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.LarguraAparente)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.LarguraAparente)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.VolumeM2)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.VolumeM2)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.PesoLiquido)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.PesoLiquido)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.PesoBruto)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.PesoBruto)
-		</dd>
-	</dl>
-
-	<form asp-action="Delete">
-		<input type="hidden" asp-for="Id" />
-		<input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
-		<a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
-	</form>
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert" align="center">
+            @TempData["MensagemErro"]
+        </div>
+    }
+    <h4>Você tem certeza que deseja excluir o Item? </h4>
+    <hr />
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between">
+            <span class="mt-1"><strong>ITEM</strong> </span>
+            <div class="justify-content-sm-end d-flex m-0">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Excluir" class="btn " style=" background-color: #82323b; color: #FFF; width: 100px" />
+                    <a asp-action="Index" class="btn btn-dark" style="width: 100px">Voltar</a>
+                </form>
+            </div>
+        </div>
+        <dl class=" card-body row">
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CodigoProduto)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CodigoProduto)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DescricaoProduto)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DescricaoProduto)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Familia)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Familia)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Largura)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Largura)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Comprimento)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Comprimento)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Espessura)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Espessura)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.AreaM2)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.AreaM2)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DiametroAltura)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DiametroAltura)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DiametroComprimento)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DiametroComprimento)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.LarguraAparente)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LarguraAparente)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.VolumeM2)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.VolumeM2)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.PesoLiquido)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PesoLiquido)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.PesoBruto)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PesoBruto)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Preco)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Preco)
+                </dd>
+            </div>
+    </div>
+         </dl>
 </div>
+
+

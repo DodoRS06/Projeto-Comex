@@ -19,13 +19,15 @@
             <a asp-action="Index" asp-controller="Status" asp-route-id="@Model.Id" class="btn btn-outline-dark">Voltar</a>
         </div>
     </div>
-    <dl class="card-body row">
-        <dt class="col-md-4">
-            @Html.DisplayNameFor(model => model.StatusAtual)
-        </dt>
-        <dd class="col-md-4">
-            @Html.DisplayFor(model => model.StatusAtual)
-        </dd>
-    </dl>
+        <dl class="card-body row">
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.StatusAtual)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.StatusAtual)
+                </dd>
+            </div>
+        </dl>
 </div>
 </div>
