@@ -30,8 +30,8 @@ namespace kaufer_comex.Models
         [NotMapped]
         public string FornecedorServicoNome { get; set; }
 
-        public ICollection<CadastroDespesaDCE> CadastroDespesas { get; set; }
-        public ICollection<FornecedorServicoDCE> FornecedorServicos { get; set; }
+        public List<CadastroDespesaDCE> CadastroDespesas { get; set; }
+        public List<FornecedorServicoDCE> FornecedorServicos { get; set; }
 
         [ForeignKey("ProcessoId")]
         public int ProcessoId { get; set; }
