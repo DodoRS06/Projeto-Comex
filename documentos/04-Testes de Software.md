@@ -222,17 +222,26 @@ CT-22- Tela Cadastro de Processo
 
 ![Evidência](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Captura%20de%20tela%202024-05-09%20212246.png)
 
-
 CT-22- Tela Cadastro de Processo
 ![Evidencias](img/Tela%20Cadastro%20de%20valores%20teste%20de%20lógica.png)
-s
 
-CT-23- Tela Embarque Rodoviário
+## Testes - Etapa 4
+
+**CT-23- Tela Embarque Rodoviário**
 ![Evidencias](img/Jeferson%20Embarque.png)
 ![Evidencias](img/Jeferson%20Rodoviário.png)
 ![Evidencias](img/Embarque%20delete%20Jeferson.png)
 
-CT-23- Tela Itens
+**CT-23- Tela Itens**
 ![Evidencias](img/Jeferson%20Itens.png)
 ![Evidencias](img/Jeferson%20Itens%202.png)
 ![Evidencias](img/Itens%20Delete%20Jeferson.png)
+
+**CT-13 - Tela Cadastro de DCE**
+![Evidencias](img/teste_DCE_etapa4.png)
+![Evidencias](img/teste_DCE_etapa4%20(2).png)
+![Evidencias](img/teste_DCE_etapa4_.png)
+
+**CT-23-Tela Cadastro de Status** 
+![Evidencias](img/teste_status_etapa4.png)
+![Evidencias](img/teste_status_etapa4_.png)
