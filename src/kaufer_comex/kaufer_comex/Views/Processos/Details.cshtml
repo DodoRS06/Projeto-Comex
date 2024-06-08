@@ -46,7 +46,7 @@
     </div>
     <div class="card mb-3">
         <div class="card-header  d-flex justify-content-between">
-            <span class="mt-1">Processo: </span>
+            <span class="mt-1"><strong>PROCESSO</strong> </span>
             <div class="justify-content-sm-end d-flex m-0">
                 <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
             </div>
@@ -222,7 +222,7 @@
         {
             <div class="card mb-3">
                 <div class="card-header d-flex justify-content-between">
-                    <span class="mt-1">Veículo: </span>
+                    <span class="mt-1"><strong>VEÍCULO</strong> </span>
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="Veiculos" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
                         <a asp-action="Details" asp-controller="Veiculos" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
@@ -261,7 +261,7 @@
         {
             <div class="card mb-3">
                 <div class="card-header d-flex justify-content-between">
-                    <span class="mt-1">Despacho: </span>
+                    <span class="mt-1"><strong>DESPACHO</strong> </span>
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="Despachos" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
                         <a asp-action="Details" asp-controller="Despachos" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
@@ -348,7 +348,7 @@
         {
             <div class="card mb-3">
                 <div class="card-header d-flex justify-content-between">
-                    <span class="mt-1">Documento: </span>
+                    <span class="mt-1"><strong>DOCUMENTO</strong> </span>
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="Documentos" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
                         <a asp-action="Details" asp-controller="Documentos" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
@@ -403,7 +403,7 @@
         {
             <div class="card mb-3">
                 <div class="card-header d-flex justify-content-between">
-                    <span class="mt-1">Embarque: </span>
+                    <span class="mt-1"><strong>EMBARQUE</strong> </span>
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="EmbarqueRodoviarios" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
                         <a asp-action="Details" asp-controller="EmbarqueRodoviarios" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
@@ -467,7 +467,7 @@
         {
             <div class="card mb-3">
                 <div class="card-header d-flex justify-content-between">
-                    <span class="mt-1">Nota Fiscal: </span>
+                    <span class="mt-1"><strong>NOTA FISCAL</strong> </span>
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="Notas" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
                         <a asp-action="Details" asp-controller="Notas" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
@@ -523,7 +523,7 @@
         {
             <div class="card mb-3">
                 <div class="card-header d-flex justify-content-between">
-                    <span class="mt-1">Valor de Processo: </span>
+                    <span class="mt-1"><strong>VALORES DO PROCESSO</strong> </span>
                     <div class="justify-content-sm-end d-flex m-0">
                         <a asp-action="Edit" asp-controller="ValoresProcessos" asp-route-id="@item.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px;"></a>
                         <a asp-action="Details" asp-controller="ValoresProcessos" asp-route-id="@item.Id" class="btn"><img src="~/Images/detail.png" id="Details" style="height:20px; "></a>
@@ -594,7 +594,11 @@
 
         <div class="card mb-3">
             <div class="card-header d-flex justify-content-between">
-                <span class="mt-1">DCE: </span>
+                <span class="mt-1"><strong>DCE</strong> </span>
+                <div class="justify-content-sm-end d-flex m-0">
+                    <a asp-controller="DCEs" asp-action="Create" asp-route-id="@Model.Id" class="btn"><img src="~/Images/editar.png" id="Edit" style="height:20px; "></a>
+                    <a asp-controller="DCEs" asp-action="Index" asp-route-id="@Model.Id" class="btn"><img src="~/Images/detail.png" id="Edit" style="height:20px; "></a>
+                </div>
             </div>
             <dl class="card-body row">
                 <div class="col-md-4">
