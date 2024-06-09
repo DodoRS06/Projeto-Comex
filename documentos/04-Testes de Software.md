@@ -240,6 +240,9 @@ CT-22- Tela Cadastro de Processo
 
 ## Testes de Software - Etapa 4
 
+**CT-09 - Cadastro de despesas**
+![Evidencias](video/TesteDespesa.mp4)
+
 **CT-23- Tela Embarque Rodoviário**
 ![Evidencias](img/Jeferson%20Embarque.png)
 ![Evidencias](img/Jeferson%20Rodoviário.png)
