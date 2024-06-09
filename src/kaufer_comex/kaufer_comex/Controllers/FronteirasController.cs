@@ -87,18 +87,29 @@ namespace kaufer_comex.Controllers
             {
                 if (id != fronteira.Id)
                     return NotFound();
+
                 if (ModelState.IsValid)
                 {
+                    var fronteiraExistente = await _context.Fronteiras
+                        .AnyAsync(f => f.NomeFronteira == fronteira.NomeFronteira && f.Id != fronteira.Id);
+
+                    if (fronteiraExistente)
+                    {
+                        TempData["MensagemErro"] = "Essa fronteira já está cadastrada.";
+                        return View(fronteira);
+                    }
+
                     _context.Fronteiras.Update(fronteira);
                     await _context.SaveChangesAsync();
                     return RedirectToAction("Index");
                 }
 
-                return View();
+                return View(fronteira);
             }
             catch
             {
-                return NotFound();
+                TempData["MensagemErro"] = "Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View(fronteira);
             }
         }
 
