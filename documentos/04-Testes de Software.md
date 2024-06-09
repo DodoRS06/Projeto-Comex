@@ -240,11 +240,25 @@ CT-22- Tela Cadastro de Processo
 
 ## Testes de Software - Etapa 4
 
+**CT-08 - Cadastro de fronteiras**
+|**Caso de teste**   | **CT- 08 -Tela Fronteira**- Realizar Cadastro de Despesas, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |  RF-008 - O sistema deve permitir ao usuário cadastrar a Fronteira.|
+|Página realizada por: | Carolina |
+| Teste Realizado por: 	| Karen  |
+|Pré-condições :| Estar logado no sistema <br> acessar o link Cadastros, Clicar em Fronteira e clicar no botão Adicionar fronteira para realizar o cadastro.|
+| Passos 	|  1)	Clicar no botão adicionar fronteira<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Despesa<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para o Index<br>13)	Excluir Despesa<br>14)	Botão de voltar em excluir vai para o Index de despesas|  
+|Resultado esperado:| O usuário deve cadastrar a fronteira clicando no botão adicionar Despesa. Após isso, deve voltar para a tela index e clicar em Editar . Conseguir editar o cadastro e retornar a index.Botão de detalhes mostrar dados da fronteira cadastrada. Usuário Exclui despesa selecionada.|
+|Dados de Entrada| Nome da fronteira|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
+![Evidencias](img/Teste-Fronteira-.gif)
+
 **CT-09 - Cadastro de despesas**
 |**Caso de teste**   | **CT- 09 -Tela Despesas**- Realizar Cadastro de Despesas, Editar ,Visualizar detalhes e Excluir .|
 |:---:	|:---:	|
 |Requisito Associado |  RF-009 - O sistema deve permitir ao usuário cadastrar as despesas.|
-|Página realizada por : | Douglas |
+|Página realizada por: | Douglas |
 | Teste Realizado por: 	|  Carolina |
 |Pré-condições :| Estar logado no sistema <br> acessar o link Cadastros, Clicar em Despesas e clicar no botão Adicionar despesa para realizar o cadastro.|
 | Passos 	|  1)	Clicar no botão adicionar despesa<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Despesa<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para o Index<br>13)	Excluir Despesa<br>14)	Botão de voltar em excluir vai para o Index de despesas|  
