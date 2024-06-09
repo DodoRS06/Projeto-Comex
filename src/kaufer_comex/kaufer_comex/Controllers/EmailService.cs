@@ -6,8 +6,8 @@ public class EmailService
 {
     private readonly string _smtpServer = "smtp.gmail.com";
     private readonly int _smtpPort = 587;
-    private readonly string _smtpUsername = "agricontwebb@gmail.com";
-    private readonly string _smtpPassword = "ggcwxwokkfbkjlbq";
+    private readonly string _smtpUsername = "kaufer.comex.br@gmail.com";
+    private readonly string _smtpPassword = "aqmxujkmijhvvsnp";
 
     public void SendEmail(string toEmail, string subject, string body)
     {
