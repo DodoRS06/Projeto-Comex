@@ -316,6 +316,24 @@ Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não real
 
 ![Evidencias](img/TesteValorProcesso.gif)
 
+CT-14-Tela Cadastro do Despacho
+
+|**Caso de teste**   | **CT- -Tela Despacho**- Realizar Cadastro de Destino, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |   RF-007 - O sistema deve permitir ao usuário cadastrar o País de Destino .|
+|Página realizada por : | Cláudia |
+| Teste Realizado por: 	|  Josyane |
+|Pré-condições :| Estar logado no sistema e acessar a página index de Despachante. |
+| Passos 	|  1)	Clicar no botão adicionar Despacho<br>2)	Adicionar o dado do Despacho <br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Despacho<br>7)	Voltar para a tela index de Despacho<br>8)	Clicar em detalhes <br>9)	Visualizar detalhes do Despacho <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para  index de Despacho<br>13)	Excluir Despacho<br>14)	Botão de voltar em excluir vai para index de Despacho|  
+|Resultado esperado:| O usuário deve cadastrar o Despacho clicando no botão adicionar Despacho dentro da página index . Após isso, deve voltar para a tela index e clicar em Editar . Conseguir editar um Despacho e retornar a index.Botão de detalhes mostrar dados de Determinado Despacho. Usuário Exclui determinado Despacho.|
+|Dados de Entrada| Despachante, Nome de Contato, E-mail e Telefone|
+|Resultados Obtidos|Foi possível Cadastrar , Editar , Visualizar  Despachante e Excluir , conforme demostrado. 
+Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não realiza o cadastro e mostra as mensagens informando que os dados são requeridos. 
+A única observação é que a mensagem de requerido de Nome de contato está escrito como : Obrigatório informar Proforma.
+A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
+
+
 **CT- 23 - Cadastro de Veículos**
 |**Caso de teste**   | **CT- 23 -Tela Veículos**- Realizar Cadastro dos valores do processo, Editar ,Visualizar detalhes e Excluir .|
 |:---:	|:---:	|
