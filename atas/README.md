@@ -15,3 +15,7 @@ Acesse a Ata da Reunião da Etapa 2 clicando [aqui](https://github.com/ICEI-PUC-
 ## Ata da Reunião da Etapa 3
 
 Acesse a Ata da Reunião da Etapa 3 clicando [aqui](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/atas/Reuni%C3%A3o%20Etapa%203.pdf).
+
+## Ata da Reunião da Etapa 4
+
+Acesse a Ata da Reunião da Etapa 3 clicando [aqui](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/atas/ATA%20REUNI%C3%83O%20ETAPA%204.pdf).
