@@ -162,8 +162,23 @@ CT-06-Tela Agente de Carga
 ![Evidencias ](img/AgenteCargaCreate.png)
 ![Evidencias ](img/AgenteCargaCreate2.png)
 
+
 CT-07-Tela Cadastro do Destino
-![Evidencias](img/teste_destino.png)
+
+|**Caso de teste**   | **CT- -Tela Destino**- Realizar Cadastro de Destino, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |   RF-007 - O sistema deve permitir ao usuário cadastrar o País de Destino .|
+|Página realizada por : | Cláudia |
+| Teste Realizado por: 	|  Josyane |
+|Pré-condições :| Estar logado no sistema e acessar a página index de Destino. |
+| Passos 	|  1)	Clicar no botão adicionar Destino<br>2)	Adicionar o dado do Destino <br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Destino<br>7)	Voltar para a tela index de Destino<br>8)	Clicar em detalhes <br>9)	Visualizar detalhes do Destino <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para  index de Destino<br>13)	Excluir Destino<br>14)	Botão de voltar em excluir vai para index de Destino|  
+|Resultado esperado:| O usuário deve cadastrar o Destino clicando no botão adicionar Destino dentro da página index . Após isso, deve voltar para a tela index e clicar em Editar . Conseguir editar um Destino e retornar a index.Botão de detalhes mostrar dados de Determinado Destino. Usuário Exclui determinado Destino.|
+|Dados de Entrada| Certificado de origem, Certificado do Seguro,Envio do Certificado de origem,Tracking,Courier|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  Destino e Excluir , conforme demostrado. 
+Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não realiza o cadastro e mostra as mensagens informando que os dados são requeridos. A única observação é que em Editar o botão está escrito Cadastrar.A mensagem de requerido está em inglês : The País field is required.A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
+
+![Evidencias](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Destino-Teste.gif)
 
 CT-08-Tela Cadastro de Fronteira
 ![Evidencias ](img/Cadastro_fronteira.png)
@@ -181,18 +196,17 @@ CT-10-Tela Cadastro de fornecedor
 
 |**Caso de teste**   | **CT- -Tela Documentos**- Realizar Cadastro de Documentos, Editar ,Visualizar detalhes e Excluir .|
 |:---:	|:---:	|
-|Requisito Associado |  RF-015 - O sistema deve permitir ao usuário cadastrar , deletar e editar embarques rodoviários .|
+|Requisito Associado |  RF-015 - O sistema deve permitir ao usuário cadastrar , deletar e editar Documentos do Processo.|
 |Página realizada por : | Carolina |
 | Teste Realizado por: 	|  Josyane |
 |Pré-condições :| Estar logado no sistema <br> acessar detalhes do processo e clicar no botão cadastrar para realizar o cadastro do Documento do Processo. |
 | Passos 	|  1)	Clicar no botão adicionar Documento<br>2)	Adicionar o dado do Documento<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Documento<br>7)	Voltar para a tela Detalhes do Processo<br>8)	Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para Detalhes do Processo<br>13)	Excluir Documento<br>14)	Botão de voltar em excluir vai para Detalhes do Processo|  
-|Resultado esperado:| O usuário deve cadastrar o Destino clicando no botão adicionar Despachante. Após isso, deve voltar para a tela index de Despachante e clicar em Editar . Conseguir editar um Destino e retornar a index.Botão de detalhes mostrar dados de Determinado Destino. Usuário Exclui determinado processo.|
+|Resultado esperado:| O usuário deve cadastrar o Documento clicando no botão adicionar Documento dentro da página de Detalhes do Processo. Após isso, deve voltar para a tela de Detalhes do Processo e clicar em Editar . Conseguir editar um Documento e retornar a Detalhes do Processo.Botão de detalhes mostrar dados de Determinado Documento. Usuário Exclui determinado  documento do processo.|
 |Dados de Entrada| Certificado de origem, Certificado do Seguro,Envio do Certificado de origem,Tracking,Courier|
 |Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  Destino e Excluir , conforme demostrado. Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não realiza o cadastro e mostra as mensagens informando que os dados são requeridos. A única observação é que a mensagem de requerido em Courier está como : The Courier (*) field is required.Botão voltar em Details volta para a index de Documento e não para Detalhes do processo.Editar não retorna os dados da data.Em Details  e em Delete, Courier está abaixo de Tracking Courier e não do lado.A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
+![Evidencias](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Documentos-Teste.gif)
 
-![Evidencias](img/Cadastro%20documentos.png)
-![Evidencias](img/Detalhes_documento.png)
 
 CT-13-Tela Cadastro de DCE
 ![Evidencias ](img/Dce2-create.png)
@@ -296,7 +310,7 @@ CT-22- Tela Cadastro de Processo
 
 ![Evidencias](img/TesteValorProcesso.gif)
 
-**CT-17 - Cadastro de Veículos**
+**CT- 23 - Cadastro de Veículos**
 |**Caso de teste**   | **CT- 23 -Tela Veículos**- Realizar Cadastro dos valores do processo, Editar ,Visualizar detalhes e Excluir .|
 |:---:	|:---:	|
 |Requisito Associado |  RF-023 - O sistema deve permitir o usuário cadastrar o veículo|
@@ -321,16 +335,48 @@ CT-22- Tela Cadastro de Processo
 ![Evidencias](img/Itens%20Delete%20Jeferson.png)
 
 **CT-13 - Tela Cadastro de DCE**
+|**Caso de teste**   | **CT- 09 -Tela DCE**- Realizar Cadastro de DCE, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado | RF-013 - O sistema deve permitir que o usuário vincule as despesas com o processo de exportação. |
+|Página realizada por : | Douglas |
+| Teste Realizado por: 	|  Cláudia |
+|Pré-condições :| Estar logado no sistema <br> Clicar para ver detalhes do processo, Clicar em DCE e realizar o cadastro.|
+| Passos 	|  1) Adicionar dados<br> 2)Clicar em Adicionar despesa e repetir o processo se necessário<br> 3)Após adicionar todas as despesas, clicar em Salvar as despesas <br>4)Voltar automaticamente  para a index <br>5)Clicar no botão de editar<br>6)Editar dados <br>7)No botão voltar da página editar voltar para o Index <br>8)Excluir Despesa<br>9)	Botão de voltar em excluir vai para o Index de DCE|  
+|Resultado esperado:| O usuário deve cadastrar DCE clicando no botão Salvar todas as despesas. Após isso, deve voltar para a tela index e clicar em Editar . Conseguir editar o cadastro e retornar a index. Botão de detalhes mostrar dados da DCE cadastrada. Usuário Exclui DCE selecionada.|
+|Dados de Entrada| Despesa, Valor, Fornecedor, Observação |
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
 ![Evidencias](img/teste_DCE_etapa4.png)
 ![Evidencias](img/teste_DCE_etapa4%20(2).png)
 ![Evidencias](img/teste_DCE_etapa4_.png)
 
 **CT-23-Tela Cadastro de Status** 
+|**Caso de teste**   | **CT- 09 -Tela Status**- Realizar Cadastro de Status, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |  RF-020 - sistema deve permitir ao usuário cadastrar o Status do Processo. |
+|Página realizada por : | Josyane |
+| Teste Realizado por: 	|  Cláudia |
+|Pré-condições :| Estar logado no sistema <br> acessar o link Cadastros, Clicar em Status e clicar no botão Adicionar Status para realizar o cadastro.|
+| Passos 	|  1)Clicar no botão adicionar status<br>2)	Adicionar dados<br>3)Clicar em cadastrar<br>4)Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)Editar status<br>7)Clicar em detalhes <br>9)Visualizar detalhes <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para o Index<br>13)	Excluir Status<br>14)Botão de voltar em excluir vai para o Index de status|  
+|Resultado esperado:| O usuário deve cadastrar o status clicando no botão adicionar Status. Após isso, deve voltar para a tela index e clicar em Editar . Conseguir editar o cadastro e retornar a index.Botão de detalhes mostrar dados do status cadastrada. Usuário Exclui status selecionado.|
+|Dados de Entrada| Nome do Status|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
 ![Evidencias](img/teste_status_etapa4.png)
 ![Evidencias](img/teste_status_etapa4_.png)
 
-**CT-03-Tela Cadastro de importador**
-![Evidencias](img/teste_importador_etapa4.png)
+**CT-03-Tela Cadastro de Exportador/Importador**
+|**Caso de teste**   | **CT- 09 -Tela Exportador/Importador**- Realizar Cadastro de Exportador/Importador, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |  RF-003 - O sistema deve permitir ao usuário cadastrar o importador. - RF-004 - O sistema deve permitir ao usuário cadastrar o exportador. |
+|Página realizada por : | Douglas |
+| Teste Realizado por: 	|  Cláudia |
+|Pré-condições :| Estar logado no sistema <br> acessar o link Cadastros, Clicar em Exportador/Importador e clicar no botão Adicionar Exportador/Importador para realizar o cadastro.|
+| Passos 	|  1)Clicar no botão adicionar Exportador/Importador<br>2)Adicionar dados<br>3)	Clicar em cadastrar<br>4)Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)Editar Exportador/Importador<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para o Index<br>13)	Excluir Exportador/Importador<br>14)Botão de voltar em excluir vai para o Index de Exportador/Importador|  
+|Resultado esperado:| O usuário deve cadastrar Exportador/Importador clicando no botão adicionar Exportador/Importador. Após isso, deve voltar para a tela index e clicar em Editar . Conseguir editar o cadastro e retornar a index.Botão de detalhes mostrar dados do Exportador/Importador cadastrado. Usuário Exclui Exportador/Importador selecionado.|
+|Dados de Entrada| Sigla, tipo, nome, endereço, cidade, estado, país, CEP, Telefone, Email, CNPJ, Contato e observações|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
-**CT-03-Tela Cadastro de exportador**
+![Evidencias](img/teste_importador_etapa4.png)
 ![Evidencias](img/teste_exportador_etapa4.png)
+
