@@ -27,12 +27,15 @@ namespace kaufer_comex.Controllers
         {
             return View();
         }
-
         [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login(Usuario usuario)
         {
-
+            if (string.IsNullOrEmpty(usuario.Senha))
+            {
+                ViewBag.Message = "Senha não pode estar vazia!";
+                return View();
+            }
 
             var dados = await _context.Usuarios
                 .FirstOrDefaultAsync(u => u.Email == usuario.Email);
@@ -48,13 +51,13 @@ namespace kaufer_comex.Controllers
             if (SenhaOk)
             {
                 var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, dados.NomeFuncionario),
-                    new Claim(ClaimTypes.Email, dados.Email),
-                    new Claim(ClaimTypes.NameIdentifier, dados.Id.ToString()), 
-                    new Claim("CPF", dados.CPF.ToString()),
-                    new Claim(ClaimTypes.Role, dados.Perfil.ToString()) 
-                };
+        {
+            new Claim(ClaimTypes.Name, dados.NomeFuncionario),
+            new Claim(ClaimTypes.Email, dados.Email),
+            new Claim(ClaimTypes.NameIdentifier, dados.Id.ToString()),
+            new Claim("CPF", dados.CPF.ToString()),
+            new Claim(ClaimTypes.Role, dados.Perfil.ToString())
+        };
 
                 var usuarioIdentity = new ClaimsIdentity(claims, "login");
 
@@ -70,7 +73,6 @@ namespace kaufer_comex.Controllers
                 await HttpContext.SignInAsync(principal, props);
 
                 return RedirectToAction("Index", "Processos");
-
             }
 
             ViewBag.Message = "Usuário e/ou Senha inválidos!";
