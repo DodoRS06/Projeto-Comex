@@ -332,7 +332,7 @@ Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não real
 A única observação é que a mensagem de requerido de Nome de contato está escrito como : Obrigatório informar Proforma.
 A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
-
+![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Despachante-Teste.gif)
 
 **CT- 23 - Cadastro de Veículos**
 |**Caso de teste**   | **CT- 23 -Tela Veículos**- Realizar Cadastro dos valores do processo, Editar ,Visualizar detalhes e Excluir .|
