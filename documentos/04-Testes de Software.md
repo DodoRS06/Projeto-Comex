@@ -281,7 +281,7 @@ CT-22- Tela Cadastro de Processo
 
 ![Evidencias](img/TesteValorProcesso.gif)
 
-**CT-17 - Cadastro de Veículos**
+**CT- 23 - Cadastro de Veículos**
 |**Caso de teste**   | **CT- 23 -Tela Veículos**- Realizar Cadastro dos valores do processo, Editar ,Visualizar detalhes e Excluir .|
 |:---:	|:---:	|
 |Requisito Associado |  RF-023 - O sistema deve permitir o usuário cadastrar o veículo|
