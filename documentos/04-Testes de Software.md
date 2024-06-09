@@ -386,9 +386,8 @@ A navegação pelos botões corresponde as respectivas páginas indicadas.|
 |Dados de Entrada| Despesa, Valor, Fornecedor, Observação |
 |Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
-![Evidencias](img/teste_DCE_etapa4.png)
-![Evidencias](img/teste_DCE_etapa4%20(2).png)
-![Evidencias](img/teste_DCE_etapa4_.png)
+![Evidencias](img/TesteDce.gif)
+
 
 **CT-23-Tela Cadastro de Status** 
 |**Caso de teste**   | **CT- 09 -Tela Status**- Realizar Cadastro de Status, Editar ,Visualizar detalhes e Excluir .|
@@ -402,8 +401,8 @@ A navegação pelos botões corresponde as respectivas páginas indicadas.|
 |Dados de Entrada| Nome do Status|
 |Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
-![Evidencias](img/teste_status_etapa4.png)
-![Evidencias](img/teste_status_etapa4_.png)
+![Evidencias](img/TesteStatus.gif)
+
 
 **CT-03-Tela Cadastro de Exportador/Importador**
 |**Caso de teste**   | **CT- 09 -Tela Exportador/Importador**- Realizar Cadastro de Exportador/Importador, Editar ,Visualizar detalhes e Excluir .|
@@ -417,6 +416,6 @@ A navegação pelos botões corresponde as respectivas páginas indicadas.|
 |Dados de Entrada| Sigla, tipo, nome, endereço, cidade, estado, país, CEP, Telefone, Email, CNPJ, Contato e observações|
 |Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
-![Evidencias](img/teste_importador_etapa4.png)
-![Evidencias](img/teste_exportador_etapa4.png)
+![Evidencias](img/TesteExpImp.gif)
+
 
