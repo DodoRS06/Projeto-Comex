@@ -7,7 +7,7 @@
 <div class="container">
     <br />
     <div class="form-group" align="center">
-        <h4>Cadastrar DCE referente ao processo "@ViewData["ProcessoId"]"</h4>
+        <h4>Cadastrar DCE referente ao processo com código de exportação "@ViewData["CodProcessoExportacao"]"</h4>
     </div>
     <hr />
     <form id="createDCEForm">
@@ -114,7 +114,6 @@
             if (firstInput) {
                 firstInput.focus();
             }
-            // atualizarValorTotal();
         };
     </script>
 
@@ -122,12 +121,24 @@
          var listaItens = [];
 
         $(document).ready(function () {
+            // Função para substituir vírgulas por pontos no input e deixa com duas casas decimais
+            $('#Valor').on('change', function () {
+                var valor = $(this).val();
+                if ($.isNumeric(valor)) {
+                    $(this).val(parseFloat(valor).toFixed(2));
+                }
+                if (valor.includes(',')) {
+                    valor = valor.replace(',', '.');
+                    $(this).val(valor);
+                }
+            });
+
             // Função para adicionar despesa na lista e na tabela DCETemp
             $('#addDespesaBtn').click(function () {
                 var novoItem = {
                     CadastroDespesaId: $('#CadastroDespesaId').val(),
                     FornecedorServicoId: $('#FornecedorServicoId').val(),
-                    Valor: $('#Valor').val(),
+                    Valor: parseFloat($('#Valor').val().replace(',', '.')).toFixed(2),
                     Observacao: $('#Observacao').val(),
                     ProcessoId: $('#ProcessoId').val()
                 };
@@ -163,10 +174,11 @@
                 var tbody = $('#itensBody2');
                 tbody.empty();
                 listaItens.forEach(function (item, index) {
+                    var valor = item.Valor ? parseFloat(item.Valor).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '0,00';
                     var tr = $('<tr></tr>');
                     tr.append('<td>' + item.CadastroDespesaNome + '</td>');
                     tr.append('<td>' + item.FornecedorServicoNome + '</td>');
-                    tr.append('<td>' + item.Valor + '</td>');
+                    tr.append('<td>' + valor + '</td>');
                     tr.append('<td>' + item.Observacao + '</td>');
                     tr.append('<td><button type="button" class="btn btn-danger btn-excluir-item2" data-index="' + index + '">Excluir</button></td>');
                     tbody.append(tr);
@@ -176,15 +188,13 @@
             function atualizarValorTotal() {
                 var total = 0;
 
-                // Soma dos valores de cada item em ViewBag.DCEsTemp
-                $.each(@Html.Raw(Json.Serialize(ViewBag.DCEsTemp)), function (index, item) {
-                    if (item && !isNaN(parseFloat(item.Valor))) {
-                        total += parseFloat(item.Valor);
-                    }
-                });
+                // Soma dos valores dos itens da ViewBag
+                var valorItens = parseFloat("@(ViewBag.ValorItens.ToString().Replace(',', '.'))");
+                if (!isNaN(valorItens)) {
+                    total += valorItens;
+                }
 
-                // Soma dos valores dos itens da ViewBag com a soma dos valores dos itens em listaItens
-                total += parseFloat(@ViewBag.ValorItens);
+                //console.log("ValorItens:", total);
 
                 // Soma dos valores dos itens em listaItens
                 listaItens.forEach(function (item) {
@@ -193,7 +203,7 @@
                     }
                 });
 
-                console.log("Total antes da exclusão: " + total);
+                //console.log("Total antes da exclusão: " + total);
 
                 // Evento de clique para excluir item
                 $(document).on('click', '.btn-excluir-item', function () {
@@ -234,33 +244,8 @@
                 console.log("Total final: " + total);
 
                 // Atualizar o valor total na tela
-                $('#valorTotalDCEs').val(total.toFixed(2));
+                $('#valorTotalDCEs').val(total.toFixed(2).replace('.', ','));
             }
-
-            // Evento de clique para excluir item
-            // $(document).on('click', '.btn-excluir-item', function () {
-            //     var row = $(this).closest('tr');
-            //     var id = row.data('id');
-
-            //     $.ajax({
-            //         url: '@Url.Action("ExcluirDespesaTemp", "DCEs")',
-            //         type: 'POST',
-            //         data: JSON.stringify({ id: id }),
-            //         contentType: "application/json; charset=utf-8",
-            //         dataType: "json",
-            //         success: function (response) {
-            //             if (response.success) {
-            //                 row.remove();
-            //                 atualizarValorTotal();
-            //             } else {
-            //                 console.log(response.errors);
-            //             }
-            //         },
-            //         error: function (xhr, status, error) {
-            //             console.error(error);
-            //         }
-            //     });
-            // });
 
             // Função para cadastrar todos os itens e salvar em DCE
             $('#cadastrarItensBtn').click(function () {

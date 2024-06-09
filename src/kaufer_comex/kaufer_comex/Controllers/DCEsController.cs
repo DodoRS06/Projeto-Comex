@@ -79,6 +79,12 @@ namespace kaufer_comex.Controllers
 
             ViewData["ProcessoId"] = id.Value;
 
+            var processo = await _context.Processos
+                .Where(d => d.Id == id)
+                .FirstOrDefaultAsync();
+
+            ViewData["CodProcessoExportacao"] = processo.CodProcessoExportacao;
+
             //Lista temporária para armazenar os dados
             var DCETemp = new List<DCE>();
 
@@ -115,6 +121,7 @@ namespace kaufer_comex.Controllers
 
                 //Atribui o ProcessoId ao objeto DCE
                 dce.ProcessoId = processoId;
+                dce.Valor = (float)Math.Round(dce.Valor, 2);
 
                 _context.DCEs.Add(dce);
                 await _context.SaveChangesAsync();
