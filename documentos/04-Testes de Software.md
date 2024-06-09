@@ -235,7 +235,7 @@ CT-22- Tela Cadastro de Processo
 |Página realizada por: | Jeferson |
 | Teste Realizado por: 	|  Douglas |
 |Pré-condições :  | Estar logado no sistema e acessar a index de Vendedores.|
-| Passos 	|  1)	Clicar no botão adicionar Vendedores<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Vendedores<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	No botão voltar da página detalhes voltar para o Index<br>11)	Excluir Vendedores<br>14)	Botão de voltar em excluir vai para o Index de Vendedores|  
+| Passos 	|  1)	Clicar no botão adicionar Vendedores<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Vendedores<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	No botão voltar da página detalhes voltar para o Index<br>11)	Excluir Vendedores<br>12)	Botão de voltar em excluir vai para o Index de Vendedores|  
 |Resultado esperado:| O usuário deve cadastrar a um vendedor clicando no botão adicionar Vendedor. Após isso, deve voltar para a tela index e clicar em Editar. Conseguir editar o cadastro e retornar a index.Botão de detalhes mostrar dados do vendedor cadastrado. Usuário Exclui o vendedor selecionado.|
 |Dados de Entrada| Vendedor|
 |Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
@@ -249,7 +249,7 @@ CT-22- Tela Cadastro de Processo
 |Página realizada por: | Cláudia |
 | Teste Realizado por: 	|  Douglas |
 |Pré-condições :  | Estar logado no sistema e acessar a index de Agente de cargas.|
-| Passos 	|  1)	Clicar no botão adicionar agentes de carga<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Agente de carga<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	No botão voltar da página detalhes voltar para o Index<br>11)	Excluir Despesa<br>14)	Botão de voltar em excluir vai para o Index de despesas|  
+| Passos 	|  1)	Clicar no botão adicionar agentes de carga<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Agente de carga<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	No botão voltar da página detalhes voltar para o Index<br>11)	Excluir Despesa<br>12)	Botão de voltar em excluir vai para o Index de despesas|  
 |Resultado esperado:| O usuário deve cadastrar a um agente de carga clicando no botão adicionar Agente de carga. Após isso, deve voltar para a tela index e clicar em Editar. Conseguir editar o cadastro e retornar a index.Botão de detalhes mostrar dados do agente de carga cadastrado. Usuário Exclui agente de carga selecionado selecionado.|
 |Dados de Entrada| Agente de carga, Nome do contato, E-mail e Telefone|
 |Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
@@ -350,7 +350,7 @@ Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não real
 |Página realizada por : | Claudia|
 | Teste Realizado por: 	| Karen |
 |Pré-condições :| - Estar logado no sistema <br> - Clicar em Home e clicar no botão Cadastrar para realizar o cadastro.|
-| Passos 	|  1)	Acessar a página HOME<br> 2)	Clicar em adicionar e realizar o cadastro <br>3)	Voltar automaticamente  para a página de Lista de Processos após concluir cadastro <br>4)	Clicar no botão editar <br>5)	Editar dados do Processo<br>6)Clicar em detalhes <br>7)	Visualizar detalhes <br>8)	Clicar em voltar<br>9)	Ir para a página Lista de Processos<br>10)	Excluir processo<br>14)	Voltar automaticamente para lista de Processo. |  
+| Passos 	|  1)	Acessar a página HOME<br> 2)	Clicar em adicionar e realizar o cadastro <br>3)	Voltar automaticamente  para a página de Lista de Processos após concluir cadastro <br>4)	Clicar no botão editar <br>5)	Editar dados do Processo<br>6)Clicar em detalhes <br>7)	Visualizar detalhes <br>8)	Clicar em voltar<br>9)	Ir para a página Lista de Processos<br>10)	Excluir processo<br>11)	Voltar automaticamente para lista de Processo. |  
 |Resultado esperado:| O usuário deve conseguir cadastrar, editar, excluir e visualizar os dados do processo|
 |Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
