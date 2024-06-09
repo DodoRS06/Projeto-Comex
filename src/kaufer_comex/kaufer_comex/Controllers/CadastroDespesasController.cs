@@ -45,6 +45,14 @@ namespace kaufer_comex.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    var despesaExistente = await _context.CadastroDespesas
+                   .AnyAsync(d => d.NomeDespesa == cadastrodespesa.NomeDespesa);
+
+                    if (despesaExistente)
+                    {
+                        TempData["MensagemErro"] = $"Essa fronteira já está cadastrada.";
+                        return View(cadastrodespesa);
+                    }
                     _context.CadastroDespesas.Add(cadastrodespesa);
                     await _context.SaveChangesAsync();
                     return RedirectToAction("Index");
