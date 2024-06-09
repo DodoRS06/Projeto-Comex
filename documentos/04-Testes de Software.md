@@ -310,6 +310,19 @@ CT-22- Tela Cadastro de Processo
 
 ![Evidencias](img/TesteValorProcesso.gif)
 
+**CT- 22 - Cadastro de Processo**
+|**Caso de teste**   | **CT- 22 -Tela Processo**- Realizar Cadastro dos processos, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |  RF-022 - O sistema deve permitir ao usuário cadastrar o Processo de exportação.|
+|Página realizada por : | Claudia|
+| Teste Realizado por: 	| Karen |
+|Pré-condições :| - Estar logado no sistema <br> - Clicar em Home e clicar no botão Cadastrar para realizar o cadastro.|
+| Passos 	|  1)	Acessar a página HOME<br> 2)	Clicar em adicionar e realizar o cadastro <br>3)	Voltar automaticamente  para a página de Lista de Processos após concluir cadastro <br>4)	Clicar no botão editar <br>5)	Editar dados do Processo<br>6)Clicar em detalhes <br>7)	Visualizar detalhes <br>8)	Clicar em voltar<br>9)	Ir para a página Lista de Processos<br>10)	Excluir processo<br>14)	Voltar automaticamente para lista de Processo. |  
+|Resultado esperado:| O usuário deve conseguir cadastrar, editar, excluir e visualizar os dados do processo|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
+![Evidencias](img/Teste-Processo.gif)
+
 **CT- 23 - Cadastro de Veículos**
 |**Caso de teste**   | **CT- 23 -Tela Veículos**- Realizar Cadastro dos valores do processo, Editar ,Visualizar detalhes e Excluir .|
 |:---:	|:---:	|
