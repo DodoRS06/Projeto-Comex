@@ -241,7 +241,60 @@ CT-22- Tela Cadastro de Processo
 ## Testes de Software - Etapa 4
 
 **CT-09 - Cadastro de despesas**
-![Evidencias](video/TesteDespesa.mp4)
+|**Caso de teste**   | **CT- 09 -Tela Despesas**- Realizar Cadastro de Despesas, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |  RF-009 - O sistema deve permitir ao usuário cadastrar as despesas.|
+|Página realizada por : | Douglas |
+| Teste Realizado por: 	|  Carolina |
+|Pré-condições :| Estar logado no sistema <br> acessar o link Cadastros, Clicar em Despesas e clicar no botão Adicionar despesa para realizar o cadastro.|
+| Passos 	|  1)	Clicar no botão adicionar despesa<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Despesa<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para o Index<br>13)	Excluir Despesa<br>14)	Botão de voltar em excluir vai para o Index de despesas|  
+|Resultado esperado:| O usuário deve cadastrar a despesa clicando no botão adicionar Despesa. Após isso, deve voltar para a tela index e clicar em Editar . Conseguir editar o cadastro e retornar a index.Botão de detalhes mostrar dados da despesa cadastrada. Usuário Exclui despesa selecionada.|
+|Dados de Entrada| Nome da despesa|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
+![Evidencias](img/TesteDespesa.gif)
+
+**CT-10 - Cadastro de Fornecedor de serviço**
+|**Caso de teste**   | **CT- 10 -Tela Fornecedor**- Realizar Cadastro de Fornecedores de serviço, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |  RF-010 - O sistema deve permitir o usuário cadastrar o fornecedor de serviço|
+|Página realizada por : | Douglas |
+| Teste Realizado por: 	|  Carolina |
+|Pré-condições :| Estar logado no sistema <br> acessar o link Cadastros, Clicar em Fornecedor e clicar no botão Adicionar fornecedor de serviço para realizar o cadastro.|
+| Passos 	|  1)	Clicar no botão adicionar fornecedor de serviço<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar fornecedor<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para o Index<br>13)	Excluir fornecedor<br>14)	Botão de voltar em excluir vai para o Index|  
+|Resultado esperado:| O usuário deve cadastrar o fornecedor clicando no botão adicionar fornecedor de serviço. Após isso, deve voltar para a tela index e clicar em Editar . Conseguir editar o cadastro e retornar a index.Botão de detalhes mostrar dados da fornecedor cadastrado. Usuário Exclui fornecedor selecionado.|
+|Dados de Entrada| Fornecedor, Tipo de serviço|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
+![Evidencias](img/TesteFornecedor.gif)
+
+**CT-12 - Cadastro de Valores do processo**
+|**Caso de teste**   | **CT- 12 -Tela Valores**- Realizar Cadastro dos valores do processo, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |  RF-012 - O sistema deve permitir o usuário cadastrar os valores da Exportação|
+|Página realizada por : | Jeferson |
+| Teste Realizado por: 	|  Carolina |
+|Pré-condições :| Estar logado no sistema <br> acessar a página de detalhes do processo, Clicar em Valores e clicar no botão Cadastrar para realizar o cadastro.|
+| Passos 	|  1)	Acessar a página de detalhes do processo no qual deseja cadastrar os valores, Clicar no botão Valores<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a página de detalhes do processo <br>5)	Clicar no botão editar <br>6)	Editar valores<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para detalhes do processo<br>13)	Excluir valores<br>14)	Botão de voltar em excluir vai para detalhes do processo|  
+|Resultado esperado:| O usuário deve cadastrar os valores relativos ao processo clicando no botão adicionar valores, e o sistema deve realizar a soma de todos os valores informados. Após isso, deve voltar para a tela detalhes do processo e clicar em Editar . Conseguir editar o cadastro e retornar a página de detlhes do processo.Botão de detalhes mostrar dados dos valores cadastrados. Usuário Exclui valores.|
+|Dados de Entrada| Moeda,Valor Exw, Valor Fob/Fca,Frete internacional,Seguro internacional, Valor total.|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas. Há um erro na formatação dos valores, fazendo com que o valor total fique incorreto|
+
+![Evidencias](img/TesteValorProcesso.gif)
+
+**CT-17 - Cadastro de Veículos**
+|**Caso de teste**   | **CT- 23 -Tela Veículos**- Realizar Cadastro dos valores do processo, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |  RF-023 - O sistema deve permitir o usuário cadastrar o veículo|
+|Página realizada por : | Josyane |
+| Teste Realizado por: 	|  Carolina |
+|Pré-condições :| Estar logado no sistema <br> acessar a página de detalhes do processo, Clicar em Veículo e clicar no botão Cadastrar para realizar o cadastro.|
+| Passos 	|  1)	Acessar a página de detalhes do processo no qual deseja cadastrar o veículo, Clicar no botão Veículo<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a página de detalhes do processo <br>5)	Clicar no botão editar <br>6)	Editar dados do veículo<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para detalhes do processo<br>13)	Excluir veículo<br>14)	Botão de voltar em excluir vai para detalhes do processo|  
+|Resultado esperado:| O usuário deve cadastrar os dados do veículo relativos ao processo clicando no botão Veículos. Após isso, deve voltar para a tela detalhes do processo e clicar em Editar . Conseguir editar o cadastro e retornar a página de detlhes do processo.Botão de detalhes mostrar dados dos veículos cadastrados. Usuário Exclui veículos.|
+|Dados de Entrada| Placa, Motorista|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
+![Evidencias](img/TesteVeiculo.gif)
 
 **CT-23- Tela Embarque Rodoviário**
 ![Evidencias](img/Jeferson%20Embarque.png)
