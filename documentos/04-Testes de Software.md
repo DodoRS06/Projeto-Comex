@@ -228,7 +228,7 @@ CT-22- Tela Cadastro de Processo
 
 ## Testes de Software - Etapa 4
 
-**CT-05 - Tela Vendedores**
+**CT-05 - Tela Cadastro de Vendedores**
 |**Caso de teste**    | **CT- 05 -Tela Vendedores**- Realizar Cadastro de Vendedores, Editar ,Visualizar detalhes e Excluir .|
 |:---:	 |:---:	|
 |Requisito Associado |  RF-005 - O sistema deve permitir ao usuário cadastrar o vendedor.|
@@ -242,7 +242,7 @@ CT-22- Tela Cadastro de Processo
 
 ![Evidencias](img/VendedoresGif.gif)
 
-**CT-06 - Tela Agente de Carga**
+**CT-06 - Tela Cadastro de Agente de Carga**
 |**Caso de teste**    | **CT- 06 -Tela Agente de Carga**- Realizar Cadastro de Agentes, Editar ,Visualizar detalhes e Excluir .|
 |:---:	 |:---:	|
 |Requisito Associado |  RF-006 - O sistema deve permitir ao usuário cadastrar o Agente de Carga.|
@@ -343,6 +343,20 @@ Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não real
 
 ![Evidencias](img/TesteValorProcesso.gif)
 
+**CT-14 - Tela Cadastro de Despachos**
+|**Caso de teste**    | **CT- 14 -Tela Despachos**- Realizar Cadastro de Despachos, Editar ,Visualizar detalhes e Excluir .|
+|:---:	 |:---:	|
+|Requisito Associado |  RF-014 - O sistema deve permitir que o usuário vincule os dados do despacho aduaneiro com o processo de exportação.|
+|Página realizada por: | Cláudia |
+| Teste Realizado por: 	|  Douglas |
+|Pré-condições :  | Estar logado no sistema e acessar a index de Despachos.|
+| Passos 	|  1)	Clicar no botão adicionar Despacho<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Despachos<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	No botão voltar da página detalhes voltar para o Index<br>11)	Excluir Despachos<br>12)	Botão de voltar em excluir vai para o Index de Despachos|  
+|Resultado esperado:| O usuário deve cadastrar a um despacho clicando no botão adicionar despacho. Após isso, deve voltar para a tela index e clicar em Editar. Conseguir editar o cadastro e retornar a index.Botão de detalhes mostrar dados do despacho cadastrado. Usuário Exclui o despacho selecionado.|
+|Dados de Entrada| Número DUE, Data DUE, Data de Exportação, Conhecimento de Embarque, Data do conhecimento, Tipo, Data da Averbação, Código do País e Parametrização|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
+![Evidencias](img/DespachosGif.gif)
+
 **CT- 22 - Cadastro de Processo**
 |**Caso de teste**   | **CT- 22 -Tela Processo**- Realizar Cadastro dos processos, Editar ,Visualizar detalhes e Excluir .|
 |:---:	|:---:	|
@@ -356,16 +370,16 @@ Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não real
 
 ![Evidencias](img/Teste-Processo.gif)
 
-**CT-14-Tela Cadastro do Despacho**
+**CT-21-Tela Cadastro do Despachante**
 
-|**Caso de teste**   | **CT- -Tela Despacho**- Realizar Cadastro de Destino, Editar ,Visualizar detalhes e Excluir .|
+|**Caso de teste**   | **CT- -Tela Despachante**- Realizar Cadastro de Despachante, Editar ,Visualizar detalhes e Excluir .|
 |:---:	|:---:	|
-|Requisito Associado |   RF-007 - O sistema deve permitir ao usuário cadastrar o País de Destino .|
+|Requisito Associado |   RF-007 - O sistema deve permitir ao usuário cadastrar o Despachante .|
 |Página realizada por : | Cláudia |
 | Teste Realizado por: 	|  Josyane |
 |Pré-condições :| Estar logado no sistema e acessar a página index de Despachante. |
-| Passos 	|  1)	Clicar no botão adicionar Despacho<br>2)	Adicionar o dado do Despacho <br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Despacho<br>7)	Voltar para a tela index de Despacho<br>8)	Clicar em detalhes <br>9)	Visualizar detalhes do Despacho <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para  index de Despacho<br>13)	Excluir Despacho<br>14)	Botão de voltar em excluir vai para index de Despacho|  
-|Resultado esperado:| O usuário deve cadastrar o Despacho clicando no botão adicionar Despacho dentro da página index . Após isso, deve voltar para a tela index e clicar em Editar . Conseguir editar um Despacho e retornar a index.Botão de detalhes mostrar dados de Determinado Despacho. Usuário Exclui determinado Despacho.|
+| Passos 	|  1)	Clicar no botão adicionar Despachante<br>2)	Adicionar o dado do Despachante <br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Despachante<br>7)	Voltar para a tela index de Despachante<br>8)	Clicar em detalhes <br>9)	Visualizar detalhes do Despachante <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para  index de Despachante<br>13)	Excluir Despachante<br>14)	Botão de voltar em excluir vai para index de Despachante|  
+|Resultado esperado:| O usuário deve cadastrar o Despacho clicando no botão adicionar Despachante dentro da página index . Após isso, deve voltar para a tela index e clicar em Editar . Conseguir editar um Despachante e retornar a index.Botão de detalhes mostrar dados de Determinado Despachante. Usuário Exclui determinado Despachante.|
 |Dados de Entrada| Despachante, Nome de Contato, E-mail e Telefone|
 |Resultados Obtidos|Foi possível Cadastrar , Editar , Visualizar  Despachante e Excluir , conforme demostrado. 
 Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não realiza o cadastro e mostra as mensagens informando que os dados são requeridos. 
