@@ -45,6 +45,15 @@ namespace kaufer_comex.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    var fornecedorExistente = await _context.FornecedorServicos
+                    .AnyAsync(f => f.Nome == fornecedorservico.Nome && f.TipoServico ==fornecedorservico.TipoServico);
+
+                    if (fornecedorExistente)
+                    {
+                        TempData["MensagemErro"] = $"Esse fornecedor já está cadastrado.";
+                        return View(fornecedorservico);
+                    }
+
                     _context.FornecedorServicos.Add(fornecedorservico);
                     await _context.SaveChangesAsync();
                     return RedirectToAction("Index");
