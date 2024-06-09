@@ -164,7 +164,7 @@ CT-06-Tela Agente de Carga
 
 
 CT-07-Tela Cadastro do Destino
-
+![Evidencias](img/teste_destino.png)
 
 CT-08-Tela Cadastro de Fronteira
 ![Evidencias ](img/Cadastro_fronteira.png)
@@ -178,10 +178,9 @@ CT-10-Tela Cadastro de fornecedor
 ![Evidencias ](img/Fornecedor2-create.png)
 ![Evidencias ](img/Fornecedor2-Details.png)
 
- ## CT-11-Tela Cadastro de documentos
-
- ![](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Cadastro%20documentos.png)
- ![](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Detalhes_documento.png)
+ CT-11-Tela Cadastro de documentos
+![Evidencias](img/Cadastro%20documentos.png)
+![Evidencias](img/Detalhes_documento.png)
 
 CT-13-Tela Cadastro de DCE
 ![Evidencias ](img/Dce2-create.png)
