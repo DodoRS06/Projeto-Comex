@@ -20,7 +20,9 @@ namespace kaufer_comex.Controllers
         {
             try
             {
-                var dados = await _context.CadastroDespesas.ToListAsync();
+                var dados = await _context.CadastroDespesas
+                    .OrderBy(a => a.NomeDespesa)
+                    .ToListAsync();
 
                 return View(dados);
             }
