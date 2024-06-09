@@ -228,8 +228,35 @@ CT-22- Tela Cadastro de Processo
 
 ## Testes de Software - Etapa 4
 
-CT-07-Tela Cadastro do Destino
+**CT-05 - Tela Vendedores**
+|**Caso de teste**    | **CT- 05 -Tela Vendedores**- Realizar Cadastro de Vendedores, Editar ,Visualizar detalhes e Excluir .|
+|:---:	 |:---:	|
+|Requisito Associado |  RF-005 - O sistema deve permitir ao usuário cadastrar o vendedor.|
+|Página realizada por: | Jeferson |
+| Teste Realizado por: 	|  Douglas |
+|Pré-condições :  | Estar logado no sistema e acessar a index de Vendedores.|
+| Passos 	|  1)	Clicar no botão adicionar Vendedores<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Vendedores<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	No botão voltar da página detalhes voltar para o Index<br>11)	Excluir Vendedores<br>14)	Botão de voltar em excluir vai para o Index de Vendedores|  
+|Resultado esperado:| O usuário deve cadastrar a um vendedor clicando no botão adicionar Vendedor. Após isso, deve voltar para a tela index e clicar em Editar. Conseguir editar o cadastro e retornar a index.Botão de detalhes mostrar dados do vendedor cadastrado. Usuário Exclui o vendedor selecionado.|
+|Dados de Entrada| Vendedor|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
+![Evidencias](img/VendedoresGif.gif)
+
+**CT-06 - Tela Agente de Carga**
+|**Caso de teste**    | **CT- 06 -Tela Agente de Carga**- Realizar Cadastro de Agentes, Editar ,Visualizar detalhes e Excluir .|
+|:---:	 |:---:	|
+|Requisito Associado |  RF-006 - O sistema deve permitir ao usuário cadastrar o Agente de Carga.|
+|Página realizada por: | Cláudia |
+| Teste Realizado por: 	|  Douglas |
+|Pré-condições :  | Estar logado no sistema e acessar a index de Agente de cargas.|
+| Passos 	|  1)	Clicar no botão adicionar agentes de carga<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Agente de carga<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	No botão voltar da página detalhes voltar para o Index<br>11)	Excluir Despesa<br>14)	Botão de voltar em excluir vai para o Index de despesas|  
+|Resultado esperado:| O usuário deve cadastrar a um agente de carga clicando no botão adicionar Agente de carga. Após isso, deve voltar para a tela index e clicar em Editar. Conseguir editar o cadastro e retornar a index.Botão de detalhes mostrar dados do agente de carga cadastrado. Usuário Exclui agente de carga selecionado selecionado.|
+|Dados de Entrada| Agente de carga, Nome do contato, E-mail e Telefone|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
+![Evidencias](img/AgendeDeCargasGif.gif)
+
+**CT-07-Tela Cadastro do Destino**
 |**Caso de teste**   | **CT- -Tela Destino**- Realizar Cadastro de Destino, Editar ,Visualizar detalhes e Excluir .|
 |:---:	|:---:	|
 |Requisito Associado |   RF-007 - O sistema deve permitir ao usuário cadastrar o País de Destino .|
@@ -287,8 +314,7 @@ Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não real
 
 ![Evidencias](img/TesteFornecedor.gif)
 
- ## CT-11-Tela Cadastro de documentos
-
+ **CT-11-Tela Cadastro de documentos**
 |**Caso de teste**   | **CT- -Tela Documentos**- Realizar Cadastro de Documentos, Editar ,Visualizar detalhes e Excluir .|
 |:---:	|:---:	|
 |Requisito Associado |  RF-015 - O sistema deve permitir ao usuário cadastrar , deletar e editar Documentos do Processo.|
@@ -317,7 +343,6 @@ Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não real
 
 ![Evidencias](img/TesteValorProcesso.gif)
 
-<<<<<<< HEAD
 **CT- 22 - Cadastro de Processo**
 |**Caso de teste**   | **CT- 22 -Tela Processo**- Realizar Cadastro dos processos, Editar ,Visualizar detalhes e Excluir .|
 |:---:	|:---:	|
@@ -330,8 +355,8 @@ Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não real
 |Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
 ![Evidencias](img/Teste-Processo.gif)
-=======
-CT-14-Tela Cadastro do Despacho
+
+**CT-14-Tela Cadastro do Despacho**
 
 |**Caso de teste**   | **CT- -Tela Despacho**- Realizar Cadastro de Destino, Editar ,Visualizar detalhes e Excluir .|
 |:---:	|:---:	|
@@ -348,7 +373,6 @@ A única observação é que a mensagem de requerido de Nome de contato está es
 A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
 ![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Despachante-Teste.gif)
->>>>>>> 4d138d75c57e742db7c283076d8e46c21697fb2e
 
 **CT- 23 - Cadastro de Veículos**
 |**Caso de teste**   | **CT- 23 -Tela Veículos**- Realizar Cadastro dos valores do processo, Editar ,Visualizar detalhes e Excluir .|
