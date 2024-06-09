@@ -12,7 +12,7 @@ using System.Security.Claims;
 
 namespace kaufer_comex.Controllers
 {
-    
+    [Authorize]
     public class UsuariosController : Controller
     {
         private readonly AppDbContext _context;
@@ -193,14 +193,14 @@ namespace kaufer_comex.Controllers
                 var emailService = new EmailService();
                 string assunto = "Bem-vindo ao nosso sistema";
                 string corpo = $"Olá {usuario.NomeFuncionario}, seja bem-vindo ao nosso sistema!<br/><br/>" +
-                               $"Sua senha provisória para o primeiro acesso é: <strong>{senhaProvisoria}</strong><br/><br/>" +
-                               $"Por favor, recomendamos que altere sua senha após o primeiro login.";
+                               $"Sua senha é: <strong>{senhaProvisoria}</strong><br/><br/>";
 
                 try
                 {
                     emailService.SendEmail(usuario.Email, assunto, corpo);
                     Console.WriteLine("Solicitação de envio de e-mail foi feita.");
-                    TempData["SuccessMessage"] = "Mensagem enviada para o e-mail cadastrado com sucesso! Por favor, verifique o e-mail para realizar o primeiro acesso.";
+                    ViewBag.SuccessMessage = "Mensagem enviada para o e-mail cadastrado com sucesso! Por favor, verifique o e-mail para realizar o primeiro acesso.";
+                    return View(usuario);
                 }
                 catch (Exception ex)
                 {
@@ -256,9 +256,29 @@ namespace kaufer_comex.Controllers
             {
                 try
                 {
-                    usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
-                    _context.Update(usuario);
-                    await _context.SaveChangesAsync();
+                    var userInDb = await _context.Usuarios.FindAsync(id);
+                    if (userInDb != null)
+                    {
+                        if (!string.IsNullOrEmpty(usuario.Senha))
+                        {
+                            usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+                        }
+                        else
+                        {
+                            // Se a senha não foi fornecida, mantenha a senha original no banco de dados
+                            usuario.Senha = userInDb.Senha;
+                        }
+
+                        // Aplicar as alterações na entidade carregada do banco de dados
+                        userInDb.NomeFuncionario = usuario.NomeFuncionario;
+                        userInDb.Email = usuario.Email;
+                        userInDb.Senha = usuario.Senha;
+                        userInDb.CPF = usuario.CPF;
+                        userInDb.Perfil = usuario.Perfil;
+
+                        _context.Update(userInDb);
+                        await _context.SaveChangesAsync();
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -351,8 +371,7 @@ namespace kaufer_comex.Controllers
             var emailService = new EmailService();
             string assunto = "Recuperação de Senha";
             string corpo = $"Olá {usuario.NomeFuncionario},<br/><br/>" +
-                           $"Sua nova senha é: <strong>{novaSenha}</strong><br/><br/>" +
-                           $"Por favor, recomendamos que altere sua senha após o primeiro login.";
+                           $"Sua nova senha é: <strong>{novaSenha}</strong><br/><br/>";
 
             try
             {
