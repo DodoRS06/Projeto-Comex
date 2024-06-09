@@ -350,7 +350,7 @@ Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não real
 |Página realizada por: | Cláudia |
 | Teste Realizado por: 	|  Douglas |
 |Pré-condições :  | Estar logado no sistema e acessar a index de Despachos.|
-| Passos 	|  1)	Clicar no botão adicionar Despacho<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Despachos<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	No botão voltar da página detalhes voltar para o Index<br>11)	Excluir Despachos<br>14)	Botão de voltar em excluir vai para o Index de Despachos|  
+| Passos 	|  1)	Clicar no botão adicionar Despacho<br>2)	Adicionar dados<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Despachos<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	No botão voltar da página detalhes voltar para o Index<br>11)	Excluir Despachos<br>12)	Botão de voltar em excluir vai para o Index de Despachos|  
 |Resultado esperado:| O usuário deve cadastrar a um despacho clicando no botão adicionar despacho. Após isso, deve voltar para a tela index e clicar em Editar. Conseguir editar o cadastro e retornar a index.Botão de detalhes mostrar dados do despacho cadastrado. Usuário Exclui o despacho selecionado.|
 |Dados de Entrada| Número DUE, Data DUE, Data de Exportação, Conhecimento de Embarque, Data do conhecimento, Tipo, Data da Averbação, Código do País e Parametrização|
 |Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
