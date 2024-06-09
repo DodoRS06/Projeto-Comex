@@ -181,18 +181,17 @@ CT-10-Tela Cadastro de fornecedor
 
 |**Caso de teste**   | **CT- -Tela Documentos**- Realizar Cadastro de Documentos, Editar ,Visualizar detalhes e Excluir .|
 |:---:	|:---:	|
-|Requisito Associado |  RF-015 - O sistema deve permitir ao usuário cadastrar , deletar e editar embarques rodoviários .|
+|Requisito Associado |  RF-015 - O sistema deve permitir ao usuário cadastrar , deletar e editar Documentos do Processo.|
 |Página realizada por : | Carolina |
 | Teste Realizado por: 	|  Josyane |
 |Pré-condições :| Estar logado no sistema <br> acessar detalhes do processo e clicar no botão cadastrar para realizar o cadastro do Documento do Processo. |
 | Passos 	|  1)	Clicar no botão adicionar Documento<br>2)	Adicionar o dado do Documento<br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)	Editar Documento<br>7)	Voltar para a tela Detalhes do Processo<br>8)	Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para Detalhes do Processo<br>13)	Excluir Documento<br>14)	Botão de voltar em excluir vai para Detalhes do Processo|  
-|Resultado esperado:| O usuário deve cadastrar o Destino clicando no botão adicionar Despachante. Após isso, deve voltar para a tela index de Despachante e clicar em Editar . Conseguir editar um Destino e retornar a index.Botão de detalhes mostrar dados de Determinado Destino. Usuário Exclui determinado processo.|
+|Resultado esperado:| O usuário deve cadastrar o Documento clicando no botão adicionar Documento dentro da página de Detalhes do Processo. Após isso, deve voltar para a tela de Detalhes do Processo e clicar em Editar . Conseguir editar um Documento e retornar a Detalhes do Processo.Botão de detalhes mostrar dados de Determinado Documento. Usuário Exclui determinado  documento do processo.|
 |Dados de Entrada| Certificado de origem, Certificado do Seguro,Envio do Certificado de origem,Tracking,Courier|
 |Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  Destino e Excluir , conforme demostrado. Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não realiza o cadastro e mostra as mensagens informando que os dados são requeridos. A única observação é que a mensagem de requerido em Courier está como : The Courier (*) field is required.Botão voltar em Details volta para a index de Documento e não para Detalhes do processo.Editar não retorna os dados da data.Em Details  e em Delete, Courier está abaixo de Tracking Courier e não do lado.A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
+![Evidencias](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Documentos-Teste.gif)
 
-![Evidencias](img/Cadastro%20documentos.png)
-![Evidencias](img/Detalhes_documento.png)
 
 CT-13-Tela Cadastro de DCE
 ![Evidencias ](img/Dce2-create.png)
