@@ -20,10 +20,11 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Envio do Certificado de origem (*)")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         [Required(ErrorMessage = "Obrigatório informar a data")]
 
         public DateTime DataEnvioOrigem { get; set; }
+
 
         [Display(Name = "Tracking: (*)")]
         [Required(ErrorMessage = "Obrigatório informar certificado tracking")]
@@ -31,7 +32,8 @@ namespace kaufer_comex.Models
 
 
         [Display(Name = "Courier (*)")]
-        public Courier Courier { get; set; }
+		[Required(ErrorMessage = "Obrigatório selecionar o Courier")]
+		public Courier Courier { get; set; }
 
         [Display(Name = "Processo:")]
         public int ProcessoId { get; set; }
