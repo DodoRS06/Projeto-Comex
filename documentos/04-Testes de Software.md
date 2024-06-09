@@ -228,6 +228,30 @@ CT-22- Tela Cadastro de Processo
 
 ## Testes de Software - Etapa 4
 
+**CT-01-Tela Login-Usuário**
+|**Caso de teste**    | **CT-01-Tela Login**- Login a primeira vez com usuário.|
+|:---:	 |:---:	|
+|Requisito Associado |   RF-001 - O sistema deve permitir ao usuário realizar o login.|
+|Página realizada por: | Karen |
+| Teste Realizado por: 	|  Josyane |
+|Pré-condições :  | Ter acesso ao site do sistema com e-mail e senha previamente cadastrado.|
+| Passos 	| 1)	Inserir e-mail e senha na tela login<br>2)	 Direcionar para tela de processo<br>3)	Não ter acesso a exclusão de um processo<br>4)Recuperar senha por e-mail cadastrado<br>5)Fazer Login novamente<br>6)Não conseguir editar|  
+|Resultado esperado:| O sistema exibe a tela de login, o usuário insere no campo e-mail , já previamente cadastrada, e senha , que foi anteriormente enviada os usuário por e-mail . Neste teste será considerado o primeiro acesso do usuário ao sistema.O Usuário não pode excluir o próprio cadastro e nem editar. Tmabém não pode excluir nenhum cadastro do sistema. |
+|Dados de Entrada| Email e senha|
+|Resultados Obtidos|O sistema identifica quando a senha está errada e quando o e-mail não está cadastrado. Além disso, quando clicado no botão cadastrar sem inserir dados, o sistema também exibe a mensagem “usuário ou senha não encontrado”.Erro encontrados: Poder editar o usuário, cadastrar dois usuários como user e com o mesmo e-mail e o usuário poder mudar para admim.Erro encontrado, botão de excluir em cadastro de usuário, que só deveria ser para o administrador excluir. Consegui excluir meu usuário e cadastrar como admin. Erro dois: Consegui cadastrar outro usuário não sendo administradora colocando o caminho na url do site, assim como acessei a tela de processo não estando cadastrada.|
+
+**CT-01-Tela Login-Administrador**
+|**Caso de teste**    | **CT-01-Tela Login**- Login a primeira vez com usuário.|
+|:---:	 |:---:	|
+|Requisito Associado |  RF-001 - O sistema deve permitir ao usuário realizar o login.|
+|Página realizada por: | Karen |
+| Teste Realizado por: 	|  Josyane |
+|Pré-condições :  | Ter acesso ao site do sistema com e-mail e senha previamente cadastrado.|
+| Passos 	| 1)	Inserir e-mail e senha na tela login<br>2)	 Direcionar para tela de processo<br>3)	Ter acesso de um processo<br>4)Recuperar senha por e-mail cadastrado<br>5)Fazer Login novamente<br>6) Conseguir editar|  
+|Resultado esperado:| O sistema exibe a tela de login, o usuário insere no campo e-mail , já previamente cadastrada, e senha , que foi anteriormente enviada os usuário por e-mail . Neste teste será considerado o primeiro acesso do usuário ao sistema. O Admin pode editar permissão , porém não pode cadastrar nem editar com o próprio e-mail.|
+|Dados de Entrada| Email e senha|
+|Resultados Obtidos|O sistema identifica quando a senha está errada e quando o e-mail não está cadastrado. Além disso, quando clicado no botão cadastrar sem inserir dados, o sistema também exibe a mensagem “usuário ou senha não encontrado”.Recebi e consegui entrar no sistema com a nova senha.Não consegui cadastrar o mesmo e-mail como administrador, somente mudar a permissão.|
+
 **CT-05 - Tela Cadastro de Vendedores**
 |**Caso de teste**    | **CT- 05 -Tela Vendedores**- Realizar Cadastro de Vendedores, Editar ,Visualizar detalhes e Excluir .|
 |:---:	 |:---:	|
