@@ -9,7 +9,7 @@ namespace kaufer_comex.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Obrigatório informar o destino.")]
         [Display(Name = "País")]
         public string NomePais { get; set; }
 

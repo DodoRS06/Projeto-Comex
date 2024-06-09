@@ -225,7 +225,7 @@ CT-22- Tela Cadastro de Processo
 CT-22- Tela Cadastro de Processo
 ![Evidencias](img/Tela%20Cadastro%20de%20valores%20teste%20de%20lógica.png)
 
-## Testes - Etapa 4
+## Testes de Software - Etapa 4
 
 **CT-23- Tela Embarque Rodoviário**
 ![Evidencias](img/Jeferson%20Embarque.png)
@@ -245,3 +245,9 @@ CT-22- Tela Cadastro de Processo
 **CT-23-Tela Cadastro de Status** 
 ![Evidencias](img/teste_status_etapa4.png)
 ![Evidencias](img/teste_status_etapa4_.png)
+
+**CT-03-Tela Cadastro de importador**
+![Evidencias](img/teste_importador_etapa4.png)
+
+**CT-03-Tela Cadastro de exportador**
+![Evidencias](img/teste_exportador_etapa4.png)
