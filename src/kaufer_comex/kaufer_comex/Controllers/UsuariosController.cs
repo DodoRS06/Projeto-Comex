@@ -259,20 +259,37 @@ namespace kaufer_comex.Controllers
                     var userInDb = await _context.Usuarios.FindAsync(id);
                     if (userInDb != null)
                     {
+                        // Verificar se o e-mail ou CPF já existem no banco de dados para outro usuário
+                        bool emailExiste = _context.Usuarios.Any(u => u.Email == usuario.Email && u.Id != usuario.Id);
+                        bool cpfExiste = _context.Usuarios.Any(u => u.CPF == usuario.CPF && u.Id != usuario.Id);
+
+                        if (emailExiste || cpfExiste)
+                        {
+                            if (emailExiste)
+                            {
+                                ModelState.AddModelError("Email", "Já existe um usuário com este e-mail.");
+                            }
+
+                            if (cpfExiste)
+                            {
+                                ModelState.AddModelError("CPF", "Já existe um usuário com este CPF.");
+                            }
+                            return View(usuario);
+                        }
+
                         if (!string.IsNullOrEmpty(usuario.Senha))
                         {
-                            usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+                            userInDb.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                         }
                         else
                         {
-                            // Se a senha não foi fornecida, mantenha a senha original no banco de dados
-                            usuario.Senha = userInDb.Senha;
+                            // Se a senha nao foi fornecida, mantenha a senha original no banco de dados
+                            userInDb.Senha = userInDb.Senha;
                         }
 
                         // Aplicar as alterações na entidade carregada do banco de dados
                         userInDb.NomeFuncionario = usuario.NomeFuncionario;
                         userInDb.Email = usuario.Email;
-                        userInDb.Senha = usuario.Senha;
                         userInDb.CPF = usuario.CPF;
                         userInDb.Perfil = usuario.Perfil;
 
