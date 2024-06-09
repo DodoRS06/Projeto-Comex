@@ -180,6 +180,8 @@ CT-10-Tela Cadastro de fornecedor
 
  ## CT-11-Tela Cadastro de documentos
 
+ ![](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Cadastro%20documentos.png)
+ ![](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Detalhes_documento.png)
 
 CT-13-Tela Cadastro de DCE
 ![Evidencias ](img/Dce2-create.png)
