@@ -307,16 +307,48 @@ CT-22- Tela Cadastro de Processo
 ![Evidencias](img/Itens%20Delete%20Jeferson.png)
 
 **CT-13 - Tela Cadastro de DCE**
+|**Caso de teste**   | **CT- 09 -Tela DCE**- Realizar Cadastro de DCE, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado | RF-013 - O sistema deve permitir que o usuário vincule as despesas com o processo de exportação. |
+|Página realizada por : | Douglas |
+| Teste Realizado por: 	|  Cláudia |
+|Pré-condições :| Estar logado no sistema <br> Clicar para ver detalhes do processo, Clicar em DCE e realizar o cadastro.|
+| Passos 	|  1) Adicionar dados<br> 2)Clicar em Adicionar despesa e repetir o processo se necessário<br> 3)Após adicionar todas as despesas, clicar em Salvar as despesas <br>4)Voltar automaticamente  para a index <br>5)Clicar no botão de editar<br>6)Editar dados <br>7)No botão voltar da página editar voltar para o Index <br>8)Excluir Despesa<br>9)	Botão de voltar em excluir vai para o Index de DCE|  
+|Resultado esperado:| O usuário deve cadastrar DCE clicando no botão Salvar todas as despesas. Após isso, deve voltar para a tela index e clicar em Editar . Conseguir editar o cadastro e retornar a index. Botão de detalhes mostrar dados da DCE cadastrada. Usuário Exclui DCE selecionada.|
+|Dados de Entrada| Despesa, Valor, Fornecedor, Observação |
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
 ![Evidencias](img/teste_DCE_etapa4.png)
 ![Evidencias](img/teste_DCE_etapa4%20(2).png)
 ![Evidencias](img/teste_DCE_etapa4_.png)
 
 **CT-23-Tela Cadastro de Status** 
+|**Caso de teste**   | **CT- 09 -Tela Status**- Realizar Cadastro de Status, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |  RF-020 - sistema deve permitir ao usuário cadastrar o Status do Processo. |
+|Página realizada por : | Josyane |
+| Teste Realizado por: 	|  Cláudia |
+|Pré-condições :| Estar logado no sistema <br> acessar o link Cadastros, Clicar em Status e clicar no botão Adicionar Status para realizar o cadastro.|
+| Passos 	|  1)Clicar no botão adicionar status<br>2)	Adicionar dados<br>3)Clicar em cadastrar<br>4)Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)Editar status<br>7)Clicar em detalhes <br>9)Visualizar detalhes <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para o Index<br>13)	Excluir Status<br>14)Botão de voltar em excluir vai para o Index de status|  
+|Resultado esperado:| O usuário deve cadastrar o status clicando no botão adicionar Status. Após isso, deve voltar para a tela index e clicar em Editar . Conseguir editar o cadastro e retornar a index.Botão de detalhes mostrar dados do status cadastrada. Usuário Exclui status selecionado.|
+|Dados de Entrada| Nome do Status|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
 ![Evidencias](img/teste_status_etapa4.png)
 ![Evidencias](img/teste_status_etapa4_.png)
 
-**CT-03-Tela Cadastro de importador**
-![Evidencias](img/teste_importador_etapa4.png)
+**CT-03-Tela Cadastro de Exportador/Importador**
+|**Caso de teste**   | **CT- 09 -Tela Exportador/Importador**- Realizar Cadastro de Exportador/Importador, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |  RF-003 - O sistema deve permitir ao usuário cadastrar o importador. - RF-004 - O sistema deve permitir ao usuário cadastrar o exportador. |
+|Página realizada por : | Douglas |
+| Teste Realizado por: 	|  Cláudia |
+|Pré-condições :| Estar logado no sistema <br> acessar o link Cadastros, Clicar em Exportador/Importador e clicar no botão Adicionar Exportador/Importador para realizar o cadastro.|
+| Passos 	|  1)Clicar no botão adicionar Exportador/Importador<br>2)Adicionar dados<br>3)	Clicar em cadastrar<br>4)Voltar automaticamente  para a index <br>5)	Clicar no botão editar <br>6)Editar Exportador/Importador<br>7)Clicar em detalhes <br>9)	Visualizar detalhes <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para o Index<br>13)	Excluir Exportador/Importador<br>14)Botão de voltar em excluir vai para o Index de Exportador/Importador|  
+|Resultado esperado:| O usuário deve cadastrar Exportador/Importador clicando no botão adicionar Exportador/Importador. Após isso, deve voltar para a tela index e clicar em Editar . Conseguir editar o cadastro e retornar a index.Botão de detalhes mostrar dados do Exportador/Importador cadastrado. Usuário Exclui Exportador/Importador selecionado.|
+|Dados de Entrada| Sigla, tipo, nome, endereço, cidade, estado, país, CEP, Telefone, Email, CNPJ, Contato e observações|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
-**CT-03-Tela Cadastro de exportador**
+![Evidencias](img/teste_importador_etapa4.png)
 ![Evidencias](img/teste_exportador_etapa4.png)
+
