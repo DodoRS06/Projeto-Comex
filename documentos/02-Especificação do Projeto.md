@@ -94,8 +94,8 @@ O Modelo ER representa através de um diagrama como as entidades (coisas, objeto
 
 ## Diagrama de Classes 
 
-![Diagrama_CLASSE](img/Diagrama%20de%20Classe-Página.drawio%20(2).png)
+![Diagrama_CLASSE](img/DiagramaDeClasse.png)
 
 ## Projeto da Base de Dados
 
-![Projeto da Base de Dados](img/EsquemaRelacional1.png)
+![Projeto da Base de Dados](img/DiagramaBaseDeDados2.png)
