@@ -521,7 +521,7 @@ A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
 ![Evidencias](img/TesteExpImp.gif)
 
-![Evidencias](img/TesteExpImp.gif)
+
 
 **CT-16,17 E 18 -Tela Cadastro de Notas Fiscais**
  
