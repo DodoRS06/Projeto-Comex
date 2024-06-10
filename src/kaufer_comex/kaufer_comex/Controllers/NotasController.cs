@@ -1,4 +1,5 @@
-﻿using kaufer_comex.Migrations;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using kaufer_comex.Migrations;
 using kaufer_comex.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -450,14 +451,33 @@ namespace kaufer_comex.Controllers
                    .Include(p => p.NotaItem)
                    .FirstOrDefaultAsync(p => p.Id == id);
 
-                var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
-
-                var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
+                if (dados == null)
+                {
+                    return NotFound();
+                }
 
                 if (ModelState.IsValid)
                 {
-                    _context.Notas.Update(nota);
+                    dados.NumeroNf = nota.NumeroNf;
+                    dados.Emissao = nota.Emissao;
+                    dados.BaseNota = nota.BaseNota;
+                    dados.ValorFob = nota.ValorFob;
+                    dados.ValorCif = nota.ValorCif;
+                    dados.ValorFrete = nota.ValorFrete;
+                    dados.ValorSeguro = nota.ValorSeguro;
+                    dados.VeiculoId = nota.VeiculoId;
+                    dados.PesoBruto = nota.PesoBruto;
+                    dados.PesoLiq = nota.PesoLiq;
+                    dados.TaxaCambial = nota.TaxaCambial;
+                    dados.CertificadoQualidade = nota.CertificadoQualidade;
+                    dados.EmbarqueRodoviarioId = nota.EmbarqueRodoviarioId;
+                    dados.QuantidadeTotal = nota.QuantidadeTotal;
+                    dados.ValorTotalNota = nota.ValorTotalNota;
                     await _context.SaveChangesAsync();
+                    
+                    var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
+                    
+                    var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
 
                     return RedirectToAction("Details", "Processos", new { id = processoEmbarque.Id });
 
