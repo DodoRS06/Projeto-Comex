@@ -240,6 +240,8 @@ CT-22- Tela Cadastro de Processo
 |Dados de Entrada| Email e senha|
 |Resultados Obtidos|O sistema identifica quando a senha está errada e quando o e-mail não está cadastrado. Além disso, quando clicado no botão cadastrar sem inserir dados, o sistema também exibe a mensagem “usuário ou senha não encontrado”.Erro encontrados: Poder editar o usuário, cadastrar dois usuários como user e com o mesmo e-mail e o usuário poder mudar para admim.Erro encontrado, botão de excluir em cadastro de usuário, que só deveria ser para o administrador excluir. Consegui excluir meu usuário e cadastrar como admin. Erro dois: Consegui cadastrar outro usuário não sendo administradora colocando o caminho na url do site, assim como acessei a tela de processo não estando cadastrada.|
 
+![Evidencias](img/teste-usuario-como-user_14bU3dJG.gif)
+
 **CT-01-Tela Login-Administrador**
 |**Caso de teste**    | **CT-01-Tela Login**- Login a primeira vez com usuário.|
 |:---:	 |:---:	|
