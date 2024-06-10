@@ -405,18 +405,21 @@ Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não real
 
 ![Evidencias](img/DespachosGif.gif)
 
-**CT- 22 - Cadastro de Processo**
-|**Caso de teste**   | **CT- 22 -Tela Processo**- Realizar Cadastro dos processos, Editar ,Visualizar detalhes e Excluir .|
-|:---:	|:---:	|
-|Requisito Associado |  RF-022 - O sistema deve permitir ao usuário cadastrar o Processo de exportação.|
-|Página realizada por : | Claudia|
-| Teste Realizado por: 	| Karen |
-|Pré-condições :| - Estar logado no sistema <br> - Clicar em Home e clicar no botão Cadastrar para realizar o cadastro.|
-| Passos 	|  1)	Acessar a página HOME<br> 2)	Clicar em adicionar e realizar o cadastro <br>3)	Voltar automaticamente  para a página de Lista de Processos após concluir cadastro <br>4)	Clicar no botão editar <br>5)	Editar dados do Processo<br>6)Clicar em detalhes <br>7)	Visualizar detalhes <br>8)	Clicar em voltar<br>9)	Ir para a página Lista de Processos<br>10)	Excluir processo<br>11)	Voltar automaticamente para lista de Processo. |  
-|Resultado esperado:| O usuário deve conseguir cadastrar, editar, excluir e visualizar os dados do processo|
-|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+CT-19-Gerar relatório em excel de todo o Processo*
 
-![Evidencias](img/Teste-Processo.gif)
+**CT-19- Gerar Relatório em Excel** 
+|**Caso de teste**   | Gerar Relatório em Excel .|
+|:---:	|:---:	|
+|Requisito Associado |  RF-020 - sistema deve permitir ao usuário cadastrar o Status do Processo. |
+|Página realizada por : | Cláudia |
+| Teste Realizado por: 	|  Josyane |
+|Pré-condições :| Estar logado no sistema<br>cadastrar todos os dados do processo<br>clicar no botão gerar relatório<br>visualizar os dados de todo o processo no relatório excel|  
+|Resultado esperado:|Excel gerado do Processo completo|
+|Dados de Entrada|Todos os dados do processo|
+|Resultados Obtidos|Foi possível Gerar realtório de todo o processo|
+
+![Evidencia](img/Teste-Relatório-em-excel.gif)
+
 
 **CT-21-Tela Cadastro do Despachante**
 
@@ -435,6 +438,20 @@ A única observação é que a mensagem de requerido de Nome de contato está es
 A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
 ![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Despachante-Teste.gif)
+
+
+**CT- 22 - Cadastro de Processo**
+|**Caso de teste**   | **CT- 22 -Tela Processo**- Realizar Cadastro dos processos, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |  RF-022 - O sistema deve permitir ao usuário cadastrar o Processo de exportação.|
+|Página realizada por : | Claudia|
+| Teste Realizado por: 	| Karen |
+|Pré-condições :| - Estar logado no sistema <br> - Clicar em Home e clicar no botão Cadastrar para realizar o cadastro.|
+| Passos 	|  1)	Acessar a página HOME<br> 2)	Clicar em adicionar e realizar o cadastro <br>3)	Voltar automaticamente  para a página de Lista de Processos após concluir cadastro <br>4)	Clicar no botão editar <br>5)	Editar dados do Processo<br>6)Clicar em detalhes <br>7)	Visualizar detalhes <br>8)	Clicar em voltar<br>9)	Ir para a página Lista de Processos<br>10)	Excluir processo<br>11)	Voltar automaticamente para lista de Processo. |  
+|Resultado esperado:| O usuário deve conseguir cadastrar, editar, excluir e visualizar os dados do processo|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
+![Evidencias](img/Teste-Processo.gif)
 
 **CT- 23 - Cadastro de Veículos**
 |**Caso de teste**   | **CT- 23 -Tela Veículos**- Realizar Cadastro dos valores do processo, Editar ,Visualizar detalhes e Excluir .|
