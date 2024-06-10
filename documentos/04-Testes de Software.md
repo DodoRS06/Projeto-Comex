@@ -64,6 +64,7 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro de fornecedor de serviços.|
 | Passos 	| - Acessar o Site<br> - Digitar o nome do fornecedor, tipo de serviço <br> - Clicar no botão 'Enviar cadastro' |  
 |Critério de Êxito | - O cadastro do fornecedor de serviços deve ser realizado.|
+|  |  |
 | **Caso de teste**   | **CT-11-Tela Cadastro de documentos de exportação** |
 |Requisito Associado |  RF-011 - O sistema deve permitir o usuário cadastrar os documentos de exportação. | 
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro do documento de exportação.|
@@ -94,10 +95,16 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Passos 	| - Acessar o Site<br> - Fazer o login <br> - Acessar a opçao Embarque rodoviário <br> - Clicar no botão Adicionar embarque <br> -Inserir os dados e clicar no botão cadastrar<br> |  
 |Critério de Êxito | - O cadastro do embarque deve ser realizado |
 |   |   |
+| **Caso de teste**   | **CT-16-Tela Cadastro de Notas Fiscais e Veículos** |
+|Requisito Associado |RF-016	O sistema deve permitir que o usuário vincule a nota fiscal com o embarque rodoviário | 
+| Objetivo do Teste 	| O usuário deverá cadastrar os dados do veículo e vincular a notas fiscais |
+| Passos 	| - Acessar o Site<br> - Fazer o login <br> - Acessar a opçao notas fiscais <br> - Clicar no botão Adicionar nota <br> -Inserir os dados e clicar no botão cadastrar|  
+|Critério de Êxito | - O cadastro do veículo deve ser realizado e vinculado a notas |
+|   |   |
 | **Caso de teste**   | **CT-17-Tela Cadastro de Veículos** |
 |Requisito Associado |RF-17 O sistema deve permitir que o usuário vincule veículos com as notas fiscais  | 
 | Objetivo do Teste 	| O usuário deverá cadastrar os dados do veículo e vincular a notas fiscais |
-| Passos 	| - Acessar o Site<br> - Fazer o login <br> - Acessar a opçao veículo <br> - Clicar no botão Adicionar veiculo <br> -Inserir os dados e clicar no botão cadastrar<br>- Acessar a opção notas<br>-clicar no botão adicionar nota<br>-selecionar o veículo para cadastrar a nota<br> |  
+| Passos 	| - Acessar o Site<br> - Fazer o login <br> - Acessar a opçao Veículos <br> - Clicar no botão Adicionar Veículos<br> -Inserir os dados e clicar no botão cadastrar<br>- Acessar a opção notas<br>-clicar no botão adicionar nota<br>-selecionar o veículo para cadastrar a nota<br> |  
 |Critério de Êxito | - O cadastro do veículo deve ser realizado e vinculado a notas |
 |   |   |
 | **Caso de teste**   | **CT-18-Tela Cadastro de Nota** |
@@ -105,6 +112,18 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro da nota fiscal incluindo os itens cadastrados anteriormente.|
 | Passos 	| - Acessar a página de Cadastro de Notas<br> - Clicar em Adicionar item . <br> - Selecionar o item e a quantidade do item. <br> - Clicar em salvar. <br>- Digitar as informações da Nota e clicar em Cadastrar.|
 |Critério de Êxito | - O cadastro da Nota deve ser realizado.|
+|   |   |
+| **Caso de teste**   | **CT-19-Gerar relatório em excel de todo o Processo** |
+|Requisito Associado | RF-019	O sistema deve gerar relatório em excel do processo|
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro de todo o processo para gerar o relatório|
+| Passos 	| - Acessar a página de Index de Processo<br> - Clicar no botão com símbolo de excel<br>- Gerar relatório automáticamente|
+|Critério de Êxito | - O Relatório deve ser gerado|
+|   |   |
+| **Caso de teste**   | **CT-20-Tela Cadastro de Status** |
+|Requisito Associado |  RF-020 - O sistema deve permitir ao usuário cadastrar o Status.
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro do Status.|
+| Passos 	| - Acessar o Site<br> - Acessar aindex de Status<br> - Clicar no botão 'Enviar cadastro' |  
+|Critério de Êxito | - O cadastro do Status deve ser realizado.|
 |   |   |
 | **Caso de teste**   | **CT-21-Tela Cadastro de Despachante** |
 |Requisito Associado |  RF-021 - O sistema deve permitir ao usuário cadastrar o Despachante.
@@ -118,11 +137,11 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Passos 	| - Acessar o Site<br> - Digitar os dados do processo. <br> - Clicar no botão 'Enviar cadastro' |  
 |Critério de Êxito | - O cadastro do Processo deve ser realizado.|
 |   |   |
-| **Caso de teste**   | **CT-23-Tela Cadastro de Status** |
-|Requisito Associado |  RF-020 - sistema deve permitir ao usuário cadastrar o Status do Processo.
-| Objetivo do Teste 	| O usuário deverá realizar o cadastro dos Status .|
-| Passos 	| - Acessar o Site<br> - Digitar o Status. <br> - Clicar no botão 'Enviar' |  
-|Critério de Êxito | - O cadastro do Status deve ser realizado.|
+| **Caso de teste**   | **CT-23-Tela Cadastro de Veículo** |
+|Requisito Associado |  RF-020 - sistema deve permitir ao usuário cadastrar o Veículo do Processo.
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro dos Veículo .|
+| Passos 	| - Acessar o Site<br> - Realizar cadastro do processo. <br> - Cadastrar Veículo em Detalhes do Processo |  
+|Critério de Êxito | - O cadastro do Veículo deve ser realizado.|
 |   |   |
 | **Caso de teste**   | **CT-24-Tela teste de lógica valor processo** |
 |Requisito Associado |  RF-012 - O sistema deve permitir o usuário cadastrar os valores da Exportação.
@@ -243,9 +262,10 @@ CT-22- Tela Cadastro de Processo
 ![Evidencias](img/teste-usuario-como-user_14bU3dJG.gif)
 
 **CT-01-Tela Login-Administrador**
-|**Caso de teste**    | **CT-01-Tela Login**- Login a primeira vez com usuário.|
+**CT-02-Tela Cadastro do Usuário**
+|**Caso de teste**    | **CT-01-Tela Login**- Login a primeira vez com usuário.<br>**CT-02-Tela Cadastro do Usuário**|
 |:---:	 |:---:	|
-|Requisito Associado |  RF-001 - O sistema deve permitir ao usuário realizar o login.|
+|Requisito Associado |  RF-001 - O sistema deve permitir ao usuário realizar o login.<br>RF-002	O sistema deve permitir ao gestor cadastrar o usuário|
 |Página realizada por: | Karen |
 | Teste Realizado por: 	|  Josyane |
 |Pré-condições :  | Ter acesso ao site do sistema com e-mail e senha previamente cadastrado.|
@@ -385,18 +405,21 @@ Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não real
 
 ![Evidencias](img/DespachosGif.gif)
 
-**CT- 22 - Cadastro de Processo**
-|**Caso de teste**   | **CT- 22 -Tela Processo**- Realizar Cadastro dos processos, Editar ,Visualizar detalhes e Excluir .|
-|:---:	|:---:	|
-|Requisito Associado |  RF-022 - O sistema deve permitir ao usuário cadastrar o Processo de exportação.|
-|Página realizada por : | Claudia|
-| Teste Realizado por: 	| Karen |
-|Pré-condições :| - Estar logado no sistema <br> - Clicar em Home e clicar no botão Cadastrar para realizar o cadastro.|
-| Passos 	|  1)	Acessar a página HOME<br> 2)	Clicar em adicionar e realizar o cadastro <br>3)	Voltar automaticamente  para a página de Lista de Processos após concluir cadastro <br>4)	Clicar no botão editar <br>5)	Editar dados do Processo<br>6)Clicar em detalhes <br>7)	Visualizar detalhes <br>8)	Clicar em voltar<br>9)	Ir para a página Lista de Processos<br>10)	Excluir processo<br>11)	Voltar automaticamente para lista de Processo. |  
-|Resultado esperado:| O usuário deve conseguir cadastrar, editar, excluir e visualizar os dados do processo|
-|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+CT-19-Gerar relatório em excel de todo o Processo*
 
-![Evidencias](img/Teste-Processo.gif)
+**CT-19- Gerar Relatório em Excel** 
+|**Caso de teste**   | Gerar Relatório em Excel .|
+|:---:	|:---:	|
+|Requisito Associado |  RF-020 - sistema deve permitir ao usuário cadastrar o Status do Processo. |
+|Página realizada por : | Cláudia |
+| Teste Realizado por: 	|  Josyane |
+|Pré-condições :| Estar logado no sistema<br>cadastrar todos os dados do processo<br>clicar no botão gerar relatório<br>visualizar os dados de todo o processo no relatório excel|  
+|Resultado esperado:|Excel gerado do Processo completo|
+|Dados de Entrada|Todos os dados do processo|
+|Resultados Obtidos|Foi possível Gerar realtório de todo o processo|
+
+![Evidencia](img/Teste-Relatório-em-excel.gif)
+
 
 **CT-21-Tela Cadastro do Despachante**
 
@@ -415,6 +438,20 @@ A única observação é que a mensagem de requerido de Nome de contato está es
 A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
 ![Evidencia](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex/blob/main/documentos/img/Despachante-Teste.gif)
+
+
+**CT- 22 - Cadastro de Processo**
+|**Caso de teste**   | **CT- 22 -Tela Processo**- Realizar Cadastro dos processos, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |  RF-022 - O sistema deve permitir ao usuário cadastrar o Processo de exportação.|
+|Página realizada por : | Claudia|
+| Teste Realizado por: 	| Karen |
+|Pré-condições :| - Estar logado no sistema <br> - Clicar em Home e clicar no botão Cadastrar para realizar o cadastro.|
+| Passos 	|  1)	Acessar a página HOME<br> 2)	Clicar em adicionar e realizar o cadastro <br>3)	Voltar automaticamente  para a página de Lista de Processos após concluir cadastro <br>4)	Clicar no botão editar <br>5)	Editar dados do Processo<br>6)Clicar em detalhes <br>7)	Visualizar detalhes <br>8)	Clicar em voltar<br>9)	Ir para a página Lista de Processos<br>10)	Excluir processo<br>11)	Voltar automaticamente para lista de Processo. |  
+|Resultado esperado:| O usuário deve conseguir cadastrar, editar, excluir e visualizar os dados do processo|
+|Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
+
+![Evidencias](img/Teste-Processo.gif)
 
 **CT- 23 - Cadastro de Veículos**
 |**Caso de teste**   | **CT- 23 -Tela Veículos**- Realizar Cadastro dos valores do processo, Editar ,Visualizar detalhes e Excluir .|
@@ -483,5 +520,23 @@ A navegação pelos botões corresponde as respectivas páginas indicadas.|
 |Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
 ![Evidencias](img/TesteExpImp.gif)
+
+![Evidencias](img/TesteExpImp.gif)
+
+**CT-16,17 E 18 -Tela Cadastro de Notas Fiscais**
+ 
+|*Caso de teste*   | *CT- -Tela Documentos*- Realizar Cadastro de Documentos, Editar ,Visualizar detalhes e Excluir .|
+|:---:	|:---:	|
+|Requisito Associado |RF-016-O sistema deve permitir que o usuário vincule a nota fiscal com o embarque rodoviário<br>RF-017-O sistema deve permitir que o usuário vincule veículos com as notas ficais<br>RF-018-O sistema deve permitir que o usuário vincule os itens nas notas fiscais do embarque rodoviário|
+|Página realizada por : | Josyane |
+| Teste Realizado por: 	|  Karen |
+|Pré-condições :| Estar logado no sistema <br>acessar detalhes do processo,Cadastrar Itens, Cadastrar Veículo do Processo, Cadastrar Embarque Rodoviário do Processo, Realizar cadastro de Notas Fiscais|
+| Passos 	|  1)	Clicar no botão adicionar Nota<br>2)	Adicionar os dados da nota e vinculas veículos , itens e Embarque rodoviário preciamente cadastrados <br>3)	Clicar em cadastrar<br>4)	Voltar automaticamente  para Detalhes do processo <br>5)	Clicar no botão editar <br>6)	Editar Notas Fiscais do Processo e Conseguir Editar  Itens da Nota Fiscal<br>7)	Voltar para a tela Detalhes do Processo<br>8)	Clicar em detalhes <br>9)	Visualizar detalhes da Nota fiscal, inclusive seus Itens <br>10)	Clicar em editar<br>11)	Ir para a página editar<br>12)	No botão voltar da página editar voltar para Detalhes do Processo<br>13)	Excluir  Nota Fiscal, Quando logado como Administrador<br>14)	Botão de voltar em excluir vai para Detalhes do Processo|  
+|Resultado esperado:|Neste Teste vamos considerar que Itens, Veículos e Embarque Rodoviários já foram previamente cadastrados.O usuário deve cadastrar A Nota Fiscal e seus Itens, clicando no botão Nota Fiscal dentro da página de Detalhes do Processo, logo após cadastrar Embarque Rodoviário este botão aparece. Após isso, deve voltar para a tela de Detalhes do Processo e clicar em Editar. Conseguir editar uma Nota Fiscal e seus Itens  e retornar a Detalhes do Processo.Botão de detalhes mostrar dados de Determinado Documento. Usuário Exclui determinado  documento do processo.|
+|Dados de Entrada|Número Nf,Emissão,Base Nota,Valor Fob, Valor Frete, Valor Seguro, Valor Cif, Peso Liquido, Peso Bruto, Taxa Cambial, Certificado Qualidade, Embarque Rodoviário, Veículos, Quantidade Total , Valor Total e Adicionar Itens , com Descriçao do Produto , Quantidade e Valor|
+|Resultados Obtidos|Foi possível Cadastrar , Visualizar Notas Fiscais e Excluir , conforme demostrado. Ao clicar no botão Cadastrar com os dados dos inputs vazios o sistema não realiza o cadastro e mostra as mensagens informando que os dados são requeridos, o Editar não passou no teste, mas foi possível vincular Veículos , Embarque Rodoviário e Itens|
+
+![Evidencias](img/Nota_teste.gif)
+
 
 
