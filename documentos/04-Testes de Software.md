@@ -254,6 +254,8 @@ CT-22- Tela Cadastro de Processo
 |Dados de Entrada| Email e senha|
 |Resultados Obtidos|O sistema identifica quando a senha está errada e quando o e-mail não está cadastrado. Além disso, quando clicado no botão cadastrar sem inserir dados, o sistema também exibe a mensagem “usuário ou senha não encontrado”.Recebi e consegui entrar no sistema com a nova senha.Não consegui cadastrar o mesmo e-mail como administrador, somente mudar a permissão.|
 
+![Evidencia](img/teste-usuario-como-admin_ec9RPZD6.gif)
+
 **CT-05 - Tela Cadastro de Vendedores**
 |**Caso de teste**    | **CT- 05 -Tela Vendedores**- Realizar Cadastro de Vendedores, Editar ,Visualizar detalhes e Excluir .|
 |:---:	 |:---:	|
