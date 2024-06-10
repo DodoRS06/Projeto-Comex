@@ -467,12 +467,12 @@ A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
 ![Evidencias](img/TesteVeiculo.gif)
 
-**CT-23- Tela Embarque Rodoviário**
+**CT-25- Tela Embarque Rodoviário**
 ![Evidencias](img/Jeferson%20Embarque.png)
 ![Evidencias](img/Jeferson%20Rodoviário.png)
 ![Evidencias](img/Embarque%20delete%20Jeferson.png)
 
-**CT-23- Tela Itens**
+**CT-26- Tela Itens**
 ![Evidencias](img/Jeferson%20Itens.png)
 ![Evidencias](img/Jeferson%20Itens%202.png)
 ![Evidencias](img/Itens%20Delete%20Jeferson.png)
@@ -492,7 +492,7 @@ A navegação pelos botões corresponde as respectivas páginas indicadas.|
 ![Evidencias](img/TesteDce.gif)
 
 
-**CT-23-Tela Cadastro de Status** 
+**CT-20-Tela Cadastro de Status** 
 |**Caso de teste**   | **CT- 09 -Tela Status**- Realizar Cadastro de Status, Editar ,Visualizar detalhes e Excluir .|
 |:---:	|:---:	|
 |Requisito Associado |  RF-020 - sistema deve permitir ao usuário cadastrar o Status do Processo. |
