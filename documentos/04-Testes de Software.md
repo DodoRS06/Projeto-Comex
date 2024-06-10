@@ -64,6 +64,7 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro de fornecedor de serviços.|
 | Passos 	| - Acessar o Site<br> - Digitar o nome do fornecedor, tipo de serviço <br> - Clicar no botão 'Enviar cadastro' |  
 |Critério de Êxito | - O cadastro do fornecedor de serviços deve ser realizado.|
+|  |  |
 | **Caso de teste**   | **CT-11-Tela Cadastro de documentos de exportação** |
 |Requisito Associado |  RF-011 - O sistema deve permitir o usuário cadastrar os documentos de exportação. | 
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro do documento de exportação.|
@@ -94,10 +95,16 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Passos 	| - Acessar o Site<br> - Fazer o login <br> - Acessar a opçao Embarque rodoviário <br> - Clicar no botão Adicionar embarque <br> -Inserir os dados e clicar no botão cadastrar<br> |  
 |Critério de Êxito | - O cadastro do embarque deve ser realizado |
 |   |   |
+| **Caso de teste**   | **CT-16-Tela Cadastro de Notas Fiscais e Veículos** |
+|Requisito Associado |RF-016	O sistema deve permitir que o usuário vincule a nota fiscal com o embarque rodoviário | 
+| Objetivo do Teste 	| O usuário deverá cadastrar os dados do veículo e vincular a notas fiscais |
+| Passos 	| - Acessar o Site<br> - Fazer o login <br> - Acessar a opçao notas fiscais <br> - Clicar no botão Adicionar nota <br> -Inserir os dados e clicar no botão cadastrar|  
+|Critério de Êxito | - O cadastro do veículo deve ser realizado e vinculado a notas |
+|   |   |
 | **Caso de teste**   | **CT-17-Tela Cadastro de Veículos** |
 |Requisito Associado |RF-17 O sistema deve permitir que o usuário vincule veículos com as notas fiscais  | 
 | Objetivo do Teste 	| O usuário deverá cadastrar os dados do veículo e vincular a notas fiscais |
-| Passos 	| - Acessar o Site<br> - Fazer o login <br> - Acessar a opçao veículo <br> - Clicar no botão Adicionar veiculo <br> -Inserir os dados e clicar no botão cadastrar<br>- Acessar a opção notas<br>-clicar no botão adicionar nota<br>-selecionar o veículo para cadastrar a nota<br> |  
+| Passos 	| - Acessar o Site<br> - Fazer o login <br> - Acessar a opçao Veículos <br> - Clicar no botão Adicionar Veículos<br> -Inserir os dados e clicar no botão cadastrar<br>- Acessar a opção notas<br>-clicar no botão adicionar nota<br>-selecionar o veículo para cadastrar a nota<br> |  
 |Critério de Êxito | - O cadastro do veículo deve ser realizado e vinculado a notas |
 |   |   |
 | **Caso de teste**   | **CT-18-Tela Cadastro de Nota** |
@@ -105,6 +112,18 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Objetivo do Teste 	| O usuário deverá realizar o cadastro da nota fiscal incluindo os itens cadastrados anteriormente.|
 | Passos 	| - Acessar a página de Cadastro de Notas<br> - Clicar em Adicionar item . <br> - Selecionar o item e a quantidade do item. <br> - Clicar em salvar. <br>- Digitar as informações da Nota e clicar em Cadastrar.|
 |Critério de Êxito | - O cadastro da Nota deve ser realizado.|
+|   |   |
+| **Caso de teste**   | **CT-19-Gerar relatório em excel de todo o Processo** |
+|Requisito Associado | RF-019	O sistema deve gerar relatório em excel do processo|
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro de todo o processo para gerar o relatório|
+| Passos 	| - Acessar a página de Index de Processo<br> - Clicar no botão com símbolo de excel<br>- Gerar relatório automáticamente|
+|Critério de Êxito | - O Relatório deve ser gerado|
+|   |   |
+| **Caso de teste**   | **CT-20-Tela Cadastro de Status** |
+|Requisito Associado |  RF-020 - O sistema deve permitir ao usuário cadastrar o Status.
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro do Status.|
+| Passos 	| - Acessar o Site<br> - Acessar aindex de Status<br> - Clicar no botão 'Enviar cadastro' |  
+|Critério de Êxito | - O cadastro do Status deve ser realizado.|
 |   |   |
 | **Caso de teste**   | **CT-21-Tela Cadastro de Despachante** |
 |Requisito Associado |  RF-021 - O sistema deve permitir ao usuário cadastrar o Despachante.
@@ -118,11 +137,11 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 | Passos 	| - Acessar o Site<br> - Digitar os dados do processo. <br> - Clicar no botão 'Enviar cadastro' |  
 |Critério de Êxito | - O cadastro do Processo deve ser realizado.|
 |   |   |
-| **Caso de teste**   | **CT-23-Tela Cadastro de Status** |
-|Requisito Associado |  RF-020 - sistema deve permitir ao usuário cadastrar o Status do Processo.
-| Objetivo do Teste 	| O usuário deverá realizar o cadastro dos Status .|
-| Passos 	| - Acessar o Site<br> - Digitar o Status. <br> - Clicar no botão 'Enviar' |  
-|Critério de Êxito | - O cadastro do Status deve ser realizado.|
+| **Caso de teste**   | **CT-23-Tela Cadastro de Veículo** |
+|Requisito Associado |  RF-020 - sistema deve permitir ao usuário cadastrar o Veículo do Processo.
+| Objetivo do Teste 	| O usuário deverá realizar o cadastro dos Veículo .|
+| Passos 	| - Acessar o Site<br> - Realizar cadastro do processo. <br> - Cadastrar Veículo em Detalhes do Processo |  
+|Critério de Êxito | - O cadastro do Veículo deve ser realizado.|
 |   |   |
 | **Caso de teste**   | **CT-24-Tela teste de lógica valor processo** |
 |Requisito Associado |  RF-012 - O sistema deve permitir o usuário cadastrar os valores da Exportação.
@@ -243,9 +262,10 @@ CT-22- Tela Cadastro de Processo
 ![Evidencias](img/teste-usuario-como-user_14bU3dJG.gif)
 
 **CT-01-Tela Login-Administrador**
-|**Caso de teste**    | **CT-01-Tela Login**- Login a primeira vez com usuário.|
+**CT-02-Tela Cadastro do Usuário**
+|**Caso de teste**    | **CT-01-Tela Login**- Login a primeira vez com usuário.<br>**CT-02-Tela Cadastro do Usuário**|
 |:---:	 |:---:	|
-|Requisito Associado |  RF-001 - O sistema deve permitir ao usuário realizar o login.|
+|Requisito Associado |  RF-001 - O sistema deve permitir ao usuário realizar o login.<br>RF-002	O sistema deve permitir ao gestor cadastrar o usuário|
 |Página realizada por: | Karen |
 | Teste Realizado por: 	|  Josyane |
 |Pré-condições :  | Ter acesso ao site do sistema com e-mail e senha previamente cadastrado.|
@@ -483,5 +503,4 @@ A navegação pelos botões corresponde as respectivas páginas indicadas.|
 |Resultados Obtidos|Foi possível Cadastrar, Editar , Visualizar  detalhes e Excluir , conforme demostrado. A navegação pelos botões corresponde as respectivas páginas indicadas.|
 
 ![Evidencias](img/TesteExpImp.gif)
-
 
