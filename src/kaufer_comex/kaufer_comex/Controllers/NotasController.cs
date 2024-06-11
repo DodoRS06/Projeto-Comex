@@ -106,6 +106,12 @@ namespace kaufer_comex.Controllers
                     if (notaExistente)
                     {
                         ModelState.AddModelError("NumeroNf", "Esse número de nota já está cadastrado.");
+                        ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
+                        ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
+
+                        var notaItemTemp = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
+                        view.NotaItemTemps = notaItemTemp; 
+
                         return View(view);
                     }
 
