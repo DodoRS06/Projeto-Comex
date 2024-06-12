@@ -130,7 +130,7 @@
                     @Html.DisplayNameFor(model => model.Vendedor)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Vendedor.NomeVendedor)
+                    @ViewBag.vendedor
                 </dd>
             </div>
             <div class="col-md-4">
@@ -138,7 +138,7 @@
                     @Html.DisplayNameFor(model => model.Status)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Status.StatusAtual)
+                    @ViewBag.status
                 </dd>
             </div>
             <div class="col-md-4">

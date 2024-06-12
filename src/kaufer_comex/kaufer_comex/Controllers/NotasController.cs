@@ -106,10 +106,8 @@ namespace kaufer_comex.Controllers
                     {
                         ModelState.AddModelError("NumeroNf", "Esse número de nota já está cadastrado.");
                         InfoViewData();
-
                         var notaItemTemp = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
                         view.NotaItemTemps = notaItemTemp;
-                        
                         return View(view);
                     }
 

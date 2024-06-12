@@ -53,7 +53,7 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch (Exception ex)
             {
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
                 return View();
@@ -122,10 +122,10 @@ namespace kaufer_comex.Controllers
 
                 return View(processo);
             }
-            catch
+            catch (Exception ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return StatusCode(500, $"Erro ao cadastrar processo: {ex.Message}");
+               
             }
         }
 
@@ -155,9 +155,9 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch (Exception ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado {ex.Message}. Por favor, tente novamente.";
                 return View();
             }
 
@@ -289,6 +289,8 @@ namespace kaufer_comex.Controllers
                 ViewData["fronteira"] = GetNomeFronteira(dados.FronteiraId);
                 ViewData["responsavel"] = GetNomeResponsavel(dados.UsuarioId);
                 ViewData["despachante"] = GetNomeDespachante(dados.DespachanteId);
+                ViewData["vendedor"] = GetNomeVendedor(dados.VendedorId);
+                ViewData["status"] = GetStatus(dados.StatusId);
 
                 var DCE = await _context.DCEs.Where(d => d.ProcessoId == dados.Id).ToListAsync();
                 if (DCE != null)
@@ -385,7 +387,10 @@ namespace kaufer_comex.Controllers
         private string GetNomeDespesa(int? id) => id != null ? _context.CadastroDespesas.FirstOrDefault(d => d.Id == id)?.NomeDespesa : string.Empty;
         private string GetNomeFornecedor(int? id) => id != null ? _context.FornecedorServicos.FirstOrDefault(d => d.Id == id)?.Nome : string.Empty;
         private string GetNomeMotorista(int? id) => id != null ? _context.Veiculos.FirstOrDefault(d => d.Id == id)?.Motorista : string.Empty;
-     
+        private string GetNomeVendedor(int? id) => id != null ? _context.Vendedores.FirstOrDefault(d => d.Id == id)?.NomeVendedor : string.Empty;
+        private string GetStatus(int? id) => id != null ? _context.Status.FirstOrDefault(d => d.Id == id)?.StatusAtual : string.Empty;
+
+
 
         // GET: Processos/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -501,9 +506,9 @@ namespace kaufer_comex.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado {ex.Message}. Por favor, tente novamente.";
                 return View();
             }
 
