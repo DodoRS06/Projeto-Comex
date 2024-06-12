@@ -66,8 +66,7 @@ namespace kaufer_comex.Controllers
                 if (processoEmbarque == null) { return NotFound(); }
 
                 ViewData["ProcessoId"] = processoEmbarque.Id;
-                ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
-                ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
+                InfoViewData();
 
                 var itens = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
 
@@ -106,12 +105,11 @@ namespace kaufer_comex.Controllers
                     if (notaExistente)
                     {
                         ModelState.AddModelError("NumeroNf", "Esse número de nota já está cadastrado.");
-                        ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
-                        ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
+                        InfoViewData();
 
                         var notaItemTemp = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
-                        view.NotaItemTemps = notaItemTemp; 
-
+                        view.NotaItemTemps = notaItemTemp;
+                        
                         return View(view);
                     }
 
@@ -163,8 +161,7 @@ namespace kaufer_comex.Controllers
                     return RedirectToAction("Details", "Processos", new { id = processo.Id });
                 }
 
-                ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
-                ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
+                InfoViewData();
 
                 var notaItemTemps = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
 
@@ -175,6 +172,12 @@ namespace kaufer_comex.Controllers
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
                 return View();
             }
+        }
+
+        private void InfoViewData()
+        {
+            ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
+            ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
         }
 
         // GET: ADD ITEM

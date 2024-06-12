@@ -90,6 +90,7 @@ namespace kaufer_comex.Controllers
                     if (processoExistente)
                     {
                         ModelState.AddModelError("CodProcessoExportacao", "Esse número de processo já está cadastrado.");
+                        InfoViewData();
                         return View(processo);
                     }
 
@@ -329,8 +330,8 @@ namespace kaufer_comex.Controllers
                     UsuarioId = dados.UsuarioId,
                     DespachanteId = dados.DespachanteId,
                     FronteiraId = dados.FronteiraId,
-                    Vendedor = dados.Vendedor,
-                    Status = dados.Status,
+                    VendedorId = dados.VendedorId,
+                    StatusId = dados.StatusId,
                     Proforma = dados.Proforma,
                     DataInicioProcesso = dados.DataInicioProcesso,
                     PrevisaoProducao = dados.PrevisaoProducao,
