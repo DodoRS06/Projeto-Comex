@@ -1,6 +1,6 @@
 namespace kaufer_comex.Testes
 {
-    public class UnitTest1
+    public class ProcessoTeste
     {
         [Fact]
         public void Test1()
