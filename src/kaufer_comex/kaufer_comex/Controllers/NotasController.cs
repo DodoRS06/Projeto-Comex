@@ -105,9 +105,13 @@ namespace kaufer_comex.Controllers
                     if (notaExistente)
                     {
                         ModelState.AddModelError("NumeroNf", "Esse número de nota já está cadastrado.");
+                        int embarqueId_ = Convert.ToInt32(Request.Form["EmbarqueRodoviarioId"]);
+                        ViewData["EmbarqueRodoviarioId"] = embarqueId_;
                         InfoViewData();
+                        var usuario = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
                         var notaItemTemp = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
                         view.NotaItemTemps = notaItemTemp;
+
                         return View(view);
                     }
 
