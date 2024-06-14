@@ -97,77 +97,87 @@ namespace kaufer_comex.Controllers
                 int embarqueId = Convert.ToInt32(Request.Form["EmbarqueRodoviarioId"]);
                 var user = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
 
-                if (ModelState.IsValid)
-                {
-                    var notaExistente = await _context.Notas
-                        .AnyAsync(a => a.NumeroNf == view.NumeroNf);
-
-                    if (notaExistente)
-                    {
-                        ModelState.AddModelError("NumeroNf", "Esse número de nota já está cadastrado.");
-                        int embarqueId_ = Convert.ToInt32(Request.Form["EmbarqueRodoviarioId"]);
-                        ViewData["EmbarqueRodoviarioId"] = embarqueId_;
-                        InfoViewData();
-                        var usuario = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
-                        var notaItemTemp = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
-                        view.NotaItemTemps = notaItemTemp;
-
-                        return View(view);
-                    }
-
-                    var novaNota = new Nota
-                    {
-                        NumeroNf = view.NumeroNf,
-                        Emissao = view.Emissao,
-                        BaseNota = view.BaseNota,
-                        ValorFob = view.ValorFob,
-                        ValorCif = view.ValorCif,
-                        ValorFrete = view.ValorFrete,
-                        ValorSeguro = view.ValorSeguro,
-                        VeiculoId = view.VeiculoId,
-                        PesoBruto = view.PesoBruto,
-                        PesoLiq = view.PesoLiq,
-                        TaxaCambial = view.TaxaCambial,
-                        CertificadoQualidade = view.CertificadoQualidade,
-                        EmbarqueRodoviarioId = embarqueId,
-                        QuantidadeTotal = view.QuantidadeTotalNota,
-                        ValorTotalNota = view.ValorTotalNota,
-                    };
-                    _context.Notas.Add(novaNota);
-                    await _context.SaveChangesAsync();
-
-                    var itens = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
-
-                    foreach (var item in itens)
-                    {
-                        var notaItem = new NotaItem
-                        {
-                            ItemId = item.ItemId,
-                            NotaId = novaNota.Id,
-                            Quantidade = item.Quantidade,
-                            Valor = item.Valor,
-                        };
-
-                        _context.NotaItens.Add(notaItem);
-                        _context.NotaItemTemps.Remove(item);
-                        await _context.SaveChangesAsync();
-
-                    }
-
-                    var embarque = novaNota.EmbarqueRodoviarioId;
-                    var embarqueProcesso = await _context.EmbarqueRodoviarios.FindAsync(embarque);
-                    var processo = await _context.Processos.FirstOrDefaultAsync(p => p.Id == embarqueProcesso.ProcessoId);
-
-
-
-                    return RedirectToAction("Details", "Processos", new { id = processo.Id });
-                }
-
-                InfoViewData();
-
                 var notaItemTemps = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
 
-                return View(view);
+               
+                if (!notaItemTemps.Any())
+                {
+                    ModelState.AddModelError("", "Você deve adicionar pelo menos um item antes de criar a nota.");
+                    int embarqueId_ = Convert.ToInt32(Request.Form["EmbarqueRodoviarioId"]);
+                    ViewData["EmbarqueRodoviarioId"] = embarqueId_;
+                    InfoViewData();
+                    view.NotaItemTemps = notaItemTemps;
+
+                    return View(view);
+                }
+                else
+                {
+                 
+                    if (ModelState.IsValid)
+                    {
+                        var notaExistente = await _context.Notas
+                            .AnyAsync(a => a.NumeroNf == view.NumeroNf);
+
+                        if (notaExistente)
+                        {
+                            ModelState.AddModelError("NumeroNf", "Esse número de nota já está cadastrado.");
+                            int embarqueId_ = Convert.ToInt32(Request.Form["EmbarqueRodoviarioId"]);
+                            ViewData["EmbarqueRodoviarioId"] = embarqueId_;
+                            InfoViewData();
+                            var usuario = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
+                            view.NotaItemTemps = notaItemTemps;
+
+                            return View(view);
+                        }
+
+                        var novaNota = new Nota
+                        {
+                            NumeroNf = view.NumeroNf,
+                            Emissao = view.Emissao,
+                            BaseNota = view.BaseNota,
+                            ValorFob = view.ValorFob,
+                            ValorCif = view.ValorCif,
+                            ValorFrete = view.ValorFrete,
+                            ValorSeguro = view.ValorSeguro,
+                            VeiculoId = view.VeiculoId,
+                            PesoBruto = view.PesoBruto,
+                            PesoLiq = view.PesoLiq,
+                            TaxaCambial = view.TaxaCambial,
+                            CertificadoQualidade = view.CertificadoQualidade,
+                            EmbarqueRodoviarioId = embarqueId,
+                            QuantidadeTotal = view.QuantidadeTotalNota,
+                            ValorTotalNota = view.ValorTotalNota,
+                        };
+                        _context.Notas.Add(novaNota);
+                        await _context.SaveChangesAsync();
+
+                        foreach (var item in notaItemTemps)
+                        {
+                            var notaItem = new NotaItem
+                            {
+                                ItemId = item.ItemId,
+                                NotaId = novaNota.Id,
+                                Quantidade = item.Quantidade,
+                                Valor = item.Valor,
+                            };
+
+                            _context.NotaItens.Add(notaItem);
+                            _context.NotaItemTemps.Remove(item);
+                            await _context.SaveChangesAsync();
+                        }
+
+                        var embarque = novaNota.EmbarqueRodoviarioId;
+                        var embarqueProcesso = await _context.EmbarqueRodoviarios.FindAsync(embarque);
+                        var processo = await _context.Processos.FirstOrDefaultAsync(p => p.Id == embarqueProcesso.ProcessoId);
+
+                        return RedirectToAction("Details", "Processos", new { id = processo.Id });
+                    }
+
+                    InfoViewData();
+                    view.NotaItemTemps = notaItemTemps; 
+
+                    return View(view);
+                }
             }
             catch
             {
