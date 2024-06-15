@@ -13,28 +13,31 @@ namespace kaufer_comex.Models
         [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "Obrigatório")]
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
-        public decimal ValorExw { get; set; }
+        public decimal? ValorExw { get; set; }
 
         [Display(Name = " Valor Fob/Fca ")]
+        [Required(ErrorMessage = "Obrigatório")]
         [Column(TypeName = "decimal(18,2)")]
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
-        public decimal ValorFobFca { get; set; }
+        public decimal? ValorFobFca { get; set; }
 
         [Display(Name = "Frete Internacional ")]
+        [Required(ErrorMessage = "Obrigatório")]
         [Column(TypeName = "decimal(18,2)")]
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
-        public decimal FreteInternacional { get; set; }
+        public decimal? FreteInternacional { get; set; }
 
         [Display(Name = "Seguro Internacional")]
+        [Required(ErrorMessage = "Obrigatório")]
         [Column(TypeName = "decimal(18,2)")]
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
-        public decimal SeguroInternaciona { get; set; }
+        public decimal? SeguroInternaciona { get; set; }
 
         [Display(Name = "Valor Total (*)")]
         [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "Obrigatório")]
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
-        public decimal ValorTotalCif { get; set; }
+        public decimal? ValorTotalCif { get; set; }
 
 
         public int ProcessoId { get; set; }
