@@ -87,7 +87,7 @@ namespace kaufer_comex.Models
         [Column(TypeName = "decimal(18,2)")]
         [Display(Name = "Valor total")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
-        public decimal ValorTotalNota { get; set; }
+        public decimal? ValorTotalNota { get; set; }
 
         public virtual List<NotaItem> NotaItem { get; set; }
 
