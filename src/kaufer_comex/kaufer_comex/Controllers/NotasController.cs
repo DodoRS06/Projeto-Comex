@@ -203,6 +203,7 @@ namespace kaufer_comex.Controllers
         private async Task<int> GetProcessoId(int embarqueRodoviarioId)
         {
             var embarqueProcesso = await _context.EmbarqueRodoviarios.FindAsync(embarqueRodoviarioId);
+  
             var processo = await _context.Processos.FirstOrDefaultAsync(p => p.Id == embarqueProcesso.ProcessoId);
             return processo.Id;
         }
@@ -482,59 +483,69 @@ namespace kaufer_comex.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Nota nota)
         {
-            try
+            if (id != nota.Id)
+                return NotFound();
+
+            var dados = await GetDadosNota(id);
+            if (dados == null)
+                return NotFound();
+
+            if (ModelState.IsValid)
             {
-                if (id != nota.Id)
-                    return NotFound();
-
-                var dados = await _context.Notas
-                   .Include(p => p.Veiculo)
-                   .Include(p => p.EmbarqueRodoviario)
-                   .Include(p => p.NotaItem)
-                   .FirstOrDefaultAsync(p => p.Id == id);
-
-                if (dados == null)
+                try
                 {
-                    return NotFound();
-                }
-
-                if (ModelState.IsValid)
-                {
-                    dados.NumeroNf = nota.NumeroNf;
-                    dados.Emissao = nota.Emissao;
-                    dados.BaseNota = nota.BaseNota;
-                    dados.ValorFob = nota.ValorFob;
-                    dados.ValorCif = nota.ValorCif;
-                    dados.ValorFrete = nota.ValorFrete;
-                    dados.ValorSeguro = nota.ValorSeguro;
-                    dados.VeiculoId = nota.VeiculoId;
-                    dados.PesoBruto = nota.PesoBruto;
-                    dados.PesoLiq = nota.PesoLiq;
-                    dados.TaxaCambial = nota.TaxaCambial;
-                    dados.CertificadoQualidade = nota.CertificadoQualidade;
-                    dados.EmbarqueRodoviarioId = nota.EmbarqueRodoviarioId;
-                    dados.QuantidadeTotal = nota.QuantidadeTotal;
-                    dados.ValorTotalNota = nota.ValorTotalNota;
+                    EditarDadosNota(dados, nota);
                     await _context.SaveChangesAsync();
-                    
-                    var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
-                    
-                    var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
-
-                    return RedirectToAction("Details", "Processos", new { id = processoEmbarque.Id });
-
+                    var processoId = await GetProcessoId(dados.EmbarqueRodoviarioId);
+                 
+                    return RedirectToAction("Details", "Processos", new { id = processoId });
                 }
-
-                ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
-
-                return View();
+                catch (DbUpdateException ex)
+                {
+                    TempData["MensagemErro"] = $"Erro ao editar a nota: {ex.Message}";
+                    return View();
+                }
+                catch (Exception ex)
+                {
+                    TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message}";
+                    return View();
+                }
             }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-            }
+
+            ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
+            return View();
         }
+
+        //GET: Dados de nota
+        private async Task<Nota> GetDadosNota(int id)
+        {
+            return await _context.Notas
+                .Include(p => p.Veiculo)
+                .Include(p => p.EmbarqueRodoviario)
+                .Include(p => p.NotaItem)
+                .FirstOrDefaultAsync(p => p.Id == id);
+        }
+
+        //Editar dados de nota
+        private void EditarDadosNota(Nota dados, Nota novaNota)
+        {
+            dados.NumeroNf = novaNota.NumeroNf;
+            dados.Emissao = novaNota.Emissao;
+            dados.BaseNota = novaNota.BaseNota;
+            dados.ValorFob = novaNota.ValorFob;
+            dados.ValorCif = novaNota.ValorCif;
+            dados.ValorFrete = novaNota.ValorFrete;
+            dados.ValorSeguro = novaNota.ValorSeguro;
+            dados.VeiculoId = novaNota.VeiculoId;
+            dados.PesoBruto = novaNota.PesoBruto;
+            dados.PesoLiq = novaNota.PesoLiq;
+            dados.TaxaCambial = novaNota.TaxaCambial;
+            dados.CertificadoQualidade = novaNota.CertificadoQualidade;
+            dados.EmbarqueRodoviarioId = novaNota.EmbarqueRodoviarioId;
+            dados.QuantidadeTotal = novaNota.QuantidadeTotal;
+            dados.ValorTotalNota = novaNota.ValorTotalNota;
+        }
+
 
         //Excluir item da nota já criada
         [HttpPost]
