@@ -150,7 +150,7 @@ namespace kaufer_comex.Controllers
         }
 
         //Verificar se já existe o Numero de NF cadastrado
-        private async Task<bool> NotaJaExiste(int numeroNf)
+        private async Task<bool> NotaJaExiste(int? numeroNf)
         {
             return await _context.Notas.AnyAsync(a => a.NumeroNf == numeroNf);
         }
