@@ -115,10 +115,7 @@ namespace kaufer_comex.Controllers
                  
                     if (ModelState.IsValid)
                     {
-                        var notaExistente = await _context.Notas
-                            .AnyAsync(a => a.NumeroNf == view.NumeroNf);
-
-                        if (notaExistente)
+                        if (await NotaJaExiste(view.NumeroNf))
                         {
                             ModelState.AddModelError("NumeroNf", "Esse número de nota já está cadastrado.");
                             int embarqueId_ = Convert.ToInt32(Request.Form["EmbarqueRodoviarioId"]);
@@ -126,51 +123,17 @@ namespace kaufer_comex.Controllers
                             InfoViewData();
                             var usuario = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
                             view.NotaItemTemps = notaItemTemps;
-
                             return View(view);
                         }
 
-                        var novaNota = new Nota
-                        {
-                            NumeroNf = view.NumeroNf,
-                            Emissao = view.Emissao,
-                            BaseNota = view.BaseNota,
-                            ValorFob = view.ValorFob,
-                            ValorCif = view.ValorCif,
-                            ValorFrete = view.ValorFrete,
-                            ValorSeguro = view.ValorSeguro,
-                            VeiculoId = view.VeiculoId,
-                            PesoBruto = view.PesoBruto,
-                            PesoLiq = view.PesoLiq,
-                            TaxaCambial = view.TaxaCambial,
-                            CertificadoQualidade = view.CertificadoQualidade,
-                            EmbarqueRodoviarioId = embarqueId,
-                            QuantidadeTotal = view.QuantidadeTotalNota,
-                            ValorTotalNota = view.ValorTotalNota,
-                        };
+                        var novaNota = CriarNovaNota(view, embarqueId);
                         _context.Notas.Add(novaNota);
                         await _context.SaveChangesAsync();
 
-                        foreach (var item in notaItemTemps)
-                        {
-                            var notaItem = new NotaItem
-                            {
-                                ItemId = item.ItemId,
-                                NotaId = novaNota.Id,
-                                Quantidade = item.Quantidade,
-                                Valor = item.Valor,
-                            };
+                        await CriarItensNota(novaNota.Id, User.Identity.Name);
+                        var processoId = await GetProcessoId(novaNota.EmbarqueRodoviarioId);
+                        return RedirectToAction("Details", "Processos", new { id = processoId });
 
-                            _context.NotaItens.Add(notaItem);
-                            _context.NotaItemTemps.Remove(item);
-                            await _context.SaveChangesAsync();
-                        }
-
-                        var embarque = novaNota.EmbarqueRodoviarioId;
-                        var embarqueProcesso = await _context.EmbarqueRodoviarios.FindAsync(embarque);
-                        var processo = await _context.Processos.FirstOrDefaultAsync(p => p.Id == embarqueProcesso.ProcessoId);
-
-                        return RedirectToAction("Details", "Processos", new { id = processo.Id });
                     }
 
                     InfoViewData();
@@ -184,6 +147,64 @@ namespace kaufer_comex.Controllers
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
                 return View();
             }
+        }
+
+        //Verificar se já existe o Numero de NF cadastrado
+        private async Task<bool> NotaJaExiste(int numeroNf)
+        {
+            return await _context.Notas.AnyAsync(a => a.NumeroNf == numeroNf);
+        }
+
+        //Criar uma nova nota
+        private Nota CriarNovaNota(NovaNotaView view, int embarqueId)
+        {
+            return new Nota
+            {
+                NumeroNf = view.NumeroNf,
+                Emissao = view.Emissao,
+                BaseNota = view.BaseNota,
+                ValorFob = view.ValorFob,
+                ValorCif = view.ValorCif,
+                ValorFrete = view.ValorFrete,
+                ValorSeguro = view.ValorSeguro,
+                VeiculoId = view.VeiculoId,
+                PesoBruto = view.PesoBruto,
+                PesoLiq = view.PesoLiq,
+                TaxaCambial = view.TaxaCambial,
+                CertificadoQualidade = view.CertificadoQualidade,
+                EmbarqueRodoviarioId = embarqueId,
+                QuantidadeTotal = view.QuantidadeTotalNota,
+                ValorTotalNota = view.ValorTotalNota,
+            };
+        }
+
+        //Relacionar itens e nota na tabela NotaItens
+        private async Task CriarItensNota(int notaId, string nomeUsuario)
+        {
+            var itens = await _context.NotaItemTemps.Where(u => u.NomeUsuario == nomeUsuario).ToListAsync();
+
+            foreach (var item in itens)
+            {
+                var notaItem = new NotaItem
+                {
+                    ItemId = item.ItemId,
+                    NotaId = notaId,
+                    Quantidade = item.Quantidade,
+                    Valor = item.Valor,
+                };
+
+                _context.NotaItens.Add(notaItem);
+                _context.NotaItemTemps.Remove(item);
+            }
+            await _context.SaveChangesAsync();
+        }
+
+        
+        private async Task<int> GetProcessoId(int embarqueRodoviarioId)
+        {
+            var embarqueProcesso = await _context.EmbarqueRodoviarios.FindAsync(embarqueRodoviarioId);
+            var processo = await _context.Processos.FirstOrDefaultAsync(p => p.Id == embarqueProcesso.ProcessoId);
+            return processo.Id;
         }
 
         private void InfoViewData()
