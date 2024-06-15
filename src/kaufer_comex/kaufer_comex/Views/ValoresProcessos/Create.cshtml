@@ -63,37 +63,23 @@
 
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script>
         $(document).ready(function () {
-
-            $('#ValorExw, #ValorFobFca, #FreteInternacional, #SeguroInternacional').mask('000.000.000,00', { reverse: true });
-
             function calcularValorTotalCif() {
-                var valorExw = parseFloat($('#ValorExw').val().replace(/\./g, '').replace(",", ".")) || 0;
-                var valorFobFca = parseFloat($('#ValorFobFca').val().replace(/\./g, '').replace(",", ".")) || 0;
-                var freteInternacional = parseFloat($('#FreteInternacional').val().replace(/\./g, '').replace(",", ".")) || 0;
-                var seguroInternacional = parseFloat($('#SeguroInternacional').val().replace(/\./g, '').replace(",", ".")) || 0;
-
+                var valorExw = parseFloat($('#ValorExw').val().replace(",", ".")) || 0;
+                var valorFobFca = parseFloat($('#ValorFobFca').val().replace(",", ".")) || 0;
+                var freteInternacional = parseFloat($('#FreteInternacional').val().replace(",", ".")) || 0;
+                var seguroInternacional = parseFloat($('#SeguroInternacional').val().replace(",", ".")) || 0;
 
                 var valorTotalCif = valorExw + valorFobFca + freteInternacional + seguroInternacional;
                 $('#ValorTotalCif').val(valorTotalCif.toFixed(2).replace(".", ","));
             }
 
-            calcularValorTotalCif();
             $('#ValorExw, #ValorFobFca, #FreteInternacional, #SeguroInternacional').on('input', function () {
                 calcularValorTotalCif();
             });
 
-            // Antes de enviar o formulário
-            $('form').on('submit', function () {
-                // Substitui virgula por ponto nos valores antes de enviar o formulário
-                $('#ValorExw').val($('#ValorExw').val().replace(/\./g, '').replace(",", "."));
-                $('#ValorFobFca').val($('#ValorFobFca').val().replace(/\./g, '').replace(",", "."));
-                $('#FreteInternacional').val($('#FreteInternacional').val().replace(/\./g, '').replace(",", "."));
-                $('#SeguroInternacional').val($('#SeguroInternacional').val().replace(/\./g, '').replace(",", "."));
-                $('#ValorTotalCif').val($('#ValorTotalCif').val().replace(/\./g, '').replace(",", "."));
-            });
+            calcularValorTotalCif();
         });
     </script>
 }

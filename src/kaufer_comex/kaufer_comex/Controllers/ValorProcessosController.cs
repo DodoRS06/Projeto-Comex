@@ -58,19 +58,24 @@ namespace kaufer_comex.Controllers
                 if (ModelState.IsValid)
                 {
                     int processoId = Convert.ToInt32(Request.Form["ProcessoId"]);
+                    decimal valorExw = valorprocesso.ValorExw ?? 0;
+                    decimal valorFobFca = valorprocesso.ValorFobFca ?? 0;
+                    decimal freteInternacional = valorprocesso.FreteInternacional ?? 0;
+                    decimal seguroInternacional = valorprocesso.SeguroInternaciona ?? 0;
 
+                    decimal valorTotalCif = valorExw + valorFobFca + freteInternacional + seguroInternacional;
 
                     ValorProcesso novoValor = new ValorProcesso
                     {
                         ProcessoId = processoId,
-                        ValorExw = valorprocesso.ValorExw,
-                        ValorFobFca = valorprocesso.ValorFobFca,
-                        ValorTotalCif = valorprocesso.ValorTotalCif,
-                        FreteInternacional = valorprocesso.FreteInternacional,
-                        SeguroInternaciona = valorprocesso.SeguroInternaciona,
+                        ValorExw = valorExw,
+                        ValorFobFca = valorFobFca,
+                        FreteInternacional = freteInternacional,
+                        SeguroInternaciona = seguroInternacional,
+                        ValorTotalCif = valorTotalCif,
                         Moeda = valorprocesso.Moeda,
-
                     };
+
                     _context.ValorProcessos.Add(novoValor);
                     await _context.SaveChangesAsync();
                     return RedirectToAction("Details", "Processos", new { id = novoValor.ProcessoId });
@@ -84,7 +89,6 @@ namespace kaufer_comex.Controllers
                 return View();
             }
         }
-
         public async Task<IActionResult> Edit(int? id)
         {
             try
