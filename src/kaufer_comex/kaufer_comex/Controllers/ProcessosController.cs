@@ -55,7 +55,7 @@ namespace kaufer_comex.Controllers
             }
             catch (Exception ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message}. Por favor, tente novamente.";
                 return View();
             }
         }
@@ -191,6 +191,16 @@ namespace kaufer_comex.Controllers
 
                 if (ModelState.IsValid)
                 {
+                    var processoExistente = await _context.Processos
+                       .AnyAsync(a => a.CodProcessoExportacao == processo.CodProcessoExportacao);
+
+                    if (processoExistente)
+                    {
+                        ModelState.AddModelError("CodProcessoExportacao", "Esse número de processo já está cadastrado.");
+                        InfoViewData();
+                        return View(processo);
+                    }
+
                     var processoAntigo = await _context.Processos
                         .AsNoTracking()
                         .FirstOrDefaultAsync(p => p.Id == id);
@@ -262,9 +272,8 @@ namespace kaufer_comex.Controllers
             }
         }
 
-
-        // GET: Processos/Details/5
-        public async Task<IActionResult> Details(int? id)
+            // GET: Processos/Details/5
+            public async Task<IActionResult> Details(int? id)
         {
             try
             {
