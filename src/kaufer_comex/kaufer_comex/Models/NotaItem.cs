@@ -19,7 +19,7 @@ namespace kaufer_comex.Models
         public double Quantidade { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
-        public decimal Valor { get; set; }
+        public decimal? Valor { get; set; }
 
 
     }

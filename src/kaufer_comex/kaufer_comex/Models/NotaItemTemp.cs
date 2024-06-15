@@ -22,23 +22,23 @@ namespace kaufer_comex.Models
 
         [Display(Name = "Peso Líquido (*)")]
         [Required(ErrorMessage = "Obrigatório")]
-        public float PesoLiquido { get; set; }
+        public float? PesoLiquido { get; set; }
 
         [Display(Name = "Peso Bruto (*)")]
         [Required(ErrorMessage = "Obrigatório")]
-        public float PesoBruto { get; set; }
+        public float? PesoBruto { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         [Column(TypeName = "decimal(18,2)")]
-        public decimal Preco { get; set; }
+        public decimal? Preco { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         public double Quantidade { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         [Column(TypeName = "decimal(18,2)")]
-        public decimal Valor { get { return Preco * (decimal)Quantidade; } }
+        public decimal? Valor { get { return Preco * (decimal)Quantidade; } }
 
         public virtual Item Item { get; set; }
 

@@ -100,7 +100,7 @@ namespace kaufer_comex.Models
         [Display(Name = "Valor Total (*)")]
         [Column(TypeName = "decimal(18,2)")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
-        public decimal ValorTotal { get { return NotaItemTemps == null ? 0 : NotaItemTemps.Sum(d => d.Valor); } }
+        public decimal? ValorTotal { get { return NotaItemTemps == null ? 0 : NotaItemTemps.Sum(d => d.Valor); } }
 
         public List<NotaItem> NotaItens { get; set; }
 
