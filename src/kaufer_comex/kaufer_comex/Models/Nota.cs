@@ -81,7 +81,7 @@ namespace kaufer_comex.Models
         [ForeignKey("VeiculoId")]
         public Veiculo Veiculo { get; set; }
 
-        [Display(Name = "Quantidade total")]
+        [Display(Name = "Volume total")]
         public double QuantidadeTotal { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
