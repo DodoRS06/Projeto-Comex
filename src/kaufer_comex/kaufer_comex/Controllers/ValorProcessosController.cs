@@ -123,13 +123,12 @@ namespace kaufer_comex.Controllers
                     return RedirectToAction("Details", "Processos", new { id = valorprocesso.ProcessoId });
                 }
 
-
-
-                return View();
+                return View(valorprocesso);
             }
             catch
             {
-                return NotFound();
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return View(valorprocesso);
             }
         }
 
