@@ -422,7 +422,7 @@ namespace kaufer_comex.Controllers
                 var novoItem = await _context.Itens.FirstOrDefaultAsync(p => p.Id == item);
                 if (novoItem != null && view != null)
                 {
-                    decimal itemValor = novoItem.Preco * Convert.ToDecimal(view.Quantidade);
+                    decimal itemValor = (decimal)(novoItem.Preco * Convert.ToDecimal(view.Quantidade));
 
                     var novaNotaItem = new NotaItem
                     {
