@@ -164,7 +164,7 @@ namespace kaufer_comex.Controllers
                 Emissao = view.Emissao,
                 BaseNota = view.BaseNota,
                 ValorFob = view.ValorFob,
-                ValorCif = view.ValorCif,
+                ValorCif = view.ValorFob + view.ValorSeguro + view.ValorFrete,
                 ValorFrete = view.ValorFrete,
                 ValorSeguro = view.ValorSeguro,
                 VeiculoId = view.VeiculoId,
@@ -529,11 +529,12 @@ namespace kaufer_comex.Controllers
         //Editar dados de nota
         private void EditarDadosNota(Nota dados, Nota novaNota)
         {
+
             dados.NumeroNf = novaNota.NumeroNf;
             dados.Emissao = novaNota.Emissao;
             dados.BaseNota = novaNota.BaseNota;
             dados.ValorFob = novaNota.ValorFob;
-            dados.ValorCif = novaNota.ValorCif;
+            dados.ValorCif = novaNota.ValorFob + novaNota.ValorFrete + novaNota.ValorSeguro;
             dados.ValorFrete = novaNota.ValorFrete;
             dados.ValorSeguro = novaNota.ValorSeguro;
             dados.VeiculoId = novaNota.VeiculoId;
