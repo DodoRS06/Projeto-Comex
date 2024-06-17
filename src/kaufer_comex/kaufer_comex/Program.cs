@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Globalization;
+using kaufer_comex.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,8 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
     options.CheckConsentNeeded = context => true;
     options.MinimumSameSitePolicy = SameSiteMode.None;
 });
+
+builder.Services.AddScoped<Error>();
 
 // Definir a cultura padrão
 var cultureInfo = new CultureInfo("pt-BR");
