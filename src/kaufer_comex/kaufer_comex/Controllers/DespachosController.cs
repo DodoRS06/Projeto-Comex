@@ -191,15 +191,18 @@ namespace kaufer_comex.Controllers
             {
                 if (id == null)
                     return _error.NotFoundError();
-
-                var dados = await _context.Despachos
+                if (User.IsInRole("Admin"))
+                {
+                    var dados = await _context.Despachos
                     .Include(d => d.Processo)
                     .FirstOrDefaultAsync(d => d.Id == id);
 
-                if (dados == null)
-                    return _error.NotFoundError();
+                    if (dados == null)
+                        return _error.NotFoundError();
 
-                return View(dados);
+                    return View(dados);
+                }
+                return _error.UnauthorizedError();
             }
             catch(Exception)
             {

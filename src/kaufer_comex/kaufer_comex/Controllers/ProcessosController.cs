@@ -398,8 +398,9 @@ namespace kaufer_comex.Controllers
             {
                 if (id == null)
                     return _error.NotFoundError();
-
-                var dados = await _context.Processos
+                if (User.IsInRole("Admin"))
+                {
+                    var dados = await _context.Processos
 
                     .Include(p => p.Despachante)
                     .Include(p => p.Vendedor)
@@ -411,18 +412,20 @@ namespace kaufer_comex.Controllers
                     .ThenInclude(p => p.ExpImp)
                     .FirstOrDefaultAsync(p => p.Id == id);
 
-                if (dados == null)
-                    return _error.NotFoundError();
+                    if (dados == null)
+                        return _error.NotFoundError();
 
-                var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
+                    var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
 
-                ViewData["exportador"] = exportador.Nome;
+                    ViewData["exportador"] = exportador.Nome;
 
-                var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
+                    var importador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ImportadorId);
 
-                ViewData["importador"] = importador.Nome;
+                    ViewData["importador"] = importador.Nome;
 
-                return View(dados);
+                    return View(dados);
+                }
+                return _error.UnauthorizedError();
             }
             catch (Exception)
             {
