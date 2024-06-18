@@ -13,48 +13,43 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
+html, body {
+  margin: 0;
+}
 
-        body {
-            display: flex;
-            flex-direction: column;
-        }
+body {
+  display: flex;
+  flex-direction: column;
+}
 
-        .navbar-nav .nav-link {
-            font-size: 18px;
-            transition: color 0.3s;
-        }
+.navbar-nav .nav-link {
+  font-size: 18px;
+  transition: color 0.3s;
+}
 
-            .navbar-nav .nav-link:active,
-            .navbar-nav .nav-link:focus {
-                color: #ff6347 !important;
-            }
+.navbar-nav .nav-link:active,
+.navbar-nav .nav-link:focus {
+  color: #ff6347 !important;
+}
 
-        .navbar-brand img {
-            width: 120px;
-            height: 60px;
-        }
+.navbar-brand img {
+  width: 120px;
+  height: 60px;
+}
 
-        .footer {
-            margin-top: 20px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
+.footer {
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 
-        .container.mt-4 {
-            flex: 1;
-        }
-
-        footer {
-            clear: both;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            margin-top: auto;
-        }
+footer {
+  clear: both;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+}
     </style>
 
     @await RenderSectionAsync("Estilos", required: false)
