@@ -1,4 +1,5 @@
-﻿using DocumentFormat.OpenXml.Wordprocessing;
+﻿using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Wordprocessing;
 using kaufer_comex.Migrations;
 using kaufer_comex.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -65,9 +66,11 @@ namespace kaufer_comex.Controllers
                 var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
                 if (processoEmbarque == null) { return NotFound(); }
 
-                ViewData["ProcessoId"] = processoEmbarque.Id;
-                InfoViewData();
+                var processoId = processoEmbarque.Id;
 
+                ViewData["ProcessoId"] = processoEmbarque.Id;
+                InfoViewData(processoEmbarque,processoId);
+                ViewData["VeiculoId"] = new SelectList(_context.Veiculos.Where(v =>v.ProcessoId == processoEmbarque.Id), "Id", "Motorista");
                 var itens = _context.NotaItemTemps.Where(u => u.NomeUsuario == User.Identity.Name).ToList();
 
                 var view = new NovaNotaView
@@ -105,7 +108,15 @@ namespace kaufer_comex.Controllers
                     ModelState.AddModelError("", "Você deve adicionar pelo menos um item antes de criar a nota.");
                     int embarqueId_ = Convert.ToInt32(Request.Form["EmbarqueRodoviarioId"]);
                     ViewData["EmbarqueRodoviarioId"] = embarqueId_;
-                    InfoViewData();
+                    var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == embarqueId);
+                    if (embarque == null) { return NotFound(); }
+
+                    var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
+                    if (processoEmbarque == null) { return NotFound(); }
+
+                    var processoId = processoEmbarque.Id;
+                    InfoViewData(processoEmbarque, processoId);
+
                     view.NotaItemTemps = notaItemTemps;
 
                     return View(view);
@@ -120,7 +131,14 @@ namespace kaufer_comex.Controllers
                             ModelState.AddModelError("NumeroNf", "Esse número de nota já está cadastrado.");
                             int embarqueId_ = Convert.ToInt32(Request.Form["EmbarqueRodoviarioId"]);
                             ViewData["EmbarqueRodoviarioId"] = embarqueId_;
-                            InfoViewData();
+                            var embarque_ = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == embarqueId);
+                            if (embarque_ == null) { return NotFound(); }
+
+                            var processoEmbarque_ = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque_.ProcessoId);
+                            if (processoEmbarque_ == null) { return NotFound(); }
+
+                            
+                            InfoViewData(processoEmbarque_, processoEmbarque_.Id);
                             var usuario = _context.Usuarios.Where(u => u.NomeFuncionario == User.Identity.Name).FirstOrDefault();
                             view.NotaItemTemps = notaItemTemps;
                             return View(view);
@@ -135,8 +153,14 @@ namespace kaufer_comex.Controllers
                         return RedirectToAction("Details", "Processos", new { id = processoId });
 
                     }
+                    var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == embarqueId);
+                    if (embarque == null) { return NotFound(); }
 
-                    InfoViewData();
+                    var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
+                    if (processoEmbarque == null) { return NotFound(); }
+
+
+                    InfoViewData(processoEmbarque, processoEmbarque.Id);
                     view.NotaItemTemps = notaItemTemps; 
 
                     return View(view);
@@ -208,9 +232,9 @@ namespace kaufer_comex.Controllers
             return processo.Id;
         }
 
-        private void InfoViewData()
+        private void InfoViewData(Processo processo,int processoId)
         {
-            ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
+            ViewData["VeiculoId"] = new SelectList(_context.Veiculos.Where(v => v.ProcessoId == processo.Id), "Id", "Motorista");
             ViewData["NotaItem"] = new SelectList(_context.Itens, "Id", "DescricaoProduto");
         }
 
@@ -467,7 +491,7 @@ namespace kaufer_comex.Controllers
                 var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
 
                 ViewData["ProcessoId"] = processoEmbarque.Id;
-                ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
+                InfoViewData(processoEmbarque, processoEmbarque.Id);
 
                 return View(dados);
             }
@@ -511,8 +535,12 @@ namespace kaufer_comex.Controllers
                     return View();
                 }
             }
+            var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
 
-            ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Motorista");
+            var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
+
+            InfoViewData(processoEmbarque, processoEmbarque.Id);
+
             return View();
         }
 
