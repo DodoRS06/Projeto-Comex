@@ -12,45 +12,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<style>
-    html, body {
-        height: 100%;
-        margin: 0;
-    }
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
 
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
 
-    .navbar-nav .nav-link {
-        font-size: 18px;
-        transition: color 0.3s;
-    }
+        .navbar-nav .nav-link {
+            font-size: 18px;
+            transition: color 0.3s;
+        }
 
-    .navbar-nav .nav-link:active,
-    .navbar-nav .nav-link:focus {
-        color: #ff6347 !important;
-    }
+            .navbar-nav .nav-link:active,
+            .navbar-nav .nav-link:focus {
+                color: #ff6347 !important;
+            }
 
-    .navbar-brand img {
-        width: 120px;
-        height: 60px;
-    }
+        .navbar-brand img {
+            width: 120px;
+            height: 60px;
+        }
 
-    .container.mt-4 {
-        flex: 1;
-    }
+        .footer {
+            margin-top: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
 
-    footer {
-        margin-top: auto;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        background-color: #f8f9fa; /* Altere conforme sua necessidade */
-        text-align: center; /* Altere conforme sua necessidade */
-    }
-</style>
+        .container.mt-4 {
+            flex: 1;
+        }
+
+        footer {
+            clear: both;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: auto;
+        }
+    </style>
 
     @await RenderSectionAsync("Estilos", required: false)
 </head>
