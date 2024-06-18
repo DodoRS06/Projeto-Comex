@@ -5,6 +5,12 @@
 }
 
 <div class="container">
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert" align="center">
+            @TempData["MensagemErro"]
+        </div>
+    }
     <br />
     <div class="form-group" align="center">
         <h4>Cadastrar DCE referente ao processo com código de exportação "@ViewData["CodProcessoExportacao"]"</h4>
@@ -133,8 +139,37 @@
                 }
             });
 
+            // Adicionar evento de validação para permitir apenas números
+            $('#Valor').on('input', function () {
+                var valor = $(this).val();
+                $(this).val(valor.replace(/[^0-9.,]/g, ''));
+            });
+
             // Função para adicionar despesa na lista e na tabela DCETemp
             $('#addDespesaBtn').click(function () {
+                var CadastroDespesaId = $('#CadastroDespesaId').val();
+                var FornecedorServicoId = $('#FornecedorServicoId').val();
+                var Valor = $('#Valor').val();
+                var Observacao = $('#Observacao').val();
+
+                var mensagensErro = [];
+
+                if (CadastroDespesaId === "") {
+                    mensagensErro.push("O campo 'Despesa' é obrigatório.");
+                }
+                if (FornecedorServicoId === "") {
+                    mensagensErro.push("O campo 'Fornecedor' é obrigatório.");
+                }
+                if (Valor === "") {
+                    mensagensErro.push("O campo 'Valor' é obrigatório.");
+                }
+
+                if (mensagensErro.length > 0) {
+                    var mensagem = mensagensErro.join("\n");
+                    alert(mensagem);
+                    return;
+                }
+
                 var novoItem = {
                     CadastroDespesaId: $('#CadastroDespesaId').val(),
                     FornecedorServicoId: $('#FornecedorServicoId').val(),
