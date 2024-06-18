@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 
@@ -13,9 +14,12 @@ namespace kaufer_comex.Controllers
 
         private readonly AppDbContext _context;
 
-        public DCEsController(AppDbContext context)
+        private readonly ErrorService _error;
+
+        public DCEsController(AppDbContext context, ErrorService error)
         {
             _context = context;
+            _error = error;
         }
 
         private async Task Dropdowns(DCE dce = null)
@@ -43,39 +47,68 @@ namespace kaufer_comex.Controllers
         {
             //Testar se o id passado é válido
             if (id == null)
+                return _error.NotFoundError();
+
+            List<DCE> dados;
+
+            try
             {
-                return NotFound();
+                //Recuperando DCEs com o mesmo id de processo
+                dados = await _context.DCEs
+                    .Where(d => d.ProcessoId == id)
+                    .ToListAsync();
+            }
+            catch (SqlException ex)
+            {
+                TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar DCEs. {ex.Message}";
+                return _error.InternalServerError();
+            }
+            catch (InvalidOperationException ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao recuperar DCEs do banco de dados. {ex.Message}";
+                return _error.BadRequestError();
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao recuperar DCEs do banco de dados. {ex.Message}";
+                return _error.InternalServerError();
             }
 
-            var dados = await _context.DCEs
-                .Where(d => d.ProcessoId == id)
-                .ToListAsync();
-
-            if (dados == null)
-            {
-                return NotFound();
-            }
+            if (dados == null || !dados.Any())
+                return _error.NotFoundError();
 
             ViewData["ProcessoId"] = id;
 
-            //Procurar um nome com aquele id dentro da tabela de despesa e fornecedor
-            foreach (var dce in dados)
+            try
             {
-                dce.CadastroDespesaNome = await GetDespesaNome(dce.CadastroDespesaId);
-                dce.FornecedorServicoNome = await GetFornecedorNome(dce.FornecedorServicoId);
+                //Procurar um nome com aquele id dentro da tabela de despesa e fornecedor
+                foreach (var dce in dados)
+                {
+                    dce.CadastroDespesaNome = await GetDespesaNome(dce.CadastroDespesaId);
+                    dce.FornecedorServicoNome = await GetFornecedorNome(dce.FornecedorServicoId);
+                }
+
+                await Dropdowns();
+
+                return View(dados);
             }
-
-            await Dropdowns();
-
-            return View(dados);
+            catch (SqlException ex)
+            {
+                TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao procurar nomes de despesas ou fornecedores. {ex.Message}";
+                return _error.InternalServerError();
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao procurar nomes de despesas ou fornecedores. {ex.Message}";
+                return _error.InternalServerError();
+            }
         }
 
         public async Task<IActionResult> Create(int? id)
         {
+            //Testando se o id passado é válido
             if (id == null)
-            {
-                return NotFound();
-            }
+                return _error.NotFoundError();
 
             ViewData["ProcessoId"] = id.Value;
 
