@@ -10,9 +10,12 @@ namespace kaufer_comex.Controllers
     {
         private readonly AppDbContext _context;
 
-        public DestinosController(AppDbContext context)
+        private readonly ErrorService _error;
+
+        public DestinosController(AppDbContext context, ErrorService error)
         {
             _context = context;
+            _error = error;
         }
         //GET: Destinos/Index
         public async Task<IActionResult> Index()
@@ -26,10 +29,9 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch(Exception)
             {
-                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
-                return View();
+                return _error.InternalServerError();
             }
 
         }
@@ -65,10 +67,9 @@ namespace kaufer_comex.Controllers
                 }
                 return View(destino);
             }
-            catch
+            catch(Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -78,18 +79,17 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Destinos.FindAsync(id);
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 return View(dados);
             }
-            catch
+            catch(Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -102,7 +102,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id != destino.Id)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 if (ModelState.IsValid)
                 {
@@ -112,10 +112,9 @@ namespace kaufer_comex.Controllers
                 }
                 return View();
             }
-            catch
+            catch(Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -125,16 +124,16 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Destinos.FindAsync(id);
 
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 return View(dados);
             }
-            catch { return NotFound(); }
+            catch { return _error.InternalServerError(); }
         }
 
         //GET: Destinos/Delete/5
@@ -143,19 +142,18 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Destinos.FindAsync(id);
 
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 return View(dados);
             }
-            catch
+            catch(Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -168,21 +166,20 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Destinos.FindAsync(id);
 
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 _context.Destinos.Remove(dados);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception)
             {
-                TempData["MensagemErro"] = $"Destino está vinculado a um processo. Não pode ser excluído";
-                return View();
+                return _error.InternalServerError();
             }
         }
     }

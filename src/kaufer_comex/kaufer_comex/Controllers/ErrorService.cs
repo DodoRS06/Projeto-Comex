@@ -13,7 +13,7 @@ namespace kaufer_comex.Controllers
 
         public IActionResult UnauthorizedError()
         {
-            return View("Error", new ErrorViewModel { RequestId = "401", ErrorMessage = "Não autorizado. Faça login para continuar." });
+            return View("Error", new ErrorViewModel { RequestId = "401", ErrorMessage = "Não autorizado." });
         }
 
         public IActionResult NotFoundError()

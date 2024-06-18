@@ -190,16 +190,7 @@ namespace kaufer_comex.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    var processoExistente = await _context.Processos
-                       .AnyAsync(a => a.CodProcessoExportacao == processo.CodProcessoExportacao);
-
-                    if (processoExistente)
-                    {
-                        ModelState.AddModelError("CodProcessoExportacao", "Esse número de processo já está cadastrado.");
-                        InfoViewData();
-                        return View(processo);
-                    }
-
+ 
                     var processoAntigo = await _context.Processos
                         .AsNoTracking()
                         .FirstOrDefaultAsync(p => p.Id == id);
@@ -463,55 +454,61 @@ namespace kaufer_comex.Controllers
                 if (dados == null)
                     return _error.NotFoundError();
 
-                var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.ProcessoId == dados.Id);
-                if (embarque != null)
+                if (User.IsInRole("Admin"))
                 {
-                    var notas = await _context.Notas.Where(n => n.EmbarqueRodoviarioId == embarque.Id).ToListAsync();
-                    foreach (var nota in notas)
+
+                    var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.ProcessoId == dados.Id);
+                    if (embarque != null)
                     {
-                        _context.Notas.Remove(nota);
-                        await _context.SaveChangesAsync();
-
-                        var notaItem = await _context.NotaItens.Where(ni => ni.NotaId == nota.Id).ToListAsync();
-
-                        foreach (var item in notaItem)
+                        var notas = await _context.Notas.Where(n => n.EmbarqueRodoviarioId == embarque.Id).ToListAsync();
+                        foreach (var nota in notas)
                         {
-                            _context.NotaItens.Remove(item);
+                            _context.Notas.Remove(nota);
                             await _context.SaveChangesAsync();
+
+                            var notaItem = await _context.NotaItens.Where(ni => ni.NotaId == nota.Id).ToListAsync();
+
+                            foreach (var item in notaItem)
+                            {
+                                _context.NotaItens.Remove(item);
+                                await _context.SaveChangesAsync();
+                            }
                         }
+
                     }
 
-                }
+                    var valores = await _context.ValorProcessos.FirstOrDefaultAsync(p => p.ProcessoId == dados.Id);
+                    if (valores != null)
+                    {
+                        _context.ValorProcessos.Remove(valores);
+                        await _context.SaveChangesAsync();
+                    }
 
-                var valores = await _context.ValorProcessos.FirstOrDefaultAsync(p => p.ProcessoId == dados.Id);
-                if (valores != null)
-                {
-                    _context.ValorProcessos.Remove(valores);
+                    var exportador_ = await _context.ProcessosExpImp
+                                .FirstOrDefaultAsync(e => e.ProcessoId == id && e.ExpImp.TipoExpImp == TipoExpImp.Exportador);
+
+                    if (exportador_ != null)
+                    {
+                        _context.ProcessosExpImp.Remove(exportador_);
+                        await _context.SaveChangesAsync();
+                    }
+
+                    var importador_ = await _context.ProcessosExpImp
+                                .FirstOrDefaultAsync(i => i.ProcessoId == id && i.ExpImp.TipoExpImp == TipoExpImp.Importador);
+
+                    if (importador_ != null)
+                    {
+                        _context.ProcessosExpImp.Remove(importador_);
+                        await _context.SaveChangesAsync();
+
+                    }
+
+                    _context.Processos.Remove(dados);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
                 }
 
-                var exportador_ = await _context.ProcessosExpImp
-                            .FirstOrDefaultAsync(e => e.ProcessoId == id && e.ExpImp.TipoExpImp == TipoExpImp.Exportador);
-
-                if (exportador_ != null)
-                {
-                    _context.ProcessosExpImp.Remove(exportador_);
-                    await _context.SaveChangesAsync();
-                }
-
-                var importador_ = await _context.ProcessosExpImp
-                            .FirstOrDefaultAsync(i => i.ProcessoId == id && i.ExpImp.TipoExpImp == TipoExpImp.Importador);
-
-                if (importador_ != null)
-                {
-                    _context.ProcessosExpImp.Remove(importador_);
-                    await _context.SaveChangesAsync();
-
-                }
-
-                _context.Processos.Remove(dados);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return _error.UnauthorizedError();
             }
             catch (Exception)
             {

@@ -31,7 +31,7 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch(Exception)
             {
                
                 return _error.InternalServerError();
@@ -52,7 +52,7 @@ namespace kaufer_comex.Controllers
 
                 return View();
             }
-            catch
+            catch(Exception)
             {
                 return _error.InternalServerError();
             }
@@ -101,7 +101,7 @@ namespace kaufer_comex.Controllers
 
                 return View(despacho);
             }
-            catch
+            catch(Exception)
             {
                 return _error.InternalServerError();
             }
@@ -123,7 +123,7 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch(Exception)
             {
                 return _error.InternalServerError();
             }
@@ -178,7 +178,7 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch(Exception)
             {
                 return _error.InternalServerError();
             }
@@ -201,7 +201,7 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch(Exception)
             {
                 return _error.InternalServerError();
             }
@@ -222,11 +222,16 @@ namespace kaufer_comex.Controllers
                 if (dados == null)
                     return _error.NotFoundError();
 
-                _context.Despachos.Remove(dados);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Details", "Processos", new { id = dados.ProcessoId });
+                if (User.IsInRole("Admin"))
+                {
+                    _context.Despachos.Remove(dados);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Details", "Processos", new { id = dados.ProcessoId });
+                }
+
+                return _error.UnauthorizedError();
             }
-            catch
+            catch(Exception)
             {
                 return _error.InternalServerError();
             }
