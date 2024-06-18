@@ -26,7 +26,7 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
     options.MinimumSameSitePolicy = SameSiteMode.None;
 });
 
-builder.Services.AddScoped<Error>();
+builder.Services.AddScoped<ErrorService>();
 
 // Definir a cultura padrão
 var cultureInfo = new CultureInfo("pt-BR");

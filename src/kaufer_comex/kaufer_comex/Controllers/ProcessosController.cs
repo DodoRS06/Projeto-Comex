@@ -14,9 +14,12 @@ namespace kaufer_comex.Controllers
     {
         private readonly AppDbContext _context;
 
-        public ProcessosController(AppDbContext context)
+        private readonly ErrorService _error;
+
+        public ProcessosController(AppDbContext context, ErrorService error)
         {
             _context = context;
+            _error = error;
         }
 
         // GET: Processos
@@ -53,10 +56,9 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message}. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -70,8 +72,7 @@ namespace kaufer_comex.Controllers
             }
             catch
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -122,10 +123,9 @@ namespace kaufer_comex.Controllers
 
                 return View(processo);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return StatusCode(500, $"Erro ao cadastrar processo: {ex.Message}");
-               
+                return _error.InternalServerError();
             }
         }
 
@@ -135,7 +135,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Processos
                     .Include(p => p.Despachante)
@@ -149,16 +149,15 @@ namespace kaufer_comex.Controllers
                     .FirstOrDefaultAsync(p => p.Id == id);
 
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 InfoViewData();
 
                 return View(dados);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado {ex.Message}. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
 
         }
@@ -187,7 +186,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id != processo.Id)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 if (ModelState.IsValid)
                 {
@@ -278,7 +277,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
                 var dados = await _context.Processos
                    .Include(p => p.Despachante)
                    .Include(p => p.Vendedor)
@@ -290,7 +289,7 @@ namespace kaufer_comex.Controllers
                    .FirstOrDefaultAsync(p => p.Id == id);
 
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 ViewData["exportador"] = GetNomeExportador(dados.ExportadorId);
                 ViewData["importador"] = GetNomeImportador(dados.ImportadorId);
@@ -407,7 +406,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Processos
 
@@ -422,7 +421,7 @@ namespace kaufer_comex.Controllers
                     .FirstOrDefaultAsync(p => p.Id == id);
 
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var exportador = _context.ExpImps.FirstOrDefault(e => e.Id == dados.ExportadorId);
 
@@ -434,10 +433,9 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message}. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -449,7 +447,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Processos
                     .Include(p => p.Despachante)
@@ -463,7 +461,7 @@ namespace kaufer_comex.Controllers
                     .FirstOrDefaultAsync(p => p.Id == id);
 
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.ProcessoId == dados.Id);
                 if (embarque != null)
@@ -515,10 +513,9 @@ namespace kaufer_comex.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado {ex.Message}. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
 
         }

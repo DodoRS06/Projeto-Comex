@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace kaufer_comex.Controllers
 {
-    public class Error : Controller
+    public class ErrorService : Controller
     {
        
         public IActionResult BadRequestError()

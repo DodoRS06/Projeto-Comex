@@ -11,9 +11,9 @@ namespace kaufer_comex.Controllers
     {
         private readonly AppDbContext _context;
 
-        private readonly Error _error;
+        private readonly ErrorService _error;
 
-        public DespachosController(AppDbContext context, Error error)
+        public DespachosController(AppDbContext context, ErrorService error)
         {
             _context = context;
             _error = error;
