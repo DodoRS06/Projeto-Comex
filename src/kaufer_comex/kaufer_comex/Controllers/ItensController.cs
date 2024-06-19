@@ -10,9 +10,11 @@ namespace kaufer_comex.Controllers
     {
         private readonly AppDbContext _context;
 
-        public ItensController(AppDbContext context)
+        private readonly ErrorService _error;
+        public ItensController(AppDbContext context, ErrorService error)
         {
             _context = context;
+            _error = error; 
         }
 
         public async Task<IActionResult> Index()
@@ -25,10 +27,9 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -36,6 +37,8 @@ namespace kaufer_comex.Controllers
         {
             return View();
         }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Item item)
@@ -61,10 +64,9 @@ namespace kaufer_comex.Controllers
                 }
                 return View(item);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -74,19 +76,17 @@ namespace kaufer_comex.Controllers
             {
 
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Itens.FindAsync(id);
-
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 return View(dados);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -97,7 +97,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id != item.Id)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 if (ModelState.IsValid)
                 {
@@ -109,10 +109,9 @@ namespace kaufer_comex.Controllers
 
                 return View();
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -121,20 +120,16 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Itens.FindAsync(id);
 
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 return View(dados);
             }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-            }
+            catch { return _error.InternalServerError(); }
         }
 
         public async Task<IActionResult> Delete(int? id)
@@ -142,19 +137,18 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Itens.FindAsync(id);
 
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 return View(dados);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -165,22 +159,21 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Itens.FindAsync(id);
 
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 _context.Itens.Remove(dados);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
     }

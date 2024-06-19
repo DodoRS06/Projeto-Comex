@@ -32,22 +32,10 @@ namespace kaufer_comex.Controllers
                 return _error.InternalServerError();
             }
         }
-
-        public IActionResult Create(int? id)
+        public IActionResult Create()
         {
-            try
-            {
-                if (id == null)
-                {
-                    return _error.NotFoundError();
-                }
 
-                return View();
-            }
-            catch (Exception)
-            {
-                return _error.InternalServerError();
-            }
+            return View();
         }
 
         [HttpPost]
@@ -118,10 +106,9 @@ namespace kaufer_comex.Controllers
 
                 return View();
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -139,7 +126,7 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch (Exception)
+            catch 
             {
                 return _error.InternalServerError();
             }
