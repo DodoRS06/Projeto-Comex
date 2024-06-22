@@ -3,14 +3,24 @@
     ViewData["Title"] = "Error";
 }
 
-<h1 class="text-danger">Erro!</h1>
-<h2 class="text-danger">@Model.ErrorMessage</h2>
-
 @if (Model.ShowRequestId)
 {
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
+    <div align="center"><h1><strong>Erro:</strong> <strong><code>@Model.RequestId</code></strong></h1></div>
+    <br />
+    <h2 class="text-dark">Opss...<code>@Model.ErrorMessage</code></h2>
+    <h2 class="text-dark">A página que você está procurando não existe ou um outro erro ocorreu!</h2>
+
+    <div align="center">
+        <img src="~/Images/undraw_Container_ship_re_alm4.png" style="width: 500px;" alt="Ship">
+    </div>
+    <br />
+    <div class="form-group " align="center">
+        <br />
+        <a asp-action="Index" asp-controller="Processos" asp-route-id="@Model.Processo" class="btn btn-dark" style="width: 150px">Voltar a Home</a>
+    </div>
+
+
+
 }
 
 @* <h3>Development Mode</h3>

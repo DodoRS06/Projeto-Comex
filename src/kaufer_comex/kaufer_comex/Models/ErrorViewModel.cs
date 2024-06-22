@@ -5,5 +5,8 @@ namespace kaufer_comex.Models
         public string RequestId { get; set; }
         public string ErrorMessage { get; set; }
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+
+        public virtual Processo Processo { get; set; }
+
     }
 }
