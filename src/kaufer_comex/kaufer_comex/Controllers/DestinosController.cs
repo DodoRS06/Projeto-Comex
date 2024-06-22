@@ -143,13 +143,16 @@ namespace kaufer_comex.Controllers
             {
                 if (id == null)
                     return _error.NotFoundError();
+                if (User.IsInRole("Admin"))
+                {
+                    var dados = await _context.Destinos.FindAsync(id);
 
-                var dados = await _context.Destinos.FindAsync(id);
+                    if (dados == null)
+                        return _error.NotFoundError();
 
-                if (dados == null)
-                    return _error.NotFoundError();
-
-                return View(dados);
+                    return View(dados);
+                }
+                return _error.UnauthorizedError();
             }
             catch(Exception)
             {
@@ -167,21 +170,24 @@ namespace kaufer_comex.Controllers
             {
                 if (id == null)
                     return _error.NotFoundError();
+                if (User.IsInRole("Admin"))
+                {
+                    var dados = await _context.Destinos.FindAsync(id);
 
-                var dados = await _context.Destinos.FindAsync(id);
+                    if (dados == null)
+                        return _error.NotFoundError();
 
-                if (dados == null)
-                    return _error.NotFoundError();
-
-                _context.Destinos.Remove(dados);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                    _context.Destinos.Remove(dados);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return _error.UnauthorizedError();
             }
             catch(Exception)
             {
                 return _error.InternalServerError();
             }
-        }
+		}
     }
 }
 

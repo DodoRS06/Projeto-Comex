@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace kaufer_comex.Controllers
@@ -31,12 +32,22 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch(Exception)
-            {
-               
-                return _error.InternalServerError();
-            }
-        }
+			catch (SqlException ex)
+			{
+				TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Despachos. {ex.Message}";
+				return _error.InternalServerError();
+			}
+			catch (InvalidOperationException ex)
+			{
+				TempData["MensagemErro"] = $"Erro ao recuperar Despachos do banco de dados. {ex.Message}";
+				return _error.BadRequestError();
+			}
+			catch (Exception ex)
+			{
+				TempData["MensagemErro"] = $"Erro ao recuperar Despachos do banco de dados. {ex.Message}";
+				return _error.InternalServerError();
+			}
+		}
 
         // GET : Despachos/Create
         public IActionResult Create(int? id)
@@ -101,7 +112,12 @@ namespace kaufer_comex.Controllers
 
                 return View(despacho);
             }
-            catch(Exception)
+			catch (DbUpdateException ex)
+			{
+				TempData["MensagemErro"] = $"Erro ao cadastrar Despacho. {ex.Message}";
+				return _error.ConflictError();
+			}
+			catch (Exception)
             {
                 return _error.InternalServerError();
             }
@@ -154,12 +170,17 @@ namespace kaufer_comex.Controllers
                 ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
                 return View();
             }
-            catch
-            {
-                
-                return View(despacho);
-            }
-        }
+			catch (DbUpdateException ex)
+			{
+				TempData["MensagemErro"] = $"Erro ao editar Despacho. {ex.Message}";
+				return _error.ConflictError();
+			}
+			catch (Exception ex)
+			{
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message} Por favor, tente novamente.";
+				return _error.InternalServerError();
+			}
+		}
 
         // GET : Despachos/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -178,11 +199,22 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch(Exception)
-            {
-                return _error.InternalServerError();
-            }
-        }
+			catch (SqlException ex)
+			{
+				TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Despachos. {ex.Message}";
+				return _error.InternalServerError();
+			}
+			catch (InvalidOperationException ex)
+			{
+				TempData["MensagemErro"] = $"Erro ao recuperar Despachos do banco de dados. {ex.Message}";
+				return _error.BadRequestError();
+			}
+			catch (Exception ex)
+			{
+				TempData["MensagemErro"] = $"Erro ao recuperar Despachos do banco de dados. {ex.Message}";
+				return _error.InternalServerError();
+			}
+		}
 
         // GET: Despachos/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -234,10 +266,16 @@ namespace kaufer_comex.Controllers
 
                 return _error.UnauthorizedError();
             }
-            catch(Exception)
-            {
-                return _error.InternalServerError();
-            }
-        }
+			catch (DbUpdateException ex)
+			{
+				TempData["MensagemErro"] = $"Erro ao excluir Despacho. {ex.Message}";
+				return _error.ConflictError();
+			}
+			catch (Exception ex)
+			{
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message}. Por favor, tente novamente.";
+				return _error.InternalServerError();
+			}
+		}
     }
 }
