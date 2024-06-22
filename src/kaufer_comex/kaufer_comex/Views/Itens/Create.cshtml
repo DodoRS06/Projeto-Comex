@@ -125,9 +125,9 @@
 
 @section Scripts {
 	@{
-
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+		<script src="~/js/jquery.validate.custom.pt-br.js"> </script>
 	}
-
 	<script>
 		$(document).ready(function () {
 			$('.decimal-mask').mask('0,000', { reverse: true });
