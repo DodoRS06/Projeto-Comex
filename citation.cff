@@ -1,0 +1,26 @@
+message: Please cite this software using these metadata.
+title: Comex
+authors:
+  - family-names: Vitória Laurindo
+    given-names: Carolina
+  - family-names: Carapiá Ferraz
+    given-names: Cláudia
+  - family-names: Raynner da Silva Santos
+    given-names: Douglas
+  - family-names: Queiroz
+    given-names: Jeferson
+  - family-names: Luiza Cupertino de Oliveira
+    given-names: Josyane
+  - family-names: Noguti
+    given-names: Karen
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Wilson da Costa
+    given-names: José
+keywords:
+  - Importação
+  - Exportação
+  - Gestão
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-comex
+version: 1.0.0
+date-released: 2024-06-23
