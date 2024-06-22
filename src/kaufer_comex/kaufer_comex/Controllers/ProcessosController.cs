@@ -4,6 +4,7 @@ using kaufer_comex.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 
@@ -56,11 +57,22 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch (Exception)
-            {
-                return _error.InternalServerError();
-            }
-        }
+			catch (SqlException ex)
+			{
+				TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Processos. {ex.Message}";
+				return _error.InternalServerError();
+			}
+			catch (InvalidOperationException ex)
+			{
+				TempData["MensagemErro"] = $"Erro ao recuperar Processos do banco de dados. {ex.Message}";
+				return _error.BadRequestError();
+			}
+			catch (Exception ex)
+			{
+				TempData["MensagemErro"] = $"Erro ao recuperar Processos do banco de dados. {ex.Message}";
+				return _error.InternalServerError();
+			}
+		}
 
         // GET: Processos/Create
         public IActionResult Create()
@@ -70,7 +82,7 @@ namespace kaufer_comex.Controllers
                 InfoViewData();
                 return View();
             }
-            catch
+            catch(Exception)
             {
                 return _error.InternalServerError();
             }
@@ -122,6 +134,11 @@ namespace kaufer_comex.Controllers
                 InfoViewData();
 
                 return View(processo);
+            }
+            catch (DbUpdateException ex)
+            {
+				TempData["MensagemErro"] = $"Erro ao cadastrar Processo. {ex.Message}";
+				return _error.ConflictError();
             }
             catch (Exception)
             {
@@ -254,13 +271,18 @@ namespace kaufer_comex.Controllers
                 InfoViewData();
                 return View();
             }
-            catch (Exception ex)
+			catch (DbUpdateException ex)
+			{
+				TempData["MensagemErro"] = $"Erro ao editar Processo. {ex.Message}";
+				return _error.ConflictError();
+			}
+			catch (Exception ex)
             {
                 InfoViewData();
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message} Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
-        }
+		}
 
             // GET: Processos/Details/5
             public async Task<IActionResult> Details(int? id)
@@ -369,10 +391,20 @@ namespace kaufer_comex.Controllers
                 return View(view);
 
             }
-            catch (Exception ex)
+			catch (SqlException ex)
+			{
+				TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Processo. {ex.Message}";
+				return _error.InternalServerError();
+			}
+			catch (InvalidOperationException ex)
+			{
+				TempData["MensagemErro"] = $"Erro ao recuperar Processo do banco de dados. {ex.Message}";
+				return _error.BadRequestError();
+			}
+			catch (Exception ex)
             {
                 TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message}. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -513,9 +545,15 @@ namespace kaufer_comex.Controllers
 
                 return _error.UnauthorizedError();
             }
-            catch (Exception)
+			catch (DbUpdateException ex)
+			{
+				TempData["MensagemErro"] = $"Erro ao excluir Processo. {ex.Message}";
+				return _error.ConflictError();
+			}
+			catch (Exception ex)
             {
-                return _error.InternalServerError();
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message}. Por favor, tente novamente.";
+				return _error.InternalServerError();
             }
 
         }
