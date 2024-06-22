@@ -10,6 +10,8 @@ namespace kaufer_comex.Controllers
     {
         private readonly AppDbContext _context;
 
+        private readonly ErrorService _error;
+
         public AgenteDeCargasController(AppDbContext context)
         {
             _context = context;
@@ -25,10 +27,10 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch (Exception ex)
             {
-                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
-                return View();
+                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente {ex.Message}";
+                return _error.InternalServerError();
             }
         }
         public IActionResult Create()
@@ -57,10 +59,9 @@ namespace kaufer_comex.Controllers
                 }
                 return View(agenteDeCarga);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
         [HttpGet]
@@ -77,10 +78,10 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+ 
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
         [HttpPost]
@@ -99,10 +100,9 @@ namespace kaufer_comex.Controllers
                 }
                 return View();
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -120,9 +120,9 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch (Exception)
             {
-                return NotFound();
+                return _error.InternalServerError();
             }
         }
 
