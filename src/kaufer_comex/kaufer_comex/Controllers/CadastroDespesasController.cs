@@ -219,7 +219,7 @@ namespace kaufer_comex.Controllers
                 if (despesaUsada)
                 {
                     TempData["MensagemErro"] = "Não é possível excluir esta despesa, pois ela está sendo usada em um DCE.";
-                    return RedirectToAction("Index");
+                    return View();
                 }
 
                 _context.CadastroDespesas.Remove(dados);

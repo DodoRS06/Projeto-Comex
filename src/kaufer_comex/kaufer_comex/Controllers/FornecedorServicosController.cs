@@ -218,7 +218,7 @@ namespace kaufer_comex.Controllers
                 if (fornecedorUsado)
                 {
                     TempData["MensagemErro"] = "Não é possível excluir este fornecedor, pois ele está sendo usado em um DCE.";
-                    return RedirectToAction("Index");
+                    return View();
                 }
 
                 _context.FornecedorServicos.Remove(dados);
