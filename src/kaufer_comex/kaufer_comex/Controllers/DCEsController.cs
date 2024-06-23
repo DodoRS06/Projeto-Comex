@@ -154,8 +154,8 @@ namespace kaufer_comex.Controllers
                     .ToListAsync();
 
                 //Testando se recuperou alguma DCE
-                if (dados == null || !dados.Any())
-                    return _error.NotFoundError();
+                //if (dados == null || !dados.Any())
+                //    return _error.NotFoundError();
             }
             catch (SqlException ex)
             {
