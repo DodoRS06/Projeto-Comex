@@ -163,13 +163,28 @@ namespace kaufer_comex.Controllers
 
                 var dados = await _context.Itens.FindAsync(id);
 
-                if (dados == null)
-                    return _error.NotFoundError();
-
-                _context.Itens.Remove(dados);
-                await _context.SaveChangesAsync();
-
+                if (dados != null)
+                {
+                    var notaItem =  await _context.NotaItens.Where(ni => ni.ItemId == dados.Id).ToListAsync();
+                    if(notaItem == null)
+                    {
+                        _context.Itens.Remove(dados);
+                        await _context.SaveChangesAsync();
+ 
+                    }
+                    else
+                    {
+                        TempData["MensagemErro"] = $"Esse item está vinculado a uma nota e não pode ser excluído.";
+                        return View();
+                    }
+                  
+                }
                 return RedirectToAction("Index");
+            }
+            catch (DbUpdateException)
+            {
+                TempData["MensagemErro"] = $"Esse item está vinculado a uma nota e não pode ser excluído.";
+                return View();
             }
             catch (Exception)
             {
