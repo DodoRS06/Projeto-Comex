@@ -1,6 +1,7 @@
 ﻿using kaufer_comex.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace kaufer_comex.Controllers
@@ -29,8 +30,19 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch(Exception)
+            catch (SqlException)
             {
+                TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Destinos.";
+                return _error.InternalServerError();
+            }
+            catch (InvalidOperationException)
+            {
+                TempData["MensagemErro"] = $"Erro ao recuperar Destinos do banco de dados.";
+                return _error.BadRequestError();
+            }
+            catch (Exception)
+            {
+                TempData["MensagemErro"] = $"Erro ao recuperar Destinos do banco de dados.";
                 return _error.InternalServerError();
             }
 
@@ -67,7 +79,12 @@ namespace kaufer_comex.Controllers
                 }
                 return View(destino);
             }
-            catch(Exception)
+            catch (DbUpdateException)
+            {
+                TempData["MensagemErro"] = $"Erro ao cadastrar Destino.";
+                return _error.ConflictError();
+            }
+            catch (Exception)
             {
                 return _error.InternalServerError();
             }
@@ -112,7 +129,12 @@ namespace kaufer_comex.Controllers
                 }
                 return View();
             }
-            catch(Exception)
+            catch (DbUpdateException)
+            {
+                TempData["MensagemErro"] = $"Erro ao editar Destino.";
+                return _error.ConflictError();
+            }
+            catch (Exception)
             {
                 return _error.InternalServerError();
             }
@@ -133,7 +155,21 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch { return _error.InternalServerError(); }
+            catch (SqlException)
+            {
+                TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Destino.";
+                return _error.InternalServerError();
+            }
+            catch (InvalidOperationException)
+            {
+                TempData["MensagemErro"] = $"Erro ao recuperar Destino do banco de dados.";
+                return _error.BadRequestError();
+            }
+            catch (Exception)
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
+                return _error.InternalServerError();
+            }
         }
 
         //GET: Destinos/Delete/5
@@ -160,7 +196,6 @@ namespace kaufer_comex.Controllers
             }
         }
 
-
         //POST: Destinos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -183,7 +218,17 @@ namespace kaufer_comex.Controllers
                 }
                 return _error.UnauthorizedError();
             }
-            catch(Exception)
+			catch (DbUpdateException ex)
+			{
+                if (ex.InnerException != null && ex.InnerException.Message.Contains("FOREIGN KEY"))
+                {
+                    TempData["MensagemErro"] = "Esse destino está vinculado a um processo e não pode ser excluído.";
+                    return View();
+                }
+                TempData["MensagemErro"] = $"Esse destino está vinculado a um processo e não pode ser excluído.";
+				return View();
+			}
+			catch (Exception)
             {
                 return _error.InternalServerError();
             }

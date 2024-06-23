@@ -1,4 +1,5 @@
-﻿using kaufer_comex.Models;
+﻿using AspNetCore;
+using kaufer_comex.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -153,9 +154,14 @@ namespace kaufer_comex.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            catch
+            catch (DbUpdateException)
             {
                 TempData["MensagemErro"] = $"Despachante está vinculado a um processo. Não pode ser excluído.";
+                return View();
+            }
+            catch (Exception)
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado.";
                 return View();
             }
         }

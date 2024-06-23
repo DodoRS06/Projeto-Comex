@@ -8,7 +8,15 @@
     <div align="center"><h1><strong>Erro:</strong> <strong><code>@Model.RequestId</code></strong></h1></div>
     <br />
     <h2 class="text-dark">Opss...<code>@Model.ErrorMessage</code></h2>
-    <h2 class="text-dark">A página que você está procurando não existe ou um outro erro ocorreu!</h2>
+    @if (TempData["MensagemErro"] != null)
+    {
+        <h2 class="text-dark"> @TempData["MensagemErro"]</h2>
+    }
+    else
+    {
+        <h2 class="text-dark">A página que você está procurando não existe ou um outro erro ocorreu!</h2>
+    }
+   
 
     <div align="center">
         <img src="~/Images/undraw_Container_ship_re_alm4.png" style="width: 500px;" alt="Ship">
