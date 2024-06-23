@@ -166,7 +166,7 @@ namespace kaufer_comex.Controllers
             catch (DbUpdateException )
             {
                 TempData["MensagemErro"] = $"Esse Agente está vinculado a um processo e não pode ser excluído. ";
-                return View();
+                return _error.InternalServerError();
             }
 
         }
