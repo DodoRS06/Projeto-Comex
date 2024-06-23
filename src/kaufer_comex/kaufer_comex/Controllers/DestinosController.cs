@@ -30,19 +30,19 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Destinos. {ex.Message}";
+                TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Destinos.";
                 return _error.InternalServerError();
             }
-            catch (InvalidOperationException ex)
+            catch (InvalidOperationException)
             {
-                TempData["MensagemErro"] = $"Erro ao recuperar Destinos do banco de dados. {ex.Message}";
+                TempData["MensagemErro"] = $"Erro ao recuperar Destinos do banco de dados.";
                 return _error.BadRequestError();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Erro ao recuperar Destinos do banco de dados. {ex.Message}";
+                TempData["MensagemErro"] = $"Erro ao recuperar Destinos do banco de dados.";
                 return _error.InternalServerError();
             }
 
@@ -79,9 +79,9 @@ namespace kaufer_comex.Controllers
                 }
                 return View(destino);
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException)
             {
-                TempData["MensagemErro"] = $"Erro ao cadastrar Destino. {ex.Message}";
+                TempData["MensagemErro"] = $"Erro ao cadastrar Destino.";
                 return _error.ConflictError();
             }
             catch (Exception)
@@ -129,9 +129,9 @@ namespace kaufer_comex.Controllers
                 }
                 return View();
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException)
             {
-                TempData["MensagemErro"] = $"Erro ao editar Destino. {ex.Message}";
+                TempData["MensagemErro"] = $"Erro ao editar Destino.";
                 return _error.ConflictError();
             }
             catch (Exception)
@@ -155,19 +155,19 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Destino. {ex.Message}";
+                TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Destino.";
                 return _error.InternalServerError();
             }
-            catch (InvalidOperationException ex)
+            catch (InvalidOperationException)
             {
-                TempData["MensagemErro"] = $"Erro ao recuperar Destino do banco de dados. {ex.Message}";
+                TempData["MensagemErro"] = $"Erro ao recuperar Destino do banco de dados.";
                 return _error.BadRequestError();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message}. Por favor, tente novamente.";
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
                 return _error.InternalServerError();
             }
         }
@@ -225,7 +225,7 @@ namespace kaufer_comex.Controllers
                     TempData["MensagemErro"] = "Esse destino está vinculado a um processo e não pode ser excluído.";
                     return View();
                 }
-                TempData["MensagemErro"] = $"Esse destino está vinculado a um processo e não pode ser excluído. {ex.Message}";
+                TempData["MensagemErro"] = $"Esse destino está vinculado a um processo e não pode ser excluído.";
 				return View();
 			}
 			catch (Exception)

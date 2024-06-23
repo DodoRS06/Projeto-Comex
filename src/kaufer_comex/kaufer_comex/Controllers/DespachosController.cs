@@ -32,19 +32,19 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-			catch (SqlException ex)
+			catch (SqlException)
 			{
-				TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Despachos. {ex.Message}";
+				TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Despachos.";
 				return _error.InternalServerError();
 			}
-			catch (InvalidOperationException ex)
+			catch (InvalidOperationException)
 			{
-				TempData["MensagemErro"] = $"Erro ao recuperar Despachos do banco de dados. {ex.Message}";
+				TempData["MensagemErro"] = $"Erro ao recuperar Despachos do banco de dados.";
 				return _error.BadRequestError();
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				TempData["MensagemErro"] = $"Erro ao recuperar Despachos do banco de dados. {ex.Message}";
+				TempData["MensagemErro"] = $"Erro ao recuperar Despachos do banco de dados.";
 				return _error.InternalServerError();
 			}
 		}
@@ -112,9 +112,9 @@ namespace kaufer_comex.Controllers
 
                 return View(despacho);
             }
-			catch (DbUpdateException ex)
+			catch (DbUpdateException)
 			{
-				TempData["MensagemErro"] = $"Erro ao cadastrar Despacho. {ex.Message}";
+				TempData["MensagemErro"] = $"Erro ao cadastrar Despacho.";
 				return _error.ConflictError();
 			}
 			catch (Exception)
@@ -170,14 +170,14 @@ namespace kaufer_comex.Controllers
                 ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
                 return View();
             }
-			catch (DbUpdateException ex)
+			catch (DbUpdateException)
 			{
-				TempData["MensagemErro"] = $"Erro ao editar Despacho. {ex.Message}";
+				TempData["MensagemErro"] = $"Erro ao editar Despacho.";
 				return _error.ConflictError();
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message} Por favor, tente novamente.";
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
 				return _error.InternalServerError();
 			}
 		}
@@ -199,19 +199,19 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-			catch (SqlException ex)
+			catch (SqlException)
 			{
-				TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Despachos. {ex.Message}";
+				TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Despachos.";
 				return _error.InternalServerError();
 			}
-			catch (InvalidOperationException ex)
+			catch (InvalidOperationException)
 			{
-				TempData["MensagemErro"] = $"Erro ao recuperar Despachos do banco de dados. {ex.Message}";
+				TempData["MensagemErro"] = $"Erro ao recuperar Despachos do banco de dados.";
 				return _error.BadRequestError();
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				TempData["MensagemErro"] = $"Erro ao recuperar Despachos do banco de dados. {ex.Message}";
+				TempData["MensagemErro"] = $"Erro ao recuperar Despachos do banco de dados.";
 				return _error.InternalServerError();
 			}
 		}
@@ -266,14 +266,14 @@ namespace kaufer_comex.Controllers
 
                 return _error.UnauthorizedError();
             }
-			catch (DbUpdateException ex)
+			catch (DbUpdateException)
 			{
-				TempData["MensagemErro"] = $"Erro ao excluir Despacho. {ex.Message}";
+				TempData["MensagemErro"] = $"Erro ao excluir Despacho.";
 				return _error.ConflictError();
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message}. Por favor, tente novamente.";
+				TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
 				return _error.InternalServerError();
 			}
 		}
