@@ -6,7 +6,7 @@
 
 `5º SEMESTREE`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Sabendo da importância da fomentação do Comércio Exterior brasileiro, o nosso projeto de extensão com a empresa Kaufer deseja extrapolar o conhecimento vivenciado somente na PUC Minas, para projetar um sistema Web que possa controlar os dados dos processos de embarque de exportação da empresa.
 
 ## Integrantes
 
