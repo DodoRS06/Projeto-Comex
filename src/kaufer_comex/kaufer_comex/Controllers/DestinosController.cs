@@ -220,8 +220,13 @@ namespace kaufer_comex.Controllers
             }
 			catch (DbUpdateException ex)
 			{
-				TempData["MensagemErro"] = $"Esse destino está vinculado a um processo e não pode ser excluído. {ex.Message}";
-				return _error.ConflictError();
+                if (ex.InnerException != null && ex.InnerException.Message.Contains("FOREIGN KEY"))
+                {
+                    TempData["MensagemErro"] = "Esse destino está vinculado a um processo e não pode ser excluído.";
+                    return View();
+                }
+                TempData["MensagemErro"] = $"Esse destino está vinculado a um processo e não pode ser excluído. {ex.Message}";
+				return View();
 			}
 			catch (Exception)
             {
