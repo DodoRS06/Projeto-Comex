@@ -1,8 +1,8 @@
 ﻿using kaufer_comex.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+
 namespace kaufer_comex.Controllers
 {
     [Authorize]
@@ -10,9 +10,12 @@ namespace kaufer_comex.Controllers
     {
         private readonly AppDbContext _context;
 
-        public Despachantes(AppDbContext context)
+        private readonly ErrorService _error;
+
+        public Despachantes(AppDbContext context, ErrorService error)
         {
             _context = context;
+            _error = error;
         }
 
         public async Task<IActionResult> Index()
@@ -25,10 +28,9 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
-                return View();
+                return _error.InternalServerError();
             }
         }
         public IActionResult Create()
@@ -58,31 +60,28 @@ namespace kaufer_comex.Controllers
                 }
                 return View(despachante);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
-
 
         public async Task<IActionResult> Edit(int? id)
         {
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Despachantes.FindAsync(id);
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 return View(dados);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
 
         }
@@ -92,7 +91,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id != despachante.Id)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 if (ModelState.IsValid)
                 {
@@ -102,38 +101,51 @@ namespace kaufer_comex.Controllers
                 }
                 return View();
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return _error.NotFoundError();
 
-            var dados = await _context.Despachantes.FindAsync(id);
+                var dados = await _context.Despachantes.FindAsync(id);
 
-            if (id == null)
-                return NotFound();
+                if (dados == null)
+                    return _error.NotFoundError();
 
-            return View(dados);
+                return View(dados);
+            }
+            catch { return _error.InternalServerError(); }
         }
 
 
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-                return NotFound();
+            try
+            {
+                if (id == null)
+                    return _error.NotFoundError();
+                if (User.IsInRole("Admin"))
+                {
+                    var dados = await _context.Despachantes.FindAsync(id);
 
-            var dados = await _context.Despachantes.FindAsync(id);
+                    if (dados == null)
+                        return _error.NotFoundError();
 
-            if (id == null)
-                return NotFound();
-
-            return View(dados);
+                    return View(dados);
+                }
+                return _error.UnauthorizedError();
+            }
+            catch (Exception)
+            {
+                return _error.InternalServerError();
+            }
         }
 
         [HttpPost, ActionName("Delete")]
@@ -142,12 +154,12 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Despachantes.FindAsync(id);
 
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 _context.Despachantes.Remove(dados);
                 await _context.SaveChangesAsync();
