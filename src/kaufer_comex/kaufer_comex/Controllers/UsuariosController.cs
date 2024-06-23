@@ -273,13 +273,13 @@ namespace kaufer_comex.Controllers
             {
                 if (id == null || _context.Usuarios == null)
                 {
-                    return NotFound();
+                    return _error.NotFoundError();
                 }
 
                 var usuario = await _context.Usuarios.FindAsync(id);
                 if (usuario == null)
                 {
-                    return NotFound();
+                    return _error.NotFoundError();
                 }
                 return View(usuario);
             }
