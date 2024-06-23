@@ -110,8 +110,7 @@ namespace kaufer_comex.Controllers
 
                 await Dropdowns();
 
-                Response.StatusCode = 200;
-                return Ok(View(dados));
+                return View(dados);
             }
             catch (SqlException ex)
             {

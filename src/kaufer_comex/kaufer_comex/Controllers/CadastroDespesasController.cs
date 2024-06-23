@@ -214,6 +214,14 @@ namespace kaufer_comex.Controllers
                 if (dados == null)
                     return _error.NotFoundError();
 
+                //Verificando se fornecedor está sendo usado em DCE
+                bool despesaUsada = await _context.DCEs.AnyAsync(d => d.CadastroDespesaId == id);
+                if (despesaUsada)
+                {
+                    TempData["MensagemErro"] = "Não é possível excluir esta despesa, pois ela está sendo usada em um DCE.";
+                    return RedirectToAction("Index");
+                }
+
                 _context.CadastroDespesas.Remove(dados);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");

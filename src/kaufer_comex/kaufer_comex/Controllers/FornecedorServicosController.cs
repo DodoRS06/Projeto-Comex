@@ -172,7 +172,6 @@ namespace kaufer_comex.Controllers
             }
         }
 
-
         public async Task<IActionResult> Delete(int? id)
         {
             try
@@ -214,6 +213,14 @@ namespace kaufer_comex.Controllers
                 if (dados == null)
                     return _error.NotFoundError();
 
+                //Verificando se fornecedor está sendo usado em DCE
+                bool fornecedorUsado = await _context.DCEs.AnyAsync(d => d.FornecedorServicoId == id);
+                if (fornecedorUsado)
+                {
+                    TempData["MensagemErro"] = "Não é possível excluir este fornecedor, pois ele está sendo usado em um DCE.";
+                    return RedirectToAction("Index");
+                }
+
                 _context.FornecedorServicos.Remove(dados);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -228,7 +235,6 @@ namespace kaufer_comex.Controllers
                 TempData["MensagemErro"] = $"Erro ao excluir item com ID {id}. {ex.Message}";
                 return _error.InternalServerError();
             }
-
         }
     }
 }
