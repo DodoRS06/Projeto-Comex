@@ -5,6 +5,7 @@ using kaufer_comex.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Net;
@@ -17,9 +18,11 @@ namespace kaufer_comex.Controllers
     {
         private AppDbContext _context;
 
-        public NotasController(AppDbContext context)
+        private readonly ErrorService _error;
+        public NotasController(AppDbContext context, ErrorService error)
         {
             _context = context;
+            _error = error; 
         }
 
         //GET: Notas/Index
@@ -36,10 +39,15 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch (SqlException ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Notas. {ex.Message}";
+                return _error.InternalServerError();
+            }          
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao recuperar Notas do banco de dados. {ex.Message}";
+                return _error.InternalServerError();
             }
         }
 
@@ -51,7 +59,7 @@ namespace kaufer_comex.Controllers
             {
                 if (id == null)
                 {
-                    return NotFound();
+                    return _error.NotFoundError();
                 }
 
                 ViewData["EmbarqueRodoviarioId"] = id.Value;
@@ -83,10 +91,9 @@ namespace kaufer_comex.Controllers
                 };
                 return View(view);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -166,10 +173,14 @@ namespace kaufer_comex.Controllers
                     return View(view);
                 }
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                TempData["MensagemErro"] = $"Erro ao cadastrar Despacho. {ex.Message}";
+                return _error.ConflictError();
+            }
+            catch (Exception)
+            {
+                return _error.InternalServerError();
             }
         }
 
@@ -495,10 +506,9 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -608,7 +618,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Notas
                     .Include(p => p.Veiculo)
@@ -618,7 +628,7 @@ namespace kaufer_comex.Controllers
                     .FirstOrDefaultAsync(p => p.Id == id);
 
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
 
@@ -628,11 +638,7 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-            }
+            catch { return _error.InternalServerError(); }
         }
 
 
@@ -642,7 +648,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Notas
                     .Include(p => p.Veiculo)
@@ -650,7 +656,7 @@ namespace kaufer_comex.Controllers
                     .FirstOrDefaultAsync(p => p.Id == id);
 
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
 
@@ -674,7 +680,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Notas
                     .Include(n => n.Veiculo)
@@ -687,7 +693,7 @@ namespace kaufer_comex.Controllers
                 var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
 
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var item = _context.NotaItens.Where(i => i.NotaId == dados.Id).FirstOrDefault();
                 _context.NotaItens.Remove(item);
@@ -698,10 +704,9 @@ namespace kaufer_comex.Controllers
 
                 return RedirectToAction("Details", "Processos", new { id = processoEmbarque.Id });
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
     }
