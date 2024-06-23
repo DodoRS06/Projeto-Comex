@@ -9,9 +9,11 @@ namespace kaufer_comex.Controllers
     public class FronteirasController : Controller
     {
         private readonly AppDbContext _context;
-        public FronteirasController(AppDbContext context)
+        private readonly ErrorService _error;
+        public FronteirasController(AppDbContext context, ErrorService error)
         {
             _context = context;
+            _error = error;
         }
         public async Task<IActionResult> Index()
         {
@@ -23,10 +25,9 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
-                return View();
+                return _error.InternalServerError();
             }
         }
         public IActionResult Create()
@@ -47,7 +48,7 @@ namespace kaufer_comex.Controllers
 
                     if (fronteiraExistente)
                     {
-                        TempData["MensagemErro"] = $"Essa fronteira já está cadastrada.";
+                        ModelState.AddModelError("Fronteira", "Essa fronteira já está cadastrada.");
                         return View(fronteira);
                     }
                     _context.Fronteiras.Add(fronteira);
@@ -56,10 +57,9 @@ namespace kaufer_comex.Controllers
                 }
                 return View(fronteira);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -68,16 +68,20 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                {
+                    return _error.NotFoundError();
+                }
 
                 var dados = await _context.Fronteiras.FindAsync(id);
-
+                if (dados == null)
+                {
+                    return _error.NotFoundError();
+                }
                 return View(dados);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Esse destino já está cadastrado .";
-                return View();
+                return _error.InternalServerError();
             }
         }
         [HttpPost]
@@ -86,7 +90,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id != fronteira.Id)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 if (ModelState.IsValid)
                 {
@@ -106,64 +110,75 @@ namespace kaufer_comex.Controllers
 
                 return View(fronteira);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = "Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View(fronteira);
+                return _error.InternalServerError();
             }
         }
 
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-
-                return NotFound();
-            var dados = await _context.Fronteiras.FindAsync(id);
-
-            if (dados == null)
-
-                return NotFound();
-
-            return View(dados);
-        }
-
-        public async Task<ActionResult> Delete(int? id)
-        {
-            if (id == null)
-
-                return NotFound();
-            var dados = await _context.Fronteiras.FindAsync(id);
-
-            if (dados == null)
-
-                return NotFound();
-
-            return View(dados);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        public async Task<ActionResult> DeleteConfirmed(int? id)
+        public async Task<IActionResult> Details(int? id)
         {
             try
             {
                 if (id == null)
-
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Fronteiras.FindAsync(id);
 
                 if (dados == null)
+                    return _error.NotFoundError();
 
-                    return NotFound();
+                return View(dados);
+            }
+            catch { return _error.InternalServerError(); }
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+
+            try
+            {
+
+
+                if (id == null)
+                {
+                    return _error.NotFoundError();
+                }
+                var dados = await _context.Fronteiras.FindAsync(id);
+
+                if (dados == null)
+                {
+                    return _error.NotFoundError();
+                }
+                return View(dados);
+            }
+            catch (Exception)
+            {
+                return _error.InternalServerError();
+            }
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int? id)
+        {
+            try
+            {
+                if (id == null)
+                    return _error.NotFoundError();
+
+                var dados = await _context.Fronteiras.FindAsync(id);
+
+                if (dados == null)
+                    return _error.NotFoundError();
+
                 _context.Fronteiras.Remove(dados);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Essa fronteira está vinculada a um processo. Não pode ser excluída";
-                return View();
+                return _error.InternalServerError();
             }
         }
     }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace kaufer_comex.Controllers
@@ -10,9 +11,12 @@ namespace kaufer_comex.Controllers
     public class EmbarqueRodoviariosController : Controller
     {
         private readonly AppDbContext _context;
-        public EmbarqueRodoviariosController(AppDbContext context)
+        private readonly ErrorService _error;
+
+        public EmbarqueRodoviariosController(AppDbContext context, ErrorService error)
         {
             _context = context;
+            _error = error;
         }
         public async Task<IActionResult> Index()
         {
@@ -25,10 +29,20 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch (SqlException ex)
             {
-                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
-                return View();
+                TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Embarques. {ex.Message}";
+                return _error.InternalServerError();
+            }
+            catch (InvalidOperationException ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao recuperar Embarques do banco de dados. {ex.Message}";
+                return _error.BadRequestError();
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao recuperar Embarques do banco de dados. {ex.Message}";
+                return _error.InternalServerError();
             }
         }
         public IActionResult Create(int? id)
@@ -37,7 +51,7 @@ namespace kaufer_comex.Controllers
             {
                 if (id == null)
                 {
-                    return NotFound();
+                    return _error.NotFoundError();
                 }
 
                 ViewData["ProcessoId"] = id.Value;
@@ -46,10 +60,9 @@ namespace kaufer_comex.Controllers
 
                 return View();
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -87,10 +100,14 @@ namespace kaufer_comex.Controllers
 
                 return View(embarqueRodoviario);
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                TempData["MensagemErro"] = $"Erro ao cadastrar Embarque. {ex.Message}";
+                return _error.ConflictError();
+            }
+            catch (Exception)
+            {
+                return _error.InternalServerError();
             }
         }
 
@@ -99,7 +116,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null || _context.EmbarqueRodoviarios == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.EmbarqueRodoviarios
                        .Include(e => e.AgenteDeCarga)
@@ -108,15 +125,14 @@ namespace kaufer_comex.Controllers
 
                 if (dados == null)
 
-                    return NotFound();
+                    return _error.NotFoundError();
                 ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
 
                 return View(dados);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
         [HttpPost]
@@ -126,7 +142,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id != embarqueRodoviario.Id)
-                    return NotFound();
+                    return _error.NotFoundError();
                 if (ModelState.IsValid)
                 {
                     if (Request.Form.ContainsKey("ProcessoId"))
@@ -140,88 +156,106 @@ namespace kaufer_comex.Controllers
                 }
                 return View();
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                return NotFound();
+                TempData["MensagemErro"] = $"Erro ao editar Embarque. {ex.Message}";
+                return _error.ConflictError();
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message} Por favor, tente novamente.";
+                return _error.InternalServerError();
             }
         }
-        public async Task<ActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id)
         {
             try
             {
                 if (id == null || _context.EmbarqueRodoviarios == null)
-
-                    return NotFound();
-
-                var dados = await _context.EmbarqueRodoviarios
-                        .Include(e => e.AgenteDeCarga)
-                        .Include(e => e.Processo)
-                      .FirstOrDefaultAsync(e => e.Id == id);
-
-                if (dados == null)
-
-                    return NotFound();
-
-                return View(dados);
-            }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-            }
-        }
-
-        public async Task<ActionResult> Delete(int? id)
-        {
-            try
-            {
-                if (id == null || _context.EmbarqueRodoviarios == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.EmbarqueRodoviarios
-                       .Include(e => e.AgenteDeCarga)
-                       .Include(e => e.Processo)
+                     .Include(e => e.AgenteDeCarga)
+                     .Include(e => e.Processo)
                      .FirstOrDefaultAsync(e => e.Id == id);
 
                 if (dados == null)
+                    return _error.NotFoundError();
 
-                    return NotFound();
-                ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
-                ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
                 return View(dados);
             }
-            catch
+            catch (SqlException ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar Embarques. {ex.Message}";
+                return _error.InternalServerError();
+            }
+            catch (InvalidOperationException ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao recuperar Embarques do banco de dados. {ex.Message}";
+                return _error.BadRequestError();
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao recuperar Embarques do banco de dados. {ex.Message}";
+                return _error.InternalServerError();
+            }
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            try
+            {
+                if (id == null || _context.EmbarqueRodoviarios == null)
+                    return _error.NotFoundError();
+                
+                    var dados = await _context.EmbarqueRodoviarios
+                        .Include(e => e.AgenteDeCarga)
+                        .Include(e => e.Processo)
+                        .FirstOrDefaultAsync(e => e.Id == id);
+
+                    if (dados == null)
+                        return _error.NotFoundError();
+                    ViewData["AgenteDeCargaId"] = new SelectList(_context.AgenteDeCargas, "Id", "NomeAgenteCarga");
+                    ViewData["ProcessoId"] = new SelectList(_context.Processos, "Id", "CodProcessoExportacao");
+                    return View(dados);
+                
+            }
+            catch (Exception)
+            {
+                return _error.InternalServerError();
             }
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int? id)
+        public async Task<IActionResult> DeleteConfirmed(int? id)
         {
             try
             {
                 if (id == null)
-
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.EmbarqueRodoviarios.FindAsync(id);
 
                 if (dados == null)
+                    return _error.NotFoundError();
 
-                    return NotFound();
-                _context.EmbarqueRodoviarios.Remove(dados);
-                await _context.SaveChangesAsync();
-
-                return RedirectToAction("Details", "Processos", new { id = dados.ProcessoId });
+                    _context.EmbarqueRodoviarios.Remove(dados);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Details", "Processos", new { id = dados.ProcessoId });
+                
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                TempData["MensagemErro"] = $"Erro ao excluir Despacho. {ex.Message}";
+                return _error.ConflictError();
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado: {ex.Message}. Por favor, tente novamente.";
+                return _error.InternalServerError();
             }
         }
     }
 }
+
