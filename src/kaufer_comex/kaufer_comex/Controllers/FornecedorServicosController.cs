@@ -1,6 +1,7 @@
 ﻿using kaufer_comex.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace kaufer_comex.Controllers
@@ -8,28 +9,38 @@ namespace kaufer_comex.Controllers
     [Authorize]
     public class FornecedorServicosController : Controller
     {
-
         private readonly AppDbContext _context;
 
-        public FornecedorServicosController(AppDbContext context)
+        private readonly ErrorService _error;
+
+        public FornecedorServicosController(AppDbContext context, ErrorService error)
         {
             _context = context;
+            _error = error;
         }
 
         public async Task<IActionResult> Index()
         {
+            List<FornecedorServico> dados;
+
             try
             {
-                var dados = await _context.FornecedorServicos
+                //Recuperando Fornecedores ordenados pelo nome
+                dados = await _context.FornecedorServicos
                     .OrderBy(a => a.Nome)
                     .ToListAsync();
 
                 return View(dados);
             }
-            catch
+            catch (SqlException ex)
             {
-                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
-                return View();
+                TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao recuperar fornecedores. {ex.Message}";
+                return _error.InternalServerError();
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao recuperar Fornecedores do banco de dados. {ex.Message}";
+                return _error.InternalServerError();
             }
         }
         public IActionResult Create()
@@ -45,9 +56,11 @@ namespace kaufer_comex.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    //Recuperando fornecedores existentes
                     var fornecedorExistente = await _context.FornecedorServicos
-                    .AnyAsync(f => f.Nome == fornecedorservico.Nome && f.TipoServico ==fornecedorservico.TipoServico);
+                    .AnyAsync(f => f.Nome == fornecedorservico.Nome && f.TipoServico == fornecedorservico.TipoServico);
 
+                    //Retornando mensagem caso o fornecedor já exista
                     if (fornecedorExistente)
                     {
                         TempData["MensagemErro"] = $"Esse fornecedor já está cadastrado.";
@@ -60,10 +73,20 @@ namespace kaufer_comex.Controllers
                 }
                 return View(fornecedorservico);
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                TempData["MensagemErro"] = $"Erro ao salvar o Fornecedor no banco de dados. {ex.Message}";
+                return _error.InternalServerError();
+            }
+            catch (SqlException ex)
+            {
+                TempData["MensagemErro"] = $"Erro de conexão com o banco de dados. {ex.Message}";
+                return _error.InternalServerError();
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao processar o formulário. {ex.Message}";
+                return _error.InternalServerError();
             }
         }
 
@@ -71,19 +94,23 @@ namespace kaufer_comex.Controllers
         {
             try
             {
+                //Retornando erro se o id for nulo
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
+                //Recupernado Fornecedor pelo id
                 var dados = await _context.FornecedorServicos.FindAsync(id);
+
+                //Retornando erro se não existir fornecedor com o id passado
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 return View(dados);
             }
-            catch
+            catch (Exception ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                TempData["MensagemErro"] = $"Erro ao editar item com ID {id}. {ex.Message}";
+                return _error.InternalServerError();
             }
         }
         [HttpPost]
@@ -92,8 +119,9 @@ namespace kaufer_comex.Controllers
         {
             try
             {
+                //Testando se os ids são diferentes e retornando erro
                 if (id != fornecedorservico.Id)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 if (ModelState.IsValid)
                 {
@@ -103,9 +131,20 @@ namespace kaufer_comex.Controllers
                 }
                 return View();
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                return NotFound();
+                TempData["MensagemErro"] = $"Erro ao atualizar o banco de dados ao editar item com ID {id}. {ex.Message}";
+                return _error.InternalServerError();
+            }
+            catch (SqlException ex)
+            {
+                TempData["MensagemErro"] = $"Erro de conexão com o banco de dados ao editar item com ID {id}. {ex.Message}";
+                return _error.InternalServerError();
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Erro inesperado ao editar item com ID {id}. {ex.Message}";
+                return _error.InternalServerError();
             }
         }
 
@@ -113,20 +152,23 @@ namespace kaufer_comex.Controllers
         {
             try
             {
+                //Retornando erro se o id passado for nulo
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
+                //Recuperando Fornecedor com o id passado
                 var dados = await _context.FornecedorServicos.FindAsync(id);
 
-                if (id == null)
-                    return NotFound();
+                //Retornando erro se o id do fornecedor passado for nulo
+                if (dados == null)
+                    return _error.NotFoundError();
 
                 return View(dados);
             }
-            catch
+            catch (Exception ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                TempData["MensagemErro"] = $"Erro ao buscar detalhes da DCE com ID {id}. {ex.Message}";
+                return _error.InternalServerError();
             }
         }
 
@@ -135,20 +177,23 @@ namespace kaufer_comex.Controllers
         {
             try
             {
+                //Retornando erro se o id passado for nulo
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
+                //Recuperando Fornecedor com o id passado
                 var dados = await _context.FornecedorServicos.FindAsync(id);
 
-                if (id == null)
-                    return NotFound();
+                //Retornando erro se o id do Fornecedor passado for nulo
+                if (dados == null)
+                    return _error.NotFoundError();
 
                 return View(dados);
             }
-            catch
+            catch (Exception ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                TempData["MensagemErro"] = $"Erro ao buscar detalhes do item com ID {id} para exclusão. {ex.Message}";
+                return _error.InternalServerError();
             }
         }
 
@@ -158,22 +203,30 @@ namespace kaufer_comex.Controllers
         {
             try
             {
+                //Retornando erro se o id passado for nulo
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
+                //Recuperando Fornecedor com o id passado
                 var dados = await _context.FornecedorServicos.FindAsync(id);
 
-                if (id == null)
-                    return NotFound();
+                //Retornando erro se o id do Fornecedor passado for nulo
+                if (dados == null)
+                    return _error.NotFoundError();
 
                 _context.FornecedorServicos.Remove(dados);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                TempData["MensagemErro"] = $"Erro ao excluir item com ID {id}: erro de atualização do banco de dados. {ex.Message}";
+                return _error.InternalServerError();
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao excluir item com ID {id}. {ex.Message}";
+                return _error.InternalServerError();
             }
 
         }
