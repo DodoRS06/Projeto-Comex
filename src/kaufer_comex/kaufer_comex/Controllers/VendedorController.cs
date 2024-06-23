@@ -10,9 +10,12 @@ namespace kaufer_comex.Controllers
     {
         private readonly AppDbContext _context;
 
-        public Vendedores(AppDbContext context)
+        private readonly ErrorService _error;
+
+        public Vendedores(AppDbContext context, ErrorService error)
         {
             _context = context;
+            _error = error;
         }
 
         public async Task<IActionResult> Index()
@@ -25,10 +28,9 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente";
-                return View();
+                return _error.InternalServerError();
             }
         }
         public IActionResult Create()
@@ -60,10 +62,9 @@ namespace kaufer_comex.Controllers
                 }
                 return View(vendedor);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -72,19 +73,17 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Vendedores.FindAsync(id);
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 return View(dados);
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-
+                return _error.InternalServerError();
             }
 
         }
@@ -94,7 +93,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id != vendedor.Id)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 if (ModelState.IsValid)
                 {
@@ -104,9 +103,9 @@ namespace kaufer_comex.Controllers
                 }
                 return View();
             }
-            catch
+            catch (Exception)
             {
-                return NotFound();
+                return _error.InternalServerError();
             }
         }
 
@@ -115,20 +114,16 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Vendedores.FindAsync(id);
 
-                if (id == null)
-                    return NotFound();
+                if (dados == null)
+                    return _error.NotFoundError();
 
                 return View(dados);
             }
-            catch
-            {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
-            }
+            catch { return _error.InternalServerError(); }
         }
 
 
@@ -137,19 +132,21 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
+                if (User.IsInRole("Admin"))
+                {
+                    var dados = await _context.Vendedores.FindAsync(id);
 
-                var dados = await _context.Vendedores.FindAsync(id);
+                    if (dados == null)
+                        return _error.NotFoundError();
 
-                if (id == null)
-                    return NotFound();
-
-                return View(dados);
+                    return View(dados);
+                }
+                return _error.UnauthorizedError();
             }
-            catch
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Ocorreu um erro inesperado. Por favor, tente novamente.";
-                return View();
+                return _error.InternalServerError();
             }
         }
 
@@ -159,21 +156,29 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.Vendedores.FindAsync(id);
 
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 _context.Vendedores.Remove(dados);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            catch { }
-            TempData["MensagemErro"] = $"Esse vendedor está vinculado a um processo. Não pode ser excluído";
-            return View();
+            catch (DbUpdateException)
+            {
+                TempData["MensagemErro"] = $"Vendedor está vinculado a um processo. Não pode ser excluído.";
+                return View();
+            }
+            catch (Exception)
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro inesperado.";
+                return View();
+            }
         }
-    }
 }
+}
+
 
