@@ -658,13 +658,18 @@ namespace kaufer_comex.Controllers
                 if (dados == null)
                     return _error.NotFoundError();
 
-                var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
+                if (User.IsInRole("Admin"))
+                {
+                    var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
 
-                var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
+                    var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
 
-                ViewData["ProcessoId"] = processoEmbarque.Id;
+                    ViewData["ProcessoId"] = processoEmbarque.Id;
 
-                return View(dados);
+                    return View(dados);
+                }
+
+                return _error.UnauthorizedError();
             }
             catch (Exception ex)
             {
@@ -688,21 +693,30 @@ namespace kaufer_comex.Controllers
                     .Include(n => n.EmbarqueRodoviario)
                     .FirstOrDefaultAsync(p => p.Id == id);
 
-                var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
+                if (User.IsInRole("Admin"))
+                {
+                    var embarque = await _context.EmbarqueRodoviarios.FirstOrDefaultAsync(e => e.Id == dados.EmbarqueRodoviarioId);
 
-                var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
+                    var processoEmbarque = await _context.Processos.FirstOrDefaultAsync(e => e.Id == embarque.ProcessoId);
 
-                if (dados == null)
-                    return _error.NotFoundError();
+                    if (dados == null)
+                        return _error.NotFoundError();
 
-                var item = _context.NotaItens.Where(i => i.NotaId == dados.Id).FirstOrDefault();
-                _context.NotaItens.Remove(item);
-                await _context.SaveChangesAsync();
+                    var item = _context.NotaItens.Where(i => i.NotaId == dados.Id).FirstOrDefault();
+                    _context.NotaItens.Remove(item);
+                    await _context.SaveChangesAsync();
 
-                _context.Notas.Remove(dados);
-                await _context.SaveChangesAsync();
+                    _context.Notas.Remove(dados);
+                    await _context.SaveChangesAsync();
 
-                return RedirectToAction("Details", "Processos", new { id = processoEmbarque.Id });
+                    return RedirectToAction("Details", "Processos", new { id = processoEmbarque.Id });
+                }
+                return _error.UnauthorizedError();
+            }
+            catch (DbUpdateException)
+            {
+                TempData["MensagemErro"] = $"Essa Nota está vinculada a um processo e não pode ser excluída ";
+                return View();
             }
             catch (Exception)
             {
