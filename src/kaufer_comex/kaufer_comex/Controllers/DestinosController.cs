@@ -196,7 +196,6 @@ namespace kaufer_comex.Controllers
             }
         }
 
-
         //POST: Destinos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
