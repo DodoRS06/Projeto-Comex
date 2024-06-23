@@ -138,19 +138,18 @@ namespace kaufer_comex.Controllers
 
             try
             {
-
-
                 if (id == null)
-                {
                     return _error.NotFoundError();
-                }
-                var dados = await _context.Fronteiras.FindAsync(id);
+                if (User.IsInRole("Admin"))
+                {
+                    var dados = await _context.Fronteiras.FindAsync(id);
 
-                if (dados == null)
-                {
-                    return _error.NotFoundError();
+                    if (dados == null)
+                        return _error.NotFoundError();
+
+                    return View(dados);
                 }
-                return View(dados);
+                return _error.UnauthorizedError();
             }
             catch (Exception)
             {
@@ -168,17 +167,17 @@ namespace kaufer_comex.Controllers
 
                 var dados = await _context.Fronteiras.FindAsync(id);
 
-                if (dados == null)
+                if (id == null)
                     return _error.NotFoundError();
 
                 _context.Fronteiras.Remove(dados);
                 await _context.SaveChangesAsync();
-
                 return RedirectToAction("Index");
             }
-            catch (Exception)
+            catch (DbUpdateException)
             {
-                return _error.InternalServerError();
+                TempData["MensagemErro"] = $"Esse Fronteira está vinculado a um processo e não pode ser excluído. ";
+                return View();
             }
         }
     }
