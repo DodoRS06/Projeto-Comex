@@ -12,9 +12,10 @@ namespace kaufer_comex.Controllers
 
         private readonly ErrorService _error;
 
-        public AgenteDeCargasController(AppDbContext context)
+        public AgenteDeCargasController(AppDbContext context, ErrorService error)
         {
             _context = context;
+            _error = error;
         }
 
         public async Task<IActionResult> Index()
@@ -27,9 +28,8 @@ namespace kaufer_comex.Controllers
 
                 return View(dados);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                TempData["MensagemErro"] = $"Erro ao carregar os dados. Tente novamente {ex.Message}";
                 return _error.InternalServerError();
             }
         }
@@ -70,11 +70,11 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.AgenteDeCargas.FindAsync(id);
                 if (dados == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 return View(dados);
             }
@@ -90,7 +90,7 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id != agenteDeCarga.Id)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 if (ModelState.IsValid)
                 {
@@ -100,7 +100,7 @@ namespace kaufer_comex.Controllers
                 }
                 return View();
             }
-            catch (Exception)
+            catch(Exception)
             {
                 return _error.InternalServerError();
             }
@@ -111,33 +111,39 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.AgenteDeCargas.FindAsync(id);
 
-                if (id == null)
-                    return NotFound();
+                if (dados == null)
+                    return _error.NotFoundError();
 
                 return View(dados);
+            }
+            catch { return _error.InternalServerError(); }
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            try
+            {
+                if (id == null)
+                    return _error.NotFoundError();
+                if (User.IsInRole("Admin"))
+                {
+                    var dados = await _context.AgenteDeCargas.FindAsync(id);
+
+                    if (dados == null)
+                        return _error.NotFoundError();
+
+                    return View(dados);
+                }
+                return _error.UnauthorizedError();
             }
             catch (Exception)
             {
                 return _error.InternalServerError();
             }
-        }
-
-
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-                return NotFound();
-
-            var dados = await _context.AgenteDeCargas.FindAsync(id);
-
-            if (id == null)
-                return NotFound();
-
-            return View(dados);
         }
 
         [HttpPost, ActionName("Delete")]
@@ -146,12 +152,12 @@ namespace kaufer_comex.Controllers
             try
             {
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 var dados = await _context.AgenteDeCargas.FindAsync(id);
 
                 if (id == null)
-                    return NotFound();
+                    return _error.NotFoundError();
 
                 _context.AgenteDeCargas.Remove(dados);
                 await _context.SaveChangesAsync();
